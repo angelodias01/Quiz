@@ -31,6 +31,14 @@
 
 <p>GitHub, Android Studio, VisualStudioCode, XAMPP (MySQL)</p>
 
+<h2># Roadmap</h2>
+
+<p>1. Analyse the problem
+   2. Order the tasks to do among the members and find the solution to the problem
+   3. Begin to solve the problem and add features
+   4. (...)
+</p>
+
 <h2># Contact us</h2>
 
 <p>From doubts to improvements, we are open to it all!</p>
