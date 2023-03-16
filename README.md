@@ -35,5 +35,5 @@
 
 <p>From doubts to improvements, we are open to it all!</p>
 
-<p>24290@stu.ipbeja.pt |-| 
+<p>24290@stu.ipbeja.pt | 
 24288@stu.ipbeja.pt</p>
