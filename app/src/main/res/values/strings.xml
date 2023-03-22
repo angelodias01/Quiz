@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Quiz</string>
+    <string name="todo">TODO</string>
+    <string name="click_on_screen_to_continue">Click on screen to continue!</string>
 </resources>
