@@ -10,8 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-
-public class quiz_login extends AppCompatActivity {
+public class quiz_signup extends AppCompatActivity {
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
@@ -19,14 +18,7 @@ public class quiz_login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //Lock the screen orientation!
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        setContentView(R.layout.activity_quiz_login);
+        setContentView(R.layout.activity_quiz_signup);
     }
-    public void goToSignUp(View view){
-        //Creates a new intent and opens the login class!
-        Intent intent = new Intent(this, quiz_signup.class);
-        //Adding the transition!
-        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
-        Log.i("Activity", "Changing to register!");
-        startActivity(intent, bundle);
-    }
+
 }
