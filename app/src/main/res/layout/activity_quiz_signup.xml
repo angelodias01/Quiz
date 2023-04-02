@@ -14,14 +14,15 @@
         android:layout_marginTop="24dp"
         android:autofillHints=""
         android:ems="10"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:textAlignment="center"
         android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress2"
         app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress2"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2"
-        tools:ignore="LabelFor,TextContrastCheck"
-        tools:text="Password" />
+        tools:ignore="LabelFor,TextContrastCheck" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress2"
@@ -30,24 +31,25 @@
         android:layout_marginTop="100dp"
         android:autofillHints=""
         android:ems="10"
+        android:hint="@string/e_mail"
         android:inputType="textEmailAddress"
         android:textAlignment="center"
         android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/textView9"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
-        tools:ignore="LabelFor,TextContrastCheck"
-        tools:text="E-Mail" />
+        tools:ignore="LabelFor,TextContrastCheck" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="98dp"
-        android:background="@android:color/white"
+        android:background="@drawable/button_sign_in"
         android:text="@string/sign_up_btn"
-        android:textColor="#455A64"
+        android:textColor="#4BB6E8"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword2"
@@ -62,7 +64,7 @@
         android:layout_marginTop="92dp"
         android:text="@string/sign_up"
         android:textAlignment="center"
-        android:textColor="#455A64"
+        android:textColor="@color/black"
         android:textSize="42sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,11 +101,11 @@
         android:layout_marginBottom="36dp"
         android:text="@string/already_have_an_account"
         android:textAllCaps="false"
-        android:textColor="#455A64"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintHorizontal_bias="0.252"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

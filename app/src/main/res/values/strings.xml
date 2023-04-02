@@ -12,4 +12,6 @@
     <string name="sign_in_reg"><u>Sign In</u></string>
     <string name="sign_up_btn">Sign Up</string>
     <string name="sign_up">Sign Up</string>
+    <string name="password">Password</string>
+    <string name="forgot_password"><u>Forgot Password</u></string>
 </resources>
