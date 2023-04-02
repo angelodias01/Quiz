@@ -13,7 +13,7 @@
         android:layout_width="260dp"
         android:layout_height="260dp"
         android:layout_marginTop="120dp"
-        android:contentDescription="@string/todoimg"
+        android:contentDescription="@string/afa"
         android:onClick="logo_advance"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"

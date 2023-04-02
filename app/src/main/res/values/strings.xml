@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Quiz</string>
-    <string name="todo">TODO</string>
+    <string name="afa">afa</string>
     <string name="click_on_screen_to_continue">Click to continue!</string>
-    <string name="todoimg">TODO</string>
+    <string name="img">img</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="create_one"><u>Create one!</u></string>
     <string name="sign_in">Sign In</string>
