@@ -21,4 +21,13 @@ public class quiz_signup extends AppCompatActivity {
         setContentView(R.layout.activity_quiz_signup);
     }
 
+    public void goToSignIn(View view){
+        //Creates a new intent and opens the login class!
+        Intent intent = new Intent(this, quiz_login.class);
+        //Adding the transition!
+        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+        Log.i("Activity", "Changing to Sign In!");
+        startActivity(intent, bundle);
+    }
+
 }

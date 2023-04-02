@@ -26,7 +26,7 @@ public class quiz_login extends AppCompatActivity {
         Intent intent = new Intent(this, quiz_signup.class);
         //Adding the transition!
         Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
-        Log.i("Activity", "Changing to register!");
+        Log.i("Activity", "Changing to Sign Up!");
         startActivity(intent, bundle);
     }
 }

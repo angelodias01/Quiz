@@ -8,4 +8,8 @@
     <string name="sign_in">Sign In</string>
     <string name="sign_in_btn">Sign In</string>
     <string name="e_mail">E-Mail</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="sign_in_reg"><u>Sign In</u></string>
+    <string name="sign_up_btn">Sign Up</string>
+    <string name="sign_up">Sign Up</string>
 </resources>
