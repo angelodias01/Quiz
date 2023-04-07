@@ -25,7 +25,6 @@ public class quiz_signup extends AppCompatActivity {
         Log.i("Current State", "On Start Of Main Activity!");
     }
 
-
     protected void onResume() {
         super.onResume();
         Log.i("Current State", "On Resume Of Main Activity!");
@@ -51,6 +50,7 @@ public class quiz_signup extends AppCompatActivity {
         Log.i("Current State", "On Destroy Of Main Activity!");
         finish();
     }
+
     public void goToSignIn(View view){
         //Creates a new intent and opens the login class!
         Intent intent = new Intent(this, quiz_login.class);

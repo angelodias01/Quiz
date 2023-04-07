@@ -20,6 +20,7 @@ public class quiz_login extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_quiz_login);
     }
+
     protected void onStart() {
         super.onStart();
         Log.i("Current State", "On Start Of Main Activity!");
@@ -50,6 +51,7 @@ public class quiz_login extends AppCompatActivity {
         Log.i("Current State", "On Destroy Of Main Activity!");
         finish();
     }
+
     public void goToSignUp(View view){
         //Creates a new intent and opens the login class!
         Intent intent = new Intent(this, quiz_signup.class);
