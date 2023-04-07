@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-
 public class quiz_login extends AppCompatActivity {
 
     @SuppressLint("SourceLockedOrientationActivity")
@@ -25,7 +24,6 @@ public class quiz_login extends AppCompatActivity {
         super.onStart();
         Log.i("Current State", "On Start Of Main Activity!");
     }
-
 
     protected void onResume() {
         super.onResume();
