@@ -49,6 +49,7 @@ public class quiz_login extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.i("Current State", "On Destroy Of Main Activity!");
+        //Finish of the application!
         finish();
     }
 
