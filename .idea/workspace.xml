@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="Creation of activities lifecycles" />
+    <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="update on activities lifecycles" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -202,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680893359420</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update on activities lifecycles">
+      <created>1680896116245</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680896116246</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +226,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update on main screen" />
     <MESSAGE value="Creation of activities lifecycles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creation of activities lifecycles" />
+    <MESSAGE value="update on activities lifecycles" />
+    <option name="LAST_COMMIT_MESSAGE" value="update on activities lifecycles" />
   </component>
 </project>
