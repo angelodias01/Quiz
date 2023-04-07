@@ -56,7 +56,7 @@
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintHorizontal_bias="0.294"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         tools:ignore="TextSizeCheck,TouchTargetSizeCheck" />
 
@@ -82,13 +82,13 @@
         android:layout_marginTop="98dp"
         android:background="@drawable/button_sign_in"
         android:text="@string/sign_in_btn"
-        android:textColor="#4BB6E8"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
     <EditText
         android:id="@+id/editTextTextPassword"

@@ -21,6 +21,37 @@ public class quiz_login extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_quiz_login);
     }
+    protected void onStart() {
+        super.onStart();
+        Log.i("Current State", "On Start Of Main Activity!");
+    }
+
+
+    protected void onResume() {
+        super.onResume();
+        Log.i("Current State", "On Resume Of Main Activity!");
+    }
+
+    protected void onPause() {
+        super.onPause();
+        Log.i("Current State", "On Pause Of Main Activity!");
+    }
+
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("Current State", "On Restart Of Main Activity!");
+    }
+
+    protected void onStop() {
+        super.onStop();
+        Log.i("Current State", "On Stop Of Main Activity!");
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("Current State", "On Destroy Of Main Activity!");
+        finish();
+    }
     public void goToSignUp(View view){
         //Creates a new intent and opens the login class!
         Intent intent = new Intent(this, quiz_signup.class);
