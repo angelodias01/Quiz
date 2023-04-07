@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="update on activities lifecycles" />
+    <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="update on activities lifecycles">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/quiz_signup.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/quiz_signup.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -230,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680896436367</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="update on activities lifecycles">
+      <created>1680896502130</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680896502130</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
