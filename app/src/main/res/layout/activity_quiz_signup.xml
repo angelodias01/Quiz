@@ -17,10 +17,10 @@
         app:srcCompat="@drawable/quizlogo_01" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/textBoxPassword"
         android:layout_width="320dp"
         android:layout_height="60dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/password"
@@ -28,16 +28,16 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2"
+        app:layout_constraintEnd_toEndOf="@+id/textBoxEmail"
+        app:layout_constraintStart_toStartOf="@+id/textBoxEmail"
+        app:layout_constraintTop_toBottomOf="@+id/textBoxEmail"
         tools:ignore="LabelFor,TextContrastCheck" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/textBoxEmail"
         android:layout_width="320dp"
         android:layout_height="60dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="20dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/e_mail"
@@ -45,8 +45,26 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/textBoxUsername"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/textBoxUsername"
+        app:layout_constraintTop_toBottomOf="@+id/textBoxUsername"
+        tools:ignore="LabelFor,TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/textBoxUsername"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="80dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/username"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/textView9"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
         tools:ignore="LabelFor,TextContrastCheck" />
@@ -55,15 +73,15 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="98dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/button_sign_in"
         android:text="@string/sign_up_btn"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2"
+        app:layout_constraintEnd_toEndOf="@+id/textBoxPassword"
+        app:layout_constraintStart_toStartOf="@+id/textBoxPassword"
+        app:layout_constraintTop_toBottomOf="@+id/textBoxPassword"
         tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
     <TextView
