@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-public class quiz_login extends AppCompatActivity {
+public class QuizLogin extends AppCompatActivity {
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
@@ -55,7 +55,7 @@ public class quiz_login extends AppCompatActivity {
 
     public void goToSignUp(View view){
         //Creates a new intent and opens the login class!
-        Intent intent = new Intent(this, quiz_signup.class);
+        Intent intent = new Intent(this, QuizSignUp.class);
         //Adding the transition!
         Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
         Log.i("Activity", "Changing to Sign Up!");

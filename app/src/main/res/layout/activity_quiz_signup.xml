@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/signup_01_01"
-    tools:context=".quiz_signup">
+    tools:context=".QuizSignUp">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -55,7 +55,7 @@
         android:id="@+id/textBoxUsername"
         android:layout_width="320dp"
         android:layout_height="60dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="70dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/username"

@@ -15,10 +15,13 @@
         android:theme="@style/Theme.Quiz"
         tools:targetApi="31">
         <activity
-            android:name=".quiz_signup"
+            android:name=".MainMenuUser"
             android:exported="false" />
         <activity
-            android:name=".quiz_login"
+            android:name=".QuizSignUp"
+            android:exported="false" />
+        <activity
+            android:name=".QuizLogin"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
