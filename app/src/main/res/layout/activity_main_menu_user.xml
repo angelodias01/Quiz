@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
     tools:context=".MainMenuUser">
 
     <Button
@@ -12,8 +13,9 @@
         android:layout_height="56dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:background="#00FFFFFF"
         android:contentDescription="@string/none"
-        android:foreground="@android:drawable/ic_menu_sort_by_size"
+        android:foreground="@drawable/menuicon"
         android:foregroundGravity="center|fill"
         android:text='@string/noText'
         android:textColor="#00FFFFFF"
@@ -26,10 +28,10 @@
         android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="20dp"
         android:hint="@string/username"
         android:textColorHint="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/btnAccount"
-        app:layout_constraintEnd_toStartOf="@+id/btnAccount"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btnAccount" />
 </androidx.constraintlayout.widget.ConstraintLayout>

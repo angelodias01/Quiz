@@ -70,7 +70,7 @@
         tools:ignore="LabelFor,TextContrastCheck" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"

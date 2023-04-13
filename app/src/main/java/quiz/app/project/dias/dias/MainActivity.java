@@ -8,11 +8,10 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int delay = 3000;
+    private static final int delay = 2000;
     private static final Handler handler = new Handler();
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
@@ -23,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Log.i("Current State", "On Create Of Main Activity!");
 
+        //event do automatic advance to the sign in screen!
         handler.postDelayed(() -> {
             Intent goToMainScreen = new Intent(MainActivity.this, QuizLogin.class);
             Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         Log.i("Current State", "On Start Of Main Activity!");
     }
-
 
     protected void onResume() {
         super.onResume();
@@ -50,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
         Log.i("Current State", "On Restart Of Main Activity!");
 
+        //event do automatic advance to the sign in screen on the restart of the main screen!
         handler.postDelayed(() -> {
             Intent goToMainScreen = new Intent(MainActivity.this, QuizLogin.class);
             Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
@@ -67,32 +67,5 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Current State", "On Destroy Of Main Activity!");
         //Finish of the application!
         finish();
-    }
-
-    public void logo_advance(View view){
-        //Creates a new intent and opens the login class!
-        Intent goToMainScreen = new Intent(this, QuizLogin.class);
-        //Adding the transition!
-        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
-        Log.i("Activity", "Changing to login!");
-        startActivity(goToMainScreen, bundle);
-    }
-
-    public void layout_advance(View view){
-        //Creates a new intent and opens the login class!
-        Intent goToMainScreen = new Intent(this, QuizLogin.class);
-        //Adding the transition!
-        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
-        Log.i("Activity", "Changing to login!");
-        startActivity(goToMainScreen, bundle);
-    }
-
-    public void label_advance(View view){
-        //Creates a new intent and opens the login class!
-        Intent goToMainScreen = new Intent(this, QuizLogin.class);
-        //Adding the transition!
-        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
-        Log.i("Activity", "Changing to login!");
-        startActivity(goToMainScreen, bundle);
     }
 }

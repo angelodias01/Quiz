@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#4BB6E8"
-    android:onClick="layout_advance"
     tools:context=".MainActivity">
 
     <ImageView
@@ -14,7 +13,6 @@
         android:layout_height="260dp"
         android:layout_marginTop="120dp"
         android:contentDescription="@string/afa"
-        android:onClick="logo_advance"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +26,6 @@
         android:layout_height="94dp"
         android:isScrollContainer="false"
         android:keepScreenOn="false"
-        android:onClick="label_advance"
         android:text="@string/click_on_screen_to_continue"
         android:textAlignment="center"
         android:textAllCaps="false"
