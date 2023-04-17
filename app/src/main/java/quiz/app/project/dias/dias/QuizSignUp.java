@@ -43,6 +43,7 @@ public class QuizSignUp extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.i("Current State", "On Stop Of Main Activity!");
+        finishAfterTransition();
     }
 
     protected void onDestroy() {

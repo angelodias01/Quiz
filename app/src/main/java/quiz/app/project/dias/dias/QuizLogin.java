@@ -44,6 +44,7 @@ public class QuizLogin extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.i("Current State", "On Stop Of Main Activity!");
+        finishAfterTransition();
     }
 
     protected void onDestroy() {
@@ -62,3 +63,9 @@ public class QuizLogin extends AppCompatActivity {
         startActivity(intent, bundle);
     }
 }
+/* TODO: Sign In
+*       1- implement the advance button
+*       2- implement verifications to sign in
+*       3- finish sign in and sign out activities
+*       4- implement anti data loss
+*/

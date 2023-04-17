@@ -69,3 +69,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 }
+/* TODO: Main Activity
+*       1- finish icon
+*       2- implement icon and text´s
+ */

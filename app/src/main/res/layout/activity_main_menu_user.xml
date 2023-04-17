@@ -7,31 +7,30 @@
     android:background="@android:color/holo_blue_light"
     tools:context=".MainMenuUser">
 
-    <Button
-        android:id="@+id/btnAccount"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="#00FFFFFF"
-        android:contentDescription="@string/none"
-        android:foreground="@drawable/menuicon"
-        android:foregroundGravity="center|fill"
-        android:text='@string/noText'
-        android:textColor="#00FFFFFF"
-        app:iconSize="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck" />
-
     <TextView
         android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="5dp"
         android:hint="@string/username"
+        android:textAlignment="textStart"
         android:textColorHint="#000000"
-        app:layout_constraintBottom_toBottomOf="@+id/btnAccount"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWelcomeBack"
+        app:layout_constraintStart_toEndOf="@+id/tvWelcomeBack"
+        app:layout_constraintTop_toTopOf="@+id/tvWelcomeBack" />
+
+    <TextView
+        android:id="@+id/tvWelcomeBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/WelcomeBack"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnAccount" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

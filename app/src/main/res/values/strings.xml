@@ -14,7 +14,8 @@
     <string name="sign_up">Create Account</string>
     <string name="password">Password</string>
     <string name="forgot_password"><u>Forgot Password</u></string>
-    <string name="username">Username</string>
+    <string name="username">Username!</string>
     <string name="none" />
     <string name="noText">.</string>
+    <string name="WelcomeBack">Welcome Back</string>
 </resources>
