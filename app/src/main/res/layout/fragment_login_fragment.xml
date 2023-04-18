@@ -49,7 +49,6 @@
             android:contextClickable="true"
             android:focusable="true"
             android:gravity="center|start"
-            android:onClick="goToSignUp"
             android:singleLine="false"
             android:text="@string/create_one"
             android:textAlignment="center"

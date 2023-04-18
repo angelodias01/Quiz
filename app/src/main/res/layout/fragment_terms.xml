@@ -37,7 +37,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/logo_view4"
             app:layout_constraintStart_toStartOf="@+id/logo_view4"
-            app:layout_constraintTop_toBottomOf="@+id/logo_view4" />
+            app:layout_constraintTop_toBottomOf="@+id/logo_view4"
+            tools:ignore="TextSizeCheck,VisualLintBounds" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
