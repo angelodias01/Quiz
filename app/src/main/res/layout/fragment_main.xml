@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".MainFragment">
+    tools:context=".mainActivityFragments.MainFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="To"
+            android:text="@string/to"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/text"
@@ -41,7 +41,7 @@
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pootis"
+            android:text="@string/pootis"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/text"
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="180dp"
-            android:text="Welcome"
+            android:text="@string/welcome"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/text"
