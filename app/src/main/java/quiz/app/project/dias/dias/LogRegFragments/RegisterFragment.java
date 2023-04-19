@@ -10,22 +10,25 @@ import android.view.ViewGroup;
 
 import quiz.app.project.dias.dias.R;
 
-public class LoginFragment extends Fragment {
+public class RegisterFragment extends Fragment {
 
     private static final String Username = "Username";
+    private static final String Email = "Email";
     private static final String Password = "Password";
 
     private String User;
+    private String Mail;
     private String Pass;
 
-    public LoginFragment() {
+    public RegisterFragment() {
         // Required empty public constructor
     }
 
-    public static LoginFragment newInstance(String Username, String Password) {
-        LoginFragment fragment = new LoginFragment();
+    public static RegisterFragment newInstance(String Username, String Email, String Password) {
+        RegisterFragment fragment = new RegisterFragment();
         Bundle args = new Bundle();
         args.putString(Username, fragment.User);
+        args.putString(Email, fragment.Mail);
         args.putString(Password, fragment.Pass);
         fragment.setArguments(args);
         return fragment;
@@ -36,6 +39,7 @@ public class LoginFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             User = getArguments().getString(Username);
+            Mail = getArguments().getString(Email);
             Pass = getArguments().getString(Password);
         }
     }
@@ -44,6 +48,6 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_register, container, false);
     }
 }

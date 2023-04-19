@@ -15,7 +15,7 @@
     <string name="password">Password</string>
     <string name="forgot_password"><u>Forgot Password</u></string>
     <string name="username">Username!</string>
-    <string name="none"/>
+    <string name="none" />
     <string name="noText">.</string>
     <string name="WelcomeBack">Welcome Back</string>
     <string name="terms">

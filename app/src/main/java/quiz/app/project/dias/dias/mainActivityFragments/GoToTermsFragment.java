@@ -10,11 +10,6 @@ import android.view.ViewGroup;
 
 import quiz.app.project.dias.dias.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link GoToTermsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class GoToTermsFragment extends Fragment {
 
 
