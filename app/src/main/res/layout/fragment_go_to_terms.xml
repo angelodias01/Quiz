@@ -23,5 +23,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/quizlogo_01"
             tools:ignore="ImageContrastCheck" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
