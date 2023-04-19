@@ -17,7 +17,6 @@ public class GoToTermsFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     public static GoToTermsFragment newInstance() {
         GoToTermsFragment fragment = new GoToTermsFragment();
         //Bundle args = new Bundle();
