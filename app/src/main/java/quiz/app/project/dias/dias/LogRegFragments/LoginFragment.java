@@ -1,4 +1,4 @@
-package quiz.app.project.dias.dias;
+package quiz.app.project.dias.dias.LogRegFragments;
 
 import android.os.Bundle;
 
@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import quiz.app.project.dias.dias.R;
+
 public class LoginFragment extends Fragment {
 
     private static final String Username = "Username";
