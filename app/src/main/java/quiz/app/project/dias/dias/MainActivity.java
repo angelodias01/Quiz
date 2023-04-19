@@ -13,9 +13,10 @@ import android.os.Handler;
 public class MainActivity extends AppCompatActivity {
     private static final int delay = 2000;
     private static final Handler handler = new Handler();
+
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Lock the screen orientation!
@@ -69,7 +70,3 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 }
-/* TODO: Main Activity
-*       1- finish icon
-*       2- implement icon and text´s
- */
