@@ -100,7 +100,7 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPassword"
+        android:inputType="text|textPassword"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
