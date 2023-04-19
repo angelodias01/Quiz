@@ -22,7 +22,7 @@ public class LoginFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static LoginFragment newInstance(String param1, String param2) {
+    public static LoginFragment newInstance(String Username, String Password) {
         LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
         args.putString(Username, fragment.User);
