@@ -15,14 +15,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="update on fragments">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/RegisterFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_register.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/GoToTermsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/GoToTermsFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/MainFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/MainFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/TermsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/TermsFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizLogin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -366,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681909983911</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="update on fragments">
+      <created>1681912862834</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1681912862834</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
