@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".mainActivityFragments.MainActivity">
+    tools:context=".LogRegFragments.LogRegActivity" >
 
     <LinearLayout
         android:layout_width="0dp"
@@ -21,9 +21,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainerView8"
-            android:name="quiz.app.project.dias.dias.mainActivityFragments.MainFragment"
+            android:id="@+id/fragmentContainerView3"
+            android:name="quiz.app.project.dias.dias.LogRegFragments.LoginFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_login_fragment" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

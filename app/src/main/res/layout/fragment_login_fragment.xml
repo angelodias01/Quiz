@@ -41,7 +41,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/TVCreateOne"
             android:layout_width="120dp"
             android:layout_height="50dp"
             android:layout_marginBottom="25dp"

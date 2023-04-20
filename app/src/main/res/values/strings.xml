@@ -14,7 +14,7 @@
     <string name="sign_up">Create Account</string>
     <string name="password">Password</string>
     <string name="forgot_password"><u>Forgot Password</u></string>
-    <string name="username">Username!</string>
+    <string name="username">Username</string>
     <string name="none" />
     <string name="noText">.</string>
     <string name="WelcomeBack">Welcome Back</string>
@@ -32,4 +32,5 @@ By clicking on Accept, you agree to our Terms and Conditions and our Privacy Pol
     <string name="to">To</string>
     <string name="pootis">Pootis</string>
     <string name="welcome">Welcome</string>
+    <string name="accept">I Accept!</string>
 </resources>

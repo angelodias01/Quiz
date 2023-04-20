@@ -1,13 +1,19 @@
 package quiz.app.project.dias.dias.mainActivityFragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import quiz.app.project.dias.dias.LogRegFragments.LogRegActivity;
+import quiz.app.project.dias.dias.QuizSignUp;
 import quiz.app.project.dias.dias.R;
 
 /**
@@ -21,11 +27,6 @@ public class TermsFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static TermsFragment newInstance(String param1, String param2) {
-        TermsFragment fragment = new TermsFragment();
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,5 +37,18 @@ public class TermsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_terms, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Button button = view.findViewById(R.id.btnAccept);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LogRegActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
     }
 }
