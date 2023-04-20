@@ -95,7 +95,7 @@
             tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/TVLogIn"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginBottom="28dp"
@@ -103,7 +103,6 @@
             android:contextClickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:onClick="goToSignIn"
             android:singleLine="false"
             android:text="@string/sign_in_reg"
             android:textAlignment="center"
