@@ -1,5 +1,6 @@
 package quiz.app.project.dias.dias.mainActivityFragments;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import quiz.app.project.dias.dias.LogRegFragments.LogRegActivity;
-import quiz.app.project.dias.dias.QuizSignUp;
 import quiz.app.project.dias.dias.R;
 
 public class TermsFragment extends Fragment {
@@ -42,7 +42,8 @@ public class TermsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), LogRegActivity.class);
-                getActivity().startActivity(intent);
+                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+                getActivity().startActivity(intent,bundle);
             }
         });
     }

@@ -11,52 +11,142 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/logo_view4"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="25dp"
-            android:contentDescription="@string/afa"
-            android:scaleType="centerInside"
+        <ScrollView
+            android:layout_width="match_parent"
+            android:scrollbars="none"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/quizlogo_01"
-            tools:ignore="ImageContrastCheck" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="335dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:lineSpacingExtra="8sp"
-            android:text="@string/terms"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/text"
-            android:textSize="22sp"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="@+id/logo_view4"
-            app:layout_constraintStart_toStartOf="@+id/logo_view4"
-            app:layout_constraintTop_toBottomOf="@+id/logo_view4"
-            tools:ignore="TextSizeCheck,VisualLintBounds" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/btnAccept"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/buttons"
-            android:text="@string/accept"
-            android:textAlignment="center"
-            android:textColor="@color/text"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView14"
-            app:layout_constraintStart_toStartOf="@+id/textView14"
-            app:layout_constraintTop_toBottomOf="@+id/textView14"
-            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/logo_view4"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center|top"
+                        android:layout_marginTop="20dp"
+                        android:contentDescription="@string/afa"
+                        android:scaleType="centerInside"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/quizlogo_01"
+                        tools:ignore="ImageContrastCheck" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="5dp"
+                        android:gravity="center"
+                        android:text="@string/termsLine1"
+                        android:textAlignment="center"
+                        android:textColor="@color/text"
+                        android:textSize="26sp"
+                        android:textStyle="italic"
+                        app:layout_constraintEnd_toEndOf="@+id/logo_view4"
+                        app:layout_constraintStart_toStartOf="@+id/logo_view4"
+                        app:layout_constraintTop_toBottomOf="@+id/logo_view4" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/termsLine3"
+                        android:textAlignment="center"
+                        android:textColor="@color/text"
+                        android:textSize="26sp"
+                        android:textStyle="italic"
+                        app:layout_constraintEnd_toEndOf="@+id/logo_view4"
+                        app:layout_constraintStart_toStartOf="@+id/logo_view4"
+                        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/termsLine2"
+                        android:textAlignment="center"
+                        android:textColor="@color/text"
+                        android:textSize="26sp"
+                        android:textStyle="italic"
+                        app:layout_constraintEnd_toEndOf="@+id/logo_view4"
+                        app:layout_constraintHorizontal_bias="0.497"
+                        app:layout_constraintStart_toStartOf="@+id/logo_view4"
+                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/termsLine4"
+                        android:textAlignment="center"
+                        android:textColor="@color/text"
+                        android:textSize="26sp"
+                        android:textStyle="italic"
+                        app:layout_constraintEnd_toEndOf="@+id/logo_view4"
+                        app:layout_constraintStart_toStartOf="@+id/logo_view4"
+                        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/termsLine5"
+                        android:textAlignment="center"
+                        android:textColor="@color/text"
+                        android:textSize="26sp"
+                        android:textStyle="italic"
+                        app:layout_constraintEnd_toEndOf="@+id/logo_view4"
+                        app:layout_constraintHorizontal_bias="0.497"
+                        app:layout_constraintStart_toStartOf="@+id/logo_view4"
+                        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                    <Button
+                        android:id="@+id/btnAccept"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/buttons"
+                        android:text="@string/accept"
+                        android:textAlignment="center"
+                        android:textColor="@color/text"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/textView8"
+                        app:layout_constraintTop_toBottomOf="@+id/textView8"
+                        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
