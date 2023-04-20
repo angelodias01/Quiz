@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Quiz"
         tools:targetApi="31">
         <activity
+            android:name=".LogRegFragments.LogRegActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainMenuUser"
             android:exported="false" />
         <activity
@@ -24,7 +27,7 @@
             android:name=".QuizLogin"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".mainActivityFragments.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
