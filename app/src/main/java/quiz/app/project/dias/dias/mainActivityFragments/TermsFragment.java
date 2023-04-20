@@ -16,11 +16,6 @@ import quiz.app.project.dias.dias.LogRegFragments.LogRegActivity;
 import quiz.app.project.dias.dias.QuizSignUp;
 import quiz.app.project.dias.dias.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TermsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class TermsFragment extends Fragment {
 
     public TermsFragment() {
