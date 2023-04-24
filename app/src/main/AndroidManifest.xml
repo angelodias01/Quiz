@@ -21,12 +21,6 @@
             android:name=".MainMenuUser"
             android:exported="false" />
         <activity
-            android:name=".QuizSignUp"
-            android:exported="false" />
-        <activity
-            android:name=".QuizLogin"
-            android:exported="false" />
-        <activity
             android:name=".mainActivityFragments.MainActivity"
             android:exported="true">
             <intent-filter>

@@ -18,17 +18,11 @@
     <string name="none" />
     <string name="noText">.</string>
     <string name="WelcomeBack">Welcome Back</string>
-    <string name="terms">
-Control of personal data and content.
-
-We value your privacy and want to ensure that you are aware of the type of data Pooties Quiz uses.
-
-We have collected some information about you, such as your name for display in your profile, email for login.
-
-Please read our privacy policy below for more details.
-
-By clicking on Accept, you agree to our Terms and Conditions and our Privacy Policy.
-    </string>
+    <string name="termsLine1">Control of personal data and content.</string>
+    <string name="termsLine2">We value your privacy and want to ensure that you are aware of the type of data Pooties Quiz uses.</string>
+    <string name="termsLine3">We have collected some information about you, such as your name for display in your profile, email for login.</string>
+    <string name="termsLine4">Please read our privacy policy below for more details.</string>
+    <string name="termsLine5">By clicking on Accept, you agree to our Terms and Conditions and our Privacy Policy.</string>
     <string name="to">To</string>
     <string name="pootis">Pootis</string>
     <string name="welcome">Welcome</string>
