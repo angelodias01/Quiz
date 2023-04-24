@@ -2,6 +2,7 @@ package quiz.app.project.dias.dias.LogRegFragments;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -77,9 +78,9 @@ public class LoginFragment extends Fragment {
 
         tbEmail = (EditText) view.findViewById(R.id.tbEmail);
         tbPassword = (EditText) view.findViewById(R.id.tbPassword);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 Username = tbEmail.getText().toString();
                 Password = tbPassword.getText().toString();
 
@@ -93,6 +94,7 @@ public class LoginFragment extends Fragment {
                     Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
                     getActivity().startActivity(intent,bundle);
                 }
+
             }
         });
     }

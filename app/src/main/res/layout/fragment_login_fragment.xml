@@ -36,7 +36,7 @@
             android:textSize="18sp"
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="@+id/tbPassword"
-            app:layout_constraintHorizontal_bias="0.928"
+            app:layout_constraintHorizontal_bias="0.97"
             app:layout_constraintStart_toStartOf="@+id/tbPassword"
             app:layout_constraintTop_toBottomOf="@+id/tbPassword" />
 
