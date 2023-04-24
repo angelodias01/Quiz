@@ -78,23 +78,20 @@ public class LoginFragment extends Fragment {
 
         tbEmail = (EditText) view.findViewById(R.id.tbEmail);
         tbPassword = (EditText) view.findViewById(R.id.tbPassword);
-        btnLogin.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Username = tbEmail.getText().toString();
-                Password = tbPassword.getText().toString();
 
-                if(!Objects.equals(Username, UserTeste) || !Password.equals(PassTeste)){
-                    Toast.makeText(getActivity(), "Username or Password incorrect!",
-                            Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(getActivity(), "Login Successful!",
-                            Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getActivity(), MainMenuUser.class);
-                    Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
-                    getActivity().startActivity(intent,bundle);
-                }
+        btnLogin.setOnClickListener(view12 -> {
+            Username = tbEmail.getText().toString();
+            Password = tbPassword.getText().toString();
 
+            if(!Objects.equals(Username, UserTeste) || !Password.equals(PassTeste)){
+                Toast.makeText(getActivity(), "Username or Password incorrect!",
+                        Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(getActivity(), "Login Successful!",
+                        Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), MainMenuUser.class);
+                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+                getActivity().startActivity(intent,bundle);
             }
         });
     }

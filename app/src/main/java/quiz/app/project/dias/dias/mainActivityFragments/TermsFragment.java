@@ -38,13 +38,10 @@ public class TermsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Button button = view.findViewById(R.id.btnAccept);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), LogRegActivity.class);
-                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
-                getActivity().startActivity(intent,bundle);
-            }
+        button.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getActivity(), LogRegActivity.class);
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+            getActivity().startActivity(intent,bundle);
         });
     }
 
