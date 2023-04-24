@@ -2,7 +2,6 @@ package quiz.app.project.dias.dias.LogRegFragments;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,24 +22,24 @@ public class LoginFragment extends Fragment {
 
     private EditText tbEmail;
     private EditText tbPassword;
-    private String Username = "";
-    private String Password = "";
+    private String insertedEmail = "";
+    private String insertedPassword = "";
 
-    private final String UserTeste = "";
+    private final String EmailTeste = "";
     private final String PassTeste = "";
 
-    private String User;
-    private String Pass;
+    private String restoreEmail;
+    private String restorePassword;
 
     public LoginFragment() {
         // Required empty public constructor
     }
 
-    public LoginFragment newInstance(String Username, String Password) {
+    public LoginFragment newInstance(String insertedEmail, String insertedPassword) {
         LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
-        args.putString(Username, fragment.User);
-        args.putString(Password, fragment.Pass);
+        args.putString(insertedEmail, fragment.restoreEmail);
+        args.putString(insertedPassword, fragment.restorePassword);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,8 +48,8 @@ public class LoginFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            Username = getArguments().getString(User);
-            Password = getArguments().getString(Pass);
+            insertedEmail = getArguments().getString(restoreEmail);
+            insertedPassword = getArguments().getString(restorePassword);
         }
     }
 
@@ -80,10 +79,10 @@ public class LoginFragment extends Fragment {
         tbPassword = (EditText) view.findViewById(R.id.tbPassword);
 
         btnLogin.setOnClickListener(view12 -> {
-            Username = tbEmail.getText().toString();
-            Password = tbPassword.getText().toString();
+            insertedEmail = tbEmail.getText().toString();
+            insertedPassword = tbPassword.getText().toString();
 
-            if(!Objects.equals(Username, UserTeste) || !Password.equals(PassTeste)){
+            if(!Objects.equals(insertedEmail, EmailTeste) || !Objects.equals(insertedPassword, PassTeste)){
                 Toast.makeText(getActivity(), "Username or Password incorrect!",
                         Toast.LENGTH_SHORT).show();
             }else{

@@ -9,14 +9,18 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import quiz.app.project.dias.dias.R;
 
 public class RegisterFragment extends Fragment {
 
-    private static final String Username = "Username";
-    private static final String Email = "Email";
-    private static final String Password = "Password";
+    private EditText tbUsername;
+    private EditText tbEmail;
+    private EditText tbPassword;
+    private String Username = "Username";
+    private String Email = "Email";
+    private String Password = "Password";
 
     private String User;
     private String Mail;
@@ -70,4 +74,6 @@ public class RegisterFragment extends Fragment {
             }
         });
     }
+
+
 }
