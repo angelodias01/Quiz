@@ -47,4 +47,5 @@ public class TermsFragment extends Fragment {
             }
         });
     }
+
 }

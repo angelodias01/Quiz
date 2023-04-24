@@ -1,17 +1,15 @@
 package quiz.app.project.dias.dias.LogRegFragments;
 
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import quiz.app.project.dias.dias.R;
 
 public class RegisterFragment extends Fragment {
@@ -67,6 +65,7 @@ public class RegisterFragment extends Fragment {
                         .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
                         .setReorderingAllowed(true)
                         .addToBackStack("name")
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .commit();
             }
         });

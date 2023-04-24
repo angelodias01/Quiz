@@ -35,10 +35,10 @@
             android:textColor="@color/text"
             android:textSize="18sp"
             android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
+            app:layout_constraintEnd_toEndOf="@+id/tbPassword"
             app:layout_constraintHorizontal_bias="0.928"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+            app:layout_constraintStart_toStartOf="@+id/tbPassword"
+            app:layout_constraintTop_toBottomOf="@+id/tbPassword" />
 
         <TextView
             android:id="@+id/TVCreateOne"
@@ -80,7 +80,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="98dp"
@@ -89,13 +89,13 @@
             android:textColor="@color/text"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+            app:layout_constraintEnd_toEndOf="@+id/tbPassword"
+            app:layout_constraintStart_toStartOf="@+id/tbPassword"
+            app:layout_constraintTop_toBottomOf="@+id/tbPassword"
             tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/tbPassword"
             android:layout_width="320dp"
             android:layout_height="60dp"
             android:layout_marginTop="24dp"
@@ -106,14 +106,14 @@
             android:textAlignment="center"
             android:textColor="@color/text"
             android:textColorHint="@color/text"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
+            app:layout_constraintEnd_toEndOf="@+id/tbEmail"
+            app:layout_constraintStart_toStartOf="@+id/tbEmail"
+            app:layout_constraintTop_toBottomOf="@+id/tbEmail"
             tools:ignore="LabelFor,TextContrastCheck"
             tools:text="Password" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/tbEmail"
             android:layout_width="320dp"
             android:layout_height="60dp"
             android:layout_marginTop="100dp"
