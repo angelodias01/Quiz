@@ -73,6 +73,8 @@ public class RegisterFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         textView = view.findViewById(R.id.TVLogIn);
+        btnRegister = view.findViewById(R.id.btnRegister);
+        //----------------------------------------------------------------------------------------//
         textView.setOnClickListener(view1 -> {
             fragmentManager = getParentFragmentManager();
             fragmentManager.beginTransaction()
@@ -82,9 +84,7 @@ public class RegisterFragment extends Fragment {
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
         });
-
-        btnRegister = view.findViewById(R.id.btnRegister);
-
+        //----------------------------------------------------------------------------------------//
         tbUsername = (EditText) view.findViewById(R.id.tbUsername);
         tbEmail = (EditText) view.findViewById(R.id.tbEmail);
         tbPassword = (EditText) view.findViewById(R.id.tbPassword);
@@ -94,27 +94,27 @@ public class RegisterFragment extends Fragment {
             insertedEmail = tbEmail.getText().toString();
             insertedPassword = tbPassword.getText().toString();
 
-
-            if(Objects.equals(insertedUsername, "") || Objects.equals(insertedEmail, "") || Objects.equals(insertedPassword, "")){
-                if(Objects.equals(insertedUsername, "")){
-                    Toast.makeText(getActivity(), "You need to insert you username!",
-                            Toast.LENGTH_SHORT).show();
-                } else if(Objects.equals(insertedEmail, "")){
-                    Toast.makeText(getActivity(), "You need to insert you e-mail!",
-                            Toast.LENGTH_SHORT).show();
-                } else if(Objects.equals(insertedPassword, "")){
-                    Toast.makeText(getActivity(), "You need to insert you password!",
-                            Toast.LENGTH_SHORT).show();
-                }
-            }else {
-                Toast.makeText(getActivity(), "Account Creation Successful!",
+        if(Objects.equals(insertedUsername, "") || Objects.equals(insertedEmail, "") || Objects.equals(insertedPassword, "")){
+            if(Objects.equals(insertedUsername, "")){
+                Toast.makeText(getActivity(), "You need to insert you username!",
                         Toast.LENGTH_SHORT).show();
-                fragmentManager = getParentFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("name")
-                        .commit();
+            } else if(Objects.equals(insertedEmail, "")){
+                Toast.makeText(getActivity(), "You need to insert you e-mail!",
+                        Toast.LENGTH_SHORT).show();
+            } else if(Objects.equals(insertedPassword, "")){
+                Toast.makeText(getActivity(), "You need to insert you password!",
+                        Toast.LENGTH_SHORT).show();
+            }
+        }else {
+            Toast.makeText(getActivity(), "Account Created!",
+                    Toast.LENGTH_SHORT).show();
+
+            fragmentManager = getParentFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("name")
+                    .commit();
             }
         });
     }
