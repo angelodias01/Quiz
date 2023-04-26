@@ -1,6 +1,5 @@
 package quiz.app.project.dias.dias.LogRegFragments;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -15,10 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Objects;
-
-import quiz.app.project.dias.dias.MainMenuUser;
 import quiz.app.project.dias.dias.R;
 
 public class RegisterFragment extends Fragment {
@@ -26,8 +22,6 @@ public class RegisterFragment extends Fragment {
     private EditText tbUsername;
     private EditText tbEmail;
     private EditText tbPassword;
-    private TextView textView;
-    private Button btnRegister;
     private Intent intent;
     private Bundle bundle;
     private FragmentManager fragmentManager;
@@ -72,8 +66,8 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        textView = view.findViewById(R.id.TVLogIn);
-        btnRegister = view.findViewById(R.id.btnRegister);
+        TextView textView = view.findViewById(R.id.TVLogIn);
+        Button btnRegister = view.findViewById(R.id.btnRegister);
         //----------------------------------------------------------------------------------------//
         textView.setOnClickListener(view1 -> {
             fragmentManager = getParentFragmentManager();
