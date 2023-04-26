@@ -1,5 +1,7 @@
 package quiz.app.project.dias.dias.mainActivityFragments;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -29,7 +31,7 @@ public class MainFragment extends Fragment {
         super.onResume();
         //event do automatic advance to the sign in screen!
         handler.postDelayed(() -> {
-
+            //Creating a fragment manager to change automatically from main fragment to the terms fragment.
             FragmentManager fragmentManager = getParentFragmentManager();
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainerView8, TermsFragment.class, null)
@@ -38,7 +40,6 @@ public class MainFragment extends Fragment {
                     .commit();
         }, delay);
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

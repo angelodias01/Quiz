@@ -1,6 +1,5 @@
 package quiz.app.project.dias.dias.LogRegFragments;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -15,10 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Objects;
-
-import quiz.app.project.dias.dias.MainMenuUser;
 import quiz.app.project.dias.dias.R;
 
 public class RegisterFragment extends Fragment {
@@ -26,8 +22,6 @@ public class RegisterFragment extends Fragment {
     private EditText tbUsername;
     private EditText tbEmail;
     private EditText tbPassword;
-    private TextView textView;
-    private Button btnRegister;
     private Intent intent;
     private Bundle bundle;
     private FragmentManager fragmentManager;
@@ -72,7 +66,9 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        textView = view.findViewById(R.id.TVLogIn);
+        TextView textView = view.findViewById(R.id.TVLogIn);
+        Button btnRegister = view.findViewById(R.id.btnRegister);
+        //----------------------------------------------------------------------------------------//
         textView.setOnClickListener(view1 -> {
             fragmentManager = getParentFragmentManager();
             fragmentManager.beginTransaction()
@@ -82,9 +78,7 @@ public class RegisterFragment extends Fragment {
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
         });
-
-        btnRegister = view.findViewById(R.id.btnRegister);
-
+        //----------------------------------------------------------------------------------------//
         tbUsername = (EditText) view.findViewById(R.id.tbUsername);
         tbEmail = (EditText) view.findViewById(R.id.tbEmail);
         tbPassword = (EditText) view.findViewById(R.id.tbPassword);
@@ -94,27 +88,27 @@ public class RegisterFragment extends Fragment {
             insertedEmail = tbEmail.getText().toString();
             insertedPassword = tbPassword.getText().toString();
 
-
-            if(Objects.equals(insertedUsername, "") || Objects.equals(insertedEmail, "") || Objects.equals(insertedPassword, "")){
-                if(Objects.equals(insertedUsername, "")){
-                    Toast.makeText(getActivity(), "You need to insert you username!",
-                            Toast.LENGTH_SHORT).show();
-                } else if(Objects.equals(insertedEmail, "")){
-                    Toast.makeText(getActivity(), "You need to insert you e-mail!",
-                            Toast.LENGTH_SHORT).show();
-                } else if(Objects.equals(insertedPassword, "")){
-                    Toast.makeText(getActivity(), "You need to insert you password!",
-                            Toast.LENGTH_SHORT).show();
-                }
-            }else {
-                Toast.makeText(getActivity(), "Account Creation Successful!",
+        if(Objects.equals(insertedUsername, "") || Objects.equals(insertedEmail, "") || Objects.equals(insertedPassword, "")){
+            if(Objects.equals(insertedUsername, "")){
+                Toast.makeText(getActivity(), "You need to insert your username!",
                         Toast.LENGTH_SHORT).show();
-                fragmentManager = getParentFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("name")
-                        .commit();
+            } else if(Objects.equals(insertedEmail, "")){
+                Toast.makeText(getActivity(), "You need to insert your e-mail!",
+                        Toast.LENGTH_SHORT).show();
+            } else if(Objects.equals(insertedPassword, "")){
+                Toast.makeText(getActivity(), "You need to insert your password!",
+                        Toast.LENGTH_SHORT).show();
+            }
+        }else {
+            Toast.makeText(getActivity(), "Account Created!",
+                    Toast.LENGTH_SHORT).show();
+
+            fragmentManager = getParentFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("name")
+                    .commit();
             }
         });
     }

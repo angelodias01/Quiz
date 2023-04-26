@@ -27,13 +27,10 @@ public class LoginFragment extends Fragment {
     private Intent intent;
     private Bundle bundle;
     private FragmentManager fragmentManager;
-
     private Button btnLogin;
     private TextView textView;
-
     private String EmailTeste = "";
     private String PassTeste = "";
-
     private String restoreEmail;
     private String restorePassword;
 
@@ -70,7 +67,8 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         textView = view.findViewById(R.id.TVCreateOne);
-
+        btnLogin = view.findViewById(R.id.btnLogin);
+        //----------------------------------------------------------------------------------------//
         textView.setOnClickListener(view1 -> {
             fragmentManager = getParentFragmentManager();
             fragmentManager.beginTransaction()
@@ -79,8 +77,7 @@ public class LoginFragment extends Fragment {
                     .addToBackStack("name")
                     .commit();
         });
-        btnLogin = view.findViewById(R.id.btnLogin);
-
+        //----------------------------------------------------------------------------------------//
         tbEmail = (EditText) view.findViewById(R.id.tbEmail);
         tbPassword = (EditText) view.findViewById(R.id.tbPassword);
 
@@ -99,5 +96,6 @@ public class LoginFragment extends Fragment {
                 getActivity().startActivity(intent,bundle);
             }
         });
+        //----------------------------------------------------------------------------------------//
     }
 }
