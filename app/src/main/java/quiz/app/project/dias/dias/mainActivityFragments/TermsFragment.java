@@ -37,12 +37,13 @@ public class TermsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button button = view.findViewById(R.id.btnAccept);
-        button.setOnClickListener(view1 -> {
+        // Creating the event to accept the terms and change to the next activity
+        // And ending this fragment until new app installation
+        Button btnAccept= view.findViewById(R.id.btnAccept);
+        btnAccept.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), LogRegActivity.class);
             Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
             getActivity().startActivity(intent,bundle);
         });
     }
-
 }

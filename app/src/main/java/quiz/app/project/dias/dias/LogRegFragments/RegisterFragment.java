@@ -90,13 +90,13 @@ public class RegisterFragment extends Fragment {
 
         if(Objects.equals(insertedUsername, "") || Objects.equals(insertedEmail, "") || Objects.equals(insertedPassword, "")){
             if(Objects.equals(insertedUsername, "")){
-                Toast.makeText(getActivity(), "You need to insert you username!",
+                Toast.makeText(getActivity(), "You need to insert your username!",
                         Toast.LENGTH_SHORT).show();
             } else if(Objects.equals(insertedEmail, "")){
-                Toast.makeText(getActivity(), "You need to insert you e-mail!",
+                Toast.makeText(getActivity(), "You need to insert your e-mail!",
                         Toast.LENGTH_SHORT).show();
             } else if(Objects.equals(insertedPassword, "")){
-                Toast.makeText(getActivity(), "You need to insert you password!",
+                Toast.makeText(getActivity(), "You need to insert your password!",
                         Toast.LENGTH_SHORT).show();
             }
         }else {
