@@ -22,11 +22,17 @@ public class LoginFragment extends Fragment {
 
     private EditText tbEmail;
     private EditText tbPassword;
-    private String insertedEmail = "";
-    private String insertedPassword = "";
+    private String insertedEmail;
+    private String insertedPassword;
+    private Intent intent;
+    private Bundle bundle;
+    private FragmentManager fragmentManager;
 
-    private final String EmailTeste = "";
-    private final String PassTeste = "";
+    private Button btnLogin;
+    private TextView textView;
+
+    private String EmailTeste = "";
+    private String PassTeste = "";
 
     private String restoreEmail;
     private String restorePassword;
@@ -63,17 +69,17 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView textView = view.findViewById(R.id.TVCreateOne);
+        textView = view.findViewById(R.id.TVCreateOne);
 
         textView.setOnClickListener(view1 -> {
-            FragmentManager fragmentManager = getParentFragmentManager();
+            fragmentManager = getParentFragmentManager();
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainerView3, RegisterFragment.class, null)
                     .setReorderingAllowed(true)
                     .addToBackStack("name")
                     .commit();
         });
-        Button btnLogin = view.findViewById(R.id.btnLogin);
+        btnLogin = view.findViewById(R.id.btnLogin);
 
         tbEmail = (EditText) view.findViewById(R.id.tbEmail);
         tbPassword = (EditText) view.findViewById(R.id.tbPassword);
@@ -88,8 +94,8 @@ public class LoginFragment extends Fragment {
             }else{
                 Toast.makeText(getActivity(), "Login Successful!",
                         Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), MainMenuUser.class);
-                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+                intent = new Intent(getActivity(), MainMenuUser.class);
+                bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
                 getActivity().startActivity(intent,bundle);
             }
         });

@@ -27,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/textBoxEmail2"
+            android:id="@+id/tbEmail"
             android:layout_width="320dp"
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
@@ -38,14 +38,14 @@
             android:textAlignment="center"
             android:textColor="@color/text"
             android:textColorHint="@color/text"
-            app:layout_constraintEnd_toEndOf="@+id/textBoxUsername2"
+            app:layout_constraintEnd_toEndOf="@+id/tbUsername"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textBoxUsername2"
-            app:layout_constraintTop_toBottomOf="@+id/textBoxUsername2"
+            app:layout_constraintStart_toStartOf="@+id/tbUsername"
+            app:layout_constraintTop_toBottomOf="@+id/tbUsername"
             tools:ignore="LabelFor,TextContrastCheck" />
 
         <EditText
-            android:id="@+id/textBoxUsername2"
+            android:id="@+id/tbUsername"
             android:layout_width="320dp"
             android:layout_height="60dp"
             android:layout_marginTop="70dp"
@@ -63,7 +63,7 @@
             tools:ignore="LabelFor,TextContrastCheck" />
 
         <EditText
-            android:id="@+id/textBoxPassword2"
+            android:id="@+id/tbPassword"
             android:layout_width="320dp"
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
@@ -74,13 +74,13 @@
             android:textAlignment="center"
             android:textColor="@color/text"
             android:textColorHint="@color/text"
-            app:layout_constraintEnd_toEndOf="@+id/textBoxEmail2"
-            app:layout_constraintStart_toStartOf="@+id/textBoxEmail2"
-            app:layout_constraintTop_toBottomOf="@+id/textBoxEmail2"
+            app:layout_constraintEnd_toEndOf="@+id/tbEmail"
+            app:layout_constraintStart_toStartOf="@+id/tbEmail"
+            app:layout_constraintTop_toBottomOf="@+id/tbEmail"
             tools:ignore="LabelFor,TextContrastCheck" />
 
         <Button
-            android:id="@+id/btnRegister2"
+            android:id="@+id/btnRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
@@ -89,9 +89,9 @@
             android:textColor="@color/text"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/textBoxPassword2"
-            app:layout_constraintStart_toStartOf="@+id/textBoxPassword2"
-            app:layout_constraintTop_toBottomOf="@+id/textBoxPassword2"
+            app:layout_constraintEnd_toEndOf="@+id/tbPassword"
+            app:layout_constraintStart_toStartOf="@+id/tbPassword"
+            app:layout_constraintTop_toBottomOf="@+id/tbPassword"
             tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
         <TextView

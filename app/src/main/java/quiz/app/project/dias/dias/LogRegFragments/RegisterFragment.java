@@ -1,5 +1,7 @@
 package quiz.app.project.dias.dias.LogRegFragments;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,8 +11,14 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Objects;
+
+import quiz.app.project.dias.dias.MainMenuUser;
 import quiz.app.project.dias.dias.R;
 
 public class RegisterFragment extends Fragment {
@@ -18,24 +26,28 @@ public class RegisterFragment extends Fragment {
     private EditText tbUsername;
     private EditText tbEmail;
     private EditText tbPassword;
-    private String Username = "Username";
-    private String Email = "Email";
-    private String Password = "Password";
-
-    private String User;
-    private String Mail;
-    private String Pass;
+    private TextView textView;
+    private Button btnRegister;
+    private Intent intent;
+    private Bundle bundle;
+    private FragmentManager fragmentManager;
+    private String insertedUsername;
+    private String insertedEmail;
+    private String insertedPassword;
+    private String restoreUser;
+    private String restoreMail;
+    private String restorePass;
 
     public RegisterFragment() {
         // Required empty public constructor
     }
 
-    public static RegisterFragment newInstance(String Username, String Email, String Password) {
+    public static RegisterFragment newInstance(String insertedUsername, String insertedEmail, String insertedPassword) {
         RegisterFragment fragment = new RegisterFragment();
         Bundle args = new Bundle();
-        args.putString(Username, fragment.User);
-        args.putString(Email, fragment.Mail);
-        args.putString(Password, fragment.Pass);
+        args.putString(insertedUsername, fragment.restoreUser);
+        args.putString(insertedEmail, fragment.restoreMail);
+        args.putString(insertedPassword, fragment.restorePass);
         fragment.setArguments(args);
         return fragment;
     }
@@ -44,9 +56,9 @@ public class RegisterFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            User = getArguments().getString(Username);
-            Mail = getArguments().getString(Email);
-            Pass = getArguments().getString(Password);
+            restoreUser = getArguments().getString(insertedUsername);
+            restoreMail = getArguments().getString(insertedEmail);
+            restorePass = getArguments().getString(insertedPassword);
         }
     }
 
@@ -60,20 +72,50 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView textView = view.findViewById(R.id.TVLogIn);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager fragmentManager = getParentFragmentManager();
+        textView = view.findViewById(R.id.TVLogIn);
+        textView.setOnClickListener(view1 -> {
+            fragmentManager = getParentFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("name")
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .commit();
+        });
+
+        btnRegister = view.findViewById(R.id.btnRegister);
+
+        tbUsername = (EditText) view.findViewById(R.id.tbUsername);
+        tbEmail = (EditText) view.findViewById(R.id.tbEmail);
+        tbPassword = (EditText) view.findViewById(R.id.tbPassword);
+
+        btnRegister.setOnClickListener(view12 -> {
+            insertedUsername = tbUsername.getText().toString();
+            insertedEmail = tbEmail.getText().toString();
+            insertedPassword = tbPassword.getText().toString();
+
+
+            if(Objects.equals(insertedUsername, "") || Objects.equals(insertedEmail, "") || Objects.equals(insertedPassword, "")){
+                if(Objects.equals(insertedUsername, "")){
+                    Toast.makeText(getActivity(), "You need to insert you username!",
+                            Toast.LENGTH_SHORT).show();
+                } else if(Objects.equals(insertedEmail, "")){
+                    Toast.makeText(getActivity(), "You need to insert you e-mail!",
+                            Toast.LENGTH_SHORT).show();
+                } else if(Objects.equals(insertedPassword, "")){
+                    Toast.makeText(getActivity(), "You need to insert you password!",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                Toast.makeText(getActivity(), "Account Creation Successful!",
+                        Toast.LENGTH_SHORT).show();
+                fragmentManager = getParentFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
                         .setReorderingAllowed(true)
                         .addToBackStack("name")
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .commit();
             }
         });
     }
-
-
 }
