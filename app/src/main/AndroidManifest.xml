@@ -17,7 +17,7 @@
             android:name=".LogRegFragments.LogRegActivity"
             android:exported="false" />
         <activity
-            android:name=".MainMenuUser"
+            android:name=".MainMenuUser.MainMenuUser"
             android:exported="false" />
         <activity
             android:name=".mainActivityFragments.MainActivity"
