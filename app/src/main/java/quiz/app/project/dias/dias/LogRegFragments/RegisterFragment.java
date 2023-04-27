@@ -85,14 +85,14 @@ public class RegisterFragment extends Fragment {
             if(Objects.equals(insertedUsername, "")){
                 tbUsername.setError("You need to insert your Username!");
                 tbUsername.requestFocus();
-            } else if(Objects.equals(insertedEmail, "")){
+            }else if(Objects.equals(insertedEmail, "")){
                 tbEmail.setError("You need to insert your Email!");
                 tbEmail.requestFocus();
-            } else if(Objects.equals(insertedPassword, "")){
+            }else if(Objects.equals(insertedPassword, "")){
                 tbPassword.setError("You need to insert your Password!");
                 tbPassword.requestFocus();
             }
-        }else {
+        }else{
             Toast.makeText(getActivity(), "Account Created!",
                     Toast.LENGTH_SHORT).show();
 
