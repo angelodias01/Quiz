@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="setTbEmailColor"
     tools:context=".LogRegFragments.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,7 +42,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tbPassword" />
 
         <TextView
-            android:id="@+id/TVCreateOne"
+            android:id="@+id/lblCreateOne"
             android:layout_width="120dp"
             android:layout_height="50dp"
             android:layout_marginBottom="25dp"
@@ -98,7 +99,7 @@
             android:id="@+id/tbPassword"
             android:layout_width="320dp"
             android:layout_height="60dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="44dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/password"

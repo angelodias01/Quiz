@@ -7,6 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,19 +23,13 @@ import quiz.app.project.dias.dias.R;
 
 public class LoginFragment extends Fragment {
 
-    private EditText tbEmail;
-    private EditText tbPassword;
-    private String insertedEmail;
-    private String insertedPassword;
+    private EditText tbEmail, tbPassword;
+    private String insertedEmail, insertedPassword, restoreEmail, restorePassword;
     private Intent intent;
     private Bundle bundle;
     private FragmentManager fragmentManager;
-    private Button btnLogin;
-    private TextView textView;
-    private String EmailTeste = "";
-    private String PassTeste = "";
-    private String restoreEmail;
-    private String restorePassword;
+    private final String EmailTeste = "admin";
+    private final String PassTeste = "admin";
 
     public LoginFragment() {
         // Required empty public constructor
@@ -66,34 +63,48 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        textView = view.findViewById(R.id.TVCreateOne);
-        btnLogin = view.findViewById(R.id.btnLogin);
+        TextView lblCreateOne = view.findViewById(R.id.lblCreateOne);
+        Button btnLogin = view.findViewById(R.id.btnLogin);
+        Handler handler = new Handler();
         //----------------------------------------------------------------------------------------//
-        textView.setOnClickListener(view1 -> {
+        //Event to advance on label click to the register fragment
+        lblCreateOne.setOnClickListener(view1 -> {
             fragmentManager = getParentFragmentManager();
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainerView3, RegisterFragment.class, null)
                     .setReorderingAllowed(true)
-                    .addToBackStack("name")
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
         });
         //----------------------------------------------------------------------------------------//
         tbEmail = (EditText) view.findViewById(R.id.tbEmail);
         tbPassword = (EditText) view.findViewById(R.id.tbPassword);
 
+        //Event to verify credentials to execute the login
         btnLogin.setOnClickListener(view12 -> {
             insertedEmail = tbEmail.getText().toString();
             insertedPassword = tbPassword.getText().toString();
 
             if(!Objects.equals(insertedEmail, EmailTeste) || !Objects.equals(insertedPassword, PassTeste)){
-                Toast.makeText(getActivity(), "Username or Password incorrect!",
+                Toast.makeText(getActivity(), "Email and Password didn't match!",
                         Toast.LENGTH_SHORT).show();
+                if(insertedEmail.equals("")){
+                    tbEmail.setError("You need to insert your Email!");
+                    tbEmail.requestFocus();
+                }else if(insertedPassword.equals("")){
+                    tbPassword.setError("You need to insert your Password!");
+                    tbPassword.requestFocus();
+                }else{
+                    tbEmail.setError("Email and Password didn't match!");
+                    tbPassword.setError("Email and Password didn't match!");
+                }
             }else{
                 Toast.makeText(getActivity(), "Login Successful!",
                         Toast.LENGTH_SHORT).show();
                 intent = new Intent(getActivity(), MainMenuUser.class);
                 bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
                 getActivity().startActivity(intent,bundle);
+                handler.postDelayed(() -> getActivity().finish(), 500);
             }
         });
         //----------------------------------------------------------------------------------------//

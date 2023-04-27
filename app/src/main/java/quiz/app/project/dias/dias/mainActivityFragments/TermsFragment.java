@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,10 +41,14 @@ public class TermsFragment extends Fragment {
         // Creating the event to accept the terms and change to the next activity
         // And ending this fragment until new app installation
         Button btnAccept= view.findViewById(R.id.btnAccept);
+        Handler handler = new Handler();
+
         btnAccept.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), LogRegActivity.class);
             Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
             getActivity().startActivity(intent,bundle);
+
+            handler.postDelayed(() -> getActivity().finish(), 500);
         });
     }
 }

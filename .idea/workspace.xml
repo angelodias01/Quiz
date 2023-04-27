@@ -16,6 +16,9 @@
   <component name="ChangeListManager">
     <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="update on fragments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/LoginFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/LoginFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/RegisterFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/RegisterFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/TermsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/TermsFragment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,20 +214,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679358241017</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Update on main screen">
-      <created>1679497184233</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1679497184233</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Update on main screen">
-      <created>1679498893676</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1679498893676</updated>
     </task>
     <task id="LOCAL-00003" summary="Update on main screen">
       <created>1680302442500</created>
@@ -541,7 +530,35 @@
       <option name="project" value="LOCAL" />
       <updated>1682531832819</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="update on fragments">
+      <created>1682581970213</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1682581970213</updated>
+    </task>
+    <task id="LOCAL-00049" summary="update on fragments">
+      <created>1682592290248</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1682592290248</updated>
+    </task>
+    <task id="LOCAL-00050" summary="update on fragments">
+      <created>1682593277605</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1682593277605</updated>
+    </task>
+    <task id="LOCAL-00051" summary="update on fragments">
+      <created>1682593617200</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1682593617200</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
