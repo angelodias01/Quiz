@@ -7,6 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +65,7 @@ public class LoginFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         TextView lblCreateOne = view.findViewById(R.id.lblCreateOne);
         Button btnLogin = view.findViewById(R.id.btnLogin);
+        Handler handler = new Handler();
         //----------------------------------------------------------------------------------------//
         //Event to advance on label click to the register fragment
         lblCreateOne.setOnClickListener(view1 -> {
@@ -69,7 +73,7 @@ public class LoginFragment extends Fragment {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainerView3, RegisterFragment.class, null)
                     .setReorderingAllowed(true)
-                    .addToBackStack("name")
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
         });
         //----------------------------------------------------------------------------------------//
@@ -100,6 +104,7 @@ public class LoginFragment extends Fragment {
                 intent = new Intent(getActivity(), MainMenuUser.class);
                 bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
                 getActivity().startActivity(intent,bundle);
+                handler.postDelayed(() -> getActivity().finish(), 500);
             }
         });
         //----------------------------------------------------------------------------------------//

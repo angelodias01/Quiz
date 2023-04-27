@@ -67,7 +67,6 @@ public class RegisterFragment extends Fragment {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
                     .setReorderingAllowed(true)
-                    .addToBackStack("name")
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
         });
@@ -100,7 +99,6 @@ public class RegisterFragment extends Fragment {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
                     .setReorderingAllowed(true)
-                    .addToBackStack("name")
                     .commit();
             }
         });
