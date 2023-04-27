@@ -4,33 +4,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light"
-    tools:context=".MainMenuUser.MainMenuUser">
-
-    <TextView
-        android:id="@+id/tvUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:hint="@string/username"
-        android:textAlignment="textStart"
-        android:textColorHint="#000000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/tvWelcomeBack"
-        app:layout_constraintStart_toEndOf="@+id/tvWelcomeBack"
-        app:layout_constraintTop_toTopOf="@+id/tvWelcomeBack" />
-
-    <TextView
-        android:id="@+id/tvWelcomeBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/WelcomeBack"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:background="@color/background"
+    tools:context=".MainMenuUser.MainMenuUser" />
