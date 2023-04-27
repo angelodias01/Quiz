@@ -2,6 +2,7 @@ package quiz.app.project.dias.dias.LogRegFragments;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,19 +21,13 @@ import quiz.app.project.dias.dias.R;
 
 public class LoginFragment extends Fragment {
 
-    private EditText tbEmail;
-    private EditText tbPassword;
-    private String insertedEmail;
-    private String insertedPassword;
+    private EditText tbEmail, tbPassword;
+    private String insertedEmail, insertedPassword, restoreEmail, restorePassword;
     private Intent intent;
     private Bundle bundle;
     private FragmentManager fragmentManager;
-    private Button btnLogin;
-    private TextView textView;
-    private String EmailTeste = "";
-    private String PassTeste = "";
-    private String restoreEmail;
-    private String restorePassword;
+    private final String EmailTeste = "";
+    private final String PassTeste = "";
 
     public LoginFragment() {
         // Required empty public constructor
@@ -66,10 +61,11 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        textView = view.findViewById(R.id.TVCreateOne);
-        btnLogin = view.findViewById(R.id.btnLogin);
+        TextView lblCreateOne = view.findViewById(R.id.lblCreateOne);
+        Button btnLogin = view.findViewById(R.id.btnLogin);
         //----------------------------------------------------------------------------------------//
-        textView.setOnClickListener(view1 -> {
+        //Event to advance on label click to the register fragment
+        lblCreateOne.setOnClickListener(view1 -> {
             fragmentManager = getParentFragmentManager();
             fragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainerView3, RegisterFragment.class, null)
@@ -81,13 +77,21 @@ public class LoginFragment extends Fragment {
         tbEmail = (EditText) view.findViewById(R.id.tbEmail);
         tbPassword = (EditText) view.findViewById(R.id.tbPassword);
 
+        //Event to verify credentials to execute the login
         btnLogin.setOnClickListener(view12 -> {
             insertedEmail = tbEmail.getText().toString();
             insertedPassword = tbPassword.getText().toString();
 
+            //when i have a database connected code to change
+            //if (editText.getText().toString().trim().equalsIgnoreCase("")) {
+            //      editText.setError("This field can not be blank");
+            //}
+
             if(!Objects.equals(insertedEmail, EmailTeste) || !Objects.equals(insertedPassword, PassTeste)){
-                Toast.makeText(getActivity(), "Username or Password incorrect!",
+                Toast.makeText(getActivity(), "Email and Password didn't match!",
                         Toast.LENGTH_SHORT).show();
+                tbEmail.setError("Email and Password didn't match!");
+                tbPassword.setError("Email and Password didn't match!");
             }else{
                 Toast.makeText(getActivity(), "Login Successful!",
                         Toast.LENGTH_SHORT).show();
