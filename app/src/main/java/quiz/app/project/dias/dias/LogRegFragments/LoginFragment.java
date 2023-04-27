@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Objects;
-import quiz.app.project.dias.dias.MainMenuUser;
+import quiz.app.project.dias.dias.MainMenuUser.MainMenuUser;
 import quiz.app.project.dias.dias.R;
 
 public class LoginFragment extends Fragment {
@@ -28,8 +28,7 @@ public class LoginFragment extends Fragment {
     private Intent intent;
     private Bundle bundle;
     private FragmentManager fragmentManager;
-    private final String EmailTeste = "admin";
-    private final String PassTeste = "admin";
+    private final String EmailTeste = "admin", PassTeste = "admin";
 
     public LoginFragment() {
         // Required empty public constructor
