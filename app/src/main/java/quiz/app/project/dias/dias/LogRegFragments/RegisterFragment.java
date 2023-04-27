@@ -19,18 +19,11 @@ import quiz.app.project.dias.dias.R;
 
 public class RegisterFragment extends Fragment {
 
-    private EditText tbUsername;
-    private EditText tbEmail;
-    private EditText tbPassword;
+    private EditText tbUsername, tbEmail, tbPassword;
     private Intent intent;
     private Bundle bundle;
     private FragmentManager fragmentManager;
-    private String insertedUsername;
-    private String insertedEmail;
-    private String insertedPassword;
-    private String restoreUser;
-    private String restoreMail;
-    private String restorePass;
+    private String insertedUsername, insertedEmail, insertedPassword, restoreUser, restoreMail, restorePass;
 
     public RegisterFragment() {
         // Required empty public constructor
@@ -90,14 +83,14 @@ public class RegisterFragment extends Fragment {
 
         if(Objects.equals(insertedUsername, "") || Objects.equals(insertedEmail, "") || Objects.equals(insertedPassword, "")){
             if(Objects.equals(insertedUsername, "")){
-                Toast.makeText(getActivity(), "You need to insert your username!",
-                        Toast.LENGTH_SHORT).show();
+                tbUsername.setError("You need to insert your Username!");
+                tbUsername.requestFocus();
             } else if(Objects.equals(insertedEmail, "")){
-                Toast.makeText(getActivity(), "You need to insert your e-mail!",
-                        Toast.LENGTH_SHORT).show();
+                tbEmail.setError("You need to insert your Email!");
+                tbEmail.requestFocus();
             } else if(Objects.equals(insertedPassword, "")){
-                Toast.makeText(getActivity(), "You need to insert your password!",
-                        Toast.LENGTH_SHORT).show();
+                tbPassword.setError("You need to insert your Password!");
+                tbPassword.requestFocus();
             }
         }else {
             Toast.makeText(getActivity(), "Account Created!",

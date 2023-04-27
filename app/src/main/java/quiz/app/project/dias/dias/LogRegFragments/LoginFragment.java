@@ -2,7 +2,6 @@ package quiz.app.project.dias.dias.LogRegFragments;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,8 +25,8 @@ public class LoginFragment extends Fragment {
     private Intent intent;
     private Bundle bundle;
     private FragmentManager fragmentManager;
-    private final String EmailTeste = "";
-    private final String PassTeste = "";
+    private final String EmailTeste = "admin";
+    private final String PassTeste = "admin";
 
     public LoginFragment() {
         // Required empty public constructor
@@ -82,16 +81,19 @@ public class LoginFragment extends Fragment {
             insertedEmail = tbEmail.getText().toString();
             insertedPassword = tbPassword.getText().toString();
 
-            //when i have a database connected code to change
-            //if (editText.getText().toString().trim().equalsIgnoreCase("")) {
-            //      editText.setError("This field can not be blank");
-            //}
-
             if(!Objects.equals(insertedEmail, EmailTeste) || !Objects.equals(insertedPassword, PassTeste)){
                 Toast.makeText(getActivity(), "Email and Password didn't match!",
                         Toast.LENGTH_SHORT).show();
-                tbEmail.setError("Email and Password didn't match!");
-                tbPassword.setError("Email and Password didn't match!");
+                if(insertedEmail.equals("")){
+                    tbEmail.setError("You need to insert your Email!");
+                    tbEmail.requestFocus();
+                }else if(insertedPassword.equals("")){
+                    tbPassword.setError("You need to insert your Password!");
+                    tbPassword.requestFocus();
+                }else{
+                    tbEmail.setError("Email and Password didn't match!");
+                    tbPassword.setError("Email and Password didn't match!");
+                }
             }else{
                 Toast.makeText(getActivity(), "Login Successful!",
                         Toast.LENGTH_SHORT).show();
