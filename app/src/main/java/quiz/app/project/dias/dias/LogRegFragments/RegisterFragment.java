@@ -95,7 +95,8 @@ public class RegisterFragment extends Fragment {
             }
         }else{
             if (!isValidEmail(tbEmail.getText().toString())){
-                Toast.makeText(getContext(),"Your email is not valid!", Toast.LENGTH_SHORT).show();
+                tbEmail.setError("Your email is not valid!");
+                tbEmail.requestFocus();
             }else{
                 Toast.makeText(getActivity(), "Account Created!",
                         Toast.LENGTH_SHORT).show();

@@ -100,7 +100,8 @@ public class LoginFragment extends Fragment {
                 }
             }else{
                 if (!isValidEmail(tbEmail.getText().toString())){
-                        Toast.makeText(getContext(),"Your email is not valid!", Toast.LENGTH_SHORT).show();
+                    tbEmail.setError("Your email is not valid!");
+                    tbEmail.requestFocus();
                 }else{
                     Toast.makeText(getActivity(), "Login Successful!",
                             Toast.LENGTH_SHORT).show();
