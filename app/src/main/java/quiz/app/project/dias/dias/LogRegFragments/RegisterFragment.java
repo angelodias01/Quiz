@@ -7,6 +7,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,15 +94,23 @@ public class RegisterFragment extends Fragment {
                 tbPassword.requestFocus();
             }
         }else{
-            Toast.makeText(getActivity(), "Account Created!",
-                    Toast.LENGTH_SHORT).show();
+            if (!isValidEmail(tbEmail.getText().toString())){
+                Toast.makeText(getContext(),"Your email is not valid!", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(getActivity(), "Account Created!",
+                        Toast.LENGTH_SHORT).show();
 
-            fragmentManager = getParentFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
-                    .setReorderingAllowed(true)
-                    .commit();
-            }
+                fragmentManager = getParentFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .commit();
+                }
+        }
         });
+        //----------------------------------------------------------------------------------------//
+    }
+    public static boolean isValidEmail(CharSequence target) {
+        return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 }
