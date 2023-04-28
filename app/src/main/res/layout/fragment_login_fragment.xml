@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="setTbEmailColor"
     tools:context=".LogRegFragments.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -101,6 +100,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="44dp"
             android:autofillHints=""
+            android:drawableEnd="@drawable/ic_lock"
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPassword"
@@ -119,6 +119,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="100dp"
             android:autofillHints=""
+            android:drawableEnd="@drawable/ic_email"
             android:ems="10"
             android:hint="@string/e_mail"
             android:inputType="textEmailAddress"
