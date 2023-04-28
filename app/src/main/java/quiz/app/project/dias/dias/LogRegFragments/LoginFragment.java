@@ -1,8 +1,6 @@
 package quiz.app.project.dias.dias.LogRegFragments;
 
 import android.app.ActivityOptions;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -10,9 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Handler;
-import android.view.KeyEvent;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +28,7 @@ public class LoginFragment extends Fragment {
     private Intent intent;
     private Bundle bundle;
     private FragmentManager fragmentManager;
-    private final String EmailTeste = "admin", PassTeste = "admin";
+    private final String EmailTeste = "admin@admin.com", PassTeste = "admin";
 
     public LoginFragment() {
         // Required empty public constructor
@@ -79,8 +76,8 @@ public class LoginFragment extends Fragment {
                     .commit();
         });
         //----------------------------------------------------------------------------------------//
-        tbEmail = (EditText) view.findViewById(R.id.tbEmail);
-        tbPassword = (EditText) view.findViewById(R.id.tbPassword);
+        tbEmail = view.findViewById(R.id.tbEmail);
+        tbPassword = view.findViewById(R.id.tbPassword);
 
         //Event to verify credentials to execute the login
         btnLogin.setOnClickListener(view12 -> {
@@ -99,16 +96,24 @@ public class LoginFragment extends Fragment {
                 }else{
                     tbEmail.setError("Email and Password didn't match!");
                     tbPassword.setError("Email and Password didn't match!");
+                    tbEmail.requestFocus();
                 }
             }else{
-                Toast.makeText(getActivity(), "Login Successful!",
-                        Toast.LENGTH_SHORT).show();
-                intent = new Intent(getActivity(), MainMenuUser.class);
-                bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
-                getActivity().startActivity(intent,bundle);
-                handler.postDelayed(() -> getActivity().finish(), 500);
+                if (!isValidEmail(tbEmail.getText().toString())){
+                        Toast.makeText(getContext(),"Your email is not valid!", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getActivity(), "Login Successful!",
+                            Toast.LENGTH_SHORT).show();
+                    intent = new Intent(getActivity(), MainMenuUser.class);
+                    bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+                    getActivity().startActivity(intent,bundle);
+                    handler.postDelayed(() -> getActivity().finish(), 500);
+                }
             }
         });
         //----------------------------------------------------------------------------------------//
+    }
+    public static boolean isValidEmail(CharSequence target) {
+        return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 }

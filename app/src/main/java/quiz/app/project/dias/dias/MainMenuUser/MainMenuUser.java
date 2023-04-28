@@ -20,7 +20,7 @@ public class MainMenuUser extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(this, R.style.Theme_Quiz)
+        new AlertDialog.Builder(this)
                 .setTitle("Do You Want To Exit The App?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener()
                 {

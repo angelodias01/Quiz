@@ -1,17 +1,12 @@
 package quiz.app.project.dias.dias.mainActivityFragments;
 
-import android.annotation.SuppressLint;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import quiz.app.project.dias.dias.R;
 
 public class MainFragment extends Fragment {
