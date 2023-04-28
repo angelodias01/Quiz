@@ -1,8 +1,6 @@
 package quiz.app.project.dias.dias.LogRegFragments;
 
 import android.app.ActivityOptions;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -10,9 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Handler;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,8 +75,8 @@ public class LoginFragment extends Fragment {
                     .commit();
         });
         //----------------------------------------------------------------------------------------//
-        tbEmail = (EditText) view.findViewById(R.id.tbEmail);
-        tbPassword = (EditText) view.findViewById(R.id.tbPassword);
+        tbEmail = view.findViewById(R.id.tbEmail);
+        tbPassword = view.findViewById(R.id.tbPassword);
 
         //Event to verify credentials to execute the login
         btnLogin.setOnClickListener(view12 -> {

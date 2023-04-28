@@ -71,9 +71,9 @@ public class RegisterFragment extends Fragment {
                     .commit();
         });
         //----------------------------------------------------------------------------------------//
-        tbUsername = (EditText) view.findViewById(R.id.tbUsername);
-        tbEmail = (EditText) view.findViewById(R.id.tbEmail);
-        tbPassword = (EditText) view.findViewById(R.id.tbPassword);
+        tbUsername = view.findViewById(R.id.tbUsername);
+        tbEmail = view.findViewById(R.id.tbEmail);
+        tbPassword = view.findViewById(R.id.tbPassword);
 
         btnRegister.setOnClickListener(view12 -> {
             insertedUsername = tbUsername.getText().toString();

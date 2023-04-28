@@ -3,17 +3,14 @@ package quiz.app.project.dias.dias.mainActivityFragments;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import quiz.app.project.dias.dias.LogRegFragments.LogRegActivity;
 import quiz.app.project.dias.dias.R;
 
