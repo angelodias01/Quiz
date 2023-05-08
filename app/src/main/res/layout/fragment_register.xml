@@ -127,19 +127,19 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
             app:layout_constraintBottom_toTopOf="@+id/textView17"
             app:layout_constraintEnd_toEndOf="@+id/textView17"
             app:layout_constraintStart_toStartOf="@+id/textView17"
-            app:srcCompat="@drawable/quizlogo_01"
+            app:srcCompat="@drawable/logo_final_01"
             tools:ignore="ContentDescription,ImageContrastCheck" />
 
         <TextView
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="92dp"
+            android:layout_marginTop="112dp"
             android:text="@string/sign_up"
             android:textAlignment="center"
             android:textColor="@color/text"

@@ -68,7 +68,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="92dp"
+            android:layout_marginTop="112dp"
 
             android:text="@string/sign_in"
             android:textAlignment="center"
@@ -134,12 +134,12 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
             app:layout_constraintBottom_toTopOf="@+id/textView4"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:srcCompat="@drawable/quizlogo_01"
+            app:srcCompat="@drawable/logo_final_01"
             tools:ignore="ContentDescription,ImageContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
