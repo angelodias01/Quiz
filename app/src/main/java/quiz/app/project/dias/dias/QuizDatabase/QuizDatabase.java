@@ -1,0 +1,31 @@
+package quiz.app.project.dias.dias.QuizDatabase;
+
+import android.content.Context;
+
+import androidx.annotation.NonNull;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+
+@Database(entities = {}, version = 1)
+public abstract class QuizDatabase extends RoomDatabase {
+    private static QuizDatabase INSTANCE;
+    public abstract UsersDao getUserDao();
+
+    public static QuizDatabase getInstance(Context context) {
+        if (INSTANCE == null) {
+            INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            QuizDatabase.class, "QuizDB").allowMainThreadQueries()
+                    .addCallback(new Callback() {
+                        @Override
+                        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                            super.onCreate(db);
+                            db.execSQL("INSERT INTO contact VALUES (1, 'admin', 'admin@admin.com', '1')");
+                        }
+                    })
+                    .build();
+        }
+        return INSTANCE;
+    }
+}

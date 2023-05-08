@@ -84,35 +84,34 @@ public class LoginFragment extends Fragment {
             insertedEmail = tbEmail.getText().toString();
             insertedPassword = tbPassword.getText().toString();
 
-            if(!Objects.equals(insertedEmail, EmailTeste) || !Objects.equals(insertedPassword, PassTeste)){
+            if (!Objects.equals(insertedEmail, EmailTeste) || !Objects.equals(insertedPassword, PassTeste)) {
                 Toast.makeText(getActivity(), "Email and Password didn't match!",
                         Toast.LENGTH_SHORT).show();
-                if(insertedEmail.equals("")){
-                    tbEmail.setError("You need to insert your Email!");
+                if (insertedEmail.equals("")) {
+                    tbEmail.setError("Please insert your email!");
                     tbEmail.requestFocus();
-                }else if(insertedPassword.equals("")){
-                    tbPassword.setError("You need to insert your Password!");
+                } else if (insertedPassword.equals("")) {
+                    tbPassword.setError("Please insert your password!");
                     tbPassword.requestFocus();
-                }else{
-                    tbEmail.setError("Email and Password didn't match!");
-                    tbPassword.setError("Email and Password didn't match!");
+                } else if (!isValidEmail(tbEmail.getText().toString())) {
+                    tbEmail.setError("Invalid email address!");
+                    tbEmail.requestFocus();
+                } else {
+                    tbEmail.setError("Email and password didn't match!");
+                    tbPassword.setError("Email and password didn't match!");
                     tbEmail.requestFocus();
                 }
-            }else{
-                if (!isValidEmail(tbEmail.getText().toString())){
-                        Toast.makeText(getContext(),"Your email is not valid!", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(getActivity(), "Login Successful!",
-                            Toast.LENGTH_SHORT).show();
-                    intent = new Intent(getActivity(), MainMenuUser.class);
-                    bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
-                    getActivity().startActivity(intent,bundle);
-                    handler.postDelayed(() -> getActivity().finish(), 500);
-                }
+            } else {
+                Toast.makeText(getActivity(), "Login Successful!",
+                        Toast.LENGTH_SHORT).show();
+                intent = new Intent(getActivity(), MainMenuUser.class);
+                bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+                getActivity().startActivity(intent, bundle);
+                handler.postDelayed(() -> getActivity().finish(), 500);
             }
         });
-        //----------------------------------------------------------------------------------------//
     }
+        //----------------------------------------------------------------------------------------//
     public static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }

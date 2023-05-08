@@ -15,15 +15,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="update on fragments">
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/QuizDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/Users.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/UsersDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/logo_final_01.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/LoginFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/LoginFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/RegisterFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/RegisterFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_menu_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_menu_user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login_fragment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_terms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_terms.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Angelo Dias\.android\avd\Pixel_5_API_28.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Angelo Dias\.android\avd\Pixel.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -72,8 +85,8 @@
       <list>
         <option value="valueResourceFile" />
         <option value="resourceFile" />
-        <option value="Class" />
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -92,7 +105,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2NIiwpQeaCcTBevXM6sIyygsUFx" />
   <component name="ProjectViewState">
@@ -132,13 +145,14 @@
       <recent name="C:\Users\Angelo Dias\Documents\GitHub\Test\Quiz\app\src\main\res\drawable" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Angelo Dias\Documents\GitHub\Test\Quiz\app\src\main\java\quiz\app\project\dias\dias" />
       <recent name="C:\Users\Angelo Dias\Documents\GitHub\Test\Quiz\app" />
       <recent name="C:\Users\Angelo Dias\Documents\GitHub\Test\Quiz\app\src\main\res\layout" />
-      <recent name="C:\Users\Angelo Dias\Documents\GitHub\Test\Quiz\app\src\main\java\quiz\app\project\dias\dias" />
       <recent name="C:\Users\Angelo Dias\Documents\GitHub\Test\Quiz\app\src\main\res\drawable" />
       <recent name="C:\Users\Angelo Dias\Documents\GitHub\Test\Quiz\app\src\main\java\quiz\app\project\dias\dias\mainActivityFragments" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="quiz.app.project.dias.dias.QuizDatabase" />
       <recent name="quiz.app.project.dias.dias.LogRegFragments" />
     </key>
     <key name="android.template.-396392818">
@@ -219,27 +233,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679358241017</updated>
-    </task>
-    <task id="LOCAL-00013" summary="update on activities lifecycles">
-      <created>1680896436367</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1680896436367</updated>
-    </task>
-    <task id="LOCAL-00014" summary="update on activities lifecycles">
-      <created>1680896502130</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1680896502130</updated>
-    </task>
-    <task id="LOCAL-00015" summary="update on activities lifecycles">
-      <created>1680896563730</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1680896563730</updated>
     </task>
     <task id="LOCAL-00016" summary="update on activities lifecycles">
       <created>1680896599835</created>
@@ -563,7 +556,28 @@
       <option name="project" value="LOCAL" />
       <updated>1682677631504</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="update on fragments">
+      <created>1682683509013</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1682683509013</updated>
+    </task>
+    <task id="LOCAL-00063" summary="update on fragments">
+      <created>1682715795194</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1682715795194</updated>
+    </task>
+    <task id="LOCAL-00064" summary="update on fragments">
+      <created>1682715859459</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1682715859459</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

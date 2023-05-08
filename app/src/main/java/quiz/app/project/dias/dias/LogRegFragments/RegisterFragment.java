@@ -84,18 +84,19 @@ public class RegisterFragment extends Fragment {
 
         if(Objects.equals(insertedUsername, "") || Objects.equals(insertedEmail, "") || Objects.equals(insertedPassword, "")){
             if(Objects.equals(insertedUsername, "")){
-                tbUsername.setError("You need to insert your Username!");
+                tbUsername.setError("Please insert your username!");
                 tbUsername.requestFocus();
             }else if(Objects.equals(insertedEmail, "")){
-                tbEmail.setError("You need to insert your Email!");
+                tbEmail.setError("Please insert your email!");
                 tbEmail.requestFocus();
             }else if(Objects.equals(insertedPassword, "")){
-                tbPassword.setError("You need to insert your Password!");
+                tbPassword.setError("Please insert your password!");
                 tbPassword.requestFocus();
             }
         }else{
             if (!isValidEmail(tbEmail.getText().toString())){
-                Toast.makeText(getContext(),"Your email is not valid!", Toast.LENGTH_SHORT).show();
+                tbEmail.setError("Invalid email address!");
+                tbEmail.requestFocus();
             }else{
                 Toast.makeText(getActivity(), "Account Created!",
                         Toast.LENGTH_SHORT).show();
