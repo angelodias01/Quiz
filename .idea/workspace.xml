@@ -14,13 +14,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="update on roomDB">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/LoginFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/LoginFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/QuizDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/QuizDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/UsersDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/UsersDao.java" afterDir="false" />
-    </list>
+    <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="update on roomDB" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -221,13 +215,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679358241017</updated>
-    </task>
-    <task id="LOCAL-00017" summary="update on activities lifecycles">
-      <created>1680896636189</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1680896636189</updated>
     </task>
     <task id="LOCAL-00018" summary="update on layuots lifecycles">
       <created>1681225816518</created>
@@ -565,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683545770541</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="update on roomDB">
+      <created>1683649415306</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1683649415306</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
