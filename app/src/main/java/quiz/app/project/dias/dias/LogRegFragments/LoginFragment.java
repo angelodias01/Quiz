@@ -8,6 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Dao;
+
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -17,18 +19,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 import java.util.Objects;
 import quiz.app.project.dias.dias.MainMenuUser.MainMenuUser;
+import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
+import quiz.app.project.dias.dias.QuizDatabase.Users;
+import quiz.app.project.dias.dias.QuizDatabase.UsersDao;
 import quiz.app.project.dias.dias.R;
 
 public class LoginFragment extends Fragment {
-
+    private static final String userId = "userid";
     private EditText tbEmail, tbPassword;
     private String insertedEmail, insertedPassword, restoreEmail, restorePassword;
     private Intent intent;
     private Bundle bundle;
     private FragmentManager fragmentManager;
-    private final String EmailTeste = "admin@admin.com", PassTeste = "admin";
 
     public LoginFragment() {
         // Required empty public constructor
@@ -66,6 +72,11 @@ public class LoginFragment extends Fragment {
         Button btnLogin = view.findViewById(R.id.btnLogin);
         Handler handler = new Handler();
         //----------------------------------------------------------------------------------------//
+        //Database code
+        QuizDatabase db = QuizDatabase.getInstance(this.getContext());
+        UsersDao dao = db.getUserDao();
+        Users users = dao.getUser(insertedEmail, insertedPassword);
+        //----------------------------------------------------------------------------------------//
         //Event to advance on label click to the register fragment
         lblCreateOne.setOnClickListener(view1 -> {
             fragmentManager = getParentFragmentManager();
@@ -84,7 +95,7 @@ public class LoginFragment extends Fragment {
             insertedEmail = tbEmail.getText().toString();
             insertedPassword = tbPassword.getText().toString();
 
-            if (!Objects.equals(insertedEmail, EmailTeste) || !Objects.equals(insertedPassword, PassTeste)) {
+            if (users == null) {
                 Toast.makeText(getActivity(), "Email and Password didn't match!",
                         Toast.LENGTH_SHORT).show();
                 if (insertedEmail.equals("")) {

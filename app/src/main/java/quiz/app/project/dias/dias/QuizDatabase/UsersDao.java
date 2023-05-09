@@ -1,5 +1,6 @@
 package quiz.app.project.dias.dias.QuizDatabase;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -10,19 +11,9 @@ import java.util.List;
 @Dao
 public interface UsersDao {
 
-    @Query("SELECT * FROM Users")
-    List<Users> getAll();
+    @Query("SELECT * FROM Users WHERE email = :email AND Password = :password")
+    Users getUser(String email, String password);
 
-    @Query("SELECT * FROM Users WHERE userId = :id")
-    Users getById(long userId);
-
-    @Insert
-    void insert(Users users);
-
-    @Insert
-    void insert(List<Users> Users);
-
-    @Update
-    void update(Users user);
-
+   @Query("Select * from Users")
+    List<Users> getAllUsers();
 }
