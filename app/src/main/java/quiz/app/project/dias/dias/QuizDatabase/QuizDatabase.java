@@ -8,7 +8,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {}, version = 1)
+@Database(entities = {Users.class}, version = 1)
 public abstract class QuizDatabase extends RoomDatabase {
     private static QuizDatabase INSTANCE;
     public abstract UsersDao getUserDao();
@@ -21,7 +21,7 @@ public abstract class QuizDatabase extends RoomDatabase {
                         @Override
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             super.onCreate(db);
-                            db.execSQL("INSERT INTO contact VALUES (1, 'admin', 'admin@admin.com', '1')");
+                            db.execSQL("INSERT INTO Users VALUES (1, 'admin', 'admin@admin.com','admin', 1)");
                         }
                     })
                     .build();
