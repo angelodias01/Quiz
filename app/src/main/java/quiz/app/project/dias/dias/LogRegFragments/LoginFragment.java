@@ -19,14 +19,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 import quiz.app.project.dias.dias.MainMenuUser.MainMenuUser;
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
-import quiz.app.project.dias.dias.QuizDatabase.UsersDB.Users;
-import quiz.app.project.dias.dias.QuizDatabase.UsersDB.UsersDao;
+import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
+import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 import quiz.app.project.dias.dias.R;
 
 public class LoginFragment extends Fragment {
@@ -75,7 +73,7 @@ public class LoginFragment extends Fragment {
         //----------------------------------------------------------------------------------------//
         //Database code
         QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class,"QuizDatabase").build();
-        UsersDao usersDao = db.getUserDao();
+        UserDao userDao = db.getUserDao();
         //----------------------------------------------------------------------------------------//
         //Event to advance on label click to the register fragment
         lblCreateOne.setOnClickListener(view1 -> {
@@ -97,7 +95,7 @@ public class LoginFragment extends Fragment {
 
             ExecutorService executor = Executors.newSingleThreadExecutor();
             executor.execute(() -> {
-                Users user = usersDao.getUserByEmailAndPassword(email, password);
+                User user = userDao.getUserByEmailAndPassword(email, password);
                 // Create a handler associated with the main/UI thread
                 Handler handlers = new Handler(Looper.getMainLooper());
 

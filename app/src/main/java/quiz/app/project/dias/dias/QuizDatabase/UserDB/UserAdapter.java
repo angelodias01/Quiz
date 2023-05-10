@@ -1,4 +1,4 @@
-package quiz.app.project.dias.dias.QuizDatabase.UsersDB;
+package quiz.app.project.dias.dias.QuizDatabase.UserDB;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import quiz.app.project.dias.dias.R;
 
-public class UsersAdapter {
-    private List<Users> usersList;
+public class UserAdapter {
+    private List<User> userList;
     private Context context;
 
-    public UsersAdapter(List<Users> usersList){
-        this.usersList = usersList;
+    public UserAdapter(List<User> userList){
+        this.userList = userList;
     }
 
     @NonNull
@@ -27,7 +27,7 @@ public class UsersAdapter {
     //@Override
     public void onBindViewHolder(@NonNull UsersViewHolder holder, int position) {
 
-        Users current = usersList.get(position);
+        User current = userList.get(position);
 
         int currentUser = current.getUserId();
 
@@ -37,7 +37,7 @@ public class UsersAdapter {
 
     //@Override
     public int getItemCount() {
-        return usersList.size();
+        return userList.size();
     }
 
     public class UsersViewHolder extends RecyclerView.ViewHolder{
