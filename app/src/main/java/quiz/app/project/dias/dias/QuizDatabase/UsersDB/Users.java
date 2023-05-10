@@ -1,4 +1,4 @@
-package quiz.app.project.dias.dias.QuizDatabase;
+package quiz.app.project.dias.dias.QuizDatabase.UsersDB;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -24,14 +24,15 @@ public class Users{
     @ColumnInfo(name = "isAdmin")
     private boolean isAdmin;
 
-    public Users(String username, String email,String password, boolean isAdmin) {
+    public Users(int userId, String username, String email,String password, boolean isAdmin) {
+        this.userId = userId;
         this.username = username;
         this.email = email;
         this.password = password;
         this.isAdmin = isAdmin;
     }
 
-    public Integer getUserId() {
+    public int getUserId() {
         return userId;
     }
 

@@ -8,8 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.room.Dao;
-
+import androidx.room.Room;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -19,13 +18,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.List;
-import java.util.Objects;
 import quiz.app.project.dias.dias.MainMenuUser.MainMenuUser;
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
-import quiz.app.project.dias.dias.QuizDatabase.Users;
-import quiz.app.project.dias.dias.QuizDatabase.UsersDao;
+import quiz.app.project.dias.dias.QuizDatabase.UsersDB.Users;
+import quiz.app.project.dias.dias.QuizDatabase.UsersDB.UsersDao;
 import quiz.app.project.dias.dias.R;
 
 public class LoginFragment extends Fragment {
@@ -73,9 +69,8 @@ public class LoginFragment extends Fragment {
         Handler handler = new Handler();
         //----------------------------------------------------------------------------------------//
         //Database code
-        QuizDatabase db = QuizDatabase.getInstance(this.getContext());
-        UsersDao dao = db.getUserDao();
-        Users users = dao.getUser(insertedEmail, insertedPassword);
+        QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class,"QuizDatabase").build();
+        UsersDao usersDao = db.getUserDao();
         //----------------------------------------------------------------------------------------//
         //Event to advance on label click to the register fragment
         lblCreateOne.setOnClickListener(view1 -> {
@@ -95,7 +90,25 @@ public class LoginFragment extends Fragment {
             insertedEmail = tbEmail.getText().toString();
             insertedPassword = tbPassword.getText().toString();
 
-            if (users == null) {
+            String email = insertedEmail;
+            String password = insertedPassword;
+
+            Users emailFromDatabase = usersDao.getUserByEmail(email);
+            //Users passwordFromDatabase = usersDao.getUserByPassword(password);
+
+            boolean isDataEqual = emailFromDatabase != null
+                    // Check if user exists
+                    && emailFromDatabase.getEmail().equals(email)
+                    && emailFromDatabase.getPassword().equals(password);
+
+            if (isDataEqual) {
+                Toast.makeText(getActivity(), "Login Successful!",
+                        Toast.LENGTH_SHORT).show();
+                intent = new Intent(getActivity(), MainMenuUser.class);
+                bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+                getActivity().startActivity(intent, bundle);
+                handler.postDelayed(() -> getActivity().finish(), 500);
+            } else {
                 Toast.makeText(getActivity(), "Email and Password didn't match!",
                         Toast.LENGTH_SHORT).show();
                 if (insertedEmail.equals("")) {
@@ -112,13 +125,6 @@ public class LoginFragment extends Fragment {
                     tbPassword.setError("Email and password didn't match!");
                     tbEmail.requestFocus();
                 }
-            } else {
-                Toast.makeText(getActivity(), "Login Successful!",
-                        Toast.LENGTH_SHORT).show();
-                intent = new Intent(getActivity(), MainMenuUser.class);
-                bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
-                getActivity().startActivity(intent, bundle);
-                handler.postDelayed(() -> getActivity().finish(), 500);
             }
         });
     }

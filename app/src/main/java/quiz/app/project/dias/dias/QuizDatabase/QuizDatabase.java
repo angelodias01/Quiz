@@ -8,6 +8,9 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import quiz.app.project.dias.dias.QuizDatabase.UsersDB.Users;
+import quiz.app.project.dias.dias.QuizDatabase.UsersDB.UsersDao;
+
 @Database(entities = {Users.class}, version = 1)
 public abstract class QuizDatabase extends RoomDatabase {
     private static QuizDatabase INSTANCE;
