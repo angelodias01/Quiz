@@ -5,13 +5,11 @@ import androidx.room.Query;
 
 import java.util.List;
 
-import quiz.app.project.dias.dias.QuizDatabase.UsersDB.Users;
-
 @Dao
 public interface UsersDao {
 
     @Query("SELECT * FROM Users WHERE email = :email AND password = :password")
-    Users getUser(String email, String password);
+    Users getUserByEmailAndPassword(String email, String password);
 
    @Query("Select * from Users")
     List<Users> getAllUsers();
@@ -19,10 +17,10 @@ public interface UsersDao {
     @Query("SELECT * FROM Users WHERE userId = :userId")
     Users getUserById(int userId);
 
-    @Query("SELECT * FROM users WHERE email = :email")
+    @Query("SELECT * FROM Users WHERE email = :email")
     Users getUserByEmail(String email);
 
-    @Query("SELECT * FROM users WHERE password = :password")
+    @Query("SELECT * FROM Users WHERE password = :password")
     Users getUserByPassword(String password);
 
 }

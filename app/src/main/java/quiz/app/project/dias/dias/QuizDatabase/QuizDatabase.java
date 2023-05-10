@@ -19,7 +19,7 @@ public abstract class QuizDatabase extends RoomDatabase {
     public static QuizDatabase getInstance(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            QuizDatabase.class, "QuizDB").allowMainThreadQueries()
+                            QuizDatabase.class, "QuizDatabase").allowMainThreadQueries()
                     .addCallback(new Callback() {
                         @Override
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
