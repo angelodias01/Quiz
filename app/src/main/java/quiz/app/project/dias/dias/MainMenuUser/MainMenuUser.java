@@ -1,13 +1,11 @@
 package quiz.app.project.dias.dias.MainMenuUser;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-
 import quiz.app.project.dias.dias.R;
 
 public class MainMenuUser extends AppCompatActivity {
