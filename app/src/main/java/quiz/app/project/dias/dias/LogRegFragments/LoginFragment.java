@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import quiz.app.project.dias.dias.MainMenuUser.MainMenuUser;
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
 import quiz.app.project.dias.dias.QuizDatabase.UsersDB.Users;
@@ -25,9 +30,9 @@ import quiz.app.project.dias.dias.QuizDatabase.UsersDB.UsersDao;
 import quiz.app.project.dias.dias.R;
 
 public class LoginFragment extends Fragment {
-    private static final String userId = "userid";
+    private static final String userId = "userId";
     private EditText tbEmail, tbPassword;
-    private String insertedEmail, insertedPassword, restoreEmail, restorePassword;
+    private String email, password, restoreEmail, restorePassword;
     private Intent intent;
     private Bundle bundle;
     private FragmentManager fragmentManager;
@@ -49,8 +54,8 @@ public class LoginFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            insertedEmail = getArguments().getString(restoreEmail);
-            insertedPassword = getArguments().getString(restorePassword);
+            email = getArguments().getString(restoreEmail);
+            password = getArguments().getString(restorePassword);
         }
     }
 
@@ -87,45 +92,44 @@ public class LoginFragment extends Fragment {
 
         //Event to verify credentials to execute the login
         btnLogin.setOnClickListener(view12 -> {
-            insertedEmail = tbEmail.getText().toString();
-            insertedPassword = tbPassword.getText().toString();
+            this.email = tbEmail.getText().toString();
+            this.password = tbPassword.getText().toString();
 
-            String email = insertedEmail;
-            String password = insertedPassword;
+            ExecutorService executor = Executors.newSingleThreadExecutor();
+            executor.execute(() -> {
+                Users user = usersDao.getUserByEmailAndPassword(email, password);
+                // Create a handler associated with the main/UI thread
+                Handler handlers = new Handler(Looper.getMainLooper());
 
-            Users emailFromDatabase = usersDao.getUserByEmail(email);
-            //Users passwordFromDatabase = usersDao.getUserByPassword(password);
-
-            boolean isDataEqual = emailFromDatabase != null
-                    // Check if user exists
-                    && emailFromDatabase.getEmail().equals(email)
-                    && emailFromDatabase.getPassword().equals(password);
-
-            if (isDataEqual) {
-                Toast.makeText(getActivity(), "Login Successful!",
-                        Toast.LENGTH_SHORT).show();
-                intent = new Intent(getActivity(), MainMenuUser.class);
-                bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
-                getActivity().startActivity(intent, bundle);
-                handler.postDelayed(() -> getActivity().finish(), 500);
-            } else {
-                Toast.makeText(getActivity(), "Email and Password didn't match!",
-                        Toast.LENGTH_SHORT).show();
-                if (insertedEmail.equals("")) {
-                    tbEmail.setError("Please insert your email!");
-                    tbEmail.requestFocus();
-                } else if (insertedPassword.equals("")) {
-                    tbPassword.setError("Please insert your password!");
-                    tbPassword.requestFocus();
-                } else if (!isValidEmail(tbEmail.getText().toString())) {
-                    tbEmail.setError("Invalid email address!");
-                    tbEmail.requestFocus();
-                } else {
-                    tbEmail.setError("Email and password didn't match!");
-                    tbPassword.setError("Email and password didn't match!");
-                    tbEmail.requestFocus();
-                }
-            }
+                // Post a runnable on the main/UI thread
+                handlers.post(() -> {
+                    if (user != null) {
+                        Toast.makeText(getActivity(), "Login Successful!",
+                                Toast.LENGTH_SHORT).show();
+                        intent = new Intent(getActivity(), MainMenuUser.class);
+                        bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+                        getActivity().startActivity(intent, bundle);
+                        handler.postDelayed(() -> getActivity().finish(), 500);
+                    } else {
+                        Toast.makeText(getActivity(), "Email and Password didn't match!",
+                                Toast.LENGTH_SHORT).show();
+                        if (email.equals("")) {
+                            tbEmail.setError("Please insert your email!");
+                            tbEmail.requestFocus();
+                        } else if (password.equals("")) {
+                            tbPassword.setError("Please insert your password!");
+                            tbPassword.requestFocus();
+                        } else if (!isValidEmail(tbEmail.getText().toString())) {
+                            tbEmail.setError("Invalid email address!");
+                            tbEmail.requestFocus();
+                        } else {
+                            tbEmail.setError("Email and password didn't match!");
+                            tbPassword.setError("Email and password didn't match!");
+                            tbEmail.requestFocus();
+                        }
+                    }
+                });
+            });
         });
     }
         //----------------------------------------------------------------------------------------//

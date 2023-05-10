@@ -12,13 +12,13 @@ public class Users{
     @NonNull
     private int userId;
     @NonNull
-    @ColumnInfo(name = "Username")
+    @ColumnInfo(name = "username")
     private String username;
     @NonNull
-    @ColumnInfo(name = "Email")
+    @ColumnInfo(name = "email")
     private String email;
     @NonNull
-    @ColumnInfo(name = "Password")
+    @ColumnInfo(name = "password")
     private String password;
     @NonNull
     @ColumnInfo(name = "isAdmin")
@@ -52,8 +52,8 @@ public class Users{
         return isAdmin;
     }
 
-    public void setUserId(int UserId) {
-        this.userId = UserId;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public void setUsername(String username) {
