@@ -1,12 +1,12 @@
-package quiz.app.project.dias.dias.QuizDatabase.UsersDB;
+package quiz.app.project.dias.dias.QuizDatabase.UserDB;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Users")
-public class Users{
+@Entity(tableName = "User")
+public class User {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "userId")
     @NonNull
@@ -24,8 +24,7 @@ public class Users{
     @ColumnInfo(name = "isAdmin")
     private boolean isAdmin;
 
-    public Users(int userId, String username, String email,String password, boolean isAdmin) {
-        this.userId = userId;
+    public User(String username, String email, String password, boolean isAdmin) {
         this.username = username;
         this.email = email;
         this.password = password;
