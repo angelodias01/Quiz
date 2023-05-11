@@ -3,14 +3,9 @@ package quiz.app.project.dias.dias.QuizDatabase.ScoreDB;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
-
-@Entity(tableName = "Score", foreignKeys = @ForeignKey(entity = User.class,
-        parentColumns = "userId",
-        childColumns = "userId"))
+@Entity(tableName = "Score")
 public class Score {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "scoreId")
@@ -21,6 +16,7 @@ public class Score {
     private int score;
     @NonNull
     @ColumnInfo(name = "userId")
+    //Foreign key... from users to match score with the user
     private int userid;
 
     public Score(int scoreId, int score, int userid) {
@@ -28,7 +24,6 @@ public class Score {
         this.score = score;
         this.userid = userid;
     }
-
     public int getScoreId() {
         return scoreId;
     }
