@@ -1,8 +1,13 @@
 package quiz.app.project.dias.dias.mainActivityFragments;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +16,6 @@ import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 import quiz.app.project.dias.dias.R;
 
 public class MainActivity extends AppCompatActivity {
-
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.i("Current State:", "On Resume Of Main Activity!");
-        QuizDatabase db = Room.databaseBuilder(this, QuizDatabase.class,"QuizDatabase").build();
-        User newUser = new User("admin", "admin@gmail.com", "admin", true);
-        QuizDatabase.getInstance(this.getApplicationContext()).getUserDao().insertAll(newUser);
     }
 
     protected void onPause() {

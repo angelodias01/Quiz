@@ -29,7 +29,7 @@ public abstract class QuizDatabase extends RoomDatabase {
                         @Override
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             super.onCreate(db);
-                            //db.execSQL("INSERT INTO User VALUES (\"admin\", \"admin@gmail.com\", \"admin\")");
+                            db.execSQL("INSERT INTO User VALUES (\"admin\", \"admin@gmail.com\", \"admin\")");
                         }
                     })
                     .build();
