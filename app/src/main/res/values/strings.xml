@@ -27,7 +27,4 @@
     <string name="pootis">Pootis</string>
     <string name="welcome">Welcome</string>
     <string name="accept">I Accept!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="preference_file_key" />
 </resources>
