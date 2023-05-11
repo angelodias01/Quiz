@@ -6,15 +6,12 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.room.Room;
-
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import quiz.app.project.dias.dias.LogRegFragments.LogRegActivity;
-import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
 import quiz.app.project.dias.dias.R;
 
 public class TermsFragment extends Fragment {

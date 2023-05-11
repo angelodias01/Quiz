@@ -1,6 +1,5 @@
 package quiz.app.project.dias.dias.LogRegFragments;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -9,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
-
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
@@ -23,8 +21,6 @@ import android.widget.Toast;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import quiz.app.project.dias.dias.MainMenuUser.MainMenuUser;
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
