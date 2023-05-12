@@ -75,7 +75,6 @@ public class RegisterFragment extends Fragment {
         QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class,"QuizDatabase").build();
         UserDao userDao = db.getUserDao();
         //----------------------------------------------------------------------------------------//
-        //----------------------------------------------------------------------------------------//
         textView.setOnClickListener(view1 -> {
             fragmentManager = getParentFragmentManager();
             fragmentManager.beginTransaction()

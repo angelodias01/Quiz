@@ -14,14 +14,13 @@ import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.ThemeDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 
-@Database(entities = {User.class, Theme.class, Score.class}, version = 1)
+@Database(entities = {User.class}, version = 1)
 public abstract class QuizDatabase extends RoomDatabase {
     private static QuizDatabase INSTANCE;
     public abstract UserDao getUserDao();
-    public abstract ThemeDao getThemeDao();
-    public abstract ScoreDao getScoreDao();
+    String sqlCommand = "INSERT INTO User VALUES (1, 'admin', 'admin@gmail.com', 'admin', 1)";
 
-    public static QuizDatabase getInstance(Context context) {
+    public static synchronized QuizDatabase getInstance(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             QuizDatabase.class, "QuizDatabase").allowMainThreadQueries()
@@ -29,7 +28,8 @@ public abstract class QuizDatabase extends RoomDatabase {
                         @Override
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             super.onCreate(db);
-                            //db.execSQL("INSERT INTO User VALUES (\"admin\", \"admin@gmail.com\", \"admin\")");
+                            //code not working!!!
+                            db.execSQL(INSTANCE.sqlCommand);
                         }
                     })
                     .build();
