@@ -104,6 +104,7 @@ public class LoginFragment extends Fragment {
                     if (user != null) {
                         Toast.makeText(getActivity(), "Login Successful!",
                                 Toast.LENGTH_SHORT).show();
+                        executor.shutdown();
                         intent = new Intent(getActivity(), MainMenuUser.class);
                         bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
                         getActivity().startActivity(intent, bundle);

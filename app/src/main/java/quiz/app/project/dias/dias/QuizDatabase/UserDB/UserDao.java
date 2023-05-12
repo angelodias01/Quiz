@@ -1,8 +1,11 @@
 package quiz.app.project.dias.dias.QuizDatabase.UserDB;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
+
 import java.util.List;
 
 @Dao
@@ -24,5 +27,9 @@ public interface UserDao {
     User getUserByPassword(String password);
 
     @Insert
-    void insertAll(User... users);
+    void insertAll(User... user);
+    @Update
+    void updateAll(User user);
+    @Delete
+    void deleteAll(User user);
 }

@@ -47,7 +47,7 @@ public class User {
         return password;
     }
 
-    public Boolean isAdmin() {
+    public boolean isAdmin() {
         return isAdmin;
     }
 
