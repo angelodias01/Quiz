@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
+import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 import quiz.app.project.dias.dias.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        QuizDatabase db = Room.databaseBuilder(this.getApplicationContext(), QuizDatabase.class,"QuizDatabase").build();
         //Locking the screen orientation!
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Log.i("Current State:", "On Create Of Main Activity!");
