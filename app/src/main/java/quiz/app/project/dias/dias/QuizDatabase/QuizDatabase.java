@@ -6,11 +6,6 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-
-import quiz.app.project.dias.dias.QuizDatabase.ScoreDB.Score;
-import quiz.app.project.dias.dias.QuizDatabase.ScoreDB.ScoreDao;
-import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.Theme;
-import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.ThemeDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 
