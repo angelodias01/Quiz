@@ -10,7 +10,6 @@ import java.util.List;
 
 @Dao
 public interface UserDao {
-
     @Query("SELECT * FROM User WHERE email = :email AND password = :password")
     User getUserByEmailAndPassword(String email, String password);
 
