@@ -3,9 +3,12 @@ package quiz.app.project.dias.dias.QuizDatabase.ScoreDB;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Score")
+import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
+
+@Entity(tableName = "Score", foreignKeys = @ForeignKey(entity=Score.class, parentColumns="userId", childColumns="userId"))
 public class Score {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "scoreId")
