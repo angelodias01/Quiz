@@ -11,6 +11,8 @@
 
 <h4> --> Roadmap</h4>
 
+<h4> --> Terms of Use
+
 <h4> --> Contact Us</h4>
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -31,7 +33,7 @@
 
 <h2># Programs to use</h2>
 
-<p>GitHub, Android Studio, VisualStudioCode, XAMPP (MySQL), Adobe Ilustrator</p>
+<p>GitHub, Android Studio, VisualStudioCode, ROOM database (SQLite), Adobe Ilustrator</p>
 
 <h2># Roadmap</h2>
 
@@ -40,6 +42,10 @@
 <p>3. Begin to solve the problem and add features</p>
 <p> 4. (...)</p>
    
+<h2># --> Terms of Use
+   
+<p> We allow any user to try and have some fun with this project, when its complete or even before it's whole completion. Aditionally, we do NOT allow any plagiarism of our code, terms or any data inside this repository, however using this code as a way to better understand or assist in any matter you may have with your projects is allowed. Just do not copy our hard work!     
+      
 <h2># Contact us!</h2>
 
 <p>From doubts to improvements, we are open to it all! Don't worry if we take long to respond, we might be coding or doing outside works in this project.</p>
