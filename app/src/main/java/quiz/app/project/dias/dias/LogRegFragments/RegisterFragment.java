@@ -72,7 +72,7 @@ public class RegisterFragment extends Fragment {
         Button btnRegister = view.findViewById(R.id.btnRegister);
         //----------------------------------------------------------------------------------------//
         //Database code
-        QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class,"QuizDatabase").build();
+        QuizDatabase db = QuizDatabase.getInstance(getActivity());
         UserDao userDao = db.getUserDao();
         //----------------------------------------------------------------------------------------//
         textView.setOnClickListener(view1 -> {

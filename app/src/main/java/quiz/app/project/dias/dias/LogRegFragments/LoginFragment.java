@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.room.Room;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
@@ -72,7 +71,7 @@ public class LoginFragment extends Fragment {
         Handler handler = new Handler();
         //----------------------------------------------------------------------------------------//
         //Database code
-        QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class,"QuizDatabase").build();
+        QuizDatabase db = QuizDatabase.getInstance(getActivity());
         UserDao userDao = db.getUserDao();
         //----------------------------------------------------------------------------------------//
         //Event to advance on label click to the register fragment

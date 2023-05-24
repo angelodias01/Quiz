@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        QuizDatabase db = Room.databaseBuilder(this.getApplicationContext(), QuizDatabase.class,"QuizDatabase").build();
         //Locking the screen orientation!
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Log.i("Current State:", "On Create Of Main Activity!");
+        QuizDatabase db = QuizDatabase.getInstance(this);
 
     }
 

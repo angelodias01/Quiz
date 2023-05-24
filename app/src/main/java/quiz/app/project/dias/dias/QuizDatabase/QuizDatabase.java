@@ -13,7 +13,7 @@ import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 public abstract class QuizDatabase extends RoomDatabase {
     private static QuizDatabase INSTANCE;
     public abstract UserDao getUserDao();
-    String sqlCommand = "INSERT INTO User VALUES (1, 'admin', 'admin@gmail.com', 'admin', 1)";
+
 
     public static synchronized QuizDatabase getInstance(Context context) {
         if (INSTANCE == null) {
@@ -24,7 +24,7 @@ public abstract class QuizDatabase extends RoomDatabase {
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             super.onCreate(db);
                             //code not working!!!
-                            db.execSQL(INSTANCE.sqlCommand);
+                            db.execSQL("INSERT INTO User VALUES (1, 'admin', 'admin@gmail.com', 'admin', 1)");
                         }
                     })
                     .build();

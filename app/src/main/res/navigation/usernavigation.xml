@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/usernavigation"
+    app:startDestination="@id/mainMenuUser">
+
+    <activity
+        android:id="@+id/mainMenuUser"
+        android:name="quiz.app.project.dias.dias.MainMenuUser.MainMenuUser"
+        android:label="activity_main_menu_user"
+        tools:layout="@layout/activity_main_menu_user" />
+</navigation>
