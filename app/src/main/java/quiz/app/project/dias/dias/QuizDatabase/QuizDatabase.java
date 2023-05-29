@@ -3,6 +3,7 @@ package quiz.app.project.dias.dias.QuizDatabase;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.room.Database;
+import androidx.room.Query;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
@@ -25,6 +26,11 @@ public abstract class QuizDatabase extends RoomDatabase {
                             super.onCreate(db);
                             //code not working!!!
                             db.execSQL(INSTANCE.sqlCommand);
+                            //Martim sgp
+
+                            db.execSQL("INSERT INTO Theme VALUES ('Space'),('Technology'),('Animals'), ('Music'),('Team Fortress 2')");
+
+                           // db.execSQL("INSERT INTO themeName VALUES ");
                         }
                     })
                     .build();
