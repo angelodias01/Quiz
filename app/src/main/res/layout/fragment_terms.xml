@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+
     tools:context=".mainActivityFragments.TermsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -144,6 +145,7 @@
                         app:layout_constraintStart_toStartOf="@+id/textView8"
                         app:layout_constraintTop_toBottomOf="@+id/textView8"
                         tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
