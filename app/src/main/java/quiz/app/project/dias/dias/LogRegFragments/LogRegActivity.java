@@ -15,7 +15,6 @@ public class LogRegActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_log_reg);
-
     }
     @Override
     public void onBackPressed() {

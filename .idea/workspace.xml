@@ -15,23 +15,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="update on roomDB">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/AchievementsDB/Achievements.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/AchievementsDB/AchievementsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/AchievementsUserDB/AchievementsUserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/AchievementsUserDB/Achievements_User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/QuestionsDB/Questions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/QuestionsDB/QuestionsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/QuizDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/QuizDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/ThemeDB/Theme.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/ThemeDB/Theme.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\marti\.android\avd\Pixel_5_API_30.avd]" />
+
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -247,13 +238,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679358241017</updated>
-    </task>
-    <task id="LOCAL-00030" summary="update on fragments">
-      <created>1681913480010</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1681913480010</updated>
     </task>
     <task id="LOCAL-00031" summary="update on fragments">
       <created>1681914106513</created>
@@ -591,7 +575,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683894028518</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="update on roomDB">
+      <created>1684154303836</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1684154303836</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -117,9 +117,9 @@ public class RegisterFragment extends Fragment {
                         }else{
                             Toast.makeText(getActivity(), "Account Created!",
                                     Toast.LENGTH_SHORT).show();
-                            executor.shutdown();
                             User newUser = new User(insertedUsername,insertedEmail,insertedPassword,false);
                             QuizDatabase.getInstance(this.getContext()).getUserDao().insertAll(newUser);
+                            executor.shutdown();
                             fragmentManager = getParentFragmentManager();
                             fragmentManager.beginTransaction()
                                     .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
