@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import quiz.app.project.dias.dias.LogRegFragments.LogRegActivity;
+import quiz.app.project.dias.dias.MainMenuUser.MainMenuUser;
 import quiz.app.project.dias.dias.R;
 
 public class MainFragment extends Fragment {
@@ -32,7 +33,7 @@ public class MainFragment extends Fragment {
         super.onResume();
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         boolean isAccepted = sharedPreferences.getBoolean("isAccepted", false);
-
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
         //event do automatic advance to the sign in screen!
         handler.postDelayed(() -> {
             if (isAccepted == false) {
@@ -44,9 +45,12 @@ public class MainFragment extends Fragment {
                         .addToBackStack("name")
                         .commit();
             }
-            Intent intent = new Intent(requireActivity(), LogRegActivity.class);
-            startActivity(intent);
-            requireActivity().finish();
+            if(isAccepted == true || isLoggedIn == true){
+                Intent intent = new Intent(requireActivity(), MainMenuUser.class);
+                //TODO send user id to the next activity
+                startActivity(intent);
+                requireActivity().finish();
+            }
         }, delay);
 
     }

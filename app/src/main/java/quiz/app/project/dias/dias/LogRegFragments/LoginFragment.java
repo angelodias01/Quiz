@@ -2,6 +2,7 @@ package quiz.app.project.dias.dias.LogRegFragments;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 import android.os.Handler;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -105,8 +107,16 @@ public class LoginFragment extends Fragment {
                         Toast.makeText(getActivity(), "Login Successful!",
                                 Toast.LENGTH_SHORT).show();
                         executor.shutdown();
+                        int userId = userDao.getUserByEmailAndPassword(email, password).getUserId();
+                        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean("isLoggedIn", true);
+                        editor.putInt("userId", userId);
+                        editor.apply();
+
                         intent = new Intent(getActivity(), MainMenuUser.class);
                         bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+                        intent.putExtra("userId", userId);
                         getActivity().startActivity(intent, bundle);
                         handler.postDelayed(() -> getActivity().finish(), 500);
                     } else {
