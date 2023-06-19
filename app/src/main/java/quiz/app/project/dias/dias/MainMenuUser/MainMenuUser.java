@@ -4,8 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.pm.ActivityInfo;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import quiz.app.project.dias.dias.R;
 
 public class MainMenuUser extends AppCompatActivity {
@@ -13,9 +14,19 @@ public class MainMenuUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        setContentView(R.layout.activity_main_menu_user);
+        int userId = getUserIdFromSharedPreferences();
+        MainPageFragment fragment = MainPageFragment.newInstance(userId);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainerViewMenuUser, fragment)
+                .commit();
     }
+
+    // Helper method to retrieve the userId from SharedPreferences
+    private int getUserIdFromSharedPreferences() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        return sharedPreferences.getInt("userId", -1);
+    }
+
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
