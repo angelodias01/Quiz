@@ -110,6 +110,7 @@ public class LoginFragment extends Fragment {
                         int userId = userDao.getUserByEmailAndPassword(email, password).getUserId();
                         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                         SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean("isLogged", false);
                         editor.putInt("userId", userId);
                         editor.apply();
 
