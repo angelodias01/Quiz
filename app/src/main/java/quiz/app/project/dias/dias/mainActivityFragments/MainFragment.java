@@ -1,16 +1,22 @@
 package quiz.app.project.dias.dias.mainActivityFragments;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import quiz.app.project.dias.dias.LogRegFragments.LogRegActivity;
 import quiz.app.project.dias.dias.R;
 
 public class MainFragment extends Fragment {
     public static final int delay = 1500;
+
     public static final Handler handler = new Handler();
     public MainFragment() {
         // Required empty public constructor
@@ -24,25 +30,36 @@ public class MainFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
+        boolean isAccepted = sharedPreferences.getBoolean("isAccepted", false);
+
         //event do automatic advance to the sign in screen!
         handler.postDelayed(() -> {
-            //Creating a fragment manager to change automatically from main fragment to the terms fragment.
-            FragmentManager fragmentManager = getParentFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainerView8, TermsFragment.class, null)
-                    .setReorderingAllowed(true)
-                    .addToBackStack("name")
-                    .commit();
+            if (isAccepted == false) {
+                //Creating a fragment manager to change automatically from main fragment to the terms fragment.
+                FragmentManager fragmentManager = getParentFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView8, TermsFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("name")
+                        .commit();
+            }
+            Intent intent = new Intent(requireActivity(), LogRegActivity.class);
+            startActivity(intent);
+            requireActivity().finish();
         }, delay);
+
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Check if user has already accepted the terms
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main, container, false);
     }
