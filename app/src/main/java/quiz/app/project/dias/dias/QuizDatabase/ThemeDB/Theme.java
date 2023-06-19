@@ -15,8 +15,7 @@ public class Theme {
     @ColumnInfo(name = "themeName")
     private String themeName;
 
-    public Theme(int themeId, @NonNull String themeName) {
-        this.themeId = themeId;
+    public Theme (@NonNull String themeName) {
         this.themeName = themeName;
     }
 
