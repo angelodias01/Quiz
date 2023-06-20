@@ -37,6 +37,7 @@
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/ic_email"
+                app:iconPadding="0dp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button

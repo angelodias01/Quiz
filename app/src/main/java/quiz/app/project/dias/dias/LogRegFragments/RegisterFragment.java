@@ -1,5 +1,7 @@
 package quiz.app.project.dias.dias.LogRegFragments;
 
+import static quiz.app.project.dias.dias.LogRegFragments.Hash.hashPassword;
+
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -117,7 +119,8 @@ public class RegisterFragment extends Fragment {
                         }else{
                             Toast.makeText(getActivity(), "Account Created!",
                                     Toast.LENGTH_SHORT).show();
-                            User newUser = new User(insertedUsername,insertedEmail,insertedPassword,false);
+                            String hashedInputPassword = hashPassword(insertedPassword);
+                            User newUser = new User(insertedUsername,insertedEmail,hashedInputPassword,false);
                             QuizDatabase.getInstance(this.getContext()).getUserDao().insertAll(newUser);
                             executor.shutdown();
                             fragmentManager = getParentFragmentManager();
