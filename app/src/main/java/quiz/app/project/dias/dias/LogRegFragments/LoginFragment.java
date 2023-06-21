@@ -39,6 +39,8 @@ public class LoginFragment extends Fragment {
     private Bundle bundle;
     private FragmentManager fragmentManager;
 
+    private int userIdValue;
+
     public LoginFragment() {
         // Required empty public constructor
     }
@@ -110,11 +112,11 @@ public class LoginFragment extends Fragment {
                         Toast.makeText(getActivity(), "Login Successful!",
                                 Toast.LENGTH_SHORT).show();
                         executor.shutdown();
-                        int userId = userDao.getUserByEmailAndPassword(email, password).getUserId();
+                        userIdValue = user.getUserId();
                         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putBoolean("isLogged", true);
-                        editor.putInt("userId", userId);
+                        editor.putInt("userId", userIdValue);
                         editor.apply();
 
                         intent = new Intent(getActivity(), MainMenuUser.class);

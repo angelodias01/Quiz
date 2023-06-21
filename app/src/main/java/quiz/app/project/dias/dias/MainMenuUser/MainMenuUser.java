@@ -15,10 +15,7 @@ public class MainMenuUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         int userId = getUserIdFromSharedPreferences();
-        MainPageFragment fragment = MainPageFragment.newInstance(userId);
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainerViewMenuUser, fragment)
-                .commit();
+
     }
 
     // Helper method to retrieve the userId from SharedPreferences
