@@ -1,5 +1,7 @@
 package quiz.app.project.dias.dias.LogRegFragments;
 
+import static quiz.app.project.dias.dias.LogRegFragments.Hash.hashPassword;
+
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -36,6 +38,8 @@ public class LoginFragment extends Fragment {
     private Intent intent;
     private Bundle bundle;
     private FragmentManager fragmentManager;
+
+    private int userIdValue;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -97,7 +101,8 @@ public class LoginFragment extends Fragment {
 
             ExecutorService executor = Executors.newSingleThreadExecutor();
             executor.execute(() -> {
-                User user = userDao.getUserByEmailAndPassword(email, password);
+                String hashedPassword = hashPassword(password);
+                User user = userDao.getUserByEmailAndPassword(email, hashedPassword);
                 // Create a handler associated with the main/UI thread
                 Handler handlers = new Handler(Looper.getMainLooper());
 
@@ -107,10 +112,11 @@ public class LoginFragment extends Fragment {
                         Toast.makeText(getActivity(), "Login Successful!",
                                 Toast.LENGTH_SHORT).show();
                         executor.shutdown();
-                        int userId = userDao.getUserByEmailAndPassword(email, password).getUserId();
+                        userIdValue = user.getUserId();
                         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putInt("userId", userId);
+                        editor.putBoolean("isLogged", true);
+                        editor.putInt("userId", userIdValue);
                         editor.apply();
 
                         intent = new Intent(getActivity(), MainMenuUser.class);

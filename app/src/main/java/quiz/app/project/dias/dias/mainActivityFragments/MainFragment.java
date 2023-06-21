@@ -36,7 +36,18 @@ public class MainFragment extends Fragment {
         boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
         //event do automatic advance to the sign in screen!
         handler.postDelayed(() -> {
-            if (isAccepted == false) {
+            if (isAccepted == true & isLoggedIn == false) {
+                Intent intent = new Intent(requireActivity(), LogRegActivity.class);
+                startActivity(intent);
+                requireActivity().finish();
+            }
+            if(isAccepted == true & isLoggedIn == true){
+                Intent intent = new Intent(requireActivity(), MainMenuUser.class);
+                //TODO send user id to the next activity
+                startActivity(intent);
+                requireActivity().finish();
+            }
+           if(isAccepted == false & isLoggedIn == false) {
                 //Creating a fragment manager to change automatically from main fragment to the terms fragment.
                 FragmentManager fragmentManager = getParentFragmentManager();
                 fragmentManager.beginTransaction()
@@ -44,12 +55,6 @@ public class MainFragment extends Fragment {
                         .setReorderingAllowed(true)
                         .addToBackStack("name")
                         .commit();
-            }
-            if(isAccepted == true || isLoggedIn == true){
-                Intent intent = new Intent(requireActivity(), MainMenuUser.class);
-                //TODO send user id to the next activity
-                startActivity(intent);
-                requireActivity().finish();
             }
         }, delay);
 

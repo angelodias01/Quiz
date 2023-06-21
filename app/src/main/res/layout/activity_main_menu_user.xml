@@ -7,16 +7,6 @@
     android:background="@color/background"
     tools:context=".MainMenuUser.MainMenuUser" >
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerViewMenuUser"
-        android:name="quiz.app.project.dias.dias.MainMenuUser.MainPageFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
@@ -37,6 +27,7 @@
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/ic_email"
+                app:iconPadding="0dp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
