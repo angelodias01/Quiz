@@ -20,7 +20,6 @@ public class MainPageFragment extends Fragment {
     public static MainPageFragment newInstance(int userId) {
         MainPageFragment fragment = new MainPageFragment();
         Bundle args = new Bundle();
-        args.putInt("userId", userId);
         fragment.setArguments(args);
         return fragment;
     }
