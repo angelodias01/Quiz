@@ -19,6 +19,8 @@ import android.view.View;
 import android.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
 import quiz.app.project.dias.dias.R;
@@ -40,6 +42,7 @@ public class MainMenuUser extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationView);
         bottomNav.setItemIconTintList(getResources().getColorStateList(R.color.selector_bottom_nav_icon_color));
+        bottomNav.setLabelVisibilityMode(NavigationBarView.LABEL_VISIBILITY_LABELED);
         NavigationUI.setupWithNavController(bottomNav, navController);
 
 
