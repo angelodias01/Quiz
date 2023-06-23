@@ -17,10 +17,9 @@ public class MainPageFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static MainPageFragment newInstance(int userId) {
+    public static MainPageFragment newInstance() {
         MainPageFragment fragment = new MainPageFragment();
         Bundle args = new Bundle();
-        args.putInt("userId", userId);
         fragment.setArguments(args);
         return fragment;
     }

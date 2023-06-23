@@ -15,6 +15,7 @@ import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 import quiz.app.project.dias.dias.R;
+import quiz.app.project.dias.dias.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     @SuppressLint("SourceLockedOrientationActivity")

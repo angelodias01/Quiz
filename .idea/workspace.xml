@@ -14,14 +14,37 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="update on roomDB">
+    <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="second final update on login terms and register fragments.">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/MainMenuUser/DefinitionsFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/MainMenuUser/ProfileFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/MainMenuUser/ScoreFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/MainMenuUser/ScoreViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/MainMenuUser/ShopFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/color/selector_bottom_nav_icon_color.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_home_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bxs_bar_chart_alt_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bxs_cog__1_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bxs_store.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bxs_user__1_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/homeicon.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_definitions.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_score.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_shop.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/navigation/main_navigation.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/LoginFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/LoginFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/MainMenuUser/MainMenuUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/MainMenuUser/MainMenuUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/MainMenuUser/MainPageFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/MainMenuUser/MainPageFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/QuizDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/QuizDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/UserDB/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/UserDB/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/MainFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/MainFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_person.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_person.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_menu_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_menu_user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_page.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,11 +98,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="valueResourceFile" />
-        <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="navigationResourceFile" />
+        <option value="valueResourceFile" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -105,45 +129,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DEBUGGABLE_DEVICE&quot;: &quot;Copy_of_Copy_of_Pixel [emulator-5556]&quot;,
-    &quot;DEBUGGABLE_PROCESS&quot;: &quot;quiz.app.project.dias.dias&quot;,
-    &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
-    &quot;PROJECT_TRUSTED_KEY&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
-    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/Angelo Dias/Documents/GitHub/Test/Quiz/app/src/main/res/layout&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Angelo Dias/Downloads/RecyclerViewWithRoomv2/RecyclerViewExample&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;recommended.upgrade.last.time.stamp&quot;: &quot;1680191496769&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DEBUGGABLE_DEVICE": "Copy_of_Copy_of_Pixel [emulator-5556]",
+    "DEBUGGABLE_PROCESS": "quiz.app.project.dias.dias",
+    "DEBUGGER_ID": "Auto",
+    "PROJECT_TRUSTED_KEY": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SHOW_ALL_PROCESSES": "false",
+    "ToolWindowRun.ShowToolbar": "false",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "last_directory_selection": "C:/Users/Angelo Dias/Documents/GitHub/Test/Quiz/app/src/main/res/layout",
+    "last_opened_file_path": "C:/Users/Angelo Dias/Downloads/RecyclerViewWithRoomv2/RecyclerViewExample",
+    "project.structure.last.edited": "Build Variants",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "recommended.upgrade.last.time.stamp": "1680191496769",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "application.passwordSafe"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.android.tools.idea.sqlite.queryhistory&quot;: [
-      &quot;INSERT INTO User VALUES ( 'admin', 'admin@gmail.com', 'admin', 1)&quot;,
-      &quot;INSERT INTO User VALUES (1, 'admin', 'admin@gmail.com', 'admin', 1)&quot;,
-      &quot;select * from user&quot;,
-      &quot;INSERT INTO User VALUES (1, user, email, password, true)&quot;,
-      &quot;INSERT INTO User VALUES (user, email, password)&quot;
+  "keyToStringList": {
+    "com.android.tools.idea.sqlite.queryhistory": [
+      "INSERT INTO User VALUES ( 'admin', 'admin@gmail.com', 'admin', 1)",
+      "INSERT INTO User VALUES (1, 'admin', 'admin@gmail.com', 'admin', 1)",
+      "select * from user",
+      "INSERT INTO User VALUES (1, user, email, password, true)",
+      "INSERT INTO User VALUES (user, email, password)"
     ]
   }
-}</component>
+}]]></component>
   <component name="PsdUISettings">
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.-1108566859">
       <recent name="quiz.app.project.dias.dias" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="quiz.app.project.dias.dias.MainMenuUser" />
     </key>
     <key name="android.template.207149325">
       <recent name="quiz.app.project.dias.dias" />
@@ -241,13 +268,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679358241017</updated>
-    </task>
-    <task id="LOCAL-00039" summary="update on fragments">
-      <created>1682341778872</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1682341778872</updated>
     </task>
     <task id="LOCAL-00040" summary="update on fragments">
       <created>1682346446182</created>
@@ -585,7 +605,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687188808652</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="final update on login terms and register fragments.">
+      <created>1687349757690</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1687349757691</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -620,6 +647,7 @@
     <MESSAGE value="update on layouts" />
     <MESSAGE value="update on fragments" />
     <MESSAGE value="update on roomDB" />
-    <option name="LAST_COMMIT_MESSAGE" value="update on roomDB" />
+    <MESSAGE value="final update on login terms and register fragments." />
+    <option name="LAST_COMMIT_MESSAGE" value="final update on login terms and register fragments." />
   </component>
 </project>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/mainPageFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="quiz.app.project.dias.dias.MainMenuUser.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+    </fragment>
+
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="quiz.app.project.dias.dias.MainMenuUser.ScoreFragment"
+        android:label="Score"
+        tools:layout="@layout/fragment_score">
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="quiz.app.project.dias.dias.MainMenuUser.MainPageFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_main_page" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="quiz.app.project.dias.dias.MainMenuUser.ShopFragment"
+        android:label="Shop"
+        tools:layout="@layout/fragment_shop" />
+
+    <fragment
+        android:id="@+id/definitionsFragment"
+        android:name="quiz.app.project.dias.dias.MainMenuUser.DefinitionsFragment"
+        android:label="Definitions"
+        tools:layout="@layout/fragment_definitions" >
+    </fragment>
+
+</navigation>

@@ -1,7 +1,6 @@
 package quiz.app.project.dias.dias.LogRegFragments;
 
 import static quiz.app.project.dias.dias.LogRegFragments.Hash.hashPassword;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -38,7 +37,6 @@ public class LoginFragment extends Fragment {
     private Intent intent;
     private Bundle bundle;
     private FragmentManager fragmentManager;
-
     private int userIdValue;
 
     public LoginFragment() {
@@ -115,13 +113,12 @@ public class LoginFragment extends Fragment {
                         userIdValue = user.getUserId();
                         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putBoolean("isLogged", true);
+                        editor.putBoolean("isLoggedIn", true);
                         editor.putInt("userId", userIdValue);
                         editor.apply();
 
                         intent = new Intent(getActivity(), MainMenuUser.class);
                         bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
-                        intent.putExtra("userId", userId);
                         getActivity().startActivity(intent, bundle);
                         handler.postDelayed(() -> getActivity().finish(), 500);
                     } else {

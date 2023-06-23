@@ -95,6 +95,7 @@ public class RegisterFragment extends Fragment {
             insertedEmail = tbEmail.getText().toString();
             insertedPassword = tbPassword.getText().toString();
             ExecutorService executor = Executors.newSingleThreadExecutor();
+            User existingUser = QuizDatabase.getInstance(getContext()).getUserDao().getUserByEmail(insertedEmail);
             executor.execute(() -> {
                 // Create a handler associated with the main/UI thread
                 Handler handlers = new Handler(Looper.getMainLooper());
@@ -116,7 +117,12 @@ public class RegisterFragment extends Fragment {
                         if (!isValidEmail(tbEmail.getText().toString())){
                             tbEmail.setError("Invalid email address!");
                             tbEmail.requestFocus();
-                        }else{
+                        }else if (existingUser != null) { // Check if email exists in the database
+                            // Email already exists
+                            Toast.makeText(getActivity(), "Email already exists!", Toast.LENGTH_SHORT).show();
+                            tbEmail.setError("Email already exists!");
+                            tbEmail.requestFocus();
+                        } else {
                             Toast.makeText(getActivity(), "Account Created!",
                                     Toast.LENGTH_SHORT).show();
                             String hashedInputPassword = hashPassword(insertedPassword);

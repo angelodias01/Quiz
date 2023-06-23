@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -36,22 +37,24 @@ public class MainFragment extends Fragment {
         boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
         //event do automatic advance to the sign in screen!
         handler.postDelayed(() -> {
-            if (isAccepted == true & isLoggedIn == false) {
+            if (isAccepted == true && isLoggedIn == false) {
                 Intent intent = new Intent(requireActivity(), LogRegActivity.class);
                 startActivity(intent);
                 requireActivity().finish();
             }
-            if(isAccepted == true & isLoggedIn == true){
+            if (isAccepted == true && isLoggedIn == true) {
                 Intent intent = new Intent(requireActivity(), MainMenuUser.class);
-                //TODO send user id to the next activity
                 startActivity(intent);
                 requireActivity().finish();
             }
-           if(isAccepted == false & isLoggedIn == false) {
-                //Creating a fragment manager to change automatically from main fragment to the terms fragment.
+            if (isAccepted == false && isLoggedIn == false) {
+                // Creating an instance of the TermsFragment class
+                TermsFragment termsFragment = new TermsFragment();
+
+                // Creating a fragment manager to change automatically from the main fragment to the terms fragment
                 FragmentManager fragmentManager = getParentFragmentManager();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView8, TermsFragment.class, null)
+                        .replace(R.id.fragmentContainerView8, termsFragment)
                         .setReorderingAllowed(true)
                         .addToBackStack("name")
                         .commit();
