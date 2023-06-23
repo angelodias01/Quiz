@@ -15,19 +15,11 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.View;
-import android.widget.Toolbar;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.navigation.NavigationBarView;
-import com.google.android.material.navigation.NavigationView;
-
 import quiz.app.project.dias.dias.R;
-import quiz.app.project.dias.dias.databinding.ActivityMainMenuUserBinding;
 
 public class MainMenuUser extends AppCompatActivity {
-    //private ActivityMainMenuUserBinding binding;
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
