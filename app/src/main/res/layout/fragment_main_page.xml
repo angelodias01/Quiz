@@ -47,13 +47,12 @@
             android:textSize="16sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="@+id/viewUserHome"
-            app:layout_constraintStart_toEndOf="@+id/imageViewShop"
             app:layout_constraintTop_toTopOf="@+id/viewUserHome" />
 
         <ImageView
             android:id="@+id/imageViewHome"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:adjustViewBounds="false"
@@ -61,32 +60,35 @@
             android:cropToPadding="false"
             android:padding="25dp"
             android:src="@drawable/bxs_user__1_"
-            app:layout_constraintBottom_toBottomOf="@+id/viewUserHome"
+            app:layout_constraintBottom_toTopOf="@+id/lblUsernameHome"
             app:layout_constraintStart_toStartOf="@+id/viewUserHome"
             app:layout_constraintTop_toTopOf="@+id/viewUserHome"
-            app:layout_constraintVertical_bias="0.08"
-            tools:srcCompat="@drawable/hector" />
+            app:layout_constraintVertical_bias="0.08" />
 
         <ImageView
             android:id="@+id/imageViewPictureHome"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="25dp"
-            android:src="@drawable/hector"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/image"
+            android:src="@drawable/bxs_user__1_"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewHome"
             app:layout_constraintEnd_toEndOf="@+id/imageViewHome"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/imageViewHome"
-            app:layout_constraintTop_toTopOf="@+id/imageViewHome" />
+            app:layout_constraintTop_toTopOf="@+id/imageViewHome"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/lblUsernameHome"
-            android:layout_width="200dp"
+            android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/textbox"
             android:gravity="center"
             android:includeFontPadding="false"
@@ -96,9 +98,9 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewHome"
-            app:layout_constraintEnd_toEndOf="@+id/viewUserHome"
-            app:layout_constraintStart_toEndOf="@+id/imageViewHome" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewUserHome"
+            app:layout_constraintEnd_toEndOf="@+id/lblCoinsHome"
+            app:layout_constraintStart_toStartOf="@+id/imageViewHome" />
 
         <View
             android:id="@+id/viewBtnHome"

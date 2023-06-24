@@ -34,26 +34,25 @@
             android:id="@+id/imageViewDefinitions"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
             android:adjustViewBounds="false"
             android:background="@drawable/image"
             android:cropToPadding="false"
             android:padding="25dp"
             android:src="@drawable/bxs_user__1_"
-            app:layout_constraintBottom_toBottomOf="@+id/viewUserDefinitions"
             app:layout_constraintStart_toStartOf="@+id/viewUserDefinitions"
-            app:layout_constraintTop_toTopOf="@+id/viewUserDefinitions"
-            tools:srcCompat="@drawable/hector" />
+            app:layout_constraintTop_toTopOf="@+id/viewUserDefinitions" />
 
         <ImageView
             android:id="@+id/imageViewPictureDefinitions"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="25dp"
-            android:src="@drawable/hector"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/bxs_user__1_"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewDefinitions"
             app:layout_constraintEnd_toEndOf="@+id/imageViewDefinitions"
             app:layout_constraintStart_toStartOf="@+id/imageViewDefinitions"
@@ -61,9 +60,11 @@
 
         <TextView
             android:id="@+id/lblUsernameDefinitions"
-            android:layout_width="200dp"
+            android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/textbox"
             android:gravity="center"
             android:includeFontPadding="false"
@@ -73,9 +74,9 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewDefinitions"
-            app:layout_constraintEnd_toEndOf="@+id/viewUserDefinitions"
-            app:layout_constraintStart_toEndOf="@+id/imageViewDefinitions" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewUserDefinitions"
+            app:layout_constraintEnd_toEndOf="@+id/btnLogoutDefinitions"
+            app:layout_constraintStart_toStartOf="@+id/imageViewDefinitions" />
 
         <View
             android:id="@+id/viewBtnScoresDefinitions"
