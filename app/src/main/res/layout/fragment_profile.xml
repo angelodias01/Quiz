@@ -13,9 +13,9 @@
         android:background="@color/background" >
 
         <View
-            android:id="@+id/view"
+            android:id="@+id/viewUserProfile"
             android:layout_width="0dp"
-            android:layout_height="260dp"
+            android:layout_height="220dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
@@ -32,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
-            android:id="@+id/view2"
+            android:id="@+id/viewBtnProfile"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_marginStart="8dp"
@@ -41,10 +41,10 @@
             android:background="@drawable/backbtnprofile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view" />
+            app:layout_constraintTop_toBottomOf="@+id/viewUserProfile" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnAchievementsProfile"
             android:layout_width="160dp"
             android:layout_height="80dp"
             android:layout_marginStart="16dp"
@@ -54,13 +54,13 @@
             android:text="Achievements"
             android:textAlignment="center"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/view2"
-            app:layout_constraintStart_toStartOf="@+id/view2"
-            app:layout_constraintTop_toTopOf="@+id/view2" />
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnProfile"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnProfile"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnProfile" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnStatisticsProfile"
             android:layout_width="160dp"
             android:layout_height="80dp"
             android:layout_marginEnd="16dp"
@@ -70,31 +70,47 @@
             android:text="Statistics"
             android:textAlignment="center"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/view2"
-            app:layout_constraintEnd_toEndOf="@+id/view2"
-            app:layout_constraintTop_toTopOf="@+id/view2" />
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnProfile"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnProfile"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnProfile" />
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="16dp"
+            android:id="@+id/imageViewProfile"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="6dp"
             android:adjustViewBounds="false"
             android:background="@drawable/image"
             android:cropToPadding="false"
             android:padding="25dp"
             android:src="@drawable/bxs_user__1_"
-            app:layout_constraintBottom_toBottomOf="@+id/view"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view"
+            app:layout_constraintBottom_toBottomOf="@+id/viewUserProfile"
+            app:layout_constraintEnd_toEndOf="@+id/lblUsernameProfile"
+            app:layout_constraintStart_toStartOf="@+id/lblUsernameProfile"
+            app:layout_constraintTop_toTopOf="@+id/viewUserProfile"
             app:layout_constraintVertical_bias="0.08"
-            app:srcCompat="@drawable/bxs_user__1_" />
+            tools:srcCompat="@drawable/hector" />
+
+        <ImageView
+            android:id="@+id/imageViewPictureProfile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:src="@drawable/hector"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewProfile"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewProfile"
+            app:layout_constraintStart_toStartOf="@+id/imageViewProfile"
+            app:layout_constraintTop_toTopOf="@+id/imageViewProfile" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/lblUsernameProfile"
             android:layout_width="200dp"
-            android:layout_height="38dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/textbox"
             android:gravity="center"
@@ -105,11 +121,11 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/imageView4"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            app:layout_constraintStart_toStartOf="@+id/viewUserProfile"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewProfile" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/lblCoinsProfile"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:layout_marginTop="16dp"
@@ -124,8 +140,22 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view" />
+            app:layout_constraintEnd_toEndOf="@+id/viewUserProfile"
+            app:layout_constraintTop_toTopOf="@+id/viewUserProfile" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewHome"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/buttons"
+            android:padding="8dp"
+            android:scrollbars="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btnStatisticsProfile"
+            app:layout_constraintStart_toStartOf="@+id/btnAchievementsProfile"
+            app:layout_constraintTop_toBottomOf="@+id/viewBtnProfile" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
