@@ -8,18 +8,232 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background" >
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
-            android:background="@drawable/bxs_cog__1_"
-            android:backgroundTint="#910000"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <View
+            android:id="@+id/viewUserDefinitions"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/buttons"
+            android:padding="20dp"
+            android:paddingStart="20dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.422" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewDefinitions"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="16dp"
+            android:adjustViewBounds="false"
+            android:background="@drawable/image"
+            android:cropToPadding="false"
+            android:padding="25dp"
+            android:src="@drawable/bxs_user__1_"
+            app:layout_constraintBottom_toBottomOf="@+id/viewUserDefinitions"
+            app:layout_constraintStart_toStartOf="@+id/viewUserDefinitions"
+            app:layout_constraintTop_toTopOf="@+id/viewUserDefinitions"
+            tools:srcCompat="@drawable/hector" />
+
+        <ImageView
+            android:id="@+id/imageViewPictureDefinitions"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:src="@drawable/hector"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewDefinitions"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewDefinitions"
+            app:layout_constraintStart_toStartOf="@+id/imageViewDefinitions"
+            app:layout_constraintTop_toTopOf="@+id/imageViewDefinitions" />
+
+        <TextView
+            android:id="@+id/lblUsernameDefinitions"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/textbox"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingLeft="5dp"
+            android:text="@string/username"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewDefinitions"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserDefinitions"
+            app:layout_constraintStart_toEndOf="@+id/imageViewDefinitions" />
+
+        <View
+            android:id="@+id/viewBtnScoresDefinitions"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/backbtnprofile"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserDefinitions"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/viewUserDefinitions"
+            app:layout_constraintTop_toBottomOf="@+id/viewUserDefinitions" />
+
+        <View
+            android:id="@+id/viewBtnAchievementsDefinitions"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/backbtnprofile"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserDefinitions"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/viewUserDefinitions"
+            app:layout_constraintTop_toBottomOf="@+id/viewBtnScoresDefinitions" />
+
+        <View
+            android:id="@+id/viewBtnStatisticsDefinitions"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/backbtnprofile"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserDefinitions"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/viewUserDefinitions"
+            app:layout_constraintTop_toBottomOf="@+id/viewBtnAchievementsDefinitions" />
+
+        <View
+            android:id="@+id/viewBtnDeleteAllDefinitions"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/backbtnprofile"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserDefinitions"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/viewUserDefinitions"
+            app:layout_constraintTop_toBottomOf="@+id/viewBtnStatisticsDefinitions" />
+
+        <Button
+            android:id="@+id/btnDeleteScoresDefinitions"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/buttons"
+            android:clickable="false"
+            android:drawableLeft="@drawable/bxs_folder_minus"
+            android:drawableRight="@drawable/bxs_folder_minus"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="Delete Scores"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnScoresDefinitions"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnScoresDefinitions"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnScoresDefinitions"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnScoresDefinitions"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/btnDeleteAchievementsDefinitions"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/buttons"
+            android:clickable="false"
+            android:drawableLeft="@drawable/bxs_folder_minus"
+            android:drawableRight="@drawable/bxs_folder_minus"
+            android:paddingLeft="32dp"
+            android:paddingRight="34dp"
+            android:text="Delete Achievements"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnAchievementsDefinitions"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnScoresDefinitions"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnScoresDefinitions"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnAchievementsDefinitions"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/btnDeleteStatisticsDefinitions"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/buttons"
+            android:clickable="false"
+            android:drawableLeft="@drawable/bxs_folder_minus"
+            android:drawableRight="@drawable/bxs_folder_minus"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="Delete Statistics"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnStatisticsDefinitions"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnStatisticsDefinitions"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnStatisticsDefinitions"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnStatisticsDefinitions" />
+
+        <Button
+            android:id="@+id/btnDeleteAllDefinitions"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/buttons"
+            android:clickable="false"
+            android:drawableLeft="@drawable/bxs_folder_minus"
+            android:drawableRight="@drawable/bxs_folder_minus"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="Delete All Data"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnDeleteAllDefinitions"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnScoresDefinitions"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnScoresDefinitions"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnDeleteAllDefinitions"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageButton
+            android:id="@+id/btnLogoutDefinitions"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/backbtnprofile"
+            android:foreground="@drawable/_030313_sign_out_ui_basic_logout_app_user_interface_icon"
+            android:foregroundGravity="top|left|bottom|center|right|fill"
+            android:foregroundTint="#FFFFFF"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserDefinitions"
+            app:layout_constraintTop_toTopOf="@+id/viewUserDefinitions"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

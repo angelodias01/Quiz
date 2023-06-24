@@ -11,16 +11,150 @@
         android:layout_height="match_parent"
         android:background="@color/background">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
-            android:background="@drawable/homeicon"
-            android:backgroundTint="#910000"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <View
+            android:id="@+id/viewUserHome"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/buttons"
+            android:padding="20dp"
+            android:paddingStart="20dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.422" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lblCoinsHome"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/coinsback"
+            android:drawableStart="@drawable/pootiscoin"
+            android:duplicateParentState="false"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:padding="8dp"
+            android:text="2500"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserHome"
+            app:layout_constraintStart_toEndOf="@+id/imageViewShop"
+            app:layout_constraintTop_toTopOf="@+id/viewUserHome" />
+
+        <ImageView
+            android:id="@+id/imageViewHome"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:adjustViewBounds="false"
+            android:background="@drawable/image"
+            android:cropToPadding="false"
+            android:padding="25dp"
+            android:src="@drawable/bxs_user__1_"
+            app:layout_constraintBottom_toBottomOf="@+id/viewUserHome"
+            app:layout_constraintStart_toStartOf="@+id/viewUserHome"
+            app:layout_constraintTop_toTopOf="@+id/viewUserHome"
+            app:layout_constraintVertical_bias="0.08"
+            tools:srcCompat="@drawable/hector" />
+
+        <ImageView
+            android:id="@+id/imageViewPictureHome"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:src="@drawable/hector"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewHome"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewHome"
+            app:layout_constraintStart_toStartOf="@+id/imageViewHome"
+            app:layout_constraintTop_toTopOf="@+id/imageViewHome" />
+
+        <TextView
+            android:id="@+id/lblUsernameHome"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/textbox"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingLeft="5dp"
+            android:text="@string/username"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewHome"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserHome"
+            app:layout_constraintStart_toEndOf="@+id/imageViewHome" />
+
+        <View
+            android:id="@+id/viewBtnHome"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/backbtnprofile"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserHome"
+            app:layout_constraintStart_toStartOf="@+id/viewUserHome"
+            app:layout_constraintTop_toBottomOf="@+id/viewUserHome" />
+
+        <Button
+            android:id="@+id/btnSinglePlayerHome"
+            android:layout_width="160dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/buttons"
+            android:drawableTop="@drawable/_646622_console_controller_games_joystick_video_icon"
+            android:padding="8dp"
+            android:text="SinglePlayer"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnHome"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnHome"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnHome" />
+
+        <Button
+            android:id="@+id/btnMultiPlayerHome"
+            android:layout_width="160dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/buttons"
+            android:drawableTop="@drawable/_646640_joysticks_multiplayer_players_two_videogames_icon"
+            android:padding="8dp"
+            android:text="MultiPlayer"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnHome"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnHome"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnHome" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewHome"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/buttons"
+            android:padding="8dp"
+            android:scrollbars="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btnMultiPlayerHome"
+            app:layout_constraintStart_toStartOf="@+id/btnSinglePlayerHome"
+            app:layout_constraintTop_toBottomOf="@+id/viewBtnHome" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

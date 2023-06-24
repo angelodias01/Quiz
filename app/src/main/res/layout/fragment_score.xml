@@ -9,19 +9,125 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background" >
+
+        <View
+            android:id="@+id/viewUserScore"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/buttons"
+            android:padding="20dp"
+            android:paddingStart="20dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lblUsernameScore"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:background="@drawable/textbox"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingLeft="5dp"
+            android:text="@string/username"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewScore"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserScore"
+            app:layout_constraintStart_toEndOf="@+id/imageViewScore"
+            app:layout_constraintTop_toTopOf="@+id/imageViewScore" />
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
-            android:background="@drawable/bxs_bar_chart_alt_2"
-            android:backgroundTint="#910000"
+            android:id="@+id/imageViewScore"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:adjustViewBounds="false"
+            android:background="@drawable/image"
+            android:cropToPadding="false"
+            android:padding="25dp"
+            android:src="@drawable/bxs_user__1_"
+            app:layout_constraintBottom_toBottomOf="@+id/viewUserScore"
+            app:layout_constraintStart_toStartOf="@+id/viewUserScore"
+            app:layout_constraintTop_toTopOf="@+id/viewUserScore"
+            app:layout_constraintVertical_bias="0.08"
+            tools:srcCompat="@drawable/hector" />
+
+        <ImageView
+            android:id="@+id/imageViewPictureScore"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:src="@drawable/hector"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewScore"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewScore"
+            app:layout_constraintStart_toStartOf="@+id/imageViewScore"
+            app:layout_constraintTop_toTopOf="@+id/imageViewScore" />
+
+        <View
+            android:id="@+id/viewBtnScore"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/backbtnprofile"
+            android:clickable="false"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserScore"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/viewUserScore"
+            app:layout_constraintTop_toBottomOf="@+id/viewUserScore" />
+
+        <Button
+            android:id="@+id/btnScore"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/buttons"
+            android:clickable="false"
+            android:drawableTop="@drawable/bxs_bar_chart_alt_2"
+            android:padding="8dp"
+            android:text="My Scores"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnScore"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnScore"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnScore"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnScore"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewHome"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/buttons"
+            android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.658"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.422" />
+            app:layout_constraintEnd_toEndOf="@+id/btnScore"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btnScore"
+            app:layout_constraintTop_toBottomOf="@+id/viewBtnScore"
+            app:layout_constraintVertical_bias="0.0" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
