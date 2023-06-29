@@ -26,6 +26,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import quiz.app.project.dias.dias.MainMenuUser.MainMenuUser;
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
+import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrency;
+import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrencyDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 import quiz.app.project.dias.dias.R;
@@ -78,6 +80,7 @@ public class LoginFragment extends Fragment {
         //Database code
         QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class,"QuizDatabase").build();
         UserDao userDao = db.getUserDao();
+        UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
         //----------------------------------------------------------------------------------------//
         //Event to advance on label click to the register fragment
         lblCreateOne.setOnClickListener(view1 -> {
@@ -101,45 +104,54 @@ public class LoginFragment extends Fragment {
             executor.execute(() -> {
                 String hashedPassword = hashPassword(password);
                 User user = userDao.getUserByEmailAndPassword(email, hashedPassword);
-                // Create a handler associated with the main/UI thread
-                Handler handlers = new Handler(Looper.getMainLooper());
-
-                // Post a runnable on the main/UI thread
-                handlers.post(() -> {
-                    if (user != null) {
-                        Toast.makeText(getActivity(), "Login Successful!",
-                                Toast.LENGTH_SHORT).show();
-                        executor.shutdown();
-                        userIdValue = user.getUserId();
-                        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putBoolean("isLoggedIn", true);
-                        editor.putInt("userId", userIdValue);
-                        editor.apply();
-
-                        intent = new Intent(getActivity(), MainMenuUser.class);
-                        bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
-                        getActivity().startActivity(intent, bundle);
-                        handler.postDelayed(() -> getActivity().finish(), 500);
-                    } else {
-                        Toast.makeText(getActivity(), "Email and Password didn't match!",
-                                Toast.LENGTH_SHORT).show();
-                        if (email.equals("")) {
-                            tbEmail.setError("Please insert your email!");
-                            tbEmail.requestFocus();
-                        } else if (password.equals("")) {
-                            tbPassword.setError("Please insert your password!");
-                            tbPassword.requestFocus();
-                        } else if (!isValidEmail(tbEmail.getText().toString())) {
-                            tbEmail.setError("Invalid email address!");
-                            tbEmail.requestFocus();
-                        } else {
-                            tbEmail.setError("Email and password didn't match!");
-                            tbPassword.setError("Email and password didn't match!");
-                            tbEmail.requestFocus();
-                        }
+                userIdValue = user.getUserId();
+                if(userIdValue > 0) {
+                    UserCurrency existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userIdValue);
+                    if (existingUserCurrency == null) {
+                        UserCurrency newUserCurrency = new UserCurrency(userIdValue, 0);
+                        userCurrencyDao.insertCurrency(newUserCurrency);
                     }
-                });
+                }
+                    // Create a handler associated with the main/UI thread
+                    Handler handlers = new Handler(Looper.getMainLooper());
+
+                    // Post a runnable on the main/UI thread
+                    handlers.post(() -> {
+                        if (user != null) {
+                            Toast.makeText(getActivity(), "Login Successful!",
+                                    Toast.LENGTH_SHORT).show();
+                            executor.shutdown();
+                            userIdValue = user.getUserId();
+                            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putBoolean("isLoggedIn", true);
+                            editor.putInt("userId", userIdValue);
+                            editor.apply();
+
+                            intent = new Intent(getActivity(), MainMenuUser.class);
+                            bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+                            getActivity().startActivity(intent, bundle);
+                            handler.postDelayed(() -> getActivity().finish(), 500);
+                        } else {
+                            Toast.makeText(getActivity(), "Email and Password didn't match!",
+                                    Toast.LENGTH_SHORT).show();
+                            if (email.equals("")) {
+                                tbEmail.setError("Please insert your email!");
+                                tbEmail.requestFocus();
+                            } else if (password.equals("")) {
+                                tbPassword.setError("Please insert your password!");
+                                tbPassword.requestFocus();
+                            } else if (!isValidEmail(tbEmail.getText().toString())) {
+                                tbEmail.setError("Invalid email address!");
+                                tbEmail.requestFocus();
+                            } else {
+                                tbEmail.setError("Email and password didn't match!");
+                                tbPassword.setError("Email and password didn't match!");
+                                tbEmail.requestFocus();
+                            }
+                        }
+                    });
+
             });
         });
     }

@@ -24,6 +24,8 @@ import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
+import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrency;
+import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrencyDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 import quiz.app.project.dias.dias.R;
@@ -76,6 +78,7 @@ public class RegisterFragment extends Fragment {
         //Database code
         QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class,"QuizDatabase").build();
         UserDao userDao = db.getUserDao();
+        UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
         //----------------------------------------------------------------------------------------//
         textView.setOnClickListener(view1 -> {
             fragmentManager = getParentFragmentManager();
