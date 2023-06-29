@@ -126,7 +126,7 @@ public class RegisterFragment extends Fragment {
                             Toast.makeText(getActivity(), "Account Created!",
                                     Toast.LENGTH_SHORT).show();
                             String hashedInputPassword = hashPassword(insertedPassword);
-                            User newUser = new User(insertedUsername,insertedEmail,hashedInputPassword,false);
+                            User newUser = new User(insertedUsername,insertedEmail,hashedInputPassword);
                             QuizDatabase.getInstance(this.getContext()).getUserDao().insertAll(newUser);
                             executor.shutdown();
                             fragmentManager = getParentFragmentManager();

@@ -1,13 +1,19 @@
 package quiz.app.project.dias.dias.MainMenuUser;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
+import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
+import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 import quiz.app.project.dias.dias.R;
 
 /**
@@ -16,6 +22,8 @@ import quiz.app.project.dias.dias.R;
  * create an instance of this fragment.
  */
 public class ShopFragment extends Fragment {
+    private int userId;
+    TextView lblUsernameShop;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,7 +68,52 @@ public class ShopFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shop, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_shop, container, false);
+        lblUsernameShop = rootView.findViewById(R.id.lblUsernameShop);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
+        userId = sharedPreferences.getInt("userId", 0);
+
+        if (userId != 0) {
+            QuizDatabase quizDB = QuizDatabase.getInstance(requireContext());
+            UserDao userDao = quizDB.getUserDao();
+
+            User user = userDao.getUserById(userId);
+
+            if (user != null) {
+                String username = user.getUsername();
+                lblUsernameShop.setText(username);
+            } else {
+                lblUsernameShop.setText("Error Loading Username!");
+            }
+        }
+        return rootView;
+  }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
+        userId = sharedPreferences.getInt("userId", 0);
+
+        if (userId != 0) {
+            QuizDatabase quizDB = QuizDatabase.getInstance(requireContext());
+            UserDao userDao = quizDB.getUserDao();
+
+            User user = userDao.getUserById(userId);
+
+            if (user != null) {
+                String username = user.getUsername();
+                lblUsernameShop.setText(username);
+            } else {
+                lblUsernameShop.setText("Error Loading Username!");
+            }
+        }
+    }
+
+    public View onResumeView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_shop, container, false);
+        lblUsernameShop = rootView.findViewById(R.id.lblUsernameShop);
+        return rootView;
     }
 }
