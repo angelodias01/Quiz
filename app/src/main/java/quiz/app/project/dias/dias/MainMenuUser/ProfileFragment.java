@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
+import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrency;
+import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrencyDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 import quiz.app.project.dias.dias.R;
@@ -22,7 +24,7 @@ import quiz.app.project.dias.dias.R;
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
-    TextView lblUsernameProfile;
+    TextView lblUsernameProfile, lblCoinsProfile;
     private int userId;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,18 +71,22 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
         lblUsernameProfile = rootView.findViewById(R.id.lblUsernameProfile);
+        lblCoinsProfile = rootView.findViewById(R.id.lblCoinsProfile);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         userId = sharedPreferences.getInt("userId", 0);
 
         if (userId != 0) {
             QuizDatabase quizDB = QuizDatabase.getInstance(requireContext());
             UserDao userDao = quizDB.getUserDao();
+            UserCurrencyDao userCurrencyDao = quizDB.getUserCurrencyDao();
 
             User user = userDao.getUserById(userId);
+            UserCurrency existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
 
             if (user != null) {
                 String username = user.getUsername();
                 lblUsernameProfile.setText(username);
+                lblCoinsProfile.setText(String.valueOf(existingUserCurrency.getAmount()));
             } else {
                 lblUsernameProfile.setText("Error Loading Username!");
             }

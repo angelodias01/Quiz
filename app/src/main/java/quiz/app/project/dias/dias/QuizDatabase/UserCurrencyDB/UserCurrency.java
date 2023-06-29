@@ -25,13 +25,13 @@ public class UserCurrency {
 
     @NonNull
     @ColumnInfo(name = "amount")
-    private double amount;
+    private int amount;
     @Ignore
     public UserCurrency() {
         // Empty constructor for Room database
     }
 
-    public UserCurrency(int userId, double amount) {
+    public UserCurrency(int userId, int amount) {
         this.userId = userId;
         this.amount = amount;
     }
@@ -52,11 +52,11 @@ public class UserCurrency {
         this.userId = userId;
     }
 
-    public double getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 }

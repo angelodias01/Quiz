@@ -19,6 +19,9 @@ public interface UserCurrencyDao {
     @Delete
     void deleteCurrency(UserCurrency userCurrency);
 
+    @Query("SELECT * FROM UserCurrency WHERE userId = :userId")
+    UserCurrency getUserCurrencyByUserId(int userId);
+
     @Query("SELECT * FROM UserCurrency")
     List<UserCurrency> getAllCurrencies();
 

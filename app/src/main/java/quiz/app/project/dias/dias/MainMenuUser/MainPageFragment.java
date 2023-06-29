@@ -13,12 +13,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
+import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrency;
+import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrencyDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 import quiz.app.project.dias.dias.R;
 
 public class MainPageFragment extends Fragment {
     TextView lblUsernameMainPage;
+    TextView lblCoinsHome;
     private int userId;
 
     public MainPageFragment() {
@@ -45,18 +48,22 @@ public class MainPageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main_page, container, false);
         lblUsernameMainPage = rootView.findViewById(R.id.lblUsernameHome);
+        lblCoinsHome = rootView.findViewById(R.id.lblCoinsHome);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         userId = sharedPreferences.getInt("userId", 0);
 
         if (userId != 0) {
             QuizDatabase quizDB = QuizDatabase.getInstance(requireContext());
             UserDao userDao = quizDB.getUserDao();
+            UserCurrencyDao userCurrencyDao = quizDB.getUserCurrencyDao();
 
             User user = userDao.getUserById(userId);
+            UserCurrency existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
 
             if (user != null) {
                 String username = user.getUsername();
                 lblUsernameMainPage.setText(username);
+                lblCoinsHome.setText(String.valueOf(existingUserCurrency.getAmount()));
             } else {
                 lblUsernameMainPage.setText("Error Loading Username!");
             }
