@@ -95,35 +95,6 @@ public class ScoreFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
-        userId = sharedPreferences.getInt("userId", 0);
-
-        if (userId != 0) {
-            QuizDatabase quizDB = QuizDatabase.getInstance(requireContext());
-            UserDao userDao = quizDB.getUserDao();
-
-            User user = userDao.getUserById(userId);
-
-            if (user != null) {
-                String username = user.getUsername();
-                lblUsernameScore.setText(username);
-            } else {
-                lblUsernameScore.setText("Error Loading Username!");
-            }
-        }
-    }
-
-    public View onResumeView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_score, container, false);
-        lblUsernameScore = rootView.findViewById(R.id.lblUsernameScore);
-        return rootView;
-    }
-
-
-    @Override
     public void onDestroyView() {
         super.onDestroyView();
     }
