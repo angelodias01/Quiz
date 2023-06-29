@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 
 import java.util.Date;
 
@@ -15,7 +16,8 @@ import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
         foreignKeys = {
                 @ForeignKey(entity = User.class, parentColumns = "userId", childColumns = "userId"),
                 @ForeignKey(entity = Achievements.class, parentColumns = "achievementId", childColumns = "achievementId")
-        })
+        },
+        indices = {@Index("achievementId")})
 public class AchievementUser {
     @ColumnInfo(name = "userId")
     private int userId;
@@ -25,9 +27,9 @@ public class AchievementUser {
 
     @NonNull
     @ColumnInfo(name = "dateEarned")
-    private Date dateEarned;
+    private long dateEarned;
 
-    public AchievementUser(int userId, int achievementId, @NonNull Date dateEarned) {
+    public AchievementUser(int userId, int achievementId, @NonNull long dateEarned) {
         this.userId = userId;
         this.achievementId = achievementId;
         this.dateEarned = dateEarned;
@@ -50,11 +52,11 @@ public class AchievementUser {
     }
 
     @NonNull
-    public Date getDateEarned() {
+    public long getDateEarned() {
         return dateEarned;
     }
 
-    public void setDateEarned(@NonNull Date dateEarned) {
+    public void setDateEarned(@NonNull long dateEarned) {
         this.dateEarned = dateEarned;
     }
 }

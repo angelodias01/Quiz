@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 
-@Entity(tableName = "UserCurrency", foreignKeys = @ForeignKey(entity= User.class, parentColumns="userId", childColumns="userId"))
+@Entity(tableName = "UserCurrency",
+        foreignKeys = @ForeignKey(entity = User.class, parentColumns = "userId", childColumns = "userId"),
+        indices = {@Index("userId")})
 public class UserCurrency {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "currencyId")
@@ -22,6 +26,10 @@ public class UserCurrency {
     @NonNull
     @ColumnInfo(name = "amount")
     private double amount;
+    @Ignore
+    public UserCurrency() {
+        // Empty constructor for Room database
+    }
 
     public UserCurrency(int userId, double amount) {
         this.userId = userId;
