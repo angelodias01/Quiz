@@ -30,12 +30,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/imageViewPictureHome"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/image"
+            android:padding="15dp"
+            android:src="@drawable/hector"
+            app:layout_constraintStart_toStartOf="@+id/viewUserHome"
+            app:layout_constraintTop_toTopOf="@+id/viewUserHome" />
+
         <TextView
             android:id="@+id/lblCoinsHome"
             android:layout_width="120dp"
             android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
             android:background="@drawable/coinsback"
             android:drawableStart="@drawable/pootiscoin"
             android:duplicateParentState="false"
@@ -49,39 +61,6 @@
             app:layout_constraintEnd_toEndOf="@+id/viewUserHome"
             app:layout_constraintTop_toTopOf="@+id/viewUserHome" />
 
-        <ImageView
-            android:id="@+id/imageViewHome"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:adjustViewBounds="false"
-            android:background="@drawable/image"
-            android:cropToPadding="false"
-            android:padding="25dp"
-            android:src="@drawable/bxs_user__1_"
-            app:layout_constraintBottom_toTopOf="@+id/lblUsernameHome"
-            app:layout_constraintStart_toStartOf="@+id/viewUserHome"
-            app:layout_constraintTop_toTopOf="@+id/viewUserHome"
-            app:layout_constraintVertical_bias="0.08" />
-
-        <ImageView
-            android:id="@+id/imageViewPictureHome"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/image"
-            android:src="@drawable/hector"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewHome"
-            app:layout_constraintEnd_toEndOf="@+id/imageViewHome"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/imageViewHome"
-            app:layout_constraintTop_toTopOf="@+id/imageViewHome"
-            app:layout_constraintVertical_bias="0.0" />
-
         <TextView
             android:id="@+id/lblUsernameHome"
             android:layout_width="0dp"
@@ -92,7 +71,6 @@
             android:background="@drawable/textbox"
             android:gravity="center"
             android:includeFontPadding="false"
-            android:paddingLeft="5dp"
             android:text="@string/username"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -100,7 +78,7 @@
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="@+id/viewUserHome"
             app:layout_constraintEnd_toEndOf="@+id/lblCoinsHome"
-            app:layout_constraintStart_toStartOf="@+id/imageViewHome" />
+            app:layout_constraintStart_toStartOf="@+id/imageViewPictureHome" />
 
         <View
             android:id="@+id/viewBtnHome"
@@ -117,32 +95,37 @@
             android:layout_width="160dp"
             android:layout_height="80dp"
             android:layout_marginStart="16dp"
-            android:background="@drawable/buttons"
             android:drawableTop="@drawable/_646622_console_controller_games_joystick_video_icon"
             android:padding="8dp"
             android:text="SinglePlayer"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="normal"
+            app:cornerRadius="25dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp"
             app:layout_constraintBottom_toBottomOf="@+id/viewBtnHome"
             app:layout_constraintStart_toStartOf="@+id/viewBtnHome"
-            app:layout_constraintTop_toTopOf="@+id/viewBtnHome" />
+            app:layout_constraintTop_toTopOf="@+id/viewBtnHome"
+             />
 
         <Button
             android:id="@+id/btnMultiPlayerHome"
             android:layout_width="160dp"
             android:layout_height="80dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/buttons"
             android:drawableTop="@drawable/_646640_joysticks_multiplayer_players_two_videogames_icon"
             android:padding="8dp"
             android:text="MultiPlayer"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="normal"
+            app:cornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="@+id/viewBtnHome"
             app:layout_constraintEnd_toEndOf="@+id/viewBtnHome"
-            app:layout_constraintTop_toTopOf="@+id/viewBtnHome" />
+            app:layout_constraintTop_toTopOf="@+id/viewBtnHome"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewHome"

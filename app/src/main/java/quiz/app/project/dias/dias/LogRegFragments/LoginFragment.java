@@ -104,12 +104,14 @@ public class LoginFragment extends Fragment {
             executor.execute(() -> {
                 String hashedPassword = hashPassword(password);
                 User user = userDao.getUserByEmailAndPassword(email, hashedPassword);
-                userIdValue = user.getUserId();
-                if(userIdValue > 0) {
-                    UserCurrency existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userIdValue);
-                    if (existingUserCurrency == null) {
-                        UserCurrency newUserCurrency = new UserCurrency(userIdValue, 0);
-                        userCurrencyDao.insertCurrency(newUserCurrency);
+                if (user != null){
+                    userIdValue = user.getUserId();
+                    if(userIdValue > 0) {
+                        UserCurrency existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userIdValue);
+                        if (existingUserCurrency == null) {
+                            UserCurrency newUserCurrency = new UserCurrency(userIdValue, 0);
+                            userCurrencyDao.insertCurrency(newUserCurrency);
+                        }
                     }
                 }
                     // Create a handler associated with the main/UI thread

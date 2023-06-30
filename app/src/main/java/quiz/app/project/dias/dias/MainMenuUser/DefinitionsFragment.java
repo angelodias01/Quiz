@@ -44,10 +44,12 @@ public class DefinitionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_definitions, container, false);
+
         lblUsernameDefinitions = rootView.findViewById(R.id.lblUsernameDefinitions);
+        ImageButton btnLogout = rootView.findViewById(R.id.btnLogoutDefinitions);
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         userId = sharedPreferences.getInt("userId", 0);
-        ImageButton btnLogout = rootView.findViewById(R.id.btnLogoutDefinitions);
 
         if (userId != 0) {
             QuizDatabase quizDB = QuizDatabase.getInstance(requireContext());
@@ -58,8 +60,6 @@ public class DefinitionsFragment extends Fragment {
             if (user != null) {
                 String username = user.getUsername();
                 lblUsernameDefinitions.setText(username);
-            } else {
-                lblUsernameDefinitions.setText("Error Loading Username!");
             }
         }
         btnLogout.setOnClickListener(new View.OnClickListener() {

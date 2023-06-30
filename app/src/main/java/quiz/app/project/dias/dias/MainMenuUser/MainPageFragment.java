@@ -47,8 +47,10 @@ public class MainPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main_page, container, false);
+
         lblUsernameMainPage = rootView.findViewById(R.id.lblUsernameHome);
         lblCoinsHome = rootView.findViewById(R.id.lblCoinsHome);
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         userId = sharedPreferences.getInt("userId", 0);
 
@@ -64,8 +66,6 @@ public class MainPageFragment extends Fragment {
                 String username = user.getUsername();
                 lblUsernameMainPage.setText(username);
                 lblCoinsHome.setText(String.valueOf(existingUserCurrency.getAmount()));
-            } else {
-                lblUsernameMainPage.setText("Error Loading Username!");
             }
         }
         return rootView;

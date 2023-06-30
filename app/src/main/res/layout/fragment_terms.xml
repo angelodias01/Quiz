@@ -130,20 +130,22 @@
 
                     <Button
                         android:id="@+id/btnAccept"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="120dp"
+                        android:layout_height="60dp"
                         android:layout_marginTop="25dp"
                         android:layout_marginBottom="10dp"
-                        android:background="@drawable/buttons"
                         android:text="@string/accept"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         android:textStyle="bold"
+                        app:cornerRadius="25dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/textView8"
                         app:layout_constraintTop_toBottomOf="@+id/textView8"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="3dp"
                         tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
