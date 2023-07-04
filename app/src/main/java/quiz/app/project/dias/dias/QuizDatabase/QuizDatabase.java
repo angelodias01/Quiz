@@ -42,10 +42,15 @@ public abstract class QuizDatabase extends RoomDatabase {
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             super.onCreate(db);
                             //db.execSQL("INSERT INTO User VALUES ('admin', 'admin@gmail.com', 'admin')");
+                            //Exec to insert data in themes
+                            db.execSQL("INSERT INTO Theme VALUES (1, 'General Knowledge'),(2,'Random'),(3,'GeoGesser')");
+                            //Exec to insert data in Achievements
+                            db.execSQL("Insert into Achievements values (1,'First Login', 'This is the first achievment')");
                         }
                     })
                     .build();
         }
         return INSTANCE;
     }
+
 }

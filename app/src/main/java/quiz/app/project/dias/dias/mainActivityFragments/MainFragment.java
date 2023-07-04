@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.room.Room;
+
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import android.view.ViewGroup;
 
 import quiz.app.project.dias.dias.LogRegFragments.LogRegActivity;
 import quiz.app.project.dias.dias.MainMenuUser.MainMenuUser;
+import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
 import quiz.app.project.dias.dias.R;
 
 public class MainFragment extends Fragment {
@@ -65,7 +68,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Check if user has already accepted the terms
+        QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class,"QuizDatabase").build();
     }
 
     @Override
@@ -74,5 +77,6 @@ public class MainFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main, container, false);
+
     }
 }

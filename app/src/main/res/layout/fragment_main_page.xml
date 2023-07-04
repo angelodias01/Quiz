@@ -134,7 +134,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/buttons"
-            android:padding="8dp"
+            android:padding="20dp"
             android:scrollbars="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/btnMultiPlayerHome"
