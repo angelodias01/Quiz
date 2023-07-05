@@ -10,15 +10,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background" >
+        android:background="@color/background">
 
         <View
             android:id="@+id/viewUserScore"
             android:layout_width="0dp"
             android:layout_height="160dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/buttons"
             android:padding="20dp"
             android:paddingStart="20dp"
@@ -35,8 +35,8 @@
             android:id="@+id/lblUsernameScore"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/textbox"
             android:gravity="center"
@@ -102,9 +102,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            app:cornerRadius="25dp"
-            app:strokeColor="@color/black"
-            app:strokeWidth="3dp"
             android:clickable="false"
             android:drawableTop="@drawable/bxs_bar_chart_alt_2"
             android:padding="8dp"
@@ -112,11 +109,14 @@
             android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="normal"
+            app:cornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="@+id/viewBtnScore"
             app:layout_constraintEnd_toEndOf="@+id/viewBtnScore"
             app:layout_constraintStart_toStartOf="@+id/viewBtnScore"
             app:layout_constraintTop_toTopOf="@+id/viewBtnScore"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="1.0"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewHome"
@@ -127,9 +127,9 @@
             android:background="@drawable/buttons"
             android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/btnScore"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/btnScore"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnScore"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnScore"
             app:layout_constraintTop_toBottomOf="@+id/viewBtnScore"
             app:layout_constraintVertical_bias="0.0" />
 

@@ -15,9 +15,7 @@
             android:id="@+id/viewUserHome"
             android:layout_width="0dp"
             android:layout_height="160dp"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:background="@drawable/buttons"
             android:padding="20dp"
             android:paddingStart="20dp"
@@ -26,8 +24,8 @@
             android:paddingEnd="20dp"
             android:paddingRight="20dp"
             android:paddingBottom="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/recyclerViewHome"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnHome"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -67,7 +65,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/textbox"
             android:gravity="center"
             android:includeFontPadding="false"
@@ -84,17 +82,19 @@
             android:id="@+id/viewBtnHome"
             android:layout_width="0dp"
             android:layout_height="100dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/backbtnprofile"
-            app:layout_constraintEnd_toEndOf="@+id/viewUserHome"
-            app:layout_constraintStart_toStartOf="@+id/viewUserHome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/viewUserHome" />
 
         <Button
             android:id="@+id/btnSinglePlayerHome"
-            android:layout_width="160dp"
+            android:layout_width="150dp"
             android:layout_height="80dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="18dp"
             android:drawableTop="@drawable/_646622_console_controller_games_joystick_video_icon"
             android:padding="8dp"
             android:text="SinglePlayer"
@@ -102,18 +102,17 @@
             android:textSize="16sp"
             android:textStyle="normal"
             app:cornerRadius="25dp"
-            app:strokeColor="@color/black"
-            app:strokeWidth="3dp"
             app:layout_constraintBottom_toBottomOf="@+id/viewBtnHome"
             app:layout_constraintStart_toStartOf="@+id/viewBtnHome"
             app:layout_constraintTop_toTopOf="@+id/viewBtnHome"
-             />
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
 
         <Button
             android:id="@+id/btnMultiPlayerHome"
-            android:layout_width="160dp"
+            android:layout_width="150dp"
             android:layout_height="80dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="18dp"
             android:drawableTop="@drawable/_646640_joysticks_multiplayer_players_two_videogames_icon"
             android:padding="8dp"
             android:text="MultiPlayer"
@@ -137,8 +136,8 @@
             android:padding="20dp"
             android:scrollbars="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/btnMultiPlayerHome"
-            app:layout_constraintStart_toStartOf="@+id/btnSinglePlayerHome"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnHome"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnHome"
             app:layout_constraintTop_toBottomOf="@+id/viewBtnHome" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

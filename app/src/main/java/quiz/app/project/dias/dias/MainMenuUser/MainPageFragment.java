@@ -58,7 +58,7 @@ public class MainPageFragment extends Fragment{
         ThemeDao themeDao = db.getThemeDao();
 
         // Create an instance of the ChatAdapter and pass the necessary data
-        this.adapter = new MainPageAdapter(themeDao.getAllThemes());
+        this.adapter = new MainPageAdapter(themeDao.getThemes());
 
         // Create a LinearLayoutManager for the RecyclerView
         LinearLayoutManager layoutManager = new LinearLayoutManager(this.getContext());
@@ -74,9 +74,8 @@ public class MainPageFragment extends Fragment{
         userId = sharedPreferences.getInt("userId", 0);
 
         if (userId != 0) {
-            QuizDatabase quizDB = QuizDatabase.getInstance(requireContext());
-            UserDao userDao = quizDB.getUserDao();
-            UserCurrencyDao userCurrencyDao = quizDB.getUserCurrencyDao();
+            UserDao userDao = db.getUserDao();
+            UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
 
             User user = userDao.getUserById(userId);
             UserCurrency existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
