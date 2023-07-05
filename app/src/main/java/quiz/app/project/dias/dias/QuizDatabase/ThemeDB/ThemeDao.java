@@ -24,4 +24,7 @@ public interface ThemeDao {
 
     @Query("SELECT * FROM Theme WHERE themeId = :themeId")
     Theme getThemeById(int themeId);
+
+    @Query("SELECT * FROM Theme ORDER BY themeName ASC")
+    List<Theme> getThemes();
 }

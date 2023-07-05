@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.Theme;
@@ -23,7 +25,7 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
 
     @Override
     public int getItemViewType(int position) {
-        return themeList.size();
+        return 0;
     }
 
     @NonNull
@@ -38,7 +40,7 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
     @Override
     public void onBindViewHolder(@NonNull MainPageAdapter.MainPageViewHolder holder, int position) {
         Theme theme = themeList.get(position);
-        if (theme != null) {
+        if (getItemViewType(position) == 0){
             holder.lblTheme.setText(theme.getThemeName());
         }
     }
@@ -67,10 +69,16 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
         }
     }
 
-    public void refreshList(List<Theme> newThemeList, Context context) {
-        this.themeList = newThemeList;
+    public void refreshList(List<Theme> newThemeList) {
+        Collections.sort(newThemeList, new Comparator<Theme>() {
+            @Override
+            public int compare(Theme theme1, Theme theme2) {
+                return theme1.getThemeName().compareToIgnoreCase(theme2.getThemeName());
+            }
+        });
+
+        this.themeList.clear();
+        this.themeList.addAll(newThemeList);
         notifyDataSetChanged();
     }
 }
-
-
