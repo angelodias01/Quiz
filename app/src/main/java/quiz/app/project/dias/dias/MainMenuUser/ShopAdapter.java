@@ -64,7 +64,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
 
         public void bind(Shop shop) {
             lblName.setText(shop.getItemName());
-            lblPrice.setText(shop.getPrice()+"€");
+            lblPrice.setText(shop.getPrice()+"");
         }
     }
 

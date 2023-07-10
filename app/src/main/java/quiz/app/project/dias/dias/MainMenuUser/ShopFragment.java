@@ -59,8 +59,7 @@ public class ShopFragment extends Fragment {
         this.adapter = new ShopAdapter(shopDao.getItems());
 
         // Create a LinearLayoutManager for the RecyclerView
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this.getContext());
-
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         // Set the adapter and layout manager for the RecyclerView
         recyclerView.setAdapter(this.adapter);
         recyclerView.setLayoutManager(layoutManager);

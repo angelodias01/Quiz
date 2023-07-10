@@ -3,18 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="220dp"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
     android:layout_marginBottom="08dp"
     android:background="@drawable/backbtnprofile"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/merch" />
@@ -23,15 +26,14 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-30dp"
         android:text="Price:"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/lblName"
@@ -41,11 +43,12 @@
         android:text="Item"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="@+id/textView9"
         app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="@+id/textView9" />
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/lblPrice"
@@ -55,9 +58,20 @@
         android:text="Price"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lblPrice"
+        app:layout_constraintStart_toEndOf="@+id/lblPrice"
+        app:layout_constraintTop_toTopOf="@+id/lblPrice"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/pootiscoin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
