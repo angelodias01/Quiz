@@ -1,16 +1,11 @@
 package quiz.app.project.dias.dias.MainMenuUser;
 
-import static android.content.ContentValues.TAG;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,15 +13,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import quiz.app.project.dias.dias.QuizDatabase.AchievementUserDB.AchievementUser;
 import quiz.app.project.dias.dias.QuizDatabase.AchievementUserDB.AchievementUserDao;
-import quiz.app.project.dias.dias.QuizDatabase.AchievementsDB.AchievementsDao;
-import quiz.app.project.dias.dias.QuizDatabase.QuestionsDB.QuestionsDao;
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
-import quiz.app.project.dias.dias.QuizDatabase.ScoreDB.Score;
 import quiz.app.project.dias.dias.QuizDatabase.ScoreDB.ScoreDao;
-import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.ThemeDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrencyDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
@@ -133,12 +122,13 @@ public class DefinitionsFragment extends Fragment {
             public void onClick(View v) {
                 QuizDatabase quizDB = QuizDatabase.getInstance(requireContext());
                 UserDao userDao = quizDB.getUserDao();
+                //do a statistics table
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                 userId = sharedPreferences.getInt("userId", 0);
                 User user = userDao.getUserById(userId);
 
                 if (user != null) {
-
+                    Toast.makeText(requireContext(), "Statistics deleted", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -163,6 +153,7 @@ public class DefinitionsFragment extends Fragment {
                 }
             }
         });
+
         return rootView;
     }
 }
