@@ -27,4 +27,9 @@ public interface AchievementUserDao {
 
     @Query("SELECT * FROM AchievementsUser WHERE achievementId = :achievementId")
     List<AchievementUser> getAchievementUsersByAchievementId(int achievementId);
+    @Query("SELECT * FROM AchievementsUser WHERE userId = :userId")
+    AchievementUser getUserAchievementByUserId(int userId);
+
+    @Query("delete from AchievementsUser where userId = :userId")
+    void deleteAchievementsByUserId(int userId);
 }

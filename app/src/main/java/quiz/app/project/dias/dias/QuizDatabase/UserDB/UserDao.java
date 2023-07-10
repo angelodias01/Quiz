@@ -32,4 +32,6 @@ public interface UserDao {
     void updateAll(User user);
     @Delete
     void deleteAll(User user);
+    @Query("delete from User where userId = :userId")
+    void deleteUserById(int userId);
 }

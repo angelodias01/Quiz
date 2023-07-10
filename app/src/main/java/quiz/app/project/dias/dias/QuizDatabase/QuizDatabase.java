@@ -53,7 +53,7 @@ public abstract class QuizDatabase extends RoomDatabase {
                             db.execSQL("INSERT INTO Theme VALUES (6,'CS:GO','Cts')");
                             //Exec to insert data in Achievements
 
-                            db.execSQL("Insert into Achievements values (1,'First Login', 'You created ann account')");
+                            db.execSQL("Insert into Achievements values (1,'First Login', 'You created an account')");
                             db.execSQL("Insert into Achievements values (2,'The Beginning', 'Complete any quiz')");
                             db.execSQL("Insert into Achievements values (3,'Ding Ding Ding!', 'Complete a quiz with every question correctly answered')");
                             db.execSQL("Insert into Achievements values (4,'A Great Loser', 'Complete a quiz with no correct answers')");
@@ -85,7 +85,6 @@ public abstract class QuizDatabase extends RoomDatabase {
                             db.execSQL("Insert into Achievements values (22,'Next stop: Redshift', 'You cleared all Programming themed questions')");
                             db.execSQL("Insert into Achievements values (23,'Generalist', 'You cleared all General Knowledge themed questions')");
                             db.execSQL("Insert into Achievements values (24,'Sentence: Completed', 'You cleared all Complete the Sentence themed questions')");
-                            db.execSQL("Insert into Achievements values (1,'First Login', 'This is the first achievement')");
                             //Exec to insert data in Shop
                             db.execSQL("Insert into Shop values (1,'T-shirt Size S', 56)");
                             db.execSQL("Insert into Shop values (2,'T-shirt Size M',80)");

@@ -25,6 +25,9 @@ import android.widget.Toast;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import quiz.app.project.dias.dias.MainMenuUser.MainMenuUser;
+import quiz.app.project.dias.dias.QuizDatabase.AchievementUserDB.AchievementUser;
+import quiz.app.project.dias.dias.QuizDatabase.AchievementUserDB.AchievementUserDao;
+import quiz.app.project.dias.dias.QuizDatabase.AchievementsDB.AchievementsDao;
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
 import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrency;
 import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrencyDao;
@@ -81,6 +84,8 @@ public class LoginFragment extends Fragment {
         QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class,"QuizDatabase").build();
         UserDao userDao = db.getUserDao();
         UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
+        AchievementsDao achievementsDao = db.getAchievementsDao();
+        AchievementUserDao achievementUserDao = db.getAchievementUserDao();
         //----------------------------------------------------------------------------------------//
         //Event to advance on label click to the register fragment
         lblCreateOne.setOnClickListener(view1 -> {
@@ -99,7 +104,7 @@ public class LoginFragment extends Fragment {
         btnLogin.setOnClickListener(view12 -> {
             this.email = tbEmail.getText().toString();
             this.password = tbPassword.getText().toString();
-
+            long currentTimeMillis = System.currentTimeMillis();
             ExecutorService executor = Executors.newSingleThreadExecutor();
             executor.execute(() -> {
                 String hashedPassword = hashPassword(password);
@@ -111,6 +116,11 @@ public class LoginFragment extends Fragment {
                         if (existingUserCurrency == null) {
                             UserCurrency newUserCurrency = new UserCurrency(userIdValue, 0);
                             userCurrencyDao.insertCurrency(newUserCurrency);
+                        }
+                        AchievementUser existingUserAchievement = achievementUserDao.getUserAchievementByUserId(userIdValue);
+                        if (existingUserAchievement == null) {
+                            AchievementUser newAchievementUser = new AchievementUser(userIdValue, 1, currentTimeMillis);
+                            achievementUserDao.insertAchievementUser(newAchievementUser);
                         }
                     }
                 }
