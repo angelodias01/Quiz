@@ -90,10 +90,11 @@ public abstract class QuizDatabase extends RoomDatabase {
                             db.execSQL("Insert into Shop values (1,'T-shirt Size S', 56)");
                             db.execSQL("Insert into Shop values (2,'T-shirt Size M',80)");
                             db.execSQL("Insert into Shop values (3,'T-shirt Size L',96)");
+
                         }
                     }).build();
         }
         return INSTANCE;
     }
-
 }
+
