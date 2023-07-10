@@ -2,15 +2,11 @@ package quiz.app.project.dias.dias.MainMenuUser;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +48,7 @@ public class MainPageFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_main_page, container, false);
 
 
-        recyclerView = rootView.findViewById(R.id.recyclerViewHome);
+        recyclerView = rootView.findViewById(R.id.recyclerViewScore);
         // Get instances of the ChatDao and MessagesDao from the AppDatabase
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
         ThemeDao themeDao = db.getThemeDao();

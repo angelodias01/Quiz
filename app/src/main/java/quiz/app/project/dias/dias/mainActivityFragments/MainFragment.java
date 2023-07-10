@@ -16,7 +16,14 @@ import android.view.ViewGroup;
 
 import quiz.app.project.dias.dias.LogRegFragments.LogRegActivity;
 import quiz.app.project.dias.dias.MainMenuUser.MainMenuUser;
+import quiz.app.project.dias.dias.QuizDatabase.AchievementUserDB.AchievementUserDao;
+import quiz.app.project.dias.dias.QuizDatabase.AchievementsDB.AchievementsDao;
+import quiz.app.project.dias.dias.QuizDatabase.QuestionsDB.QuestionsDao;
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
+import quiz.app.project.dias.dias.QuizDatabase.ScoreDB.ScoreDao;
+import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.ThemeDao;
+import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrencyDao;
+import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 import quiz.app.project.dias.dias.R;
 
 public class MainFragment extends Fragment {
@@ -67,7 +74,16 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class,"QuizDatabase").build();
+        QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class, "QuizDatabase")
+                .build();
+        // Get the DAO instance
+        UserDao userDao = db.getUserDao();
+        ThemeDao themeDao = db.getThemeDao();
+        AchievementsDao achievementsDao = db.getAchievementsDao();
+        AchievementUserDao achievementUserDao = db.getAchievementUserDao();
+        ScoreDao scoreDao = db.getScoreDao();
+        QuestionsDao questionsDao = db.getQuestionsDao();
+        UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
     }
 
     @Override

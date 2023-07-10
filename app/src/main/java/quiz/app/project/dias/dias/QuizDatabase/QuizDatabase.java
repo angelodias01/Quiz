@@ -42,12 +42,12 @@ public abstract class QuizDatabase extends RoomDatabase {
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             super.onCreate(db);
                             //Exec to insert data in themes
-                            db.execSQL("INSERT INTO Theme VALUES (1, 'General Knowledge')");
-                            db.execSQL("INSERT INTO Theme VALUES (2, 'Team Fortress 2')");
-                            db.execSQL("INSERT INTO Theme VALUES (3, 'Programming')");
-                            db.execSQL("INSERT INTO Theme VALUES (4, 'CS:GO')");
-                            db.execSQL("INSERT INTO Theme VALUES (5, 'FNaF')");
-                            db.execSQL("INSERT INTO Theme VALUES (6, 'Complete the sentence')");
+                            db.execSQL("INSERT INTO Theme VALUES (1,'General Knowledge','GK')");
+                            db.execSQL("INSERT INTO Theme VALUES (2,'Team Fortress 2','TF2')");
+                            db.execSQL("INSERT INTO Theme VALUES (3,'Programming','Code')");
+                            db.execSQL("INSERT INTO Theme VALUES (4,'CS:GO','CS:GO')");
+                            db.execSQL("INSERT INTO Theme VALUES (5, \"Five Night's at Freddy's\", \"FNaF\")");
+                            db.execSQL("INSERT INTO Theme VALUES (6,'CS:GO','Cts')");
                             //Exec to insert data in Achievements
                             db.execSQL("Insert into Achievements values (1,'First Login', 'This is the first achievement')");
                         }
