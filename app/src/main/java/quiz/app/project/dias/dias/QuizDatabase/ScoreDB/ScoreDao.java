@@ -31,4 +31,7 @@ public interface ScoreDao {
     List<Score> getScoresByUserId(int userId);
     @Query("SELECT * FROM Score WHERE userId = :userId")
     List<Score> getScores(int userId);
+
+    @Query("delete from Score where userId = :userId")
+    void deleteScoresByUserId(int userId);
 }

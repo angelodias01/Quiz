@@ -30,4 +30,6 @@ public interface UserCurrencyDao {
 
     @Query("SELECT * FROM UserCurrency WHERE userId = :userId")
     List<UserCurrency> getCurrenciesByUserId(int userId);
+    @Query("update UserCurrency set amount = 0 where userId = :userId")
+    void updateValue(int userId);
 }
