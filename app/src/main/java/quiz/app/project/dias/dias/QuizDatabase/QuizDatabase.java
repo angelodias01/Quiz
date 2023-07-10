@@ -24,11 +24,51 @@ public abstract class QuizDatabase extends RoomDatabase {
                         @Override
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             super.onCreate(db);
-                            //db.execSQL("INSERT INTO User VALUES (\"admin\", \"admin@gmail.com\", \"admin\")");
+                            //Exec to insert data in themes
+                            db.execSQL("INSERT INTO Theme VALUES (1,'General Knowledge','GK')");
+                            db.execSQL("INSERT INTO Theme VALUES (2,'Team Fortress 2','TF2')");
+                            db.execSQL("INSERT INTO Theme VALUES (3,'Programming','Code')");
+                            db.execSQL("INSERT INTO Theme VALUES (4,'CS:GO','CS:GO')");
+                            db.execSQL("INSERT INTO Theme VALUES (5, \"Five Night's at Freddy's\", \"FNaF\")");
+                            db.execSQL("INSERT INTO Theme VALUES (6,'CS:GO','Cts')");
+                            //Exec to insert data in Achievements
+                            db.execSQL("Insert into Achievements values (1,'First Login', 'You created ann account')");
+                            db.execSQL("Insert into Achievements values (2,'The Beginning', 'Complete any quiz')");
+                            db.execSQL("Insert into Achievements values (3,'Ding Ding Ding!', 'Complete a quiz with every question correctly answered')");
+                            db.execSQL("Insert into Achievements values (4,'A Great Loser', 'Complete a quiz with no correct answers')");
+                            db.execSQL("Insert into Achievements values (5,'Pootis enjoyer', 'You got 7/7 in a TF2 themed quiz')");
+                            //Estes dos sem erros deve ser difícil fazer, podemos cagar só tu é que sabes
+                            db.execSQL("Insert into Achievements values (6,'Tough Mind', 'Get a winning-streak on 3 quizzes with no mistakes')");
+                            db.execSQL("Insert into Achievements values (7,'A.I.', 'Get a winning-streak on 10 quizzes with no mistakes')");
+                            //"Pootis Penser Here!" pode ser tipo uma cena escondida, seja botão letra ou o caneco e deve ser fácil de fazer
+                            db.execSQL("Insert into Achievements values (8,'Pootis Penser Here!', 'You clicked somewhere heavy wanted!')");
+                            //"101 Questions" não sei se damos track ás perguntas que ele já fez, qlq caga-se pra este
+                            db.execSQL("Insert into Achievements values (9,'101 Questions', 'You went trought 101 questions. Simple')");
+                            //"Medic!" e "Weekly Challenger" era com a cena das ajudas e com os desafios semanais que falamos no início, nao sei se vamos ter isso
+                            db.execSQL("Insert into Achievements values (10,'Medic!', 'You got assisted in a question')");
+                            db.execSQL("Insert into Achievements values (11,'Weekly Challenger', 'You won the weekly challenge')");
+                            db.execSQL("Insert into Achievements values (12,'Well Played', 'You got 50 correct questions')");
+                            //estes das moedas não sei se vale a pena ter
+                            db.execSQL("Insert into Achievements values (13,'The Investor', 'You collected 100 coins')");
+                            db.execSQL("Insert into Achievements values (14,'Smart Investment', 'You wasted 110 coins')");
+                            //Quizzes jogados
+                            db.execSQL("Insert into Achievements values (15,'High 5 player', 'You played 5 quizzes')");
+                            db.execSQL("Insert into Achievements values (16,'Gimme 10!', 'You played 10 quizzes')");
+                            db.execSQL("Insert into Achievements values (17,'Down and give me 20!', 'You played 20 quizzes')");
+                            db.execSQL("Insert into Achievements values (18,'101 reasons to...', 'You played 101 quizzes')");
+                            //temas "acabados", que já passou pelas perguntas todas (basta ser tipo o gajo fez 12 de um tema e ganha isto
+                            db.execSQL("Insert into Achievements values (19,'Heavy wants this!', 'You cleared all TF2 themed questions')");
+                            db.execSQL("Insert into Achievements values (20,'I am planting the bomb', 'You cleared all CS:GO themed questions')");
+                            db.execSQL("Insert into Achievements values (21,'Deploying Freddy Fazbear', 'You cleared all FNaF themed questions')");
+                            //literalmente o nome da empresa do professor (pra dar gracha pra ires pra lá estagiar porque DINHEIRO
+                            db.execSQL("Insert into Achievements values (22,'Next stop: Redshift', 'You cleared all Programming themed questions')");
+                            db.execSQL("Insert into Achievements values (23,'Generalist', 'You cleared all General Knowledge themed questions')");
+                            db.execSQL("Insert into Achievements values (24,'Sentence: Completed', 'You cleared all Complete the Sentence themed questions')");
                         }
                     })
                     .build();
         }
         return INSTANCE;
     }
+
 }

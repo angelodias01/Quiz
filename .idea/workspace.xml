@@ -14,29 +14,26 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="update on roomDB">
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+    <list default="true" id="73ce4c54-e1e1-4c79-ad3e-35e2ae4147b0" name="Changes" comment="updates on fragments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/LogRegActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/LogRegActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/LoginFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/LoginFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/RegisterFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/LogRegFragments/RegisterFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/MainMenuUser/MainPageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/MainMenuUser/MainPageAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/MainMenuUser/MainPageFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/MainMenuUser/MainPageFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/QuizDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/QuizDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/UsersDB/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/UserDB/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/UsersDB/UsersAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/UserDB/UserAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/UsersDB/UsersDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/UserDB/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/ThemeDB/ThemeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/QuizDatabase/ThemeDB/ThemeDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/MainFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/mainActivityFragments/MainFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_definitions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_definitions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_page.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_score.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_score.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_shop.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_shop.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/themes_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/themes_item.xml" afterDir="false" />
     </list>
-=======
-    <list default="true" id="e41bbb07-daba-4186-83d6-672f868aa860" name="Changes" comment="updates na base de dados para as conquistas do utilizador e para os temas adicionados" />
->>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Angelo Dias\.android\avd\Copy_of_Pixel.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Angelo Dias\.android\avd\Copy_of_Pixel_6_Pro_API_28.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -83,20 +80,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="valueResourceFile" />
+        <option value="navigationResourceFile" />
         <option value="resourceFile" />
-        <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
-  </component>
-  <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="Fragments" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Fragments" />
+        <entry key="$PROJECT_DIR$" value="navbar" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -105,16 +101,19 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2NIiwpQeaCcTBevXM6sIyygsUFx" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;DEBUGGABLE_DEVICE&quot;: &quot;Pixel [emulator-5554]&quot;,
+    &quot;DEBUGGABLE_DEVICE&quot;: &quot;Copy_of_Copy_of_Pixel [emulator-5556]&quot;,
     &quot;DEBUGGABLE_PROCESS&quot;: &quot;quiz.app.project.dias.dias&quot;,
     &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
     &quot;PROJECT_TRUSTED_KEY&quot;: &quot;true&quot;,
@@ -124,24 +123,25 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
     &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;android-custom-viewC:/Users/Angelo Dias/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED&quot;: &quot;RecyclerView&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/Angelo Dias/Documents/GitHub/Test/Quiz/app/src/main/res/layout&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Angelo Dias/Downloads/RecyclerViewWithRoomv2/RecyclerViewExample&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Build Variants&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;recommended.upgrade.last.time.stamp&quot;: &quot;1680191496769&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;application.passwordSafe&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;com.android.tools.idea.sqlite.queryhistory&quot;: [
-      &quot;Insert into User Values(\&quot;:username,:email, :password,:isAdmin\&quot;)&quot;,
-      &quot;Insert into User Values(\\\&quot;:username,:email, :password,:isAdmin\\\&quot;)&quot;,
-      &quot;insert into User values(1, 'admin','admin@gmail.com', 'admin', 1)&quot;,
-      &quot;INSERT INTO Users VALUES (1, 'admin', 'admin@admin.com','admin', 1);&quot;,
-      &quot;INSERT INTO Users VALUES (1, 'admin', 'admin@admin.com','admin', 1)&quot;
+      &quot;INSERT INTO Theme VALUES (4, 'sdfsdfsdf'),(5,'Rsdfsdff'),(6,'Gesdfsdfsdfsser'),(7,'Gesdfsdfsdfsser'),(8,'Gesdfsdfsdfsser'),(9,'Gesdfsdfsdfsser')&quot;,
+      &quot;delete from theme \n&quot;,
+      &quot;INSERT INTO Theme VALUES (1, 'General Knowledge'),(2,'Random'),(3,'GeoGesser')&quot;,
+      &quot;delete from usercurrency&quot;,
+      &quot;INSERT INTO User VALUES ( 'admin', 'admin@gmail.com', 'admin', 1)&quot;
     ]
   }
 }</component>
@@ -152,11 +152,17 @@
     <key name="android.template.-1108566859">
       <recent name="quiz.app.project.dias.dias" />
     </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="quiz.app.project.dias.dias.MainMenuUser" />
+    </key>
     <key name="android.template.207149325">
       <recent name="quiz.app.project.dias.dias" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Angelo Dias\Documents\GitHub\Test\Quiz\app\src\main\res\drawable" />
+    </key>
+    <key name="android.template.65560689">
+      <recent name="quiz.app.project.dias.dias" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Angelo Dias\Documents\GitHub\Test\Quiz\app\src\main\java\quiz\app\project\dias\dias\QuizDatabase" />
@@ -248,216 +254,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679358241017</updated>
-    </task>
-    <task id="LOCAL-00021" summary="update on layouts">
-      <created>1681403413441</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1681403413441</updated>
-    </task>
-    <task id="LOCAL-00022" summary="update on layouts">
-      <created>1681466231773</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1681466231773</updated>
-    </task>
-    <task id="LOCAL-00023" summary="update on layouts">
-      <created>1681820442403</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1681820442403</updated>
-    </task>
-    <task id="LOCAL-00024" summary="update on layouts">
-      <created>1681832189875</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1681832189875</updated>
-    </task>
-    <task id="LOCAL-00025" summary="update on layouts">
-      <created>1681832910646</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1681832910646</updated>
-    </task>
-    <task id="LOCAL-00026" summary="update on layouts">
-      <created>1681833816327</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1681833816327</updated>
-    </task>
-    <task id="LOCAL-00027" summary="update on fragments">
-      <created>1681909806324</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1681909806324</updated>
-    </task>
-    <task id="LOCAL-00028" summary="update on fragments">
-      <created>1681909983911</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1681909983911</updated>
-    </task>
-    <task id="LOCAL-00029" summary="update on fragments">
-      <created>1681912862834</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1681912862834</updated>
-    </task>
-    <task id="LOCAL-00030" summary="update on fragments">
-      <created>1681913480010</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1681913480010</updated>
-    </task>
-    <task id="LOCAL-00031" summary="update on fragments">
-      <created>1681914106513</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1681914106513</updated>
-    </task>
-    <task id="LOCAL-00032" summary="update on fragments">
-      <created>1681918267169</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1681918267169</updated>
-    </task>
-    <task id="LOCAL-00033" summary="update on fragments">
-      <created>1681992605015</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1681992605015</updated>
-    </task>
-    <task id="LOCAL-00034" summary="update on fragments">
-      <created>1681992652039</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1681992652039</updated>
-    </task>
-    <task id="LOCAL-00035" summary="update on fragments">
-      <created>1681994604088</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1681994604088</updated>
-    </task>
-    <task id="LOCAL-00036" summary="update on fragments">
-      <created>1681996868520</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1681996868520</updated>
-    </task>
-    <task id="LOCAL-00037" summary="update on fragments">
-      <created>1681998655983</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1681998655983</updated>
-    </task>
-    <task id="LOCAL-00038" summary="update on fragments">
-      <created>1682341621102</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1682341621102</updated>
-    </task>
-    <task id="LOCAL-00039" summary="update on fragments">
-      <created>1682341778872</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1682341778872</updated>
-    </task>
-    <task id="LOCAL-00040" summary="update on fragments">
-      <created>1682346446182</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1682346446182</updated>
-    </task>
-    <task id="LOCAL-00041" summary="update on fragments">
-      <created>1682347816128</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1682347816128</updated>
-    </task>
-    <task id="LOCAL-00042" summary="update on fragments">
-      <created>1682349394250</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1682349394250</updated>
-    </task>
-    <task id="LOCAL-00043" summary="update on fragments">
-      <created>1682522476667</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1682522476667</updated>
-    </task>
-    <task id="LOCAL-00044" summary="update on fragments">
-      <created>1682522974219</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1682522974219</updated>
-    </task>
-    <task id="LOCAL-00045" summary="update on fragments">
-      <created>1682525971580</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1682525971580</updated>
-    </task>
-    <task id="LOCAL-00046" summary="update on fragments">
-      <created>1682526009840</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1682526009840</updated>
-    </task>
-    <task id="LOCAL-00047" summary="update on fragments">
-      <created>1682531832819</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1682531832819</updated>
-    </task>
-    <task id="LOCAL-00048" summary="update on fragments">
-      <created>1682581970213</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1682581970213</updated>
-    </task>
-    <task id="LOCAL-00049" summary="update on fragments">
-      <created>1682592290248</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1682592290248</updated>
-    </task>
-    <task id="LOCAL-00050" summary="update on fragments">
-      <created>1682593277605</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1682593277605</updated>
     </task>
     <task id="LOCAL-00051" summary="update on fragments">
       <created>1682593617200</created>
@@ -592,7 +388,217 @@
       <option name="project" value="LOCAL" />
       <updated>1683719121420</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="update on roomDB">
+      <created>1683734603457</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1683734603458</updated>
+    </task>
+    <task id="LOCAL-00071" summary="update on roomDB">
+      <created>1683735454723</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1683735454723</updated>
+    </task>
+    <task id="LOCAL-00072" summary="update on roomDB">
+      <created>1683739944065</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1683739944065</updated>
+    </task>
+    <task id="LOCAL-00073" summary="update on roomDB">
+      <created>1683800152921</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1683800152921</updated>
+    </task>
+    <task id="LOCAL-00074" summary="update on roomDB">
+      <created>1683801893250</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1683801893250</updated>
+    </task>
+    <task id="LOCAL-00075" summary="update on roomDB">
+      <created>1683805174999</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1683805175000</updated>
+    </task>
+    <task id="LOCAL-00076" summary="update on roomDB">
+      <created>1683825862396</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1683825862396</updated>
+    </task>
+    <task id="LOCAL-00077" summary="update on roomDB">
+      <created>1683888828969</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1683888828969</updated>
+    </task>
+    <task id="LOCAL-00078" summary="update on roomDB">
+      <created>1683894028517</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1683894028518</updated>
+    </task>
+    <task id="LOCAL-00079" summary="update on roomDB">
+      <created>1684154303836</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1684154303836</updated>
+    </task>
+    <task id="LOCAL-00080" summary="update on roomDB">
+      <created>1687173123817</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1687173123817</updated>
+    </task>
+    <task id="LOCAL-00081" summary="update on roomDB">
+      <created>1687173639316</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1687173639316</updated>
+    </task>
+    <task id="LOCAL-00082" summary="update on roomDB">
+      <created>1687173803738</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1687173803738</updated>
+    </task>
+    <task id="LOCAL-00083" summary="update on roomDB">
+      <created>1687179893521</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1687179893522</updated>
+    </task>
+    <task id="LOCAL-00084" summary="update on roomDB">
+      <created>1687180870494</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1687180870494</updated>
+    </task>
+    <task id="LOCAL-00085" summary="update on roomDB">
+      <created>1687181278003</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1687181278003</updated>
+    </task>
+    <task id="LOCAL-00086" summary="update on roomDB">
+      <created>1687183419278</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1687183419278</updated>
+    </task>
+    <task id="LOCAL-00087" summary="update on roomDB">
+      <created>1687188808652</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1687188808652</updated>
+    </task>
+    <task id="LOCAL-00088" summary="final update on login terms and register fragments.">
+      <created>1687349757690</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1687349757691</updated>
+    </task>
+    <task id="LOCAL-00089" summary="navbar">
+      <created>1687545201001</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1687545201001</updated>
+    </task>
+    <task id="LOCAL-00090" summary="navbar">
+      <created>1687555436042</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1687555436042</updated>
+    </task>
+    <task id="LOCAL-00091" summary="fragment profile">
+      <created>1687557847034</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1687557847034</updated>
+    </task>
+    <task id="LOCAL-00092" summary="fragment profile">
+      <created>1687630875889</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1687630875889</updated>
+    </task>
+    <task id="LOCAL-00093" summary="updates on fragments">
+      <created>1687633641107</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1687633641107</updated>
+    </task>
+    <task id="LOCAL-00094" summary="updates on fragments">
+      <created>1687707250917</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1687707250917</updated>
+    </task>
+    <task id="LOCAL-00095" summary="updates on fragments">
+      <created>1688066677461</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1688066677463</updated>
+    </task>
+    <task id="LOCAL-00096" summary="updates on fragments">
+      <created>1688067077642</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1688067077642</updated>
+    </task>
+    <task id="LOCAL-00097" summary="updates on fragments">
+      <created>1688075593475</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1688075593475</updated>
+    </task>
+    <task id="LOCAL-00098" summary="updates on fragments">
+      <created>1688153672553</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1688153672554</updated>
+    </task>
+    <task id="LOCAL-00099" summary="updates on fragments">
+      <created>1688494794765</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1688494794766</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -627,6 +633,11 @@
     <MESSAGE value="update on layouts" />
     <MESSAGE value="update on fragments" />
     <MESSAGE value="update on roomDB" />
-    <option name="LAST_COMMIT_MESSAGE" value="update on roomDB" />
+    <MESSAGE value="final update on login terms and register fragments." />
+    <MESSAGE value="second final update on login terms and register fragments." />
+    <MESSAGE value="navbar" />
+    <MESSAGE value="fragment profile" />
+    <MESSAGE value="updates on fragments" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates on fragments" />
   </component>
 </project>
