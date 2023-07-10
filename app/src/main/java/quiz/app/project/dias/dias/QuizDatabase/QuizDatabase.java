@@ -99,5 +99,3 @@ public abstract class QuizDatabase extends RoomDatabase {
     }
 }
 
-}
-
