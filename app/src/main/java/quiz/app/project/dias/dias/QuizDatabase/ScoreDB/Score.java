@@ -7,27 +7,47 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.Theme;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
-
-@Entity(tableName = "Score", foreignKeys = @ForeignKey(entity = User.class, parentColumns = "userId", childColumns = "userId"),
-        indices = {@Index("userId")})
+@Entity(
+        tableName = "Score",
+        foreignKeys = {
+                @ForeignKey(entity = User.class, parentColumns = "userId", childColumns = "userId"),
+                @ForeignKey(entity = Theme.class, parentColumns = "themeId", childColumns = "themeId", onDelete = ForeignKey.CASCADE)
+        },
+        indices = {
+                @Index("userId"),
+                @Index("themeId")
+        }
+)
 public class Score {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "scoreId")
     @NonNull
     private int scoreId;
+
     @NonNull
     @ColumnInfo(name = "score")
     private int score;
+
     @NonNull
     @ColumnInfo(name = "userId")
-    private int userid;
+    private int userId;
 
-    public Score(int scoreId, int score, int userid) {
+    @NonNull
+    @ColumnInfo(name = "themeId")
+    private int themeId;
+
+    private long date;
+
+    public Score(int scoreId, int score, int userId, int themeId, long date) {
         this.scoreId = scoreId;
         this.score = score;
-        this.userid = userid;
+        this.userId = userId;
+        this.themeId = themeId;
+        this.date = date;
     }
+
     public int getScoreId() {
         return scoreId;
     }
@@ -44,11 +64,25 @@ public class Score {
         this.score = score;
     }
 
-    public int getUserid() {
-        return userid;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getThemeId() {
+        return themeId;
+    }
+
+    public void setThemeId(int themeId) {
+        this.themeId = themeId;
+    }
+    public long getDate() {
+        return date;
+    }
+    public void setDate(long date) {
+        this.date = date;
     }
 }

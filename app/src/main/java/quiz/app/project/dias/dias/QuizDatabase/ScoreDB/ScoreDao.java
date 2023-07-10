@@ -29,4 +29,6 @@ public interface ScoreDao {
 
     @Query("SELECT * FROM Score WHERE userId = :userId")
     List<Score> getScoresByUserId(int userId);
+    @Query("SELECT * FROM Score WHERE userId = :userId")
+    List<Score> getScores(int userId);
 }

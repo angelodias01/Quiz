@@ -87,19 +87,19 @@
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:layout_marginTop="60dp"
             android:autofillHints=""
-            app:cornerRadius="25dp"
-            app:strokeColor="@color/black"
-            app:strokeWidth="3dp"
             android:text="@string/sign_up_btn"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
+            app:cornerRadius="25dp"
             app:layout_constraintEnd_toEndOf="@+id/tbPassword"
             app:layout_constraintStart_toStartOf="@+id/tbPassword"
             app:layout_constraintTop_toBottomOf="@+id/tbPassword"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp"
             tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
         <TextView
