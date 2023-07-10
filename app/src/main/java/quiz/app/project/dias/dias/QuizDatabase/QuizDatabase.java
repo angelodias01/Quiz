@@ -13,6 +13,8 @@ import quiz.app.project.dias.dias.QuizDatabase.AchievementsDB.Achievements;
 import quiz.app.project.dias.dias.QuizDatabase.AchievementsDB.AchievementsDao;
 import quiz.app.project.dias.dias.QuizDatabase.QuestionsDB.Questions;
 import quiz.app.project.dias.dias.QuizDatabase.QuestionsDB.QuestionsDao;
+import quiz.app.project.dias.dias.QuizDatabase.ShopDB.Shop;
+import quiz.app.project.dias.dias.QuizDatabase.ShopDB.ShopDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrency;
 import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrencyDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
@@ -23,7 +25,7 @@ import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.Theme;
 import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.ThemeDao;
 
 
-@Database(entities = {User.class, UserCurrency.class, Theme.class, Score.class, Questions.class, Achievements.class, AchievementUser.class}, version = 1, exportSchema = false)
+@Database(entities = {User.class, UserCurrency.class, Theme.class, Score.class, Questions.class, Achievements.class, AchievementUser.class, Shop.class}, version = 1, exportSchema = false)
 public abstract class QuizDatabase extends RoomDatabase {
     private static QuizDatabase INSTANCE;
     public abstract UserDao getUserDao();
@@ -33,6 +35,7 @@ public abstract class QuizDatabase extends RoomDatabase {
     public abstract AchievementsDao getAchievementsDao();
     public abstract AchievementUserDao getAchievementUserDao();
     public abstract UserCurrencyDao getUserCurrencyDao();
+    public abstract ShopDao getShopDao();
     public static QuizDatabase getInstance(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
@@ -50,6 +53,10 @@ public abstract class QuizDatabase extends RoomDatabase {
                             db.execSQL("INSERT INTO Theme VALUES (6,'CS:GO','Cts')");
                             //Exec to insert data in Achievements
                             db.execSQL("Insert into Achievements values (1,'First Login', 'This is the first achievement')");
+                            //Exec to insert data in Shop
+                            db.execSQL("Insert into Shop values (1,'T-shirt Size S', 56)");
+                            db.execSQL("Insert into Shop values (2,'T-shirt Size M',80)");
+                            db.execSQL("Insert into Shop values (3,'T-shirt Size L',96)");
                         }
                     })
                     .build();

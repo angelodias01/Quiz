@@ -48,7 +48,7 @@ public class MainPageFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_main_page, container, false);
 
 
-        recyclerView = rootView.findViewById(R.id.recyclerViewScore);
+        recyclerView = rootView.findViewById(R.id.recyclerViewShop);
         // Get instances of the ChatDao and MessagesDao from the AppDatabase
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
         ThemeDao themeDao = db.getThemeDao();

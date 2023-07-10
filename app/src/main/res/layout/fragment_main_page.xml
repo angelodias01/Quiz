@@ -24,7 +24,7 @@
             android:paddingEnd="20dp"
             android:paddingRight="20dp"
             android:paddingBottom="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/recyclerViewScore"
+            app:layout_constraintEnd_toEndOf="@+id/recyclerViewShop"
             app:layout_constraintStart_toStartOf="@+id/viewBtnHome"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,6 +99,7 @@
             android:padding="8dp"
             android:text="SinglePlayer"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="normal"
             app:cornerRadius="25dp"
@@ -117,6 +118,7 @@
             android:padding="8dp"
             android:text="MultiPlayer"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="normal"
             app:cornerRadius="25dp"
@@ -127,7 +129,7 @@
             app:strokeWidth="3dp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewScore"
+            android:id="@+id/recyclerViewShop"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
