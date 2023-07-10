@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.room.Room;
 
@@ -21,6 +20,7 @@ import quiz.app.project.dias.dias.QuizDatabase.AchievementsDB.AchievementsDao;
 import quiz.app.project.dias.dias.QuizDatabase.QuestionsDB.QuestionsDao;
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
 import quiz.app.project.dias.dias.QuizDatabase.ScoreDB.ScoreDao;
+import quiz.app.project.dias.dias.QuizDatabase.ShopDB.ShopDao;
 import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.ThemeDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrencyDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
@@ -84,6 +84,7 @@ public class MainFragment extends Fragment {
         ScoreDao scoreDao = db.getScoreDao();
         QuestionsDao questionsDao = db.getQuestionsDao();
         UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
+        ShopDao shopDao = db.getShopDao();
     }
 
     @Override

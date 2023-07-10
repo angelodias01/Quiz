@@ -4,10 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
-import quiz.app.project.dias.dias.QuizDatabase.ScoreDB.Score;
 import quiz.app.project.dias.dias.QuizDatabase.ScoreDB.ScoreDao;
 import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.ThemeDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
@@ -59,7 +56,7 @@ public class ScoreFragment extends Fragment {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         userId = sharedPreferences.getInt("userId", 0);
 
-        recyclerView = rootView.findViewById(R.id.recyclerViewScore);
+        recyclerView = rootView.findViewById(R.id.recyclerViewShop);
         // Get instances of the ChatDao and MessagesDao from the AppDatabase
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
         ScoreDao scoreDao = db.getScoreDao();

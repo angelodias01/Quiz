@@ -1,9 +1,12 @@
 package quiz.app.project.dias.dias.MainMenuUser;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -12,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
+import quiz.app.project.dias.dias.QuizDatabase.ShopDB.ShopDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrency;
 import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrencyDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
@@ -21,6 +25,9 @@ import quiz.app.project.dias.dias.R;
 public class ShopFragment extends Fragment {
     private int userId;
     TextView lblUsernameShop , lblCoinsShop;
+    private LinearLayoutManager layoutManager;
+    private RecyclerView recyclerView;
+    private ShopAdapter adapter;
 
     public ShopFragment() {
         // Required empty public constructor
@@ -38,10 +45,25 @@ public class ShopFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_shop, container, false);
+
+        recyclerView = rootView.findViewById(R.id.recyclerViewShop);
+        // Get instances of the ChatDao and MessagesDao from the AppDatabase
+        QuizDatabase db = QuizDatabase.getInstance(this.getContext());
+        ShopDao shopDao = db.getShopDao();
+
+        this.adapter = new ShopAdapter(shopDao.getItems());
+
+        // Create a LinearLayoutManager for the RecyclerView
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this.getContext());
+
+        // Set the adapter and layout manager for the RecyclerView
+        recyclerView.setAdapter(this.adapter);
+        recyclerView.setLayoutManager(layoutManager);
 
         lblUsernameShop = rootView.findViewById(R.id.lblUsernameShop);
         lblCoinsShop = rootView.findViewById(R.id.lblCoinsShop);

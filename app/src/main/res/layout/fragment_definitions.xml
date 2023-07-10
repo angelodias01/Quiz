@@ -72,7 +72,7 @@
             android:text="@string/username"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="@+id/viewUserDefinitions"
             app:layout_constraintEnd_toEndOf="@+id/btnLogoutDefinitions"
@@ -134,9 +134,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            app:cornerRadius="25dp"
-            app:strokeColor="@color/black"
-            app:strokeWidth="3dp"
             android:clickable="false"
             android:drawableLeft="@drawable/bxs_folder_minus"
             android:drawableRight="@drawable/bxs_folder_minus"
@@ -144,13 +141,17 @@
             android:paddingRight="40dp"
             android:text="Delete Scores"
             android:textAlignment="center"
-            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
             android:textStyle="normal"
+            app:cornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="@+id/viewBtnScoresDefinitions"
             app:layout_constraintEnd_toEndOf="@+id/viewBtnScoresDefinitions"
             app:layout_constraintStart_toStartOf="@+id/viewBtnScoresDefinitions"
             app:layout_constraintTop_toTopOf="@+id/viewBtnScoresDefinitions"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="1.0"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
 
         <Button
             android:id="@+id/btnDeleteAchievementsDefinitions"
@@ -160,9 +161,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            app:cornerRadius="25dp"
-            app:strokeColor="@color/black"
-            app:strokeWidth="3dp"
             android:clickable="false"
             android:drawableLeft="@drawable/bxs_folder_minus"
             android:drawableRight="@drawable/bxs_folder_minus"
@@ -170,12 +168,16 @@
             android:paddingRight="34dp"
             android:text="Delete Achievements"
             android:textAlignment="center"
-            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:cornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="@+id/viewBtnAchievementsDefinitions"
             app:layout_constraintEnd_toEndOf="@+id/viewBtnScoresDefinitions"
             app:layout_constraintStart_toStartOf="@+id/viewBtnScoresDefinitions"
             app:layout_constraintTop_toTopOf="@+id/viewBtnAchievementsDefinitions"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="1.0"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
 
         <Button
             android:id="@+id/btnDeleteStatisticsDefinitions"
@@ -185,9 +187,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            app:cornerRadius="25dp"
-            app:strokeColor="@color/black"
-            app:strokeWidth="3dp"
             android:clickable="false"
             android:drawableLeft="@drawable/bxs_folder_minus"
             android:drawableRight="@drawable/bxs_folder_minus"
@@ -195,13 +194,17 @@
             android:paddingRight="40dp"
             android:text="Delete Statistics"
             android:textAlignment="center"
-            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
             android:textStyle="normal"
+            app:cornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="@+id/viewBtnStatisticsDefinitions"
             app:layout_constraintEnd_toEndOf="@+id/viewBtnStatisticsDefinitions"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/viewBtnStatisticsDefinitions"
-            app:layout_constraintTop_toTopOf="@+id/viewBtnStatisticsDefinitions" />
+            app:layout_constraintTop_toTopOf="@+id/viewBtnStatisticsDefinitions"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
 
         <Button
             android:id="@+id/btnDeleteAllDefinitions"
@@ -211,9 +214,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            app:cornerRadius="25dp"
-            app:strokeColor="@color/black"
-            app:strokeWidth="3dp"
             android:clickable="false"
             android:drawableLeft="@drawable/bxs_folder_minus"
             android:drawableRight="@drawable/bxs_folder_minus"
@@ -221,13 +221,17 @@
             android:paddingRight="40dp"
             android:text="Delete All Data"
             android:textAlignment="center"
-            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
             android:textStyle="normal"
+            app:cornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="@+id/viewBtnDeleteAllDefinitions"
             app:layout_constraintEnd_toEndOf="@+id/viewBtnScoresDefinitions"
             app:layout_constraintStart_toStartOf="@+id/viewBtnScoresDefinitions"
             app:layout_constraintTop_toTopOf="@+id/viewBtnDeleteAllDefinitions"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="1.0"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
 
         <ImageButton
             android:id="@+id/btnLogoutDefinitions"
@@ -239,6 +243,7 @@
             android:padding="5dp"
             android:scaleType="centerInside"
             android:src="@drawable/_030313_sign_out_ui_basic_logout_app_user_interface_icon"
+            android:tint="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/viewUserDefinitions"
             app:layout_constraintTop_toTopOf="@+id/viewUserDefinitions"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
