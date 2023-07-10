@@ -1,64 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".MainMenuUser.MainMenuUser" >
+    android:background="@color/background">
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/main_navigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
+        app:itemBackground="@color/background"
+        app:itemIconTint="@color/selector_bottom_nav_icon_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/background"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="40dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:background="@drawable/ic_email"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="40dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:background="@drawable/ic_person"
-                tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="40dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:background="@drawable/ic_email"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="40dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:background="@drawable/ic_exit"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="40dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:background="@drawable/ic_lock"
-                tools:ignore="SpeakableTextPresentCheck" />
-        </LinearLayout>
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>

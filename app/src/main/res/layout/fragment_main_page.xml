@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainMenuUser.MainPageFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <View
+            android:id="@+id/viewUserHome"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/buttons"
+            android:padding="20dp"
+            android:paddingStart="20dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/recyclerViewShop"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnHome"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewPictureHome"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/image"
+            android:padding="15dp"
+            android:src="@drawable/hector"
+            app:layout_constraintStart_toStartOf="@+id/viewUserHome"
+            app:layout_constraintTop_toTopOf="@+id/viewUserHome" />
+
+        <TextView
+            android:id="@+id/lblCoinsHome"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/coinsback"
+            android:drawableStart="@drawable/pootiscoin"
+            android:duplicateParentState="false"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:padding="8dp"
+            android:text="2500"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserHome"
+            app:layout_constraintTop_toTopOf="@+id/viewUserHome" />
+
+        <TextView
+            android:id="@+id/lblUsernameHome"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/textbox"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/username"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/viewUserHome"
+            app:layout_constraintEnd_toEndOf="@+id/lblCoinsHome"
+            app:layout_constraintStart_toStartOf="@+id/imageViewPictureHome" />
+
+        <View
+            android:id="@+id/viewBtnHome"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/backbtnprofile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewUserHome" />
+
+        <Button
+            android:id="@+id/btnSinglePlayerHome"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="18dp"
+            android:drawableTop="@drawable/_646622_console_controller_games_joystick_video_icon"
+            android:padding="8dp"
+            android:text="SinglePlayer"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:cornerRadius="25dp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnHome"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnHome"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnHome"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
+
+        <Button
+            android:id="@+id/btnMultiPlayerHome"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="18dp"
+            android:drawableTop="@drawable/_646640_joysticks_multiplayer_players_two_videogames_icon"
+            android:padding="8dp"
+            android:text="MultiPlayer"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:cornerRadius="25dp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnHome"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnHome"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnHome"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewShop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/buttons"
+            android:padding="20dp"
+            android:scrollbars="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnHome"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnHome"
+            app:layout_constraintTop_toBottomOf="@+id/viewBtnHome" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -20,15 +20,11 @@ public class User {
     @NonNull
     @ColumnInfo(name = "password")
     private String password;
-    @NonNull
-    @ColumnInfo(name = "isAdmin")
-    private boolean isAdmin;
 
-    public User(String username, String email, String password, boolean isAdmin) {
+    public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.isAdmin = isAdmin;
     }
 
     public int getUserId() {
@@ -47,10 +43,6 @@ public class User {
         return password;
     }
 
-    public Boolean isAdmin() {
-        return isAdmin;
-    }
-
     public void setUserId(int userId) {
         this.userId = userId;
     }
@@ -67,7 +59,4 @@ public class User {
         this.password = password;
     }
 
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
 }

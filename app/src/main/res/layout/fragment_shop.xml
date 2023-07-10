@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainMenuUser.ShopFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background" >
+
+        <View
+            android:id="@+id/viewUserShop"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/buttons"
+            android:padding="20dp"
+            android:paddingStart="20dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lblUsernameShop"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/textbox"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingLeft="5dp"
+            android:text="@string/username"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/viewUserShop"
+            app:layout_constraintEnd_toEndOf="@+id/lblCoinsShop"
+            app:layout_constraintStart_toStartOf="@+id/imageViewShop" />
+
+        <ImageView
+            android:id="@+id/imageViewShop"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:adjustViewBounds="false"
+            android:background="@drawable/image"
+            android:cropToPadding="false"
+            android:padding="25dp"
+            android:src="@drawable/bxs_user__1_"
+            app:layout_constraintBottom_toBottomOf="@+id/viewUserShop"
+            app:layout_constraintStart_toStartOf="@+id/viewUserShop"
+            app:layout_constraintTop_toTopOf="@+id/viewUserShop"
+            app:layout_constraintVertical_bias="0.08"
+            tools:srcCompat="@drawable/hector" />
+
+        <ImageView
+            android:id="@+id/imageViewPictureShop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/hector"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewShop"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewShop"
+            app:layout_constraintStart_toStartOf="@+id/imageViewShop"
+            app:layout_constraintTop_toTopOf="@+id/imageViewShop" />
+
+        <TextView
+            android:id="@+id/lblCoinsShop"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/coinsback"
+            android:drawableStart="@drawable/pootiscoin"
+            android:duplicateParentState="false"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:padding="8dp"
+            android:text="2500"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserShop"
+            app:layout_constraintTop_toTopOf="@+id/viewUserShop" />
+
+        <View
+            android:id="@+id/viewBtnShop"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/backbtnprofile"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/viewUserShop"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/viewUserShop"
+            app:layout_constraintTop_toBottomOf="@+id/viewUserShop" />
+
+        <Button
+            android:id="@+id/btnMerchShop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:clickable="false"
+            android:drawableLeft="@drawable/bxs_package"
+            android:drawableRight="@drawable/bxs_package"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="Buy Our Merch"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:cornerRadius="25dp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnShop"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnShop"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnShop"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnShop"
+            app:layout_constraintVertical_bias="1.0"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewShop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/buttons"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnShop"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnShop"
+            app:layout_constraintTop_toBottomOf="@+id/viewBtnShop"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

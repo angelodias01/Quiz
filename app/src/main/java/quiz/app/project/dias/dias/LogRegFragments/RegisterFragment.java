@@ -1,6 +1,7 @@
 package quiz.app.project.dias.dias.LogRegFragments;
 
-import android.app.ActivityOptions;
+import static quiz.app.project.dias.dias.LogRegFragments.Hash.hashPassword;
+
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -9,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
-
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
@@ -23,9 +23,9 @@ import android.widget.Toast;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import quiz.app.project.dias.dias.MainMenuUser.MainMenuUser;
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
+import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrency;
+import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrencyDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 import quiz.app.project.dias.dias.R;
@@ -78,7 +78,7 @@ public class RegisterFragment extends Fragment {
         //Database code
         QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class,"QuizDatabase").build();
         UserDao userDao = db.getUserDao();
-        //----------------------------------------------------------------------------------------//
+        UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
         //----------------------------------------------------------------------------------------//
         textView.setOnClickListener(view1 -> {
             fragmentManager = getParentFragmentManager();
@@ -98,6 +98,7 @@ public class RegisterFragment extends Fragment {
             insertedEmail = tbEmail.getText().toString();
             insertedPassword = tbPassword.getText().toString();
             ExecutorService executor = Executors.newSingleThreadExecutor();
+            User existingUser = QuizDatabase.getInstance(getContext()).getUserDao().getUserByEmail(insertedEmail);
             executor.execute(() -> {
                 // Create a handler associated with the main/UI thread
                 Handler handlers = new Handler(Looper.getMainLooper());
@@ -119,11 +120,18 @@ public class RegisterFragment extends Fragment {
                         if (!isValidEmail(tbEmail.getText().toString())){
                             tbEmail.setError("Invalid email address!");
                             tbEmail.requestFocus();
-                        }else{
+                        }else if (existingUser != null) { // Check if email exists in the database
+                            // Email already exists
+                            Toast.makeText(getActivity(), "Email already exists!", Toast.LENGTH_SHORT).show();
+                            tbEmail.setError("Email already exists!");
+                            tbEmail.requestFocus();
+                        } else {
                             Toast.makeText(getActivity(), "Account Created!",
                                     Toast.LENGTH_SHORT).show();
-                            User newUser = new User(insertedUsername,insertedEmail,insertedPassword,false);
+                            String hashedInputPassword = hashPassword(insertedPassword);
+                            User newUser = new User(insertedUsername,insertedEmail,hashedInputPassword);
                             QuizDatabase.getInstance(this.getContext()).getUserDao().insertAll(newUser);
+                            executor.shutdown();
                             fragmentManager = getParentFragmentManager();
                             fragmentManager.beginTransaction()
                                     .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
