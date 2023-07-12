@@ -22,5 +22,5 @@
     <item
         android:id="@+id/definitionsFragment"
         android:icon="@drawable/bxs_cog__1_"
-        android:title="Definitions" />
+        android:title="Settings" />
 </menu>

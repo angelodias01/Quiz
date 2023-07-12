@@ -92,9 +92,10 @@
 
         <Button
             android:id="@+id/btnSinglePlayerHome"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="18dp"
+            android:layout_marginEnd="5dp"
             android:drawableTop="@drawable/_646622_console_controller_games_joystick_video_icon"
             android:padding="8dp"
             android:text="SinglePlayer"
@@ -104,6 +105,7 @@
             android:textStyle="normal"
             app:cornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="@+id/viewBtnHome"
+            app:layout_constraintEnd_toStartOf="@+id/textView10"
             app:layout_constraintStart_toStartOf="@+id/viewBtnHome"
             app:layout_constraintTop_toTopOf="@+id/viewBtnHome"
             app:strokeColor="@color/black"
@@ -111,8 +113,9 @@
 
         <Button
             android:id="@+id/btnMultiPlayerHome"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_marginStart="5dp"
             android:layout_marginEnd="18dp"
             android:drawableTop="@drawable/_646640_joysticks_multiplayer_players_two_videogames_icon"
             android:padding="8dp"
@@ -124,6 +127,7 @@
             app:cornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="@+id/viewBtnHome"
             app:layout_constraintEnd_toEndOf="@+id/viewBtnHome"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
             app:layout_constraintTop_toTopOf="@+id/viewBtnHome"
             app:strokeColor="@color/black"
             app:strokeWidth="3dp" />
@@ -141,6 +145,15 @@
             app:layout_constraintEnd_toEndOf="@+id/viewBtnHome"
             app:layout_constraintStart_toStartOf="@+id/viewBtnHome"
             app:layout_constraintTop_toBottomOf="@+id/viewBtnHome" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnHome"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnHome"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnHome"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnHome" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
