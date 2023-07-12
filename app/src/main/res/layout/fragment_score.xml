@@ -76,7 +76,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/hector"
+            android:src="@drawable/bxs_user__1_"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewScore"
             app:layout_constraintEnd_toEndOf="@+id/imageViewScore"
             app:layout_constraintStart_toStartOf="@+id/imageViewScore"
@@ -169,7 +169,7 @@
             app:strokeWidth="3dp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewShop"
+            android:id="@+id/recyclerViewProfile"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"

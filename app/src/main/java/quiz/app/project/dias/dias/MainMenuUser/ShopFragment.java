@@ -51,7 +51,7 @@ public class ShopFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_shop, container, false);
 
-        recyclerView = rootView.findViewById(R.id.recyclerViewShop);
+        recyclerView = rootView.findViewById(R.id.recyclerViewProfile);
         // Get instances of the ChatDao and MessagesDao from the AppDatabase
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
         ShopDao shopDao = db.getShopDao();

@@ -10,7 +10,9 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
 import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.ThemeDao;
@@ -23,6 +25,7 @@ import quiz.app.project.dias.dias.R;
 public class MainPageFragment extends Fragment{
     TextView lblUsernameMainPage;
     TextView lblCoinsHome;
+    Button btnMultiplayer;
     private int userId;
     private LinearLayoutManager layoutManager;
     private RecyclerView recyclerView;
@@ -46,9 +49,9 @@ public class MainPageFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main_page, container, false);
+        btnMultiplayer = rootView.findViewById(R.id.btnMultiPlayerHome);
 
-
-        recyclerView = rootView.findViewById(R.id.recyclerViewShop);
+        recyclerView = rootView.findViewById(R.id.recyclerViewProfile);
         // Get instances of the ChatDao and MessagesDao from the AppDatabase
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
         ThemeDao themeDao = db.getThemeDao();
@@ -82,6 +85,13 @@ public class MainPageFragment extends Fragment{
                 lblCoinsHome.setText(String.valueOf(existingUserCurrency.getAmount()));
             }
         }
+        btnMultiplayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Multiplayer is not available yet", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return rootView;
     }
 }

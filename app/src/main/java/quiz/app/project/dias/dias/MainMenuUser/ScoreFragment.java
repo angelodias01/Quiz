@@ -56,7 +56,7 @@ public class ScoreFragment extends Fragment {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         userId = sharedPreferences.getInt("userId", 0);
 
-        recyclerView = rootView.findViewById(R.id.recyclerViewShop);
+        recyclerView = rootView.findViewById(R.id.recyclerViewProfile);
         // Get instances of the ChatDao and MessagesDao from the AppDatabase
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
         ScoreDao scoreDao = db.getScoreDao();
