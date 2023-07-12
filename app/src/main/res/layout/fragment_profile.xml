@@ -45,9 +45,10 @@
 
         <Button
             android:id="@+id/btnAchievementsProfile"
-            android:layout_width="160dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="12dp"
+            android:layout_marginEnd="5dp"
             android:drawableTop="@drawable/bxs_medal"
             android:padding="8dp"
             android:text="Achievements"
@@ -57,6 +58,7 @@
             android:textStyle="normal"
             app:cornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="@+id/viewBtnProfile"
+            app:layout_constraintEnd_toStartOf="@+id/textView11"
             app:layout_constraintStart_toStartOf="@+id/viewBtnProfile"
             app:layout_constraintTop_toTopOf="@+id/viewBtnProfile"
             app:strokeColor="@color/black"
@@ -64,8 +66,9 @@
 
         <Button
             android:id="@+id/btnStatisticsProfile"
-            android:layout_width="160dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_marginStart="5dp"
             android:layout_marginEnd="12dp"
             android:drawableTop="@drawable/bxs_bar_chart_alt_2"
             android:padding="8dp"
@@ -77,6 +80,7 @@
             app:cornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="@+id/viewBtnProfile"
             app:layout_constraintEnd_toEndOf="@+id/viewBtnProfile"
+            app:layout_constraintStart_toEndOf="@+id/btnAchievementsProfile"
             app:layout_constraintTop_toTopOf="@+id/viewBtnProfile"
             app:strokeColor="@color/black"
             app:strokeWidth="3dp" />
@@ -164,6 +168,15 @@
             app:layout_constraintEnd_toEndOf="@+id/viewBtnProfile"
             app:layout_constraintStart_toStartOf="@+id/viewBtnProfile"
             app:layout_constraintTop_toBottomOf="@+id/viewBtnProfile" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBtnProfile"
+            app:layout_constraintEnd_toEndOf="@+id/viewBtnProfile"
+            app:layout_constraintStart_toStartOf="@+id/viewBtnProfile"
+            app:layout_constraintTop_toTopOf="@+id/viewBtnProfile" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
