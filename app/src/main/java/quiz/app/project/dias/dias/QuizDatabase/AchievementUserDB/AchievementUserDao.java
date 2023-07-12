@@ -8,6 +8,8 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import quiz.app.project.dias.dias.QuizDatabase.AchievementsDB.Achievements;
+
 @Dao
 public interface AchievementUserDao {
     @Insert
@@ -32,4 +34,5 @@ public interface AchievementUserDao {
 
     @Query("delete from AchievementsUser where userId = :userId")
     void deleteAchievementsByUserId(int userId);
+
 }

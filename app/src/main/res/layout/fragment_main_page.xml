@@ -24,7 +24,7 @@
             android:paddingEnd="20dp"
             android:paddingRight="20dp"
             android:paddingBottom="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/recyclerViewShop"
+            app:layout_constraintEnd_toEndOf="@+id/recyclerViewProfile"
             app:layout_constraintStart_toStartOf="@+id/viewBtnHome"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,7 +36,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/image"
             android:padding="15dp"
-            android:src="@drawable/hector"
+            android:src="@drawable/bxs_user__1_"
             app:layout_constraintStart_toStartOf="@+id/viewUserHome"
             app:layout_constraintTop_toTopOf="@+id/viewUserHome" />
 
@@ -129,7 +129,7 @@
             app:strokeWidth="3dp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewShop"
+            android:id="@+id/recyclerViewProfile"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"

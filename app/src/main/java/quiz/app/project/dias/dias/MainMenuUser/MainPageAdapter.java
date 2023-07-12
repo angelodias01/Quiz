@@ -65,7 +65,7 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
             super(rootView);
             this.context = context;
             this.rootView = rootView;
-            this.lblTheme = this.rootView.findViewById(R.id.lblTheme);
+            this.lblTheme = this.rootView.findViewById(R.id.lblAchievement);
         }
     }
 
