@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lblDescription" />
 
     <TextView
-        android:id="@+id/lblAchievement2"
+        android:id="@+id/lblAchievementShow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -88,6 +88,6 @@
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lblAchievement2" />
+        app:layout_constraintTop_toTopOf="@+id/lblAchievementShow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

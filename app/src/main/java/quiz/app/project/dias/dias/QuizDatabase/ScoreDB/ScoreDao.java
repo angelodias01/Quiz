@@ -34,4 +34,5 @@ public interface ScoreDao {
 
     @Query("delete from Score where userId = :userId")
     void deleteScoresByUserId(int userId);
+
 }

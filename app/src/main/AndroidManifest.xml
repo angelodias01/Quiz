@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Quiz"
         tools:targetApi="31">
         <activity
+            android:name=".MainMenuUser.QuizPlay.QuizActivity"
+            android:exported="false" />
+        <activity
             android:name=".LogRegFragments.LogRegActivity"
             android:exported="false" />
         <activity

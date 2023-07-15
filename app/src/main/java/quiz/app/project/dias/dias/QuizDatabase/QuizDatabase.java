@@ -89,6 +89,45 @@ public abstract class QuizDatabase extends RoomDatabase {
                             db.execSQL("Insert into Shop values (2,'T-shirt Size M',80)");
                             db.execSQL("Insert into Shop values (3,'T-shirt Size L',96)");
 
+                            db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
+                                    "('What is the most played CS:GO map?', 4, 'Dust 2', 'Mirage', 'Inferno', 'Nuke')");
+
+                            db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
+                                    "('Which weapon has the highest price in CS:GO?', 4, 'AWP', 'M4A4', 'AK-47', 'SCAR-20')");
+
+                            db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
+                                    "('What is the maximum number of players on a CS:GO competitive team?', 4, '5', '4', '6', '7')");
+
+                            db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
+                                    "('What is the name of the terrorist group in CS:GO?', 4, 'Phoenix Connexion', 'Elite Crew', 'Guerrilla Warfare', 'Separatists')");
+
+                            db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
+                                    "('Which CS:GO operation introduced the battle royale mode?', 4, 'Danger Zone', 'Shattered Web', 'Operation Hydra', 'Operation Wildfire')");
+
+                            db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
+                                    "('Which team won the CS:GO Major Championship in 2019?', 4, 'Astralis', 'Liquid', 'Fnatic', 'NaVi')");
+
+                            db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
+                                    "('What is the name of the CS:GO knife with a tiger tooth pattern?', 4, 'Karambit', 'Butterfly Knife', 'M9 Bayonet', 'Gut Knife')");
+                            // Add questions for the General Knowledge theme
+                            db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
+                                    "('What is the capital of France?', 1, 'Paris', 'Rome', 'Madrid', 'London')");
+
+// Add questions for the Team Fortress 2 theme
+                            db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
+                                    "('Which class in TF2 can build sentry guns?', 2, 'Engineer', 'Medic', 'Pyro', 'Spy')");
+
+// Add questions for the Programming theme
+                            db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
+                                    "('What is the most popular programming language?', 3, 'Java', 'Python', 'C++', 'JavaScript')");
+
+// Add questions for the Five Night's at Freddy's theme
+                            db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
+                                    "('Who is the main animatronic character in FNaF?', 5, 'Freddy Fazbear', 'Chica', 'Bonnie', 'Foxx')");
+
+// Add questions for the Complete The Sentence theme
+                            db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
+                                    "('The quick brown __ jumps over the lazy dog.', 6, 'Fox', 'Cat', 'Dog', 'Bird')");
                         }
                     }).build();
         }

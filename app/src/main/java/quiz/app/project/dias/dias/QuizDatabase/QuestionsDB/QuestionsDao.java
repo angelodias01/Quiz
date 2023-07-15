@@ -24,4 +24,6 @@ public interface QuestionsDao {
 
     @Query("SELECT * FROM Questions WHERE questionsId = :questionsId")
     Questions getQuestionById(int questionsId);
+    @Query("SELECT * FROM Questions WHERE themeId = :themeId")
+    List<Questions> getQuestionsByThemeId(int themeId);
 }

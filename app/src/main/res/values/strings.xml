@@ -33,4 +33,6 @@
     <string name="profile_fragment_label">\n</string>
     <string name="score_fragment_label" />
     <string name="main_page_fragment_label" />
+    <string name="theme_text">Theme: %s</string>
+    <string name="score_text">Score: %1$d</string>
 </resources>
