@@ -1,4 +1,6 @@
 package quiz.app.project.dias.dias.MainMenuUser;
+
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -14,7 +16,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
+import quiz.app.project.dias.dias.MainMenuUser.MainPageAdapter;
+import quiz.app.project.dias.dias.MainMenuUser.QuizPlay.QuizActivity;
+import quiz.app.project.dias.dias.QuizDatabase.AchievementsDB.Achievements;
+import quiz.app.project.dias.dias.QuizDatabase.AchievementsDB.AchievementsDao;
 import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
+import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.Theme;
 import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.ThemeDao;
 import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrency;
 import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrencyDao;
@@ -22,14 +31,15 @@ import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 import quiz.app.project.dias.dias.R;
 
-public class MainPageFragment extends Fragment{
+public class MainPageFragment extends Fragment {
     TextView lblUsernameMainPage;
     TextView lblCoinsHome;
     Button btnMultiplayer;
     private int userId;
     private LinearLayoutManager layoutManager;
     private RecyclerView recyclerView;
-    private MainPageAdapter adapter;// Get a reference to the RecyclerView in the layout
+    private MainPageAdapter adapter;
+
 
     public MainPageFragment() {
         // Required empty public constructor
@@ -48,21 +58,21 @@ public class MainPageFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_main_page, container, false);
         btnMultiplayer = rootView.findViewById(R.id.btnMultiPlayerHome);
 
         recyclerView = rootView.findViewById(R.id.recyclerViewProfile);
-        // Get instances of the ChatDao and MessagesDao from the AppDatabase
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
         ThemeDao themeDao = db.getThemeDao();
+        AchievementsDao achievementDao = db.getAchievementsDao(); // Get the AchievementDao
 
-        // Create an instance of the ChatAdapter and pass the necessary data
-        this.adapter = new MainPageAdapter(themeDao.getThemes());
+        List<Theme>themeList = themeDao.getThemes();
+        List<Achievements> achievementList = achievementDao.getAllAchievements(); // Retrieve the list of achievements
 
-        // Create a LinearLayoutManager for the RecyclerView
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this.getContext());
+        this.adapter = new MainPageAdapter(themeList, achievementList, getContext()); // Pass the achievementList to the adapter
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
 
-        // Set the adapter and layout manager for the RecyclerView
         recyclerView.setAdapter(this.adapter);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -88,7 +98,7 @@ public class MainPageFragment extends Fragment{
         btnMultiplayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Multiplayer is not available yet", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Multiplayer is not available yet", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -34,14 +34,12 @@ public class Score {
     @ColumnInfo(name = "userId")
     private int userId;
 
-    @NonNull
     @ColumnInfo(name = "themeId")
     private int themeId;
 
     private long date;
 
-    public Score(int scoreId, int score, int userId, int themeId, long date) {
-        this.scoreId = scoreId;
+    public Score( int score, int userId, int themeId, long date) {
         this.score = score;
         this.userId = userId;
         this.themeId = themeId;

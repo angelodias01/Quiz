@@ -51,8 +51,8 @@ public class LoginFragment extends Fragment {
     public LoginFragment newInstance(String insertedEmail, String insertedPassword) {
         LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
-        args.putString(insertedEmail, fragment.restoreEmail);
-        args.putString(insertedPassword, fragment.restorePassword);
+        args.putString("restoreEmail", insertedEmail);
+        args.putString("restorePassword", insertedPassword);
         fragment.setArguments(args);
         return fragment;
     }
@@ -61,8 +61,8 @@ public class LoginFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            email = getArguments().getString(restoreEmail);
-            password = getArguments().getString(restorePassword);
+            restoreEmail = getArguments().getString("restoreEmail");
+            restorePassword = getArguments().getString("restorePassword");
         }
     }
 
@@ -86,6 +86,7 @@ public class LoginFragment extends Fragment {
         UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
         AchievementsDao achievementsDao = db.getAchievementsDao();
         AchievementUserDao achievementUserDao = db.getAchievementUserDao();
+
         //----------------------------------------------------------------------------------------//
         //Event to advance on label click to the register fragment
         lblCreateOne.setOnClickListener(view1 -> {

@@ -3,7 +3,13 @@ package quiz.app.project.dias.dias.QuizDatabase.QuestionsDB;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
+
+import quiz.app.project.dias.dias.QuizDatabase.AchievementsDB.Achievements;
+import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.Theme;
+import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
 
 @Entity(tableName = "Questions")
 public class Questions {
@@ -11,6 +17,10 @@ public class Questions {
     @ColumnInfo(name = "questionsId")
     @NonNull
     private int questionsId;
+
+    @ColumnInfo(name = "themeId")
+    private int themeId;
+
 
     @NonNull
     @ColumnInfo(name = "questionsText")
@@ -32,12 +42,21 @@ public class Questions {
     @ColumnInfo(name = "wrongAnswer3")
     private String wrongAnswer3;
 
-    public Questions(@NonNull String questionsText, @NonNull String correctAnswer, @NonNull String wrongAnswer1, @NonNull String wrongAnswer2, @NonNull String wrongAnswer3) {
+    public Questions(int themeId,@NonNull String questionsText, @NonNull String correctAnswer, @NonNull String wrongAnswer1, @NonNull String wrongAnswer2, @NonNull String wrongAnswer3) {
+        this.themeId = themeId;
         this.questionsText = questionsText;
         this.correctAnswer = correctAnswer;
         this.wrongAnswer1 = wrongAnswer1;
         this.wrongAnswer2 = wrongAnswer2;
         this.wrongAnswer3 = wrongAnswer3;
+    }
+
+    public int getThemeId() {
+        return themeId;
+    }
+
+    public void setThemeId(int themeId) {
+        this.themeId = themeId;
     }
 
     public int getQuestionsId() {
