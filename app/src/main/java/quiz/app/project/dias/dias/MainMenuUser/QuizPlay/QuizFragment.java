@@ -1,5 +1,9 @@
 package quiz.app.project.dias.dias.MainMenuUser.QuizPlay;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -27,6 +31,7 @@ import quiz.app.project.dias.dias.R;
 public class QuizFragment extends Fragment {
 
     private static final String ARG_QUESTION_ID = "questionId";
+    private static final String ARG_QUESTIONS_LIST = "questionsList";
 
     private int questionId;
     private Questions question;
@@ -35,16 +40,20 @@ public class QuizFragment extends Fragment {
     private TextView textViewQuestion;
     private RadioGroup radioGroupAnswers;
     private Button buttonNext;
+    private Button buttonPrevious;
+    private List<Questions> questionsList;
+
 
     public QuizFragment() {
         // Required empty public constructor
     }
 
-    public static QuizFragment newInstance(int questionId) {
+    public static QuizFragment newInstance(List<Questions> questionsList, int questionId) {
         QuizFragment fragment = new QuizFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_QUESTION_ID, questionId);
         fragment.setArguments(args);
+        fragment.questionsList = questionsList;
         return fragment;
     }
 
@@ -69,10 +78,12 @@ public class QuizFragment extends Fragment {
         textViewQuestion = view.findViewById(R.id.textViewQuestion);
         radioGroupAnswers = view.findViewById(R.id.radioGroupAnswers);
         buttonNext = view.findViewById(R.id.buttonNext);
+        buttonPrevious = view.findViewById(R.id.buttonPrevious);
 
         loadQuestion();
 
         buttonNext.setOnClickListener(v -> onButtonNextClicked());
+        buttonPrevious.setOnClickListener(v -> onButtonPreviousClicked());
     }
 
     private void loadQuestion() {
@@ -106,6 +117,8 @@ public class QuizFragment extends Fragment {
             for (RadioButton radioButton : radioButtons) {
                 radioGroupAnswers.addView(radioButton);
             }
+
+            updateButtonVisibility();
         } else {
             // Handle error, question is null
             Toast.makeText(getContext(), "Error: No question found", Toast.LENGTH_SHORT).show();
@@ -122,5 +135,86 @@ public class QuizFragment extends Fragment {
         } else {
             Toast.makeText(getContext(), "Please select an answer", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void onButtonPreviousClicked() {
+        int previousQuestionId = getPreviousQuestionId(questionId);
+        if (previousQuestionId != -1) {
+            replaceWithQuestion(previousQuestionId);
+        }
+    }
+
+    private int getPreviousQuestionId(int currentQuestionId) {
+        int previousQuestionId = -1;
+        int currentQuestionIndex = -1;
+
+        for (int i = 0; i < questionsList.size(); i++) {
+            Questions question = questionsList.get(i);
+            if (question.getQuestionsId() == currentQuestionId) {
+                currentQuestionIndex = i;
+                break;
+            }
+        }
+
+        if (currentQuestionIndex > 0) {
+            Questions previousQuestion = questionsList.get(currentQuestionIndex - 1);
+            previousQuestionId = previousQuestion.getQuestionsId();
+        }
+
+        return previousQuestionId;
+    }
+
+    private int getNextQuestionId(int currentQuestionId) {
+        int nextQuestionId = -1;
+        int currentQuestionIndex = -1;
+
+        for (int i = 0; i < questionsList.size(); i++) {
+            Questions question = questionsList.get(i);
+            if (question.getQuestionsId() == currentQuestionId) {
+                currentQuestionIndex = i;
+                break;
+            }
+        }
+
+        if (currentQuestionIndex < questionsList.size() - 1) {
+            Questions nextQuestion = questionsList.get(currentQuestionIndex + 1);
+            nextQuestionId = nextQuestion.getQuestionsId();
+        }
+
+        return nextQuestionId;
+    }
+
+    private void updateButtonVisibility() {
+        int previousQuestionId = getPreviousQuestionId(questionId);
+        if (previousQuestionId == -1) {
+            buttonPrevious.setVisibility(View.INVISIBLE);
+        } else {
+            buttonPrevious.setVisibility(View.VISIBLE);
+        }
+
+        if (isLastQuestion()) {
+            buttonNext.setText("Finish");
+        } else {
+            buttonNext.setText("Next");
+        }
+    }
+
+    private boolean isLastQuestion() {
+        int currentQuestionIndex = -1;
+        for (int i = 0; i < questionsList.size(); i++) {
+            Questions question = questionsList.get(i);
+            if (question.getQuestionsId() == questionId) {
+                currentQuestionIndex = i;
+                break;
+            }
+        }
+        return currentQuestionIndex == questionsList.size() - 1;
+    }
+
+    private void replaceWithQuestion(int questionId) {
+        QuizFragment fragment = QuizFragment.newInstance(questionsList, questionId);
+        FragmentTransaction fragmentTransaction = requireFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
     }
 }
