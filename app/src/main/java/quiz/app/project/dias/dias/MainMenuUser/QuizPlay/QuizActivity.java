@@ -1,11 +1,9 @@
-// QuizActivity.java
 package quiz.app.project.dias.dias.MainMenuUser.QuizPlay;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -68,7 +66,7 @@ public class QuizActivity extends AppCompatActivity {
     private void startQuiz() {
         if (currentQuestionIndex < questionsList.size()) {
             int questionId = questionsList.get(currentQuestionIndex).getQuestionsId();
-            QuizFragment fragment = QuizFragment.newInstance(questionId);
+            QuizFragment fragment = QuizFragment.newInstance( questionsList, questionId);
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
@@ -95,10 +93,16 @@ public class QuizActivity extends AppCompatActivity {
         quizDatabase.getScoreDao().insertScore(scoreEntity);
 
         // Replace the existing fragment with the QuizCompleteFragment
-        Fragment fragment = FragmentQuizComplete.newInstance(score, themeId, theme.getThemeName());
+        Fragment fragment = QuizCompleteFragment.newInstance(score, themeId, theme.getThemeName());
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
     }
 
+    private void replaceWithQuestion(int questionId) {
+        QuizFragment fragment = QuizFragment.newInstance(questionsList, questionId);
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
 }

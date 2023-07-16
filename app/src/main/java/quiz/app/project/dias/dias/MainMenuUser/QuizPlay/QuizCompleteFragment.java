@@ -1,14 +1,13 @@
 package quiz.app.project.dias.dias.MainMenuUser.QuizPlay;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +15,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import quiz.app.project.dias.dias.MainMenuUser.MainMenuUser;
-import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
-import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.Theme;
 import quiz.app.project.dias.dias.R;
 
-public class FragmentQuizComplete extends Fragment {
+public class QuizCompleteFragment extends Fragment {
 
     private static final String ARG_SCORE = "score";
     private static final String ARG_THEME_ID = "themeId";
@@ -31,12 +28,12 @@ public class FragmentQuizComplete extends Fragment {
     private String themeName;
     private Button buttonFinish;
 
-    public FragmentQuizComplete() {
+    public QuizCompleteFragment() {
         // Required empty public constructor
     }
 
-    public static FragmentQuizComplete newInstance(int score, int themeId, String themeName) {
-        FragmentQuizComplete fragment = new FragmentQuizComplete();
+    public static QuizCompleteFragment newInstance(int score, int themeId, String themeName) {
+        QuizCompleteFragment fragment = new QuizCompleteFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SCORE, score);
         args.putInt(ARG_THEME_ID, themeId);
@@ -61,6 +58,7 @@ public class FragmentQuizComplete extends Fragment {
         return inflater.inflate(R.layout.fragment_quiz_complete, container, false);
     }
 
+    @SuppressLint("StringFormatMatches")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -70,8 +68,9 @@ public class FragmentQuizComplete extends Fragment {
         TextView textViewScore = view.findViewById(R.id.textViewScore);
 
         if (themeName != null) {
-            textViewTheme.setText(themeName);
-            textViewScore.setText(getString(R.string.score_text, score));
+            textViewTheme.setText("You finished a "+themeName+" quiz!");
+           // textViewScore.setText(getString(R.string.score_text, "You got a "+score+" out of 7, well done!"));
+            textViewScore.setText("You got a "+score+" out of 7, well done!");
         } else {
             // Handle error, theme name not found
             textViewTheme.setText(getString(R.string.theme_text, "Unknown Theme"));

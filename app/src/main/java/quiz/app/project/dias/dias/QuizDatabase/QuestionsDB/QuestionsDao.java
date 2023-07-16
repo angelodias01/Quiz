@@ -26,4 +26,9 @@ public interface QuestionsDao {
     Questions getQuestionById(int questionsId);
     @Query("SELECT * FROM Questions WHERE themeId = :themeId")
     List<Questions> getQuestionsByThemeId(int themeId);
+
+    @Query("SELECT QuestionsId FROM questions WHERE QuestionsId < :currentQuestionId ORDER BY QuestionsId DESC LIMIT 1")
+    int getPreviousQuestionId(int currentQuestionId);
+
+    @Query("SELECT COUNT(*) FROM questions WHERE QuestionsId > :questionId") boolean isLastQuestion(int questionId);
 }

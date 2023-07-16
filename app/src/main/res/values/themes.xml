@@ -17,5 +17,6 @@
         <!--Setting up enter and exit transitions-->
         <item name="android:windowEnterTransition">@transition/trans_anim</item>
         <item name="android:windowExitTransition">@transition/trans_anim</item>
+        <item name="materialButtonStyle">@style/Button.Quiz</item>
     </style>
 </resources>
