@@ -34,4 +34,7 @@ public interface UserDao {
     void deleteAll(User user);
     @Query("delete from User where userId = :userId")
     void deleteUserById(int userId);
+
+    @Update
+    void updateCurrencyAmount(User user);
 }

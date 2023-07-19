@@ -1,5 +1,4 @@
 package quiz.app.project.dias.dias.MainMenuUser.QuizPlay;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,6 +22,10 @@ import quiz.app.project.dias.dias.QuizDatabase.QuizDatabase;
 import quiz.app.project.dias.dias.QuizDatabase.ScoreDB.Score;
 import quiz.app.project.dias.dias.QuizDatabase.ScoreDB.ScoreDao;
 import quiz.app.project.dias.dias.QuizDatabase.ThemeDB.Theme;
+import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrency;
+import quiz.app.project.dias.dias.QuizDatabase.UserCurrencyDB.UserCurrencyDao;
+import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
+import quiz.app.project.dias.dias.QuizDatabase.UserDB.UserDao;
 import quiz.app.project.dias.dias.R;
 
 public class QuizActivity extends AppCompatActivity {
@@ -116,24 +119,174 @@ public class QuizActivity extends AppCompatActivity {
         Score scoreEntity = new Score(score, userId, themeId, System.currentTimeMillis());
         quizDatabase.getScoreDao().insertScore(scoreEntity);
 
-        // Check if the user already has the achievement
-        if (!hasAchievement(quizDatabase, userId, 2)) {
-                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 2, System.currentTimeMillis()));
+        // Update the user's currency amount
+        int updatedCurrencyAmount = getUserCurrencyAmount(quizDatabase, userId) + 10;
+
+        UserCurrencyDao userCurrencyDao = quizDatabase.getUserCurrencyDao();
+        UserCurrency userCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
+
+        if (userCurrency != null) {
+            userCurrency.setAmount(updatedCurrencyAmount);
+            userCurrencyDao.updateCurrency(userCurrency);
         }
 
-        // Check if the user already has the achievements
+        // Check if the user already has the achievement "The Beginning"
+        if (!hasAchievement(quizDatabase, userId, 2)) {
+            quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 2, System.currentTimeMillis()));
+        }
+
+        // Check if the user already has the achievement "Ding Ding Ding!"
+        if (hasPerfectScore(quizDatabase, userId, themeId)) {
+            if (!hasAchievement(quizDatabase, userId, 3)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 3, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "A Great Loser"
+        if (hasZeroScore(quizDatabase, userId, themeId)) {
+            if (!hasAchievement(quizDatabase, userId, 4)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 4, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "Pootis enjoyer"
         if (score == 7 && !hasAchievement(quizDatabase, userId, 5)) {
             quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 5, System.currentTimeMillis()));
-        } else if (score == 0 && !hasAchievement(quizDatabase, userId, 4)) {
-            quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 4, System.currentTimeMillis()));
         }
 
-        // Check for cumulative score achievements
+        // Check if the user already has the achievement "Tough Mind"
+        if (hasWinningStreak(quizDatabase, userId, 3)) {
+            if (!hasAchievement(quizDatabase, userId, 6)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 6, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "A.I."
+        if (hasWinningStreak(quizDatabase, userId, 10)) {
+            if (!hasAchievement(quizDatabase, userId, 7)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 7, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "Pootis Penser Here!"
+        if (selectedAnswersMap.containsValue("Pootis Penser Here!")) {
+            if (!hasAchievement(quizDatabase, userId, 8)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 8, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "101 Questions"
+        if (hasAnswered101Questions(quizDatabase, userId)) {
+            if (!hasAchievement(quizDatabase, userId, 9)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 9, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "Medic!"
+       // if (hasAssistedQuestion(quizDatabase, userId)) {
+         //   if (!hasAchievement(quizDatabase, userId, 10)) {
+           //     quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 10, System.currentTimeMillis()));
+         //   }
+        //}
+
+        // Check if the user already has the achievement "Weekly Challenger"
+        if (hasWonWeeklyChallenge(quizDatabase, userId)) {
+            if (!hasAchievement(quizDatabase, userId, 11)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 11, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "Well Played"
         int totalScore = quizDatabase.getScoreDao().getTotalScoreByUserId(userId);
+
+        // Check if the user already has the achievement "Well Played"
         if (totalScore >= 50 && !hasAchievement(quizDatabase, userId, 12)) {
             quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 12, System.currentTimeMillis()));
         }
 
+        // Check if the user already has the achievement "The Investor"
+        if (hasCollected100Coins(quizDatabase, userId)) {
+            if (!hasAchievement(quizDatabase, userId, 13)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 13, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "Smart Investment"
+        if (hasWasted110Coins(quizDatabase, userId)) {
+            if (!hasAchievement(quizDatabase, userId, 14)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 14, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "High 5 player"
+        if (hasPlayed5Quizzes(quizDatabase, userId)) {
+            if (!hasAchievement(quizDatabase, userId, 15)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 15, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "Gimme 10!"
+        if (hasPlayed10Quizzes(quizDatabase, userId)) {
+            if (!hasAchievement(quizDatabase, userId, 16)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 16, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "Down and give me 20!"
+        if (hasPlayed20Quizzes(quizDatabase, userId)) {
+            if (!hasAchievement(quizDatabase, userId, 17)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 17, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "101 reasons to..."
+        if (hasPlayed101Quizzes(quizDatabase, userId)) {
+            if (!hasAchievement(quizDatabase, userId, 18)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 18, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "Heavy wants this!"
+        if (hasClearedAllQuestions(quizDatabase, userId, themeId)) {
+            if (!hasAchievement(quizDatabase, userId, 19)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 19, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "I am planting the bomb"
+        if (hasClearedAllQuestions(quizDatabase, userId, themeId)) {
+            if (!hasAchievement(quizDatabase, userId, 20)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 20, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "Deploying Freddy Fazbear"
+        if (hasClearedAllQuestions(quizDatabase, userId, themeId)) {
+            if (!hasAchievement(quizDatabase, userId, 21)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 21, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "Next stop: Redshift"
+        if (hasClearedAllQuestions(quizDatabase, userId, themeId)) {
+            if (!hasAchievement(quizDatabase, userId, 22)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 22, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "Generalist"
+        if (hasClearedAllQuestions(quizDatabase, userId, themeId)) {
+            if (!hasAchievement(quizDatabase, userId, 23)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 23, System.currentTimeMillis()));
+            }
+        }
+
+        // Check if the user already has the achievement "Sentence: Completed"
+        if (hasClearedAllQuestions(quizDatabase, userId, themeId)) {
+            if (!hasAchievement(quizDatabase, userId, 24)) {
+                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 24, System.currentTimeMillis()));
+            }
+        }
 
         // Navegar para o fragmento QuizCompleteFragment
         QuizCompleteFragment fragment = QuizCompleteFragment.newInstance(score, themeId, theme.getThemeName());
@@ -160,4 +313,83 @@ public class QuizActivity extends AppCompatActivity {
         return false;
     }
 
+    // Method to check if the user has a perfect score in a specific theme
+    private boolean hasPerfectScore(QuizDatabase quizDatabase, int userId, int themeId) {
+        return quizDatabase.getScoreDao().hasPerfectScore(userId, themeId);
+    }
+
+    // Method to check if the user has a zero score in a specific theme
+    private boolean hasZeroScore(QuizDatabase quizDatabase, int userId, int themeId) {
+        return quizDatabase.getScoreDao().hasZeroScore(userId, themeId);
+    }
+
+    // Method to check if the user has a winning streak in quizzes
+    private boolean hasWinningStreak(QuizDatabase quizDatabase, int userId, int streakCount) {
+        return quizDatabase.getScoreDao().getMaxWinningStreak(userId) >= streakCount;
+    }
+
+    // Method to check if the user has answered 101 questions
+    private boolean hasAnswered101Questions(QuizDatabase quizDatabase, int userId) {
+        return quizDatabase.getScoreDao().getAnsweredQuestionCount(userId) >= 101;
+    }
+
+    // Method to check if the user has assisted in a question
+    //private boolean hasAssistedQuestion(QuizDatabase quizDatabase, int userId) {
+      //  return quizDatabase.getScoreDao().hasAssistedQuestion(userId);
+    //}
+
+    // Method to check if the user has won the weekly challenge
+    private boolean hasWonWeeklyChallenge(QuizDatabase quizDatabase, int userId) {
+        // Implementation to check if the user has won the weekly challenge
+        // Replace with your logic
+        return false;
+    }
+
+    // Method to check if the user has collected 100 coins
+    private boolean hasCollected100Coins(QuizDatabase quizDatabase, int userId) {
+        // Implementation to check if the user has collected 100 coins
+        // Replace with your logic
+        return false;
+    }
+
+    // Method to check if the user has wasted 110 coins
+    private boolean hasWasted110Coins(QuizDatabase quizDatabase, int userId) {
+        // Implementation to check if the user has wasted 110 coins
+        // Replace with your logic
+        return false;
+    }
+
+    private List<Score> getQuizHistory(QuizDatabase quizDatabase, int userId) {
+        return quizDatabase.getScoreDao().getQuizHistoryByUserId(userId);
+    }
+
+    private boolean hasPlayed5Quizzes(QuizDatabase quizDatabase, int userId) {
+        List<Score> quizHistory = getQuizHistory(quizDatabase, userId);
+        return quizHistory.size() >= 5;
+    }
+
+    private boolean hasPlayed10Quizzes(QuizDatabase quizDatabase, int userId) {
+        List<Score> quizHistory = getQuizHistory(quizDatabase, userId);
+        return quizHistory.size() >= 10;
+    }
+    private boolean hasPlayed20Quizzes(QuizDatabase quizDatabase, int userId) {
+        List<Score> quizHistory = getQuizHistory(quizDatabase, userId);
+        return quizHistory.size() >= 20;
+    }
+
+    private boolean hasPlayed101Quizzes(QuizDatabase quizDatabase, int userId) {
+        List<Score> quizHistory = getQuizHistory(quizDatabase, userId);
+        return quizHistory.size() >= 101;
+    }
+
+    // Method to check if the user has cleared all questions in a theme
+    private boolean hasClearedAllQuestions(QuizDatabase quizDatabase, int userId, int themeId) {
+        // Implementation to check if the user has cleared all questions in a theme
+        // Replace with your logic
+        return false;
+    }
+
+    private int getUserCurrencyAmount(QuizDatabase quizDatabase, int userId) {
+        return quizDatabase.getUserCurrencyDao().getCollectedCoins(userId);
+    }
 }
