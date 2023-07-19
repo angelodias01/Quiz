@@ -79,8 +79,8 @@ public class DefinitionsFragment extends Fragment {
 
                 getActivity().finishAffinity();
                 Intent intent = new Intent(getActivity(), MainActivity.class);
-                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
-                getActivity().startActivity(intent, bundle);
+                //Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+                getActivity().startActivity(intent);
             }
         });
         btnDeleteScores.setOnClickListener(new View.OnClickListener() {

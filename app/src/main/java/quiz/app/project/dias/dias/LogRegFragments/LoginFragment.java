@@ -142,7 +142,7 @@ public class LoginFragment extends Fragment {
                             editor.apply();
 
                             intent = new Intent(getActivity(), MainMenuUser.class);
-                            bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+                            //bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
                             getActivity().startActivity(intent, bundle);
                             handler.postDelayed(() -> getActivity().finish(), 500);
                         } else {
