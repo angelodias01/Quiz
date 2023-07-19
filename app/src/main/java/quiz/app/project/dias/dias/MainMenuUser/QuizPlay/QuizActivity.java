@@ -3,6 +3,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -122,6 +123,32 @@ public class QuizActivity extends AppCompatActivity {
         // Update the user's currency amount
         int updatedCurrencyAmount = getUserCurrencyAmount(quizDatabase, userId) + 10;
 
+        if (score != -1) {
+            switch (score) {
+                case 1:
+                    updatedCurrencyAmount += 1;
+                    break;
+                case 2:
+                    updatedCurrencyAmount += 2;
+                    break;
+                case 3:
+                    updatedCurrencyAmount += 4;
+                    break;
+                case 4:
+                    updatedCurrencyAmount += 5;
+                    break;
+                case 5:
+                    updatedCurrencyAmount += 7;
+                    break;
+                case 6:
+                    updatedCurrencyAmount += 8;
+                    break;
+                case 7:
+                    updatedCurrencyAmount += 10;
+                    break;
+            }
+        }
+
         UserCurrencyDao userCurrencyDao = quizDatabase.getUserCurrencyDao();
         UserCurrency userCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
 
@@ -190,11 +217,11 @@ public class QuizActivity extends AppCompatActivity {
         //}
 
         // Check if the user already has the achievement "Weekly Challenger"
-        if (hasWonWeeklyChallenge(quizDatabase, userId)) {
-            if (!hasAchievement(quizDatabase, userId, 11)) {
-                quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 11, System.currentTimeMillis()));
-            }
-        }
+        //if (hasWonWeeklyChallenge(quizDatabase, userId)) {
+           // if (!hasAchievement(quizDatabase, userId, 11)) {
+             //   quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 11, System.currentTimeMillis()));
+            //}
+       // }
 
         // Check if the user already has the achievement "Well Played"
         int totalScore = quizDatabase.getScoreDao().getTotalScoreByUserId(userId);
@@ -339,11 +366,11 @@ public class QuizActivity extends AppCompatActivity {
     //}
 
     // Method to check if the user has won the weekly challenge
-    private boolean hasWonWeeklyChallenge(QuizDatabase quizDatabase, int userId) {
+    //private boolean hasWonWeeklyChallenge(QuizDatabase quizDatabase, int userId) {
         // Implementation to check if the user has won the weekly challenge
         // Replace with your logic
-        return false;
-    }
+       // return false;
+    //}
 
     // Method to check if the user has collected 100 coins
     private boolean hasCollected100Coins(QuizDatabase quizDatabase, int userId) {
