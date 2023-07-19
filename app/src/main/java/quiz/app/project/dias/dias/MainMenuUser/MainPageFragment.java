@@ -67,7 +67,7 @@ public class MainPageFragment extends Fragment {
         ThemeDao themeDao = db.getThemeDao();
         AchievementsDao achievementDao = db.getAchievementsDao(); // Get the AchievementDao
 
-        List<Theme>themeList = themeDao.getThemes();
+        List<Theme> themeList = themeDao.getThemes();
         List<Achievements> achievementList = achievementDao.getAllAchievements(); // Retrieve the list of achievements
 
         this.adapter = new MainPageAdapter(themeList, achievementList, getContext()); // Pass the achievementList to the adapter
@@ -104,4 +104,20 @@ public class MainPageFragment extends Fragment {
 
         return rootView;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Update the coins when returning from a quiz
+        QuizDatabase db = QuizDatabase.getInstance(getContext());
+        UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
+
+        UserCurrency userCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
+        if (userCurrency != null) {
+            int currentCoins = userCurrency.getAmount();
+            lblCoinsHome.setText(String.valueOf(currentCoins));
+        }
+    }
+
 }

@@ -8,6 +8,8 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import quiz.app.project.dias.dias.QuizDatabase.UserDB.User;
+
 @Dao
 public interface UserCurrencyDao {
     @Insert
@@ -32,4 +34,11 @@ public interface UserCurrencyDao {
     List<UserCurrency> getCurrenciesByUserId(int userId);
     @Query("update UserCurrency set amount = 0 where userId = :userId")
     void updateValue(int userId);
+
+    @Query("SELECT SUM(amount) FROM UserCurrency WHERE userId = :userId")
+    int getCollectedCoins(int userId);
+
+    //@Query("SELECT SUM(coinsWasted) FROM Score WHERE userId = :userId")
+    //int getWastedCoins(int userId);
+
 }

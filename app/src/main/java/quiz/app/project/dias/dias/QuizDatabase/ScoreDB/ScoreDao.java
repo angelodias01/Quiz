@@ -38,4 +38,28 @@ public interface ScoreDao {
     int getTotalScoreByUserId(int userId);
     @Query("SELECT * FROM Score WHERE userId = :userId and themeId = :themeId")
     List<Score> getUserAnswersForQuiz(int userId, int themeId);
+
+    @Query("SELECT COUNT(*) FROM Score WHERE userId = :userId AND themeId = :themeId AND score = 7")
+    boolean hasPerfectScore(int userId, int themeId);
+
+    @Query("SELECT COUNT(*) FROM Score WHERE userId = :userId AND themeId = :themeId AND score = 0")
+    boolean hasZeroScore(int userId, int themeId);
+
+    @Query("SELECT MAX(winningStreak) FROM (SELECT COUNT(*) AS winningStreak FROM Score WHERE userId = :userId AND score = 7 GROUP BY themeId)")
+    int getMaxWinningStreak(int userId);
+
+    @Query("SELECT COUNT(DISTINCT score) FROM Score WHERE userId = :userId")
+    int getAnsweredQuestionCount(int userId);
+
+    @Query("SELECT * FROM Score WHERE userId = :userId ORDER BY date ASC")
+    List<Score> getQuizHistoryByUserId(int userId);
+
+    //@Query("SELECT COUNT(*) FROM Score WHERE userId = :userId AND assisted = 1")
+    //boolean hasAssistedQuestion(int userId);
+
+    // Additional queries for achievements
+    //@Query("SELECT COUNT(*) FROM Score WHERE userId = :userId AND weeklyChallenge = 1")
+    //boolean hasWonWeeklyChallenge(int userId);
+
+
 }
