@@ -34,5 +34,8 @@ public interface ScoreDao {
 
     @Query("delete from Score where userId = :userId")
     void deleteScoresByUserId(int userId);
-
+    @Query("SELECT SUM(score) FROM Score WHERE userId = :userId")
+    int getTotalScoreByUserId(int userId);
+    @Query("SELECT * FROM Score WHERE userId = :userId and themeId = :themeId")
+    List<Score> getUserAnswersForQuiz(int userId, int themeId);
 }

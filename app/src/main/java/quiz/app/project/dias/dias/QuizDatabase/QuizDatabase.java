@@ -89,6 +89,7 @@ public abstract class QuizDatabase extends RoomDatabase {
                             db.execSQL("Insert into Shop values (2,'T-shirt Size M',80)");
                             db.execSQL("Insert into Shop values (3,'T-shirt Size L',96)");
 
+                            // Add questions for the CS:GO theme
                             db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
                                     "('What is the most played CS:GO map?', 4, 'Dust 2', 'Mirage', 'Inferno', 'Nuke')");
 
@@ -113,19 +114,19 @@ public abstract class QuizDatabase extends RoomDatabase {
                             db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
                                     "('What is the capital of France?', 1, 'Paris', 'Rome', 'Madrid', 'London')");
 
-// Add questions for the Team Fortress 2 theme
+                            // Add questions for the Team Fortress 2 theme
                             db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
                                     "('Which class in TF2 can build sentry guns?', 2, 'Engineer', 'Medic', 'Pyro', 'Spy')");
 
-// Add questions for the Programming theme
+                            // Add questions for the Programming theme
                             db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
                                     "('What is the most popular programming language?', 3, 'Java', 'Python', 'C++', 'JavaScript')");
 
-// Add questions for the Five Night's at Freddy's theme
+                            // Add questions for the Five Night's at Freddy's theme
                             db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
                                     "('Who is the main animatronic character in FNaF?', 5, 'Freddy Fazbear', 'Chica', 'Bonnie', 'Foxx')");
 
-// Add questions for the Complete The Sentence theme
+                            // Add questions for the Complete The Sentence theme
                             db.execSQL("INSERT INTO Questions (questionsText, themeId, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) VALUES " +
                                     "('The quick brown __ jumps over the lazy dog.', 6, 'Fox', 'Cat', 'Dog', 'Bird')");
                         }

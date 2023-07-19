@@ -34,5 +34,6 @@ public interface AchievementUserDao {
 
     @Query("delete from AchievementsUser where userId = :userId")
     void deleteAchievementsByUserId(int userId);
-
+    @Query("SELECT * FROM AchievementsUser WHERE userId = :userId and achievementId = :achievementId")
+    boolean getAchievementUsersByUserIdAndAchId(int userId, int achievementId);
 }

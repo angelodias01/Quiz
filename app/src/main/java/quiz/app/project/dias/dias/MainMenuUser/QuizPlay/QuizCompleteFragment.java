@@ -1,6 +1,7 @@
 package quiz.app.project.dias.dias.MainMenuUser.QuizPlay;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -84,7 +85,8 @@ public class QuizCompleteFragment extends Fragment {
                 // Navigate to the main menu home screen
                 Intent intent = new Intent(getActivity(), MainMenuUser.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Clear the activity stack
-                startActivity(intent);
+                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+                getActivity().startActivity(intent, bundle);
                 getActivity().finish(); // Finish the current activity
             }
         });
