@@ -13,6 +13,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -33,8 +35,10 @@ public class MainMenuUser extends AppCompatActivity {
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.frameLayout);
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationView);
+        bottomNav.setItemTextColor(ColorStateList.valueOf(Color.WHITE));
         bottomNav.setItemIconTintList(getResources().getColorStateList(R.color.selector_bottom_nav_icon_color));
         bottomNav.setLabelVisibilityMode(NavigationBarView.LABEL_VISIBILITY_LABELED);
+        bottomNav.setItemTextColor(getColorStateList(R.color.selector_bottom_nav_icon_color));
         NavigationUI.setupWithNavController(bottomNav, navController);
 
 

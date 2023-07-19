@@ -21,7 +21,8 @@
             android:exported="false" />
         <activity
             android:name=".MainMenuUser.MainMenuUser"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Quiz"/>
         <activity
             android:name=".mainActivityFragments.MainActivity"
             android:exported="true">
