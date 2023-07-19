@@ -11,7 +11,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import quiz.app.project.dias.dias.QuizDatabase.QuestionsDB.Questions;
 import quiz.app.project.dias.dias.QuizDatabase.QuestionsDB.QuestionsDao;
@@ -29,6 +31,7 @@ public class QuizActivity extends AppCompatActivity {
     private ScoreDao scoreDao;
     private int themeId;
     private List<Questions> questionsList;
+    private Map<Integer, String> selectedAnswersMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         loadQuestions();
+        selectedAnswersMap = new HashMap<>();
     }
 
     private void loadQuestions() {
@@ -66,7 +70,7 @@ public class QuizActivity extends AppCompatActivity {
     private void startQuiz() {
         if (currentQuestionIndex < questionsList.size()) {
             int questionId = questionsList.get(currentQuestionIndex).getQuestionsId();
-            QuizFragment fragment = QuizFragment.newInstance( questionsList, questionId);
+            QuizFragment fragment = QuizFragment.newInstance(questionsList, questionId);
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
@@ -76,12 +80,30 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
-    public void onAnswerSelected(boolean isCorrect) {
-        if (isCorrect) {
-            score++;
-        }
-        currentQuestionIndex++;
+    public void onAnswerSelected(int questionId, String selectedAnswer) {
+        selectedAnswersMap.put(questionId, selectedAnswer);
         startQuiz();
+    }
+
+    public String getSelectedAnswer(int questionId) {
+        return selectedAnswersMap.get(questionId);
+    }
+
+    public void onQuizFinished() {
+        int correctAnswers = calculateScore();
+        insertScoreIntoDatabase(correctAnswers);
+    }
+
+    private int calculateScore() {
+        int correctAnswers = 0;
+        for (Questions question : questionsList) {
+            int questionId = question.getQuestionsId();
+            String selectedAnswer = selectedAnswersMap.get(questionId);
+            if (selectedAnswer != null && selectedAnswer.equals(question.getCorrectAnswer())) {
+                correctAnswers++;
+            }
+        }
+        return correctAnswers;
     }
 
     private void insertScoreIntoDatabase(int score) {
@@ -92,12 +114,14 @@ public class QuizActivity extends AppCompatActivity {
         Score scoreEntity = new Score(score, userId, themeId, System.currentTimeMillis());
         quizDatabase.getScoreDao().insertScore(scoreEntity);
 
-        // Replace the existing fragment with the QuizCompleteFragment
-        Fragment fragment = QuizCompleteFragment.newInstance(score, themeId, theme.getThemeName());
+        // Navegar para o fragmento QuizCompleteFragment
+        QuizCompleteFragment fragment = QuizCompleteFragment.newInstance(score, themeId, theme.getThemeName());
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
     }
+
+
 
     private void replaceWithQuestion(int questionId) {
         QuizFragment fragment = QuizFragment.newInstance(questionsList, questionId);

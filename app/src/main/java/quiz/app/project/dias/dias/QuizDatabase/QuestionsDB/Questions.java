@@ -42,6 +42,10 @@ public class Questions {
     @ColumnInfo(name = "wrongAnswer3")
     private String wrongAnswer3;
 
+
+    @ColumnInfo(name = "selectedAnswer")
+    private String selectedAnswer;
+
     public Questions(int themeId,@NonNull String questionsText, @NonNull String correctAnswer, @NonNull String wrongAnswer1, @NonNull String wrongAnswer2, @NonNull String wrongAnswer3) {
         this.themeId = themeId;
         this.questionsText = questionsText;
@@ -111,4 +115,13 @@ public class Questions {
     public void setWrongAnswer3(@NonNull String wrongAnswer3) {
         this.wrongAnswer3 = wrongAnswer3;
     }
+
+    public void setSelectedAnswer(String selectedAnswer) {
+        this.selectedAnswer = selectedAnswer;
+    }
+
+    public String getSelectedAnswer() {
+        return selectedAnswer;
+    }
+
 }
