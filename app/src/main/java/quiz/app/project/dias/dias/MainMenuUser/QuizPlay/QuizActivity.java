@@ -1,4 +1,6 @@
 package quiz.app.project.dias.dias.MainMenuUser.QuizPlay;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -57,6 +59,20 @@ public class QuizActivity extends AppCompatActivity {
 
         loadQuestions();
         selectedAnswersMap = new HashMap<>();
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Do You Want Quit The Quiz?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {finish();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 
     private void loadQuestions() {
@@ -177,9 +193,9 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         // Check if the user already has the achievement "Pootis enjoyer"
-        if (score == 7 && !hasAchievement(quizDatabase, userId, 5)) {
-            quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 5, System.currentTimeMillis()));
-        }
+        //if (score == 7 && !hasAchievement(quizDatabase, userId, 5)) {
+          //  quizDatabase.getAchievementUserDao().insertAchievementUser(new AchievementUser(userId, 5, System.currentTimeMillis()));
+        //}
 
         // Check if the user already has the achievement "Tough Mind"
         if (hasWinningStreak(quizDatabase, userId, 3)) {
