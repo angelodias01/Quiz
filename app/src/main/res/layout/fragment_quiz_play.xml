@@ -17,8 +17,8 @@
         android:padding="16dp"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
@@ -30,7 +30,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:addStatesFromChildren="false"
         android:background="@drawable/backbtnprofile"
+        android:gravity="center"
         android:padding="20dp"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,16 +44,18 @@
             android:id="@+id/radioButtonAnswer1"
             android:layout_width="0dp"
             android:layout_height="60dp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/radio_button_selector"
+            android:button="@drawable/buttons"
             android:buttonTint="@color/ach"
             android:checked="false"
             android:padding="20dp"
             android:text="Answer 1"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioButtonAnswer2"
@@ -64,8 +68,8 @@
             android:text="Answer 2"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioButtonAnswer3"
@@ -79,8 +83,8 @@
             android:text="Answer 3"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioButtonAnswer4"
@@ -93,8 +97,8 @@
             android:text="Answer 4"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
     </RadioGroup>
 
@@ -106,6 +110,8 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/ach"
         android:text="Previous"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         app:cornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView13"
@@ -122,6 +128,8 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/ach"
         android:text="Next"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         app:cornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/radioGroupAnswers"
