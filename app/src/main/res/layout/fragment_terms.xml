@@ -12,10 +12,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="-10dp"
+            android:background="@drawable/buttons"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
-            android:scrollbars="none"
             android:layout_height="match_parent"
+            android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +39,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -54,7 +69,7 @@
                         android:gravity="center"
                         android:text="@string/termsLine1"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="26sp"
                         android:textStyle="italic"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +85,7 @@
                         android:layout_marginEnd="10dp"
                         android:text="@string/termsLine3"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="26sp"
                         android:textStyle="italic"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +101,7 @@
                         android:layout_marginEnd="10dp"
                         android:text="@string/termsLine2"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="26sp"
                         android:textStyle="italic"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +118,7 @@
                         android:layout_marginEnd="10dp"
                         android:text="@string/termsLine4"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="26sp"
                         android:textStyle="italic"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -119,7 +134,7 @@
                         android:layout_marginEnd="10dp"
                         android:text="@string/termsLine5"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="26sp"
                         android:textStyle="italic"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -129,14 +144,15 @@
 
                     <Button
                         android:id="@+id/btnAccept"
-                        android:layout_width="120dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="60dp"
                         android:layout_marginTop="25dp"
                         android:layout_marginBottom="10dp"
+                        android:backgroundTint="@color/ach"
                         android:text="@string/accept"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
                         android:textStyle="bold"
                         app:cornerRadius="25dp"
                         app:layout_constraintBottom_toBottomOf="parent"
