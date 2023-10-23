@@ -1,7 +1,6 @@
 package quiz.app.project.dias.dias.LogRegFragments;
 
 import static quiz.app.project.dias.dias.LogRegFragments.Hash.hashPassword;
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;

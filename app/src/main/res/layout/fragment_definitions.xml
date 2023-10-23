@@ -246,7 +246,7 @@
             android:tint="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/viewUserDefinitions"
             app:layout_constraintTop_toTopOf="@+id/viewUserDefinitions"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,UseAppTint" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
