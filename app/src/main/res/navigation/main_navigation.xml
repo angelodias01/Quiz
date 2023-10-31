@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="quiz.app.project.dias.dias.MainMenuUser.ProfileFragment"
+        android:name="quiz.app.project.dias.dias.view.ProfileFragment"
         android:label="Profile"
         android:textColor="@color/white"
         tools:layout="@layout/fragment_profile">
@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/scoreFragment"
-        android:name="quiz.app.project.dias.dias.MainMenuUser.ScoreFragment"
+        android:name="quiz.app.project.dias.dias.view.ScoreFragment"
         android:label="Score"
         android:textColor="@color/white"
         tools:layout="@layout/fragment_score">
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/mainPageFragment"
-        android:name="quiz.app.project.dias.dias.MainMenuUser.MainPageFragment"
+        android:name="quiz.app.project.dias.dias.view.MainPageFragment"
         android:label="Home"
         android:textColor="@color/white"
         tools:layout="@layout/fragment_main_page" >
@@ -31,14 +31,14 @@
 
     <fragment
         android:id="@+id/shopFragment"
-        android:name="quiz.app.project.dias.dias.MainMenuUser.ShopFragment"
+        android:name="quiz.app.project.dias.dias.view.ShopFragment"
         android:label="Shop"
         android:textColor="@color/white"
         tools:layout="@layout/fragment_shop" />
 
     <fragment
         android:id="@+id/definitionsFragment"
-        android:name="quiz.app.project.dias.dias.MainMenuUser.DefinitionsFragment"
+        android:name="quiz.app.project.dias.dias.view.DefinitionsFragment"
         android:label="Definitions"
         android:textColor="@color/white"
         tools:layout="@layout/fragment_definitions" >
