@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainMenuUser.DefinitionsFragment">
+    tools:context=".view.DefinitionsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -246,7 +246,7 @@
             android:tint="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/viewUserDefinitions"
             app:layout_constraintTop_toTopOf="@+id/viewUserDefinitions"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,UseAppTint" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

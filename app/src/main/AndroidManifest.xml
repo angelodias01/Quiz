@@ -14,17 +14,17 @@
         android:theme="@style/Theme.Quiz"
         tools:targetApi="31">
         <activity
-            android:name=".MainMenuUser.QuizPlay.QuizActivity"
+            android:name=".view.QuizActivity"
             android:exported="false" />
         <activity
-            android:name=".LogRegFragments.LogRegActivity"
+            android:name=".view.LogRegActivity"
             android:exported="false" />
         <activity
-            android:name=".MainMenuUser.MainMenuUser"
+            android:name=".view.MainMenuUser"
             android:exported="false"
             android:theme="@style/Theme.Quiz"/>
         <activity
-            android:name=".mainActivityFragments.MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
