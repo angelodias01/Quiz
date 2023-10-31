@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'quiz.app.project.dias.dias'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "quiz.app.project.dias.dias"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -26,29 +26,31 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    buildFeatures{
-        viewBinding = true
-    }
 }
 
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-    implementation 'androidx.navigation:navigation-fragment:2.5.3'
-    implementation 'androidx.navigation:navigation-ui:2.5.3'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    implementation "androidx.cardview:cardview:1.0.0"
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+
+    // Navigation
+    def nav_version = "2.5.3"
+
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+
+    // Room
     def room_version = "2.5.1"
+
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
-    implementation("androidx.fragment:fragment:1.6.1")
-    implementation("androidx.navigation:navigation-fragment:2.7.4")
-    implementation("androidx.navigation:navigation-ui:2.7.4")
 }

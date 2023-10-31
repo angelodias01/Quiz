@@ -1,5 +1,6 @@
 package quiz.app.project.dias.dias.model.achievements;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -25,5 +26,5 @@ public interface AchievementsDao {
     List<Achievements> getAllAchievements();
 
     @Query("SELECT * FROM Achievements WHERE achievementId = :achievementId")
-    Achievements getAchievementById(int achievementId);
+    LiveData<List<Achievements>> getAchievementById(int achievementId);
 }
