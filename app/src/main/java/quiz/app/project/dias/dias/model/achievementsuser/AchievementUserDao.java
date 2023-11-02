@@ -1,5 +1,6 @@
 package quiz.app.project.dias.dias.model.achievementsuser;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -20,15 +21,15 @@ public interface AchievementUserDao {
     void deleteAchievementUser(AchievementUser achievementUser);
 
     @Query("SELECT * FROM AchievementsUser")
-    List<AchievementUser> getAllAchievementUsers();
+    LiveData<List<AchievementUser>> getAllAchievementUsers();
 
     @Query("SELECT * FROM AchievementsUser WHERE userId = :userId")
-    List<AchievementUser> getAchievementUsersByUserId(int userId);
+    LiveData<List<AchievementUser>> getAchievementUsersByUserId(int userId);
 
     @Query("SELECT * FROM AchievementsUser WHERE achievementId = :achievementId")
-    List<AchievementUser> getAchievementUsersByAchievementId(int achievementId);
+    LiveData<List<AchievementUser>> getAchievementUsersByAchievementId(int achievementId);
     @Query("SELECT * FROM AchievementsUser WHERE userId = :userId")
-    AchievementUser getUserAchievementByUserId(int userId);
+    LiveData<List<AchievementUser>> getUserAchievementByUserId(int userId);
 
     @Query("delete from AchievementsUser where userId = :userId")
     void deleteAchievementsByUserId(int userId);
