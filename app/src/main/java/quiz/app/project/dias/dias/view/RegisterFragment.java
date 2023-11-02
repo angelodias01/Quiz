@@ -75,7 +75,7 @@ public class RegisterFragment extends Fragment {
         Button btnRegister = view.findViewById(R.id.btnRegister);
         //----------------------------------------------------------------------------------------//
         //Database code
-        QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class,"QuizDatabase").build();
+        QuizDatabase db = QuizDatabase.getInstance(getContext());
         UserDao userDao = db.getUserDao();
         UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
         //----------------------------------------------------------------------------------------//

@@ -1,13 +1,10 @@
 package quiz.app.project.dias.dias.viewmodel;
 
 import android.app.Application;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-
 import java.util.List;
-
 import quiz.app.project.dias.dias.model.achievements.AchievementRepo;
 import quiz.app.project.dias.dias.model.achievements.Achievements;
 
@@ -30,8 +27,8 @@ public class AchievementViewModel extends AndroidViewModel {
 
     public void deleteAchievements(Achievements achievement){ this.repository.deleteAchievements(achievement);}
 
-    public LiveData<List<Achievements>> getAchievementsById(int achievementId){
-        return(this.repository.getAchievements(achievementId));
+    public LiveData<List<Achievements>> getUserAchievementByUserId(int userId){
+        return(this.repository.getAchievements(userId));
 
     }
 }

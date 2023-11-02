@@ -5,10 +5,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +26,8 @@ import quiz.app.project.dias.dias.model.usercurrency.UserCurrencyDao;
 import quiz.app.project.dias.dias.model.user.User;
 import quiz.app.project.dias.dias.model.user.UserDao;
 import quiz.app.project.dias.dias.R;
+import quiz.app.project.dias.dias.viewmodel.AchievementUserViewModel;
+import quiz.app.project.dias.dias.viewmodel.AchievementViewModel;
 
 public class ProfileFragment extends Fragment {
     TextView lblUsernameProfile, lblCoinsProfile;
@@ -32,6 +36,8 @@ public class ProfileFragment extends Fragment {
     private LinearLayoutManager layoutManager;
     private RecyclerView recyclerView;
     private ProfileAdapter adapter;
+    private AchievementViewModel achievementViewModel;
+    private AchievementUserViewModel achievementUserViewModel;
 
 
     public ProfileFragment() {
@@ -48,6 +54,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        achievementUserViewModel = new ViewModelProvider(this).get(AchievementUserViewModel.class);
     }
 
     @SuppressLint("MissingInflatedId")
@@ -65,7 +72,17 @@ public class ProfileFragment extends Fragment {
         AchievementUserDao achievementUserDao = db.getAchievementUserDao();
         AchievementsDao achievementsDao = db.getAchievementsDao();
 
-        this.adapter = new ProfileAdapter(achievementUserDao.getAchievementUsersByUserId(userId),achievementsDao.getAllAchievements());
+        achievementUserViewModel.getUserAchievementByUserId(userId).observe(getViewLifecycleOwner(), achievementUsers -> {
+
+            this.adapter = new ProfileAdapter(achievementUsers, achievementsDao.getAllAchievements());
+
+            // Create a LinearLayoutManager for the RecyclerView
+            LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+            // Set the adapter and layout manager for the RecyclerView
+            recyclerView.setAdapter(this.adapter);
+            recyclerView.setLayoutManager(layoutManager);
+
+        });
 
         // Create a LinearLayoutManager for the RecyclerView
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);

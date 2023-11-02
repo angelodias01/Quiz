@@ -19,9 +19,11 @@ public class AchievementUserRepo {
     public AchievementUserRepo(Context context) {
         this.achievementUserDao = QuizDatabase.getInstance(context).getAchievementUserDao();
     }
+
     public LiveData<List<AchievementUser>> getUserAchievements(int achievementUserId) {
         return this.achievementUserDao.getAchievementUsersByUserId(achievementUserId);
     }
+
     public void createUserAchievements(AchievementUser achievementUser) {
         executor.execute(new Runnable() {
             @Override
@@ -31,12 +33,37 @@ public class AchievementUserRepo {
         });
     }
 
-    public void deleteUserAchievements(AchievementUser achievementUser){
+    public void deleteUserAchievements(AchievementUser achievementUser) {
         executor.execute(new Runnable() {
             @Override
             public void run() {
                 achievementUserDao.deleteAchievementUser(achievementUser);
             }
         });
+    }
+
+    public LiveData<List<AchievementUser>> getAllAchievementUsers() {
+        return this.achievementUserDao.getAllAchievementUsers();
+    }
+
+    public LiveData<List<AchievementUser>> getAchievementUsersByAchievementId(int achievementId) {
+        return this.achievementUserDao.getAchievementUsersByAchievementId(achievementId);
+    }
+    public LiveData<List<AchievementUser>> UserAchievementByUserId(int userId) {
+        return this.achievementUserDao.getUserAchievementByUserId(userId);
+    }
+
+
+    public void deleteAchievementsByUserId(int userId) {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                achievementUserDao.deleteAchievementsByUserId(userId);
+            }
+        });
+    }
+
+    public boolean getAchievementUsersByUserIdAndAchId(int userId, int achievementId) {
+        return this.achievementUserDao.getAchievementUsersByUserIdAndAchId(userId, achievementId);
     }
 }

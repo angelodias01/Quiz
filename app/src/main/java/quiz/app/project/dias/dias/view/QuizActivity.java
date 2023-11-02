@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.LiveData;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -341,10 +342,13 @@ public class QuizActivity extends AppCompatActivity {
 
     // Method to check if the user already has a specific achievement
     private boolean hasAchievement(QuizDatabase quizDatabase, int userId, int achievementId) {
-        List<AchievementUser> achievements = quizDatabase.getAchievementUserDao().getAchievementUsersByUserId(userId);
-        for (AchievementUser achievement : achievements) {
-            if (achievement.getAchievementId() == achievementId) {
-                return true;
+        LiveData<List<AchievementUser>> achievementsLiveData = quizDatabase.getAchievementUserDao().getAchievementUsersByUserId(userId);
+        List<AchievementUser> achievements = achievementsLiveData.getValue();
+        if (achievements != null) {
+            for (AchievementUser achievement : achievements) {
+                if (achievement.getAchievementId() == achievementId) {
+                    return true;
+                }
             }
         }
         return false;
