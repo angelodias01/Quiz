@@ -22,7 +22,7 @@ public class AchievementRepo {
     public LiveData<List<Achievements>> getAchievements(int achievementId) {
         return this.achievementsDao.getAchievementById(achievementId);
     }
-    public void createTask(Achievements achievements) {
+    public void createAchievements(Achievements achievements) {
         executor.execute(new Runnable() {
             @Override
             public void run() {
@@ -31,7 +31,7 @@ public class AchievementRepo {
         });
     }
 
-    public void deleteTask(Achievements achievement){
+    public void deleteAchievements(Achievements achievement){
         executor.execute(new Runnable() {
             @Override
             public void run() {
