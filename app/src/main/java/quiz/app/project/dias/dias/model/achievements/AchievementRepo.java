@@ -2,6 +2,9 @@ package quiz.app.project.dias.dias.model.achievements;
 
 import android.content.Context;
 
+import androidx.lifecycle.LiveData;
+
+import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -16,7 +19,10 @@ public class AchievementRepo {
     public AchievementRepo(Context context) {
         this.achievementsDao = QuizDatabase.getInstance(context).getAchievementsDao();
     }
-    public void createTask(Achievements achievements) {
+    public LiveData<List<Achievements>> getAchievements(int achievementId) {
+        return this.achievementsDao.getAchievementById(achievementId);
+    }
+    public void createAchievements(Achievements achievements) {
         executor.execute(new Runnable() {
             @Override
             public void run() {
@@ -25,7 +31,7 @@ public class AchievementRepo {
         });
     }
 
-    public void deleteTask(Achievements achievement){
+    public void deleteAchievements(Achievements achievement){
         executor.execute(new Runnable() {
             @Override
             public void run() {
