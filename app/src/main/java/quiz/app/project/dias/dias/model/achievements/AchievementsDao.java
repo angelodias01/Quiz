@@ -9,8 +9,6 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import quiz.app.project.dias.dias.model.achievements.Achievements;
-
 @Dao
 public interface AchievementsDao {
     @Insert

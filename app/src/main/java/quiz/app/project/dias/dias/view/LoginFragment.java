@@ -9,6 +9,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Room;
 import android.os.Handler;
 import android.os.Looper;
@@ -21,9 +23,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import quiz.app.project.dias.dias.model.achievements.Achievements;
 import quiz.app.project.dias.dias.model.achievementsuser.AchievementUser;
 import quiz.app.project.dias.dias.model.achievementsuser.AchievementUserDao;
 import quiz.app.project.dias.dias.model.achievements.AchievementsDao;
@@ -33,6 +38,8 @@ import quiz.app.project.dias.dias.model.usercurrency.UserCurrencyDao;
 import quiz.app.project.dias.dias.model.user.User;
 import quiz.app.project.dias.dias.model.user.UserDao;
 import quiz.app.project.dias.dias.R;
+import quiz.app.project.dias.dias.viewmodel.AchievementUserViewModel;
+import quiz.app.project.dias.dias.viewmodel.AchievementViewModel;
 
 public class LoginFragment extends Fragment {
     private static final String userId = "userId";
@@ -42,6 +49,8 @@ public class LoginFragment extends Fragment {
     private Bundle bundle;
     private FragmentManager fragmentManager;
     private int userIdValue;
+    private AchievementViewModel achievementViewModel;
+    private AchievementUserViewModel achievementUserViewModel;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -63,6 +72,7 @@ public class LoginFragment extends Fragment {
             restoreEmail = getArguments().getString("restoreEmail");
             restorePassword = getArguments().getString("restorePassword");
         }
+        achievementUserViewModel = new ViewModelProvider(this).get(AchievementUserViewModel.class);
     }
 
     @Override
@@ -80,7 +90,7 @@ public class LoginFragment extends Fragment {
         Handler handler = new Handler();
         //----------------------------------------------------------------------------------------//
         //Database code
-        QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class,"QuizDatabase").build();
+        QuizDatabase db = QuizDatabase.getInstance(getContext());
         UserDao userDao = db.getUserDao();
         UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
         AchievementsDao achievementsDao = db.getAchievementsDao();
@@ -105,25 +115,28 @@ public class LoginFragment extends Fragment {
             this.email = tbEmail.getText().toString();
             this.password = tbPassword.getText().toString();
             long currentTimeMillis = System.currentTimeMillis();
-            ExecutorService executor = Executors.newSingleThreadExecutor();
-            executor.execute(() -> {
-                String hashedPassword = hashPassword(password);
-                User user = userDao.getUserByEmailAndPassword(email, hashedPassword);
-                if (user != null){
-                    userIdValue = user.getUserId();
-                    if(userIdValue > 0) {
-                        UserCurrency existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userIdValue);
-                        if (existingUserCurrency == null) {
-                            UserCurrency newUserCurrency = new UserCurrency(userIdValue, 0);
-                            userCurrencyDao.insertCurrency(newUserCurrency);
-                        }
-                        AchievementUser existingUserAchievement = achievementUserDao.getUserAchievementByUserId(userIdValue);
-                        if (existingUserAchievement == null) {
+
+            String hashedPassword = hashPassword(password);
+            User user = userDao.getUserByEmailAndPassword(email, hashedPassword);
+            if (user != null) {
+                userIdValue = user.getUserId();
+                if (userIdValue > 0) {
+                    UserCurrency existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userIdValue);
+                    if (existingUserCurrency == null) {
+                        UserCurrency newUserCurrency = new UserCurrency(userIdValue, 0);
+                        userCurrencyDao.insertCurrency(newUserCurrency);
+                    }
+
+                    achievementUserDao.getUserAchievementByUserId(userIdValue).observe(getViewLifecycleOwner(), existingUserAchievement -> {
+
+                        if (existingUserAchievement.size() == 0) {
                             AchievementUser newAchievementUser = new AchievementUser(userIdValue, 1, currentTimeMillis);
                             achievementUserDao.insertAchievementUser(newAchievementUser);
                         }
-                    }
+
+                    });
                 }
+            }
                     // Create a handler associated with the main/UI thread
                     Handler handlers = new Handler(Looper.getMainLooper());
 
@@ -132,7 +145,6 @@ public class LoginFragment extends Fragment {
                         if (user != null) {
                             Toast.makeText(getActivity(), "Login Successful!",
                                     Toast.LENGTH_SHORT).show();
-                            executor.shutdown();
                             userIdValue = user.getUserId();
                             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -163,8 +175,6 @@ public class LoginFragment extends Fragment {
                             }
                         }
                     });
-
-            });
         });
     }
         //----------------------------------------------------------------------------------------//
