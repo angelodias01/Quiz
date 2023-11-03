@@ -1,5 +1,6 @@
 package quiz.app.project.dias.dias.model.theme;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -10,21 +11,21 @@ import java.util.List;
 
 @Dao
 public interface ThemeDao {
+    @Query("SELECT * FROM Theme")
+    LiveData<List<Theme>> getAllThemesLiveData();
+
     @Insert
     void insertTheme(Theme theme);
-
-    @Update
-    void updateTheme(Theme theme);
 
     @Delete
     void deleteTheme(Theme theme);
 
-    @Query("SELECT * FROM Theme")
-    List<Theme> getAllThemes();
+    @Update
+    void updateTheme(Theme theme);
 
     @Query("SELECT * FROM Theme WHERE themeId = :themeId")
-    Theme getThemeById(int themeId);
+    LiveData<Theme> getThemeByIdLiveData(int themeId);
 
     @Query("SELECT * FROM Theme ORDER BY themeName ASC")
-    List<Theme> getThemes();
+    LiveData<List<Theme>> getThemesLiveData();
 }

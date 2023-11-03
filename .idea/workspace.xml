@@ -11,18 +11,17 @@
   <component name="ChangeListManager">
     <list default="true" id="cf394e29-4c28-4803-971c-a9fdce69136f" name="Changes" comment="last commit">
       <changelist_data name="j" email="" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/questions/QuestionsRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/score/ScoreRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/shop/ShopRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/theme/ThemeRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/user/UserRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievements/AchievementRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievements/AchievementRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievements/AchievementsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievements/AchievementsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievementsuser/AchievementUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievementsuser/AchievementUserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievementsuser/AchievementUserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievementsuser/AchievementUserRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/LoginFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/LoginFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/ProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/ProfileFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/QuizActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/QuizActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/RegisterFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/RegisterFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/AchievementUserViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/AchievementUserViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/AchievementViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/AchievementViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/questions/QuestionsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/questions/QuestionsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/score/ScoreDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/score/ScoreDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/shop/ShopDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/shop/ShopDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/theme/ThemeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/theme/ThemeDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/user/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/user/UserDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

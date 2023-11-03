@@ -1,5 +1,6 @@
 package quiz.app.project.dias.dias.model.usercurrency;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -20,23 +21,20 @@ public interface UserCurrencyDao {
     void deleteCurrency(UserCurrency userCurrency);
 
     @Query("SELECT * FROM UserCurrency WHERE userId = :userId")
-    UserCurrency getUserCurrencyByUserId(int userId);
+    LiveData<UserCurrency> getUserCurrencyByUserId(int userId);
 
     @Query("SELECT * FROM UserCurrency")
-    List<UserCurrency> getAllCurrencies();
+    LiveData<List<UserCurrency>> getAllCurrencies();
 
     @Query("SELECT * FROM UserCurrency WHERE currencyId = :currencyId")
-    UserCurrency getCurrencyById(int currencyId);
+    LiveData<UserCurrency> getCurrencyById(int currencyId);
 
     @Query("SELECT * FROM UserCurrency WHERE userId = :userId")
-    List<UserCurrency> getCurrenciesByUserId(int userId);
+    LiveData<List<UserCurrency>> getCurrenciesByUserId(int userId);
+
     @Query("update UserCurrency set amount = 0 where userId = :userId")
     void updateValue(int userId);
 
     @Query("SELECT SUM(amount) FROM UserCurrency WHERE userId = :userId")
-    int getCollectedCoins(int userId);
-
-    //@Query("SELECT SUM(coinsWasted) FROM Score WHERE userId = :userId")
-    //int getWastedCoins(int userId);
-
+    LiveData<Integer> getCollectedCoins(int userId);
 }
