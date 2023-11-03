@@ -1,5 +1,6 @@
 package quiz.app.project.dias.dias.model.questions;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -20,15 +21,17 @@ public interface QuestionsDao {
     void deleteQuestion(Questions question);
 
     @Query("SELECT * FROM Questions")
-    List<Questions> getAllQuestions();
+    LiveData<List<Questions>> getAllQuestions();
 
     @Query("SELECT * FROM Questions WHERE questionsId = :questionsId")
-    Questions getQuestionById(int questionsId);
+    LiveData<Questions> getQuestionById(int questionsId);
+
     @Query("SELECT * FROM Questions WHERE themeId = :themeId")
-    List<Questions> getQuestionsByThemeId(int themeId);
+    LiveData<List<Questions>> getQuestionsByThemeId(int themeId);
 
     @Query("SELECT QuestionsId FROM questions WHERE QuestionsId < :currentQuestionId ORDER BY QuestionsId DESC LIMIT 1")
-    int getPreviousQuestionId(int currentQuestionId);
+    LiveData<Integer> getPreviousQuestionId(int currentQuestionId);
 
-    @Query("SELECT COUNT(*) FROM questions WHERE QuestionsId > :questionId") boolean isLastQuestion(int questionId);
+    @Query("SELECT COUNT(*) FROM questions WHERE QuestionsId > :questionId")
+    LiveData<Boolean> isLastQuestion(int questionId);
 }
