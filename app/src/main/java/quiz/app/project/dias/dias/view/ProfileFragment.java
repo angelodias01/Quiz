@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,6 +29,8 @@ import quiz.app.project.dias.dias.model.user.UserDao;
 import quiz.app.project.dias.dias.R;
 import quiz.app.project.dias.dias.viewmodel.AchievementUserViewModel;
 import quiz.app.project.dias.dias.viewmodel.AchievementViewModel;
+import quiz.app.project.dias.dias.viewmodel.UserCurrencyViewModel;
+import quiz.app.project.dias.dias.viewmodel.UserViewModel;
 
 public class ProfileFragment extends Fragment {
     TextView lblUsernameProfile, lblCoinsProfile;
@@ -38,6 +41,8 @@ public class ProfileFragment extends Fragment {
     private ProfileAdapter adapter;
     private AchievementViewModel achievementViewModel;
     private AchievementUserViewModel achievementUserViewModel;
+    private UserViewModel userViewModel;
+    private UserCurrencyViewModel userCurrencyViewModel;
 
 
     public ProfileFragment() {
@@ -55,6 +60,8 @@ public class ProfileFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         achievementUserViewModel = new ViewModelProvider(this).get(AchievementUserViewModel.class);
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        userCurrencyViewModel = new ViewModelProvider(this).get(UserCurrencyViewModel.class);
     }
 
     @SuppressLint("MissingInflatedId")
@@ -71,6 +78,8 @@ public class ProfileFragment extends Fragment {
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
         AchievementUserDao achievementUserDao = db.getAchievementUserDao();
         AchievementsDao achievementsDao = db.getAchievementsDao();
+        UserDao userDao = db.getUserDao();
+        UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
 
         achievementUserViewModel.getUserAchievementByUserId(userId).observe(getViewLifecycleOwner(), achievementUsers -> {
 
@@ -97,17 +106,13 @@ public class ProfileFragment extends Fragment {
 
 
         if (userId != 0) {
-            QuizDatabase quizDB = QuizDatabase.getInstance(requireContext());
-            UserDao userDao = quizDB.getUserDao();
-            UserCurrencyDao userCurrencyDao = quizDB.getUserCurrencyDao();
-
-            User user = userDao.getUserById(userId);
-            UserCurrency existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
+            LiveData<User> user = userViewModel.getUserById(userId);
+            LiveData<UserCurrency> existingUserCurrency = userCurrencyViewModel.getUserCurrencyByUserId(userId);
 
             if (user != null) {
-                String username = user.getUsername();
+                String username = user.getValue().getUsername();
                 lblUsernameProfile.setText(username);
-                lblCoinsProfile.setText(String.valueOf(existingUserCurrency.getAmount()));
+                lblCoinsProfile.setText(String.valueOf(existingUserCurrency.getValue()));
             }
         }
 

@@ -1,9 +1,11 @@
 package quiz.app.project.dias.dias.view;
 
 import static quiz.app.project.dias.dias.viewmodel.Hash.hashPassword;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Room;
+
 import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
@@ -40,6 +43,8 @@ import quiz.app.project.dias.dias.model.user.UserDao;
 import quiz.app.project.dias.dias.R;
 import quiz.app.project.dias.dias.viewmodel.AchievementUserViewModel;
 import quiz.app.project.dias.dias.viewmodel.AchievementViewModel;
+import quiz.app.project.dias.dias.viewmodel.UserCurrencyViewModel;
+import quiz.app.project.dias.dias.viewmodel.UserViewModel;
 
 public class LoginFragment extends Fragment {
     private static final String userId = "userId";
@@ -51,6 +56,8 @@ public class LoginFragment extends Fragment {
     private int userIdValue;
     private AchievementViewModel achievementViewModel;
     private AchievementUserViewModel achievementUserViewModel;
+    private UserViewModel userViewModel;
+    private UserCurrencyViewModel userCurrencyViewModel;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -73,6 +80,9 @@ public class LoginFragment extends Fragment {
             restorePassword = getArguments().getString("restorePassword");
         }
         achievementUserViewModel = new ViewModelProvider(this).get(AchievementUserViewModel.class);
+        achievementViewModel = new ViewModelProvider(this).get(AchievementViewModel.class);
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        userCurrencyViewModel = new ViewModelProvider(this).get(UserCurrencyViewModel.class);
     }
 
     @Override
@@ -91,11 +101,6 @@ public class LoginFragment extends Fragment {
         //----------------------------------------------------------------------------------------//
         //Database code
         QuizDatabase db = QuizDatabase.getInstance(getContext());
-        UserDao userDao = db.getUserDao();
-        UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
-        AchievementsDao achievementsDao = db.getAchievementsDao();
-        AchievementUserDao achievementUserDao = db.getAchievementUserDao();
-
         //----------------------------------------------------------------------------------------//
         //Event to advance on label click to the register fragment
         lblCreateOne.setOnClickListener(view1 -> {
@@ -117,67 +122,68 @@ public class LoginFragment extends Fragment {
             long currentTimeMillis = System.currentTimeMillis();
 
             String hashedPassword = hashPassword(password);
-            User user = userDao.getUserByEmailAndPassword(email, hashedPassword);
+            LiveData<User> user = userViewModel.getUserByEmailAndPassword(email, hashedPassword);
             if (user != null) {
-                userIdValue = user.getUserId();
+                userIdValue = user.getValue().getUserId();
                 if (userIdValue > 0) {
-                    UserCurrency existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userIdValue);
+                    LiveData<UserCurrency> existingUserCurrency = userCurrencyViewModel.getUserCurrencyByUserId(userIdValue);
                     if (existingUserCurrency == null) {
                         UserCurrency newUserCurrency = new UserCurrency(userIdValue, 0);
-                        userCurrencyDao.insertCurrency(newUserCurrency);
+                        userCurrencyViewModel.insertCurrency(newUserCurrency);
                     }
 
-                    achievementUserDao.getUserAchievementByUserId(userIdValue).observe(getViewLifecycleOwner(), existingUserAchievement -> {
+                    achievementUserViewModel.getUserAchievementByUserId(userIdValue).observe(getViewLifecycleOwner(), existingUserAchievement -> {
 
                         if (existingUserAchievement.size() == 0) {
                             AchievementUser newAchievementUser = new AchievementUser(userIdValue, 1, currentTimeMillis);
-                            achievementUserDao.insertAchievementUser(newAchievementUser);
+                            achievementUserViewModel.createAchievements(newAchievementUser);
                         }
 
                     });
                 }
             }
-                    // Create a handler associated with the main/UI thread
-                    Handler handlers = new Handler(Looper.getMainLooper());
+            // Create a handler associated with the main/UI thread
+            Handler handlers = new Handler(Looper.getMainLooper());
 
-                    // Post a runnable on the main/UI thread
-                    handlers.post(() -> {
-                        if (user != null) {
-                            Toast.makeText(getActivity(), "Login Successful!",
-                                    Toast.LENGTH_SHORT).show();
-                            userIdValue = user.getUserId();
-                            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putBoolean("isLoggedIn", true);
-                            editor.putInt("userId", userIdValue);
-                            editor.apply();
+            // Post a runnable on the main/UI thread
+            handlers.post(() -> {
+                if (user != null) {
+                    Toast.makeText(getActivity(), "Login Successful!",
+                            Toast.LENGTH_SHORT).show();
+                    userIdValue = user.getValue().getUserId();
+                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("isLoggedIn", true);
+                    editor.putInt("userId", userIdValue);
+                    editor.apply();
 
-                            intent = new Intent(getActivity(), MainMenuUser.class);
-                            //bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
-                            getActivity().startActivity(intent, bundle);
-                            handler.postDelayed(() -> getActivity().finish(), 500);
-                        } else {
-                            Toast.makeText(getActivity(), "Email and Password didn't match!",
-                                    Toast.LENGTH_SHORT).show();
-                            if (email.equals("")) {
-                                tbEmail.setError("Please insert your email!");
-                                tbEmail.requestFocus();
-                            } else if (password.equals("")) {
-                                tbPassword.setError("Please insert your password!");
-                                tbPassword.requestFocus();
-                            } else if (!isValidEmail(tbEmail.getText().toString())) {
-                                tbEmail.setError("Invalid email address!");
-                                tbEmail.requestFocus();
-                            } else {
-                                tbEmail.setError("Email and password didn't match!");
-                                tbPassword.setError("Email and password didn't match!");
-                                tbEmail.requestFocus();
-                            }
-                        }
-                    });
+                    intent = new Intent(getActivity(), MainMenuUser.class);
+                    //bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
+                    getActivity().startActivity(intent, bundle);
+                    handler.postDelayed(() -> getActivity().finish(), 500);
+                } else {
+                    Toast.makeText(getActivity(), "Email and Password didn't match!",
+                            Toast.LENGTH_SHORT).show();
+                    if (email.equals("")) {
+                        tbEmail.setError("Please insert your email!");
+                        tbEmail.requestFocus();
+                    } else if (password.equals("")) {
+                        tbPassword.setError("Please insert your password!");
+                        tbPassword.requestFocus();
+                    } else if (!isValidEmail(tbEmail.getText().toString())) {
+                        tbEmail.setError("Invalid email address!");
+                        tbEmail.requestFocus();
+                    } else {
+                        tbEmail.setError("Email and password didn't match!");
+                        tbPassword.setError("Email and password didn't match!");
+                        tbEmail.requestFocus();
+                    }
+                }
+            });
         });
     }
-        //----------------------------------------------------------------------------------------//
+
+    //----------------------------------------------------------------------------------------//
     public static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }

@@ -29,6 +29,9 @@ public class UserViewModel extends AndroidViewModel {
     public LiveData<User> getUserByEmail(String email) {
         return this.repository.getUserByEmail(email);
     }
+    public LiveData<User> getUserByEmailAndPassword(String email, String password) {
+        return this.repository.getUserByEmailAndPassword(email, password);
+    }
 
     public LiveData<User> getUserByPassword(String password) {
         return this.repository.getUserByPassword(password);

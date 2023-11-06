@@ -73,7 +73,7 @@ public class QuizActivity extends AppCompatActivity {
     private void loadQuestions() {
         QuizDatabase db = QuizDatabase.getInstance(this);
         QuestionsDao questionsDao = db.getQuestionsDao();
-        questionsList = questionsDao.getQuestionsByThemeId(themeId);
+        LiveData<questionsList> = questionsDao.getQuestionsByThemeId(themeId);
 
         if (!questionsList.isEmpty()) {
             Collections.shuffle(questionsList); // Shuffle the questions list

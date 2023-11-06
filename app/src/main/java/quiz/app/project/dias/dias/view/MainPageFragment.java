@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -64,10 +65,10 @@ public class MainPageFragment extends Fragment {
         ThemeDao themeDao = db.getThemeDao();
         AchievementsDao achievementDao = db.getAchievementsDao(); // Get the AchievementDao
 
-        List<Theme> themeList = themeDao.getThemes();
+        LiveData<List<Theme>> themeList = themeDao.getAllThemesLiveData();
         List<Achievements> achievementList = achievementDao.getAllAchievements(); // Retrieve the list of achievements
 
-        this.adapter = new MainPageAdapter(themeList, achievementList, getContext()); // Pass the achievementList to the adapter
+        this.adapter = new MainPageAdapter((List<Theme>) themeList, achievementList, getContext()); // Pass the achievementList to the adapter
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
 
         recyclerView.setAdapter(this.adapter);
@@ -83,13 +84,13 @@ public class MainPageFragment extends Fragment {
             UserDao userDao = db.getUserDao();
             UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
 
-            User user = userDao.getUserById(userId);
-            UserCurrency existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
+            LiveData<User> user = userDao.getUserById(userId);
+            LiveData<UserCurrency> existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
 
             if (user != null) {
-                String username = user.getUsername();
+                String username = user.getValue().getUsername();
                 lblUsernameMainPage.setText(username);
-                lblCoinsHome.setText(String.valueOf(existingUserCurrency.getAmount()));
+                lblCoinsHome.setText(String.valueOf(existingUserCurrency.getValue().getAmount()));
             }
         }
         btnMultiplayer.setOnClickListener(new View.OnClickListener() {
@@ -110,9 +111,9 @@ public class MainPageFragment extends Fragment {
         QuizDatabase db = QuizDatabase.getInstance(getContext());
         UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
 
-        UserCurrency userCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
+        LiveData<UserCurrency> userCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
         if (userCurrency != null) {
-            int currentCoins = userCurrency.getAmount();
+            int currentCoins = userCurrency.getValue().getAmount();
             lblCoinsHome.setText(String.valueOf(currentCoins));
         }
     }

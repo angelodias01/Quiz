@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProvider;
+
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,11 +22,13 @@ import quiz.app.project.dias.dias.model.usercurrency.UserCurrencyDao;
 import quiz.app.project.dias.dias.model.user.User;
 import quiz.app.project.dias.dias.model.user.UserDao;
 import quiz.app.project.dias.dias.R;
+import quiz.app.project.dias.dias.viewmodel.UserViewModel;
 
 public class DefinitionsFragment extends Fragment {
     private int userId;
     TextView lblUsernameDefinitions;
     Button btnDeleteScores,btnDeleteAchievements,btnDeleteStatistics, btnDeleteAll;
+    private UserViewModel userViewModel;
 
     public DefinitionsFragment() {
         // Required empty public constructor
@@ -38,6 +43,7 @@ public class DefinitionsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
     }
 
     @Override
@@ -59,10 +65,10 @@ public class DefinitionsFragment extends Fragment {
             QuizDatabase quizDB = QuizDatabase.getInstance(requireContext());
             UserDao userDao = quizDB.getUserDao();
 
-            User user = userDao.getUserById(userId);
+            LiveData<User> user = userViewModel.getUserById(userId);
 
             if (user != null) {
-                String username = user.getUsername();
+                String username = user.getValue().getUsername();
                 lblUsernameDefinitions.setText(username);
             }
         }
@@ -90,7 +96,7 @@ public class DefinitionsFragment extends Fragment {
 
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                 userId = sharedPreferences.getInt("userId", 0);
-                User user = userDao.getUserById(userId);
+                LiveData<User> user = userViewModel.getUserById(userId);
 
                 if (user != null) {
                     scoreDao.deleteScoresByUserId(userId);
@@ -106,7 +112,7 @@ public class DefinitionsFragment extends Fragment {
                 AchievementUserDao achievementUserDao = quizDB.getAchievementUserDao();
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                 userId = sharedPreferences.getInt("userId", 0);
-                User user = userDao.getUserById(userId);
+                LiveData<User> user = userViewModel.getUserById(userId);
 
                 if (user != null) {
                     achievementUserDao.deleteAchievementsByUserId(userId);
@@ -123,7 +129,7 @@ public class DefinitionsFragment extends Fragment {
                 //do a statistics table
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                 userId = sharedPreferences.getInt("userId", 0);
-                User user = userDao.getUserById(userId);
+                LiveData<User> user = userViewModel.getUserById(userId);
 
                 if (user != null) {
                     Toast.makeText(requireContext(), "Statistics deleted", Toast.LENGTH_SHORT).show();
@@ -141,7 +147,7 @@ public class DefinitionsFragment extends Fragment {
                 UserCurrencyDao userCurrencyDao = quizDB.getUserCurrencyDao();
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                 userId = sharedPreferences.getInt("userId", 0);
-                User user = userDao.getUserById(userId);
+                LiveData<User> user = userViewModel.getUserById(userId);
 
                 if (user != null) {
                     scoreDao.deleteScoresByUserId(userId);

@@ -20,11 +20,6 @@ public class UserRepo {
     public LiveData<User> getUserByEmailAndPassword(String email, String password) {
         return userDao.getUserByEmailAndPassword(email, password);
     }
-
-    public LiveData<Integer> getUserByEmailAndPasswordInt(String email, String password) {
-        return userDao.getUserByEmailAndPasswordInt(email, password);
-    }
-
     public LiveData<List<User>> getAllUsers() {
         return userDao.getAllUsers();
     }
