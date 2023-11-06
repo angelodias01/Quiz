@@ -72,17 +72,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        QuizDatabase db = Room.databaseBuilder(this.getContext(), QuizDatabase.class, "QuizDatabase")
-                .build();
-        // Get the DAO instance
-        UserDao userDao = db.getUserDao();
-        ThemeDao themeDao = db.getThemeDao();
-        AchievementsDao achievementsDao = db.getAchievementsDao();
-        AchievementUserDao achievementUserDao = db.getAchievementUserDao();
-        ScoreDao scoreDao = db.getScoreDao();
-        QuestionsDao questionsDao = db.getQuestionsDao();
-        UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
-        ShopDao shopDao = db.getShopDao();
+        QuizDatabase db = QuizDatabase.getInstance(this.getContext());
     }
 
     @Override

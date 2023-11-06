@@ -33,6 +33,9 @@ public class UserCurrencyViewModel extends AndroidViewModel {
     public LiveData<List<UserCurrency>> getCurrenciesByUserId(int userId) {
         return this.repository.getCurrenciesByUserId(userId);
     }
+    public void insertCurrency(UserCurrency userCurrency) {
+        this.repository.insertCurrency(userCurrency);
+    }
 
     public void updateValue(int userId) {
         this.repository.updateValue(userId);

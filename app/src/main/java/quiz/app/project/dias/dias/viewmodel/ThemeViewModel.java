@@ -22,7 +22,7 @@ public class ThemeViewModel extends AndroidViewModel {
     }
 
     public LiveData<Theme> getThemeById(int themeId) {
-        return repository.getThemeByIdLiveData(themeId)
+        return repository.getThemeByIdLiveData(themeId);
     }
 
     public LiveData<List<Theme>> getThemes() {
