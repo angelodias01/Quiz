@@ -3,24 +3,21 @@ package quiz.app.project.dias.dias.view;
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import quiz.app.project.dias.dias.model.QuizDatabase;
-import quiz.app.project.dias.dias.model.score.ScoreDao;
-import quiz.app.project.dias.dias.model.theme.ThemeDao;
 import quiz.app.project.dias.dias.model.user.User;
-import quiz.app.project.dias.dias.model.user.UserDao;
 import quiz.app.project.dias.dias.R;
+import quiz.app.project.dias.dias.viewmodel.ScoreViewModel;
+import quiz.app.project.dias.dias.viewmodel.ThemeViewModel;
+import quiz.app.project.dias.dias.viewmodel.UserViewModel;
 
 public class ScoreFragment extends Fragment {
     TextView lblUsernameScore;
@@ -28,6 +25,9 @@ public class ScoreFragment extends Fragment {
     private LinearLayoutManager layoutManager;
     private RecyclerView recyclerView;
     private ScoreAdapter adapter;
+    private ScoreViewModel scoreViewModel;
+    private ThemeViewModel themeViewModel;
+    private UserViewModel userViewModel;
 
     public ScoreFragment() {
         // Required empty public constructor
@@ -43,6 +43,8 @@ public class ScoreFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        scoreViewModel = new ScoreViewModel(getActivity().getApplication());
+        themeViewModel = new ThemeViewModel(getActivity().getApplication());
     }
 
     @SuppressLint("MissingInflatedId")
@@ -58,11 +60,9 @@ public class ScoreFragment extends Fragment {
         recyclerView = rootView.findViewById(R.id.recyclerViewProfile);
         // Get instances of the ChatDao and MessagesDao from the AppDatabase
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
-        ScoreDao scoreDao = db.getScoreDao();
-        ThemeDao themeDao = db.getThemeDao();
 
         // Create an instance of the ChatAdapter and pass the necessary data
-        this.adapter = new ScoreAdapter(scoreDao.getScores(userId), themeDao.getThemes());
+        this.adapter = new ScoreAdapter(scoreViewModel.getScores(userId).getValue(), themeViewModel.getThemes().getValue());
 
         // Create a LinearLayoutManager for the RecyclerView
         LinearLayoutManager layoutManager = new LinearLayoutManager(this.getContext());
@@ -75,9 +75,8 @@ public class ScoreFragment extends Fragment {
 
         if (userId != 0) {
             QuizDatabase quizDB = QuizDatabase.getInstance(requireContext());
-            UserDao userDao = quizDB.getUserDao();
 
-            User user = userDao.getUserById(userId);
+            User user = userViewModel.getUserById(userId).getValue();
 
             if (user != null) {
                 String username = user.getUsername();

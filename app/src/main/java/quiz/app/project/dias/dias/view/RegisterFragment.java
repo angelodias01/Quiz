@@ -1,18 +1,13 @@
 package quiz.app.project.dias.dias.view;
 
 import static quiz.app.project.dias.dias.viewmodel.Hash.hashPassword;
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.LiveData;
-import androidx.room.Room;
-
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
@@ -23,17 +18,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Objects;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import quiz.app.project.dias.dias.model.QuizDatabase;
-import quiz.app.project.dias.dias.model.usercurrency.UserCurrencyDao;
 import quiz.app.project.dias.dias.model.user.User;
-import quiz.app.project.dias.dias.model.user.UserDao;
 import quiz.app.project.dias.dias.R;
-import quiz.app.project.dias.dias.viewmodel.UserCurrencyViewModel;
 import quiz.app.project.dias.dias.viewmodel.UserViewModel;
 
 public class RegisterFragment extends Fragment {
@@ -103,7 +91,7 @@ public class RegisterFragment extends Fragment {
             insertedUsername = tbUsername.getText().toString();
             insertedEmail = tbEmail.getText().toString();
             insertedPassword = tbPassword.getText().toString();
-            LiveData<User> existingUser = userViewModel.getUserByEmail(insertedEmail);
+            User existingUser = userViewModel.getUserByEmail(insertedEmail).getValue();
             // Create a handler associated with the main/UI thread
             Handler handlers = new Handler(Looper.getMainLooper());
 

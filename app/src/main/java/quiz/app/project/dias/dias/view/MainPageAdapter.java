@@ -6,26 +6,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
 import quiz.app.project.dias.dias.model.achievements.Achievements;
 import quiz.app.project.dias.dias.model.theme.Theme;
 import quiz.app.project.dias.dias.R;
 
 public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPageViewHolder> {
-    List<Theme> themeList;
-    List<Achievements> achievementsList;
+    private List<Theme> themeList = new ArrayList<>();
+    private List<Achievements> achievementsList = new ArrayList<>();
     private Context context;
 
-    public MainPageAdapter(List<Theme> themeList, List<Achievements> achievementList, Context context) {
+    public MainPageAdapter(List<Theme> themeList, List<Achievements> achievementsList, Context context) {
         this.themeList = themeList;
-        this.achievementsList = achievementList;
+        this.achievementsList = achievementsList;
         this.context = context;
     }
 
@@ -60,6 +58,13 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
         themeList.addAll(newThemeList);
         notifyDataSetChanged();
     }
+
+    public void refreshAchievementList(List<Achievements> newAchievementsList) {
+        achievementsList.clear();
+        achievementsList.addAll(newAchievementsList);
+        notifyDataSetChanged();
+    }
+
 
     public static class MainPageViewHolder extends RecyclerView.ViewHolder {
         private View rootView;

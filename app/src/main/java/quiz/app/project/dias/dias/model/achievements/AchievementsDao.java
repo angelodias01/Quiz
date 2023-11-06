@@ -21,7 +21,7 @@ public interface AchievementsDao {
     void deleteAchievement(Achievements achievement);
 
     @Query("SELECT * FROM Achievements")
-    List<Achievements> getAllAchievements();
+    LiveData<List<Achievements>> getAllAchievements();
 
     @Query("SELECT * FROM Achievements WHERE achievementId = :achievementId")
     LiveData<List<Achievements>> getAchievementById(int achievementId);

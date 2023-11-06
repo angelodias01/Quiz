@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import java.util.List;
-
 import quiz.app.project.dias.dias.model.usercurrency.UserCurrency;
 import quiz.app.project.dias.dias.model.usercurrency.UserCurrencyRepo;
 
@@ -43,5 +42,8 @@ public class UserCurrencyViewModel extends AndroidViewModel {
 
     public LiveData<Integer> getCollectedCoins(int userId) {
         return this.repository.getCollectedCoins(userId);
+    }
+    public void updateCurrency(UserCurrency userCurrency) {
+        this.repository.updateCurrency(userCurrency);
     }
 }

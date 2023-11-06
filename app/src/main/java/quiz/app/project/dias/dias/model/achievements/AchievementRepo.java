@@ -16,6 +16,9 @@ public class AchievementRepo {
     public LiveData<List<Achievements>> getAchievements(int achievementId) {
         return this.achievementsDao.getAchievementById(achievementId);
     }
+    public LiveData<List<Achievements>> getAllAchievements() {
+        return this.achievementsDao.getAllAchievements();
+    }
     public void createAchievements(Achievements achievements) {
         executor.execute(new Runnable() {
             @Override

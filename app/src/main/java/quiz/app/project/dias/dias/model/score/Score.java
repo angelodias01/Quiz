@@ -6,7 +6,6 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
-
 import quiz.app.project.dias.dias.model.theme.Theme;
 import quiz.app.project.dias.dias.model.user.User;
 
@@ -40,7 +39,7 @@ public class Score {
 
     private long date;
 
-    public Score( int score, int userId, int themeId, long date) {
+    public Score(int score, int userId, int themeId, long date) {
         this.score = score;
         this.userId = userId;
         this.themeId = themeId;
@@ -78,9 +77,11 @@ public class Score {
     public void setThemeId(int themeId) {
         this.themeId = themeId;
     }
+
     public long getDate() {
         return date;
     }
+
     public void setDate(long date) {
         this.date = date;
     }

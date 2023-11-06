@@ -2,12 +2,9 @@ package quiz.app.project.dias.dias.view;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,19 +12,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.List;
-
-import quiz.app.project.dias.dias.model.achievements.Achievements;
-import quiz.app.project.dias.dias.model.achievements.AchievementsDao;
-import quiz.app.project.dias.dias.model.QuizDatabase;
-import quiz.app.project.dias.dias.model.theme.Theme;
-import quiz.app.project.dias.dias.model.theme.ThemeDao;
-import quiz.app.project.dias.dias.model.usercurrency.UserCurrency;
-import quiz.app.project.dias.dias.model.usercurrency.UserCurrencyDao;
-import quiz.app.project.dias.dias.model.user.User;
-import quiz.app.project.dias.dias.model.user.UserDao;
+import java.util.ArrayList;
 import quiz.app.project.dias.dias.R;
+import quiz.app.project.dias.dias.viewmodel.AchievementViewModel;
+import quiz.app.project.dias.dias.viewmodel.ThemeViewModel;
+import quiz.app.project.dias.dias.viewmodel.UserCurrencyViewModel;
+import quiz.app.project.dias.dias.viewmodel.UserViewModel;
 
 public class MainPageFragment extends Fragment {
     TextView lblUsernameMainPage;
@@ -37,21 +27,10 @@ public class MainPageFragment extends Fragment {
     private LinearLayoutManager layoutManager;
     private RecyclerView recyclerView;
     private MainPageAdapter adapter;
-
-
-    public MainPageFragment() {
-        // Required empty public constructor
-    }
-
-    public static MainPageFragment newInstance() {
-        MainPageFragment fragment = new MainPageFragment();
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    private ThemeViewModel themeViewModel;
+    private AchievementViewModel achievementViewModel;
+    private UserViewModel userViewModel;
+    private UserCurrencyViewModel userCurrencyViewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,18 +40,33 @@ public class MainPageFragment extends Fragment {
         btnMultiplayer = rootView.findViewById(R.id.btnMultiPlayerHome);
 
         recyclerView = rootView.findViewById(R.id.recyclerViewProfile);
-        QuizDatabase db = QuizDatabase.getInstance(this.getContext());
-        ThemeDao themeDao = db.getThemeDao();
-        AchievementsDao achievementDao = db.getAchievementsDao(); // Get the AchievementDao
-
-        LiveData<List<Theme>> themeList = themeDao.getAllThemesLiveData();
-        List<Achievements> achievementList = achievementDao.getAllAchievements(); // Retrieve the list of achievements
-
-        this.adapter = new MainPageAdapter((List<Theme>) themeList, achievementList, getContext()); // Pass the achievementList to the adapter
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-
-        recyclerView.setAdapter(this.adapter);
+        layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
+
+        themeViewModel = new ThemeViewModel(requireActivity().getApplication());
+        achievementViewModel = new AchievementViewModel(requireActivity().getApplication());
+        userViewModel = new UserViewModel(requireActivity().getApplication());
+        userCurrencyViewModel = new UserCurrencyViewModel(requireActivity().getApplication());
+
+        adapter = new MainPageAdapter(new ArrayList<>(), new ArrayList<>(), getContext());
+
+        // Observe the changes in the theme list
+        themeViewModel.getAllThemes().observe(getViewLifecycleOwner(), themes -> {
+            if (themes != null) {
+                adapter.refreshList(themes);
+            }
+        });
+
+        // Observe the changes in the achievements list
+        achievementViewModel.getAllAchievements().observe(getViewLifecycleOwner(), achievements -> {
+            if (achievements != null) {
+                adapter.refreshAchievementList(achievements);
+            }
+        });
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(layoutManager);
+
 
         lblUsernameMainPage = rootView.findViewById(R.id.lblUsernameHome);
         lblCoinsHome = rootView.findViewById(R.id.lblCoinsHome);
@@ -80,42 +74,24 @@ public class MainPageFragment extends Fragment {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         userId = sharedPreferences.getInt("userId", 0);
 
-        if (userId != 0) {
-            UserDao userDao = db.getUserDao();
-            UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
-
-            LiveData<User> user = userDao.getUserById(userId);
-            LiveData<UserCurrency> existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
-
+        userViewModel.getUserById(userId).observe(getViewLifecycleOwner(), user -> {
             if (user != null) {
-                String username = user.getValue().getUsername();
+                String username = user.getUsername();
                 lblUsernameMainPage.setText(username);
-                lblCoinsHome.setText(String.valueOf(existingUserCurrency.getValue().getAmount()));
             }
-        }
-        btnMultiplayer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(requireContext(), "Multiplayer is not available yet", Toast.LENGTH_SHORT).show();
+        });
+
+        userCurrencyViewModel.getUserCurrencyByUserId(userId).observe(getViewLifecycleOwner(), existingUserCurrency -> {
+            if (existingUserCurrency != null) {
+                int currentCoins = existingUserCurrency.getAmount();
+                lblCoinsHome.setText(String.valueOf(currentCoins));
             }
+        });
+
+        btnMultiplayer.setOnClickListener(v -> {
+            Toast.makeText(requireContext(), "Multiplayer is not available yet", Toast.LENGTH_SHORT).show();
         });
 
         return rootView;
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        // Update the coins when returning from a quiz
-        QuizDatabase db = QuizDatabase.getInstance(getContext());
-        UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
-
-        LiveData<UserCurrency> userCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
-        if (userCurrency != null) {
-            int currentCoins = userCurrency.getValue().getAmount();
-            lblCoinsHome.setText(String.valueOf(currentCoins));
-        }
-    }
-
 }

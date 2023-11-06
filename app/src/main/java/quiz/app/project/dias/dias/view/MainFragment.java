@@ -5,23 +5,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.room.Room;
-
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import quiz.app.project.dias.dias.model.achievementsuser.AchievementUserDao;
-import quiz.app.project.dias.dias.model.achievements.AchievementsDao;
-import quiz.app.project.dias.dias.model.questions.QuestionsDao;
 import quiz.app.project.dias.dias.model.QuizDatabase;
-import quiz.app.project.dias.dias.model.score.ScoreDao;
-import quiz.app.project.dias.dias.model.shop.ShopDao;
-import quiz.app.project.dias.dias.model.theme.ThemeDao;
-import quiz.app.project.dias.dias.model.usercurrency.UserCurrencyDao;
-import quiz.app.project.dias.dias.model.user.UserDao;
 import quiz.app.project.dias.dias.R;
 
 public class MainFragment extends Fragment {
@@ -80,6 +69,5 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main, container, false);
-
     }
 }
