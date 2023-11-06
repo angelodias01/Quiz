@@ -5,9 +5,7 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-
 import quiz.app.project.dias.dias.model.QuizDatabase;
-
 
 public class UserRepo {
     private UserDao userDao;

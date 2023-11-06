@@ -1,17 +1,12 @@
 package quiz.app.project.dias.dias.view;
-
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +14,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import quiz.app.project.dias.dias.model.achievementsuser.AchievementUserDao;
-import quiz.app.project.dias.dias.model.achievements.AchievementsDao;
+import java.util.List;
+
 import quiz.app.project.dias.dias.model.QuizDatabase;
+import quiz.app.project.dias.dias.model.achievements.Achievements;
 import quiz.app.project.dias.dias.model.usercurrency.UserCurrency;
-import quiz.app.project.dias.dias.model.usercurrency.UserCurrencyDao;
 import quiz.app.project.dias.dias.model.user.User;
-import quiz.app.project.dias.dias.model.user.UserDao;
 import quiz.app.project.dias.dias.R;
 import quiz.app.project.dias.dias.viewmodel.AchievementUserViewModel;
 import quiz.app.project.dias.dias.viewmodel.AchievementViewModel;
@@ -44,7 +38,6 @@ public class ProfileFragment extends Fragment {
     private UserViewModel userViewModel;
     private UserCurrencyViewModel userCurrencyViewModel;
 
-
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -62,6 +55,7 @@ public class ProfileFragment extends Fragment {
         achievementUserViewModel = new ViewModelProvider(this).get(AchievementUserViewModel.class);
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         userCurrencyViewModel = new ViewModelProvider(this).get(UserCurrencyViewModel.class);
+        achievementViewModel = new ViewModelProvider(this).get(AchievementViewModel.class); // Add this line
     }
 
     @SuppressLint("MissingInflatedId")
@@ -74,54 +68,43 @@ public class ProfileFragment extends Fragment {
         userId = sharedPreferences.getInt("userId", 0);
 
         recyclerView = rootView.findViewById(R.id.recyclerViewProfile);
-        // Get instances of the ChatDao and MessagesDao from the AppDatabase
+
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
-        AchievementUserDao achievementUserDao = db.getAchievementUserDao();
-        AchievementsDao achievementsDao = db.getAchievementsDao();
-        UserDao userDao = db.getUserDao();
-        UserCurrencyDao userCurrencyDao = db.getUserCurrencyDao();
 
-        achievementUserViewModel.getUserAchievementByUserId(userId).observe(getViewLifecycleOwner(), achievementUsers -> {
-
-            this.adapter = new ProfileAdapter(achievementUsers, achievementsDao.getAllAchievements());
-
-            // Create a LinearLayoutManager for the RecyclerView
-            LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-            // Set the adapter and layout manager for the RecyclerView
-            recyclerView.setAdapter(this.adapter);
-            recyclerView.setLayoutManager(layoutManager);
-
-        });
-
-        // Create a LinearLayoutManager for the RecyclerView
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        // Set the adapter and layout manager for the RecyclerView
-        recyclerView.setAdapter(this.adapter);
         recyclerView.setLayoutManager(layoutManager);
+
+        achievementViewModel.getAllAchievements().observe(getViewLifecycleOwner(), achievements -> {
+            achievementUserViewModel.getUserAchievementByUserId(userId).observe(getViewLifecycleOwner(), achievementUsers -> {
+                ProfileAdapter adapter = new ProfileAdapter(achievementUsers, achievements);
+                List<Achievements> orderedAchievements = adapter.getOrderedAchievementsList();
+                recyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+            });
+        });
 
         btnStatistics = rootView.findViewById(R.id.btnStatisticsProfile);
 
         lblUsernameProfile = rootView.findViewById(R.id.lblUsernameProfile);
         lblCoinsProfile = rootView.findViewById(R.id.lblCoinsProfile);
 
-
         if (userId != 0) {
-            LiveData<User> user = userViewModel.getUserById(userId);
-            LiveData<UserCurrency> existingUserCurrency = userCurrencyViewModel.getUserCurrencyByUserId(userId);
+            userViewModel.getUserById(userId).observe(getViewLifecycleOwner(), user -> {
+                if (user != null) {
+                    String username = user.getUsername();
+                    lblUsernameProfile.setText(username);
+                }
+            });
 
-            if (user != null) {
-                String username = user.getValue().getUsername();
-                lblUsernameProfile.setText(username);
-                lblCoinsProfile.setText(String.valueOf(existingUserCurrency.getValue()));
-            }
+            userCurrencyViewModel.getUserCurrencyByUserId(userId).observe(getViewLifecycleOwner(), existingUserCurrency -> {
+                if (existingUserCurrency != null) {
+                    int currentCoins = existingUserCurrency.getAmount();
+                    lblCoinsProfile.setText(String.valueOf(currentCoins));
+                }
+            });
         }
 
-        btnStatistics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(requireContext(), "Statistics not available in the moment", Toast.LENGTH_SHORT).show();
-            }
-        });
+        btnStatistics.setOnClickListener(v -> Toast.makeText(requireContext(), "Statistics not available at the moment", Toast.LENGTH_SHORT).show());
 
         return rootView;
     }

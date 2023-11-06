@@ -3,24 +3,21 @@ package quiz.app.project.dias.dias.view;
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import quiz.app.project.dias.dias.model.QuizDatabase;
-import quiz.app.project.dias.dias.model.shop.ShopDao;
 import quiz.app.project.dias.dias.model.usercurrency.UserCurrency;
-import quiz.app.project.dias.dias.model.usercurrency.UserCurrencyDao;
 import quiz.app.project.dias.dias.model.user.User;
-import quiz.app.project.dias.dias.model.user.UserDao;
 import quiz.app.project.dias.dias.R;
+import quiz.app.project.dias.dias.viewmodel.ShopViewModel;
+import quiz.app.project.dias.dias.viewmodel.UserCurrencyViewModel;
+import quiz.app.project.dias.dias.viewmodel.UserViewModel;
 
 public class ShopFragment extends Fragment {
     private int userId;
@@ -28,6 +25,9 @@ public class ShopFragment extends Fragment {
     private LinearLayoutManager layoutManager;
     private RecyclerView recyclerView;
     private ShopAdapter adapter;
+    private ShopViewModel shopViewModel;
+    private UserViewModel userViewModel;
+    private UserCurrencyViewModel userCurrencyViewModel;
 
     public ShopFragment() {
         // Required empty public constructor
@@ -43,6 +43,9 @@ public class ShopFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        shopViewModel = new ShopViewModel(getActivity().getApplication());
+        userViewModel = new UserViewModel(getActivity().getApplication());
+        userCurrencyViewModel = new UserCurrencyViewModel(getActivity().getApplication());
     }
 
     @SuppressLint("MissingInflatedId")
@@ -54,9 +57,8 @@ public class ShopFragment extends Fragment {
         recyclerView = rootView.findViewById(R.id.recyclerViewProfile);
         // Get instances of the ChatDao and MessagesDao from the AppDatabase
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
-        ShopDao shopDao = db.getShopDao();
 
-        this.adapter = new ShopAdapter(shopDao.getItems());
+        this.adapter = new ShopAdapter(shopViewModel.getItems().getValue());
 
         // Create a LinearLayoutManager for the RecyclerView
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -71,12 +73,8 @@ public class ShopFragment extends Fragment {
         userId = sharedPreferences.getInt("userId", 0);
 
         if (userId != 0) {
-            QuizDatabase quizDB = QuizDatabase.getInstance(requireContext());
-            UserDao userDao = quizDB.getUserDao();
-            UserCurrencyDao userCurrencyDao = quizDB.getUserCurrencyDao();
-
-            User user = userDao.getUserById(userId);
-            UserCurrency existingUserCurrency = userCurrencyDao.getUserCurrencyByUserId(userId);
+            User user = userViewModel.getUserById(userId).getValue();
+            UserCurrency existingUserCurrency = userCurrencyViewModel.getUserCurrencyByUserId(userId).getValue();
 
 
             if (user != null) {

@@ -1,13 +1,10 @@
 package quiz.app.project.dias.dias.view;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -40,7 +37,6 @@ public class MainMenuUser extends AppCompatActivity {
         bottomNav.setLabelVisibilityMode(NavigationBarView.LABEL_VISIBILITY_LABELED);
         bottomNav.setItemTextColor(getColorStateList(R.color.selector_bottom_nav_icon_color));
         NavigationUI.setupWithNavController(bottomNav, navController);
-
 
     }
     // Helper method to retrieve the userId from SharedPreferences

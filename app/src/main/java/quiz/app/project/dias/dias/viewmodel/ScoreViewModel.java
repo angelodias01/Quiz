@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import java.util.List;
-
 import quiz.app.project.dias.dias.model.score.Score;
 import quiz.app.project.dias.dias.model.score.ScoreRepo;
 

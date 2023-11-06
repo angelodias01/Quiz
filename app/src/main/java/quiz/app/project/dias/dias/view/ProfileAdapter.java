@@ -1,21 +1,19 @@
 package quiz.app.project.dias.dias.view;
-
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-
 import quiz.app.project.dias.dias.model.achievementsuser.AchievementUser;
 import quiz.app.project.dias.dias.model.achievements.Achievements;
 import quiz.app.project.dias.dias.R;
@@ -115,6 +113,15 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         return orderedList;
     }
 
+    private long getDateEarnedForAchievement(List<AchievementUser> achievementUsers, int achievementId) {
+        for (AchievementUser achievementUser : achievementUsers) {
+            if (achievementUser.getAchievementId() == achievementId) {
+                return achievementUser.getDateEarned();
+            }
+        }
+        return 0L;
+    }
+
     private boolean checkUserHasAchievement(int achievementId) {
         for (AchievementUser achievementUser : achievementsUserList) {
             if (achievementUser.getAchievementId() == achievementId) {
@@ -122,5 +129,8 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
             }
         }
         return false;
+    }
+    public List<Achievements> getOrderedAchievementsList() {
+        return orderAchievementsList(achievementsUserList, achievementsList);
     }
 }

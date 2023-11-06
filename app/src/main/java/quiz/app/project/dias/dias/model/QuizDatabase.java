@@ -6,7 +6,6 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-
 import quiz.app.project.dias.dias.model.achievements.Achievements;
 import quiz.app.project.dias.dias.model.achievements.AchievementsDao;
 import quiz.app.project.dias.dias.model.achievementsuser.AchievementUser;
@@ -23,7 +22,6 @@ import quiz.app.project.dias.dias.model.user.User;
 import quiz.app.project.dias.dias.model.user.UserDao;
 import quiz.app.project.dias.dias.model.usercurrency.UserCurrency;
 import quiz.app.project.dias.dias.model.usercurrency.UserCurrencyDao;
-
 
 @Database(entities = {User.class, UserCurrency.class, Theme.class, Score.class, Questions.class, Achievements.class, AchievementUser.class, Shop.class}, version = 1, exportSchema = false)
 public abstract class QuizDatabase extends RoomDatabase {

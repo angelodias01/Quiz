@@ -7,7 +7,6 @@ import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
-
 import quiz.app.project.dias.dias.model.user.User;
 
 @Entity(tableName = "UserCurrency",

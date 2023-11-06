@@ -1,16 +1,11 @@
 package quiz.app.project.dias.dias.model.achievementsuser;
 
 import android.content.Context;
-
 import androidx.lifecycle.LiveData;
-
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-
 import quiz.app.project.dias.dias.model.QuizDatabase;
-import quiz.app.project.dias.dias.model.achievements.Achievements;
-import quiz.app.project.dias.dias.model.achievements.AchievementsDao;
 
 public class AchievementUserRepo {
     private AchievementUserDao achievementUserDao;
@@ -22,6 +17,10 @@ public class AchievementUserRepo {
 
     public LiveData<List<AchievementUser>> getUserAchievements(int achievementUserId) {
         return this.achievementUserDao.getAchievementUsersByUserId(achievementUserId);
+    }
+
+    public LiveData<List<AchievementUser>> getAllUserAchievements() {
+        return this.achievementUserDao.getAllAchievementUsers();
     }
 
     public void createUserAchievements(AchievementUser achievementUser) {
@@ -49,6 +48,7 @@ public class AchievementUserRepo {
     public LiveData<List<AchievementUser>> getAchievementUsersByAchievementId(int achievementId) {
         return this.achievementUserDao.getAchievementUsersByAchievementId(achievementId);
     }
+
     public LiveData<List<AchievementUser>> UserAchievementByUserId(int userId) {
         return this.achievementUserDao.getUserAchievementByUserId(userId);
     }
