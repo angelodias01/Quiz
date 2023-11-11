@@ -24,12 +24,27 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
 
     private List<ScoreWithTheme> mergeScoreWithTheme(List<Score> scoreList, List<Theme> themeList) {
         List<ScoreWithTheme> mergedList = new ArrayList<>();
+        if (themeList == null || themeList.isEmpty()) {
+            return mergedList;
+        }
+
         for (Score score : scoreList) {
             Theme theme = findThemeById(themeList, score.getThemeId());
-            mergedList.add(new ScoreWithTheme(score, theme));
+            if (theme != null) {
+                mergedList.add(new ScoreWithTheme(score, theme));
+            }
         }
         return mergedList;
     }
+
+    @Override
+    public int getItemCount() {
+        if (scoreList == null || scoreList.isEmpty()) {
+            return 1; // Display the "no data" item
+        }
+        return scoreList.size();
+    }
+
 
     private Theme findThemeById(List<Theme> themeList, int themeId) {
         for (Theme theme : themeList) {
@@ -81,15 +96,6 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
             holder.btnDate.setClickable(false);
         }
     }
-
-    @Override
-    public int getItemCount() {
-        if (scoreList == null || scoreList.isEmpty()) {
-            return 1; // Display the "no data" item
-        }
-        return scoreList.size();
-    }
-
     public class ScoreAdapterViewHolder extends RecyclerView.ViewHolder {
         private Context context;
         private View rootView;

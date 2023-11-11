@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.preference.PreferenceManager;
@@ -45,6 +46,7 @@ public class ScoreFragment extends Fragment {
         super.onCreate(savedInstanceState);
         scoreViewModel = new ScoreViewModel(getActivity().getApplication());
         themeViewModel = new ThemeViewModel(getActivity().getApplication());
+        userViewModel = new UserViewModel(getActivity().getApplication());
     }
 
     @SuppressLint("MissingInflatedId")
@@ -62,7 +64,11 @@ public class ScoreFragment extends Fragment {
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
 
         // Create an instance of the ChatAdapter and pass the necessary data
-        this.adapter = new ScoreAdapter(scoreViewModel.getScores(userId).getValue(), themeViewModel.getThemes().getValue());
+        scoreViewModel.getScores(userId).observe(getViewLifecycleOwner(), score -> {
+            themeViewModel.getThemes().observe(getViewLifecycleOwner(), theme -> {
+                this.adapter = new ScoreAdapter(score, theme);
+            });
+        });
 
         // Create a LinearLayoutManager for the RecyclerView
         LinearLayoutManager layoutManager = new LinearLayoutManager(this.getContext());
@@ -73,16 +79,12 @@ public class ScoreFragment extends Fragment {
 
         lblUsernameScore = rootView.findViewById(R.id.lblUsernameScore);
 
-        if (userId != 0) {
-            QuizDatabase quizDB = QuizDatabase.getInstance(requireContext());
-
-            User user = userViewModel.getUserById(userId).getValue();
-
-            if (user != null) {
-                String username = user.getUsername();
-                lblUsernameScore.setText(username);
-            }
-        }
+            userViewModel.getUserById(userId).observe(getViewLifecycleOwner(), user -> {
+                if (user != null) {
+                    String username = user.getUsername();
+                    lblUsernameScore.setText(username);
+                }
+            });
         return rootView;
     }
 }

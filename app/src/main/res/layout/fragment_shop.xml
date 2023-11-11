@@ -104,6 +104,7 @@
             android:layout_height="70dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/backbtnprofile"
+            android:backgroundTint="#dc2626"
             android:padding="20dp"
             app:layout_constraintEnd_toEndOf="@+id/viewUserShop"
             app:layout_constraintHorizontal_bias="0.0"
@@ -118,6 +119,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
+            android:backgroundTint="#f8cbd1"
             android:clickable="false"
             android:drawableLeft="@drawable/bxs_package"
             android:drawableRight="@drawable/bxs_package"
@@ -144,14 +146,15 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/buttons"
+            android:backgroundTint="#02966a"
+            android:orientation="horizontal"
             android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/viewBtnShop"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/viewBtnShop"
             app:layout_constraintTop_toBottomOf="@+id/viewBtnShop"
-            app:layout_constraintVertical_bias="0.0"
-            android:orientation="horizontal"/>
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
