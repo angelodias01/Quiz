@@ -50,6 +50,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         TextView lblAchievement;
         TextView lblDescription;
         TextView lblAchievementDate;
+        TextView lblAchievementShow;
         ConstraintLayout constraintLayout;
 
         public ProfileViewHolder(@NonNull View itemView) {
@@ -58,6 +59,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
             lblDescription = itemView.findViewById(R.id.lblDescription);
             lblAchievementDate = itemView.findViewById(R.id.lblAchievementDate);
             constraintLayout = itemView.findViewById(R.id.ConstraintLayout);
+            lblAchievementShow = itemView.findViewById(R.id.lblAchievementShow);
         }
 
         public void bind(Achievements achievements, AchievementUser achievementUser) {
@@ -65,7 +67,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
             lblDescription.setText(achievements.getDescription());
 
             if (achievementUser != null) {
-                constraintLayout.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#F9B01A")));
+                constraintLayout.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D3E9DD")));
 
                 long dateEarned = achievementUser.getDateEarned();
                 Date date = new Date(dateEarned);
@@ -73,8 +75,10 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
                 String formattedDate = sdf.format(date);
                 lblAchievementDate.setText(formattedDate);
                 lblAchievementDate.setVisibility(View.VISIBLE);
+                lblAchievementShow.setVisibility(View.VISIBLE);
             } else {
-                constraintLayout.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#999997")));
+                constraintLayout.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#f3e8ff")));
+                lblAchievementShow.setVisibility(View.GONE);
                 lblAchievementDate.setVisibility(View.GONE);
             }
         }

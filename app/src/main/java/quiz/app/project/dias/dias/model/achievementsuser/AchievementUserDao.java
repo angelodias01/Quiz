@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public interface AchievementUserDao {
     @Query("SELECT * FROM AchievementsUser WHERE userId = :userId and achievementId = :achievementId")
     boolean getAchievementUsersByUserIdAndAchId(int userId, int achievementId);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertAchievementUser(AchievementUser achievementUser);
 
     @Delete

@@ -91,12 +91,9 @@ public class RegisterFragment extends Fragment {
             insertedUsername = tbUsername.getText().toString();
             insertedEmail = tbEmail.getText().toString();
             insertedPassword = tbPassword.getText().toString();
-            User existingUser = userViewModel.getUserByEmail(insertedEmail).getValue();
-            // Create a handler associated with the main/UI thread
-            Handler handlers = new Handler(Looper.getMainLooper());
 
-            // Post a runnable on the main/UI thread
-            handlers.post(() -> {
+            // Observe the user data
+            userViewModel.getUserByEmail(insertedEmail).observe(getViewLifecycleOwner(), user -> {
                 if (Objects.equals(insertedUsername, "") || Objects.equals(insertedEmail, "") || Objects.equals(insertedPassword, "")) {
                     if (Objects.equals(insertedUsername, "")) {
                         tbUsername.setError("Please insert your username!");
@@ -112,7 +109,8 @@ public class RegisterFragment extends Fragment {
                     if (!isValidEmail(tbEmail.getText().toString())) {
                         tbEmail.setError("Invalid email address!");
                         tbEmail.requestFocus();
-                    } else if (existingUser != null) { // Check if email exists in the database
+                    } else if (user != null) {
+                        // Check if email exists in the database
                         // Email already exists
                         Toast.makeText(getActivity(), "Email already exists!", Toast.LENGTH_SHORT).show();
                         tbEmail.setError("Email already exists!");

@@ -21,7 +21,7 @@ import quiz.app.project.dias.dias.viewmodel.UserViewModel;
 
 public class ShopFragment extends Fragment {
     private int userId;
-    TextView lblUsernameShop , lblCoinsShop;
+    TextView lblUsernameShop, lblCoinsShop;
     private LinearLayoutManager layoutManager;
     private RecyclerView recyclerView;
     private ShopAdapter adapter;
@@ -58,8 +58,11 @@ public class ShopFragment extends Fragment {
         // Get instances of the ChatDao and MessagesDao from the AppDatabase
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
 
-        this.adapter = new ShopAdapter(shopViewModel.getItems().getValue());
-
+        shopViewModel.getItems().observe(getViewLifecycleOwner(), items -> {
+            if (items != null) {
+                adapter = new ShopAdapter(items);
+            }
+        });
         // Create a LinearLayoutManager for the RecyclerView
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         // Set the adapter and layout manager for the RecyclerView
@@ -73,16 +76,20 @@ public class ShopFragment extends Fragment {
         userId = sharedPreferences.getInt("userId", 0);
 
         if (userId != 0) {
-            User user = userViewModel.getUserById(userId).getValue();
-            UserCurrency existingUserCurrency = userCurrencyViewModel.getUserCurrencyByUserId(userId).getValue();
+            userViewModel.getUserById(userId).observe(getViewLifecycleOwner(), user -> {
+                if (user != null) {
+                    String username = user.getUsername();
+                    lblUsernameShop.setText(username);
+                }
+            });
 
-
-            if (user != null) {
-                String username = user.getUsername();
-                lblUsernameShop.setText(username);
-                lblCoinsShop.setText(String.valueOf(existingUserCurrency.getAmount()));
-            }
+            userCurrencyViewModel.getUserCurrencyByUserId(userId).observe(getViewLifecycleOwner(), existingUserCurrency -> {
+                if (existingUserCurrency != null) {
+                    lblCoinsShop.setText(String.valueOf(existingUserCurrency.getAmount()));
+                }
+            });
         }
         return rootView;
-  }
+    }
 }
+
