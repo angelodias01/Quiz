@@ -58,11 +58,7 @@ public class ShopFragment extends Fragment {
         // Get instances of the ChatDao and MessagesDao from the AppDatabase
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
 
-        shopViewModel.getItems().observe(getViewLifecycleOwner(), items -> {
-            if (items != null) {
-                adapter = new ShopAdapter(items);
-            }
-        });
+
         // Create a LinearLayoutManager for the RecyclerView
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         // Set the adapter and layout manager for the RecyclerView
@@ -89,6 +85,12 @@ public class ShopFragment extends Fragment {
                 }
             });
         }
+        shopViewModel.getItems().observe(getViewLifecycleOwner(), items -> {
+            if (items != null) {
+                adapter = new ShopAdapter(items);
+                recyclerView.setAdapter(adapter);
+            }
+        });
         return rootView;
     }
 }
