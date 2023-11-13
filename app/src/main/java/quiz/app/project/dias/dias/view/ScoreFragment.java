@@ -63,18 +63,13 @@ public class ScoreFragment extends Fragment {
         // Get instances of the ChatDao and MessagesDao from the AppDatabase
         QuizDatabase db = QuizDatabase.getInstance(this.getContext());
 
-        // Create an instance of the ChatAdapter and pass the necessary data
-        scoreViewModel.getScores(userId).observe(getViewLifecycleOwner(), score -> {
-            themeViewModel.getThemes().observe(getViewLifecycleOwner(), theme -> {
-                this.adapter = new ScoreAdapter(score, theme);
-            });
-        });
+
 
         // Create a LinearLayoutManager for the RecyclerView
         LinearLayoutManager layoutManager = new LinearLayoutManager(this.getContext());
 
         // Set the adapter and layout manager for the RecyclerView
-        recyclerView.setAdapter(this.adapter);
+        recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
 
         lblUsernameScore = rootView.findViewById(R.id.lblUsernameScore);
@@ -85,6 +80,13 @@ public class ScoreFragment extends Fragment {
                     lblUsernameScore.setText(username);
                 }
             });
+        // Create an instance of the ChatAdapter and pass the necessary data
+        scoreViewModel.getScoresByUserId(userId).observe(getViewLifecycleOwner(), score -> {
+            themeViewModel.getThemes().observe(getViewLifecycleOwner(), theme -> {
+                adapter = new ScoreAdapter(score, theme);
+                recyclerView.setAdapter(adapter);
+            });
+        });
         return rootView;
     }
 }

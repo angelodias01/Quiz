@@ -176,7 +176,6 @@ public class QuizActivity extends AppCompatActivity {
                         // Ensure that the final currency amount is updated in the view model
                         userCurrencyViewModel.updateCurrency(userCurrency);
 
-                        // Remover o observador após a atualização inicial
                         userCurrencyLiveData.removeObserver(this);
                     }
                 }
