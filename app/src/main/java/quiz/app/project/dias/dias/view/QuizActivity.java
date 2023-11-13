@@ -326,7 +326,7 @@ public class QuizActivity extends AppCompatActivity {
                 // Log to check if this block is being executed
                 Log.d("Debug", "Updating currency. Score: " + score);
 
-                int updatedCurrencyAmount = userCurrency.getAmount() + score;
+                int updatedCurrencyAmount = userCurrency.getAmount() + score*2;
 
                 // Log to check if the update is being performed
                 Log.d("Debug", "Updated amount: " + updatedCurrencyAmount);
