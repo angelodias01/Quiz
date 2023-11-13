@@ -21,6 +21,8 @@ public interface UserCurrencyDao {
 
     @Query("SELECT * FROM UserCurrency WHERE userId = :userId")
     LiveData<UserCurrency> getUserCurrencyByUserId(int userId);
+    @Query("SELECT * FROM UserCurrency WHERE userId = :userId")
+    List<UserCurrency> getUserCurrencysByUserId(int userId);
 
     @Query("SELECT * FROM UserCurrency")
     LiveData<List<UserCurrency>> getAllCurrencies();
@@ -33,6 +35,9 @@ public interface UserCurrencyDao {
 
     @Query("update UserCurrency set amount = 0 where userId = :userId")
     void updateValue(int userId);
+
+    @Query("update UserCurrency set amount = :value where userId = :userId")
+    void updateValues(int value, int userId);
 
     @Query("SELECT SUM(amount) FROM UserCurrency WHERE userId = :userId")
     LiveData<Integer> getCollectedCoins(int userId);

@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -23,11 +22,9 @@ import java.util.Map;
 
 import quiz.app.project.dias.dias.model.achievementsuser.AchievementUser;
 import quiz.app.project.dias.dias.model.questions.Questions;
-import quiz.app.project.dias.dias.model.questions.QuestionsDao;
 import quiz.app.project.dias.dias.model.QuizDatabase;
 import quiz.app.project.dias.dias.model.score.Score;
 import quiz.app.project.dias.dias.model.score.ScoreDao;
-import quiz.app.project.dias.dias.model.theme.Theme;
 import quiz.app.project.dias.dias.model.usercurrency.UserCurrency;
 import quiz.app.project.dias.dias.R;
 import quiz.app.project.dias.dias.viewmodel.AchievementUserViewModel;
@@ -147,42 +144,11 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void insertScoreIntoDatabase(int score) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        int userId = sharedPreferences.getInt("userId", 0);
         themeViewModel.getThemeById(themeId).observe(this, theme -> {
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-            int userId = sharedPreferences.getInt("userId", 0);
             Score scoreEntity = new Score(score, userId, themeId, System.currentTimeMillis());
             scoreViewModel.insertScore(scoreEntity);
-
-            LiveData<UserCurrency> userCurrencyLiveData = userCurrencyViewModel.getUserCurrencyByUserId(userId);
-            Observer<UserCurrency> userCurrencyObserver = new Observer<UserCurrency>() {
-                @Override
-                public void onChanged(UserCurrency userCurrency) {
-                    if (userCurrency != null) {
-                        int updatedCurrencyAmount = userCurrency.getAmount();
-
-                        Log.d("QuizActivity", "Old Currency Amount: " + updatedCurrencyAmount);
-                        if (score > 0 && score <= 7) {
-                            for (int i = 0; i <= score; i++) {
-                                updatedCurrencyAmount += i;
-                            }
-                        }
-
-                        Log.d("QuizActivity", "Updated Currency Amount: " + updatedCurrencyAmount);
-
-                        // Update the currency amount in the fetched UserCurrency object
-                        userCurrency.setAmount(updatedCurrencyAmount);
-                        Log.d("QuizActivity", "New Currency Amount: " + userCurrency.getAmount());
-
-                        // Ensure that the final currency amount is updated in the view model
-                        userCurrencyViewModel.updateCurrency(userCurrency);
-
-                        userCurrencyLiveData.removeObserver(this);
-                    }
-                }
-            };
-
-            userCurrencyLiveData.observe(this, userCurrencyObserver);
-
 
             // Check if the user already has the achievement "The Beginning"
             if (!hasAchievement(userId, 2)) {
@@ -198,7 +164,7 @@ public class QuizActivity extends AppCompatActivity {
 
             // Check if the user already has the achievement "A Great Loser"
             if (hasZeroScore(userId, themeId)) {
-                if (!hasAchievement( userId, 4)) {
+                if (!hasAchievement(userId, 4)) {
                     achievementUserViewModel.createAchievements(new AchievementUser(userId, 4, System.currentTimeMillis()));
                 }
             }
@@ -217,7 +183,7 @@ public class QuizActivity extends AppCompatActivity {
 
             // Check if the user already has the achievement "A.I."
             if (hasWinningStreak(userId, 10)) {
-                if (!hasAchievement( userId, 7)) {
+                if (!hasAchievement(userId, 7)) {
                     achievementUserViewModel.createAchievements(new AchievementUser(userId, 7, System.currentTimeMillis()));
                 }
             }
@@ -256,6 +222,7 @@ public class QuizActivity extends AppCompatActivity {
                         achievementUserViewModel.createAchievements(new AchievementUser(userId, 12, System.currentTimeMillis()));
                     }
                 }
+                scoreViewModel.getTotalScoreByUserId(userId).removeObservers(this);
             });
 
 
@@ -350,6 +317,27 @@ public class QuizActivity extends AppCompatActivity {
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         });
+        List<UserCurrency> userCurrencyList = userCurrencyViewModel.getUserCurrencysByUserId(userId);
+
+        if (userCurrencyList != null && userCurrencyList.size() > 0) {
+            UserCurrency userCurrency = userCurrencyList.get(0);
+
+            if (score > 0 && score <= 7) {
+                // Log to check if this block is being executed
+                Log.d("Debug", "Updating currency. Score: " + score);
+
+                int updatedCurrencyAmount = userCurrency.getAmount() + score;
+
+                // Log to check if the update is being performed
+                Log.d("Debug", "Updated amount: " + updatedCurrencyAmount);
+
+                // Update the currency amount in the fetched UserCurrency object
+                userCurrency.setAmount(updatedCurrencyAmount);
+
+                // Ensure that the final currency amount is updated in the view model
+                userCurrencyViewModel.updateCurrency(userCurrency);
+            }
+        }
     }
 
     private void replaceWithQuestion(int questionId) {

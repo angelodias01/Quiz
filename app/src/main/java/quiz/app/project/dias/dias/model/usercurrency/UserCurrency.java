@@ -58,4 +58,5 @@ public class UserCurrency {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
 }
