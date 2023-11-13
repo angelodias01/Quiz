@@ -26,7 +26,7 @@ public interface QuestionsDao {
     @Query("SELECT * FROM Questions WHERE questionsId = :questionsId")
     LiveData<Questions> getQuestionById(int questionsId);
 
-    @Query("SELECT * FROM Questions WHERE themeId = :themeId")
+    @Query("SELECT * FROM Questions WHERE themeId = :themeId ORDER BY RANDOM() LIMIT 7")
     LiveData<List<Questions>> getQuestionsByThemeId(int themeId);
 
     @Query("SELECT QuestionsId FROM questions WHERE QuestionsId < :currentQuestionId ORDER BY QuestionsId DESC LIMIT 1")

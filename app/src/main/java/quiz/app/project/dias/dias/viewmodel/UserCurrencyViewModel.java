@@ -20,6 +20,9 @@ public class UserCurrencyViewModel extends AndroidViewModel {
     public LiveData<UserCurrency> getUserCurrencyByUserId(int userId) {
         return this.repository.getUserCurrencyByUserId(userId);
     }
+    public List<UserCurrency> getUserCurrencysByUserId(int userId) {
+        return this.repository.getUserCurrencysByUserId(userId);
+    }
 
     public LiveData<List<UserCurrency>> getAllCurrencies() {
         return this.repository.getAllCurrencies();
@@ -38,6 +41,10 @@ public class UserCurrencyViewModel extends AndroidViewModel {
 
     public void updateValue(int userId) {
         this.repository.updateValue(userId);
+    }
+
+    public void updateValueInBackground(int value, int userId) {
+        this.repository.updateValueInBackground(value, userId);
     }
 
     public LiveData<Integer> getCollectedCoins(int userId) {

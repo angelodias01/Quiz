@@ -2,6 +2,8 @@ package quiz.app.project.dias.dias.model.usercurrency;
 
 import android.content.Context;
 import androidx.lifecycle.LiveData;
+import androidx.room.Query;
+
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -18,6 +20,9 @@ public class UserCurrencyRepo {
 
     public LiveData<UserCurrency> getUserCurrencyByUserId(int userId) {
         return this.userCurrencyDao.getUserCurrencyByUserId(userId);
+    }
+    public List<UserCurrency> getUserCurrencysByUserId(int userId) {
+        return this.userCurrencyDao.getUserCurrencysByUserId(userId);
     }
 
     public LiveData<List<UserCurrency>> getAllCurrencies() {
@@ -44,7 +49,12 @@ public class UserCurrencyRepo {
             userCurrencyDao.updateCurrency(userCurrency);
         });
     }
-
+    public void updateValueInBackground(int value, int userId) {
+        // Perform the update in the background using an executor
+        executor.execute(() -> {
+            userCurrencyDao.updateValues(value, userId);
+        });
+    }
     public void insertCurrency(UserCurrency userCurrency) {
         executor.execute(() -> {
             userCurrencyDao.insertCurrency(userCurrency);
