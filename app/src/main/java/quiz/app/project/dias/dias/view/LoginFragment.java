@@ -125,14 +125,14 @@ public class LoginFragment extends Fragment {
                         });
                     }
                 }
+
                 // Create a handler associated with the main/UI thread
                 Handler handlers = new Handler(Looper.getMainLooper());
 
                 // Post a runnable on the main/UI thread
                 handlers.post(() -> {
                     if (user != null) {
-                        Toast.makeText(getActivity(), "Login Successful!",
-                                Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), getString(R.string.login_successful), Toast.LENGTH_SHORT).show();
                         userIdValue = user.getUserId();
                         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -145,20 +145,19 @@ public class LoginFragment extends Fragment {
                         getActivity().startActivity(intent, bundle);
                         handler.postDelayed(() -> getActivity().finish(), 500);
                     } else {
-                        Toast.makeText(getActivity(), "Email and Password didn't match!",
-                                Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), getString(R.string.email_password_no_match), Toast.LENGTH_SHORT).show();
                         if (email.equals("")) {
-                            tbEmail.setError("Please insert your email!");
+                            tbEmail.setError(getString(R.string.insert_email));
                             tbEmail.requestFocus();
                         } else if (password.equals("")) {
-                            tbPassword.setError("Please insert your password!");
+                            tbPassword.setError(getString(R.string.insert_password));
                             tbPassword.requestFocus();
                         } else if (!isValidEmail(tbEmail.getText().toString())) {
-                            tbEmail.setError("Invalid email address!");
+                            tbEmail.setError(getString(R.string.invalid_email));
                             tbEmail.requestFocus();
                         } else {
-                            tbEmail.setError("Email and password didn't match!");
-                            tbPassword.setError("Email and password didn't match!");
+                            tbEmail.setError(getString(R.string.email_password_no_match));
+                            tbPassword.setError(getString(R.string.email_password_no_match));
                             tbEmail.requestFocus();
                         }
                     }

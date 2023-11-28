@@ -7,21 +7,21 @@
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/bxs_user__1_"
-        android:title="Profile" />
+        android:title="@string/Profile" />
     <item
         android:id="@+id/scoreFragment"
         android:icon="@drawable/bxs_bar_chart_alt_2"
-        android:title="Score" />
+        android:title="@string/Score" />
     <item
         android:id="@+id/mainPageFragment"
         android:icon="@drawable/homeicon"
-        android:title="Home" />
+        android:title="@string/Home" />
     <item
         android:id="@+id/shopFragment"
         android:icon="@drawable/bxs_store"
-        android:title="Shop" />
+        android:title="@string/Shop" />
     <item
         android:id="@+id/definitionsFragment"
         android:icon="@drawable/bxs_cog__1_"
-        android:title="Settings" />
+        android:title="@string/Settings" />
 </menu>

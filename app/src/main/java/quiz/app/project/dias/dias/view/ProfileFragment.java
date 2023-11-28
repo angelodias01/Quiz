@@ -83,7 +83,6 @@ public class ProfileFragment extends Fragment {
             });
         });
 
-        btnStatistics = rootView.findViewById(R.id.btnStatisticsProfile);
 
         lblUsernameProfile = rootView.findViewById(R.id.lblUsernameProfile);
         lblCoinsProfile = rootView.findViewById(R.id.lblCoinsProfile);
@@ -103,8 +102,6 @@ public class ProfileFragment extends Fragment {
                 }
             });
         }
-
-        btnStatistics.setOnClickListener(v -> Toast.makeText(requireContext(), "Statistics not available at the moment", Toast.LENGTH_SHORT).show());
 
         return rootView;
     }

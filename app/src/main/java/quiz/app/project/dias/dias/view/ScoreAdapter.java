@@ -1,5 +1,6 @@
 package quiz.app.project.dias.dias.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,6 +72,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
         return new ScoreAdapter.ScoreAdapterViewHolder(rootView, parent.getContext());
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ScoreAdapter.ScoreAdapterViewHolder holder, int position) {
         if (getItemViewType(position) == 0) {
@@ -90,7 +92,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
         } else {
             holder.btnTheme.setVisibility(View.GONE);
             holder.btnScores.setVisibility(View.GONE);
-            holder.btnDate.setText("You haven't played yet!");
+            holder.btnDate.setText(R.string.noPlayed);
 
             // Make the button unclickable
             holder.btnDate.setClickable(false);

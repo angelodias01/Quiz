@@ -76,14 +76,14 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Do You Want Quit The Quiz?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setTitle(R.string.quizQuit)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
                     }
                 })
-                .setNegativeButton("No", null)
+                .setNegativeButton(R.string.no, null)
                 .show();
     }
 
@@ -323,13 +323,7 @@ public class QuizActivity extends AppCompatActivity {
             UserCurrency userCurrency = userCurrencyList.get(0);
 
             if (score > 0 && score <= 7) {
-                // Log to check if this block is being executed
-                Log.d("Debug", "Updating currency. Score: " + score);
-
                 int updatedCurrencyAmount = userCurrency.getAmount() + score*2;
-
-                // Log to check if the update is being performed
-                Log.d("Debug", "Updated amount: " + updatedCurrencyAmount);
 
                 // Update the currency amount in the fetched UserCurrency object
                 userCurrency.setAmount(updatedCurrencyAmount);
@@ -360,7 +354,6 @@ public class QuizActivity extends AppCompatActivity {
         }
         return false;
     }
-
 
     // Method to check if the user has a perfect score in a specific theme
     private boolean hasPerfectScore(int userId, int themeId) {
