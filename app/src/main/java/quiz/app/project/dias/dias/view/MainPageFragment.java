@@ -22,7 +22,6 @@ import quiz.app.project.dias.dias.viewmodel.UserViewModel;
 public class MainPageFragment extends Fragment {
     TextView lblUsernameMainPage;
     TextView lblCoinsHome;
-    Button btnMultiplayer;
     private int userId;
     private LinearLayoutManager layoutManager;
     private RecyclerView recyclerView;
@@ -37,7 +36,6 @@ public class MainPageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_main_page, container, false);
-        btnMultiplayer = rootView.findViewById(R.id.btnMultiPlayerHome);
 
         recyclerView = rootView.findViewById(R.id.recyclerViewProfile);
         layoutManager = new LinearLayoutManager(getContext());
@@ -88,9 +86,6 @@ public class MainPageFragment extends Fragment {
             }
         });
 
-        btnMultiplayer.setOnClickListener(v -> {
-            Toast.makeText(requireContext(), "Multiplayer is not available yet", Toast.LENGTH_SHORT).show();
-        });
 
         return rootView;
     }

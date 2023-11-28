@@ -132,7 +132,7 @@ public class QuizFragment extends Fragment {
             updateButtonVisibility();
         } else {
             // Handle error, question is null
-            Toast.makeText(getContext(), "Error: No question found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.error_Theme, Toast.LENGTH_SHORT).show();
             requireActivity().finish();
         }
     }
@@ -155,7 +155,7 @@ public class QuizFragment extends Fragment {
                 ((QuizActivity) requireActivity()).onQuizFinished(); // Call the onQuizFinished method in QuizActivity
             }
         } else {
-            Toast.makeText(getContext(), "Please select an answer", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.selectAnswer, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -217,9 +217,9 @@ public class QuizFragment extends Fragment {
         }
 
         if (isLastQuestion()) {
-            buttonNext.setText("Finish");
+            buttonNext.setText(R.string.Finish);
         } else {
-            buttonNext.setText("Next");
+            buttonNext.setText(R.string.Next);
         }
     }
 
