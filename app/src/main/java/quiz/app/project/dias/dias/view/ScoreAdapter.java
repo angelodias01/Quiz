@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -71,9 +72,13 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
     @Override
     public void onBindViewHolder(@NonNull ScoreAdapterViewHolder holder, int position) {
         if (getItemViewType(position) == 0 ) {
+            ConstraintLayout layout = holder.rootView.findViewById(R.id.layout);
             ScoreWithTheme scoreWithTheme = scoreList.get(position);
             Score score = scoreWithTheme.score;
             Theme theme = scoreWithTheme.theme;
+            holder.btnDate.setClickable(false);
+            holder.btnTheme.setClickable(false);
+            holder.btnScores.setClickable(false);
 
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
             String currentDateandTime = sdf.format(score.getDate());
@@ -81,12 +86,45 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
             holder.btnTheme.setText(theme != null ? theme.getThemeAbreviation() : "");
             holder.btnScores.setText(String.valueOf(score.getScore()) + " / 7");
             holder.btnDate.setText(currentDateandTime);
-
+            //Set The on long clicks
+            holder.layout.setOnClickListener(view -> {
+                if (onClickListener != null) {
+                    onClickListener.onClick(position);
+                }
+            });
+            holder.btnTheme.setOnLongClickListener(view -> {
+                if (onLongClickListener != null) {
+                    onLongClickListener.onLongClick(position);
+                }
+                return true;
+            });
+            holder.btnScores.setOnLongClickListener(view -> {
+                if (onLongClickListener != null) {
+                    onLongClickListener.onLongClick(position);
+                }
+                return true;
+            });
             holder.btnDate.setOnLongClickListener(view -> {
                 if (onLongClickListener != null) {
                     onLongClickListener.onLongClick(position);
                 }
                 return true;
+            });
+            //Set the on clicks
+            holder.layout.setOnClickListener(view -> {
+                if (onClickListener != null) {
+                    onClickListener.onClick(position);
+                }
+            });
+            holder.btnTheme.setOnClickListener(view -> {
+                if (onClickListener != null) {
+                    onClickListener.onClick(position);
+                }
+            });
+            holder.btnScores.setOnClickListener(view -> {
+                if (onClickListener != null) {
+                    onClickListener.onClick(position);
+                }
             });
             holder.btnDate.setOnClickListener(view -> {
                 if (onClickListener != null) {
@@ -108,6 +146,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
         private Context context;
         private View rootView;
         private Button btnTheme, btnScores, btnDate;
+        private ConstraintLayout layout;
 
         public ScoreAdapterViewHolder(@NonNull View rootView, Context context) {
             super(rootView);
@@ -116,6 +155,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
             this.btnTheme = this.rootView.findViewById(R.id.btnTheme);
             this.btnScores = this.rootView.findViewById(R.id.btnScores);
             this.btnDate = this.rootView.findViewById(R.id.btnDate);
+            this.layout = this.rootView.findViewById(R.id.layout);
         }
     }
 
