@@ -55,7 +55,8 @@ public class QuizCompleteFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_quiz_complete, container, false);
     }
 
-    @SuppressLint({"StringFormatMatches", "SetTextI18n"})
+
+    @SuppressLint("SetTextI18n")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -65,12 +66,12 @@ public class QuizCompleteFragment extends Fragment {
         TextView textViewScore = view.findViewById(R.id.textViewScore);
 
         if (themeName != null) {
-            textViewTheme.setText(R.string.playedTheme+" "+themeName+" "+R.string.quiz);
-            textViewScore.setText(R.string.you+" "+score+" "+R.string.wellDone);
+            textViewTheme.setText("You finished a "+themeName+" quiz!");
+            textViewScore.setText("You got a "+score+" out of 7, well done!");
         } else {
             // Handle error, theme name not found
-            textViewTheme.setText(getString(R.string.theme_text, " "+R.string.Unknown_Theme));
-            textViewScore.setText(getString(R.string.score_text, score));
+            textViewTheme.setText("Theme: "+"Unknown Theme");
+            textViewScore.setText("Score: "+  score);
         }
 
         buttonFinish = view.findViewById(R.id.buttonFinish);

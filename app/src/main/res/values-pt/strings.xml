@@ -91,4 +91,9 @@
     <string name="email_exists">E-mail já existe!</string>
     <string name="account_created">Conta criada!</string>
     <string name="noPlayed">Você ainda não jogou!</string>
+    <string name="deleteScore" >Excluir pontuação</string>
+    <string name="deleteScoreConf" >Tem certeza de que deseja excluir esta pontuação?</string>
+    <string name="close" >Fechar</string>
+    <string name="ScoreInfo" >Informação da pontuação</string>
+    <string name="ThemePlayed" >Tema Jogado: </string>
 </resources>
