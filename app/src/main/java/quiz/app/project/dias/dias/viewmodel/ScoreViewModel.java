@@ -16,7 +16,9 @@ public class ScoreViewModel extends AndroidViewModel {
         // Initialize repository
         this.repository = new ScoreRepo(application.getApplicationContext());
     }
-
+    public LiveData<List<Score>> getAllScoresByUserId(int userId) {
+        return repository.getScoresByUserId(userId);
+    }
     public LiveData<List<Score>> getScoresByUserId(int userId) {
         return repository.getScoresByUserId(userId);
     }
