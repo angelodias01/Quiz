@@ -15,11 +15,9 @@
         <View
             android:id="@+id/view3"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="-10dp"
             android:layout_marginEnd="60dp"
-            android:layout_marginBottom="-10dp"
             android:background="@drawable/buttons"
             android:backgroundTint="#6d28d9"
             app:layout_constraintBottom_toBottomOf="parent"

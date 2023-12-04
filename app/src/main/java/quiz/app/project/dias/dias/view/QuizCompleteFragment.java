@@ -55,7 +55,8 @@ public class QuizCompleteFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_quiz_complete, container, false);
     }
 
-    @SuppressLint("StringFormatMatches")
+
+    @SuppressLint("SetTextI18n")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -69,8 +70,8 @@ public class QuizCompleteFragment extends Fragment {
             textViewScore.setText("You got a "+score+" out of 7, well done!");
         } else {
             // Handle error, theme name not found
-            textViewTheme.setText(getString(R.string.theme_text, "Unknown Theme"));
-            textViewScore.setText(getString(R.string.score_text, score));
+            textViewTheme.setText("Theme: "+"Unknown Theme");
+            textViewScore.setText("Score: "+  score);
         }
 
         buttonFinish = view.findViewById(R.id.buttonFinish);

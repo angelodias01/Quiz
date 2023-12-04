@@ -1,5 +1,5 @@
 package quiz.app.project.dias.dias.view;
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,24 +17,32 @@ import quiz.app.project.dias.dias.R;
 
 public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapterViewHolder> {
     private List<ScoreWithTheme> scoreList;
+    private OnLongClickListener onLongClickListener;
+    private OnClickListener onClickListener;
+
 
     public ScoreAdapter(List<Score> scoreList, List<Theme> themeList) {
         this.scoreList = mergeScoreWithTheme(scoreList, themeList);
     }
 
-    private List<ScoreWithTheme> mergeScoreWithTheme(List<Score> scoreList, List<Theme> themeList) {
-        List<ScoreWithTheme> mergedList = new ArrayList<>();
-        if (themeList == null || themeList.isEmpty()) {
-            return mergedList;
+    public void setOnLongClickListener(OnLongClickListener listener) {
+        this.onLongClickListener = listener;
+    }
+    public void setOnClickListener(OnClickListener listener) {
+        this.onClickListener = listener;
+    }
+    public ScoreWithTheme getItem(int position) {
+        if (position >= 0 && position < scoreList.size()) {
+            return scoreList.get(position);
         }
+        return null;
+    }
 
-        for (Score score : scoreList) {
-            Theme theme = findThemeById(themeList, score.getThemeId());
-            if (theme != null) {
-                mergedList.add(new ScoreWithTheme(score, theme));
-            }
+    public void removeItem(int position) {
+        if (position >= 0 && position < scoreList.size()) {
+            scoreList.remove(position);
+            notifyItemRemoved(position);
         }
-        return mergedList;
     }
 
     @Override
@@ -44,17 +52,6 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
         }
         return scoreList.size();
     }
-
-
-    private Theme findThemeById(List<Theme> themeList, int themeId) {
-        for (Theme theme : themeList) {
-            if (theme.getThemeId() == themeId) {
-                return theme;
-            }
-        }
-        return null;
-    }
-
     @Override
     public int getItemViewType(int position) {
         if (scoreList == null || scoreList.isEmpty()) {
@@ -63,17 +60,17 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
             return 0;
         }
     }
-
     @NonNull
     @Override
-    public ScoreAdapter.ScoreAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ScoreAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.score_item, parent, false);
-        return new ScoreAdapter.ScoreAdapterViewHolder(rootView, parent.getContext());
+        return new ScoreAdapterViewHolder(rootView, parent.getContext());
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull ScoreAdapter.ScoreAdapterViewHolder holder, int position) {
-        if (getItemViewType(position) == 0) {
+    public void onBindViewHolder(@NonNull ScoreAdapterViewHolder holder, int position) {
+        if (getItemViewType(position) == 0 ) {
             ScoreWithTheme scoreWithTheme = scoreList.get(position);
             Score score = scoreWithTheme.score;
             Theme theme = scoreWithTheme.theme;
@@ -85,17 +82,28 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
             holder.btnScores.setText(String.valueOf(score.getScore()) + " / 7");
             holder.btnDate.setText(currentDateandTime);
 
-            // Make the button clickable only if the user has played
-            holder.btnDate.setClickable(true);
+            holder.btnDate.setOnLongClickListener(view -> {
+                if (onLongClickListener != null) {
+                    onLongClickListener.onLongClick(position);
+                }
+                return true;
+            });
+            holder.btnDate.setOnClickListener(view -> {
+                if (onClickListener != null) {
+                    onClickListener.onClick(position);
+                }
+            });
+
         } else {
             holder.btnTheme.setVisibility(View.GONE);
             holder.btnScores.setVisibility(View.GONE);
-            holder.btnDate.setText("You haven't played yet!");
+            holder.btnDate.setText(R.string.noPlayed);
 
             // Make the button unclickable
             holder.btnDate.setClickable(false);
         }
     }
+
     public class ScoreAdapterViewHolder extends RecyclerView.ViewHolder {
         private Context context;
         private View rootView;
@@ -121,8 +129,39 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
         }
     }
 
+    private List<ScoreWithTheme> mergeScoreWithTheme(List<Score> scoreList, List<Theme> themeList) {
+        List<ScoreWithTheme> mergedList = new ArrayList<>();
+        if (themeList == null || themeList.isEmpty()) {
+            return mergedList;
+        }
+
+        for (Score score : scoreList) {
+            Theme theme = findThemeById(themeList, score.getThemeId());
+            if (theme != null) {
+                mergedList.add(new ScoreWithTheme(score, theme));
+            }
+        }
+        return mergedList;
+    }
+
+    private Theme findThemeById(List<Theme> themeList, int themeId) {
+        for (Theme theme : themeList) {
+            if (theme.getThemeId() == themeId) {
+                return theme;
+            }
+        }
+        return null;
+    }
+
+    public interface OnLongClickListener {
+        void onLongClick(int position);
+    }
+    public interface OnClickListener {
+        void onClick(int position);
+    }
     public void refreshList(List<Score> scoreList, List<Theme> themeList) {
         this.scoreList = mergeScoreWithTheme(scoreList, themeList);
         notifyDataSetChanged();
     }
 }
+
