@@ -1,9 +1,16 @@
 package quiz.app.project.dias.dias.model.retrofit;
 
-public class JsonPlaceHolderService {
-   //@GET("meals/")
-   // Call<MealResponse> getMeals();
+import java.util.List;
 
-   //@PUT("appUser/update/{id}'")
-   // Call<UserResponse> updateUser(@Path("id") int id, @Body User user);
+import quiz.app.project.dias.dias.model.theme.Theme;
+import quiz.app.project.dias.dias.model.theme.ThemeResponse;
+import retrofit2.Call;
+import retrofit2.http.GET;
+
+public interface JsonPlaceHolderService {
+    @GET("Themes/getThemes.php")
+    Call<List<Theme>> getThemes();
+
+    //@PUT("appUser/update/{id}'")
+    // Call<UserResponse> updateUser(@Path("id") int id, @Body User user);
 }

@@ -101,7 +101,8 @@ public class DefinitionsFragment extends Fragment {
                 builder.setNegativeButton(R.string.no, (dialog, which) -> {
                     dialog.dismiss();
                 });
-
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
 

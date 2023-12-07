@@ -25,6 +25,21 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
         this.themeList = themeList;
         this.achievementsList = achievementsList;
         this.context = context;
+
+
+    }
+
+    public void setThemes(List<Theme> newThemeList) {
+        Collections.sort(newThemeList, Comparator.comparing(Theme::getThemeName));
+        themeList.clear();
+        themeList.addAll(newThemeList);
+        notifyDataSetChanged();
+    }
+
+    public void setAchievements(List<Achievements> newAchievementsList) {
+        achievementsList.clear();
+        achievementsList.addAll(newAchievementsList);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -64,7 +79,6 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
         achievementsList.addAll(newAchievementsList);
         notifyDataSetChanged();
     }
-
 
     public static class MainPageViewHolder extends RecyclerView.ViewHolder {
         private View rootView;

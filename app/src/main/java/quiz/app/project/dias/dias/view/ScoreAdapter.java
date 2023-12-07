@@ -73,9 +73,11 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
     public void onBindViewHolder(@NonNull ScoreAdapterViewHolder holder, int position) {
         if (getItemViewType(position) == 0 ) {
             ConstraintLayout layout = holder.rootView.findViewById(R.id.layout);
+
             ScoreWithTheme scoreWithTheme = scoreList.get(position);
             Score score = scoreWithTheme.score;
             Theme theme = scoreWithTheme.theme;
+
             holder.btnDate.setClickable(false);
             holder.btnTheme.setClickable(false);
             holder.btnScores.setClickable(false);
@@ -86,11 +88,12 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
             holder.btnTheme.setText(theme != null ? theme.getThemeAbreviation() : "");
             holder.btnScores.setText(String.valueOf(score.getScore()) + " / 7");
             holder.btnDate.setText(currentDateandTime);
-            //Set The on long clicks
-            holder.layout.setOnClickListener(view -> {
+
+            holder.layout.setOnLongClickListener(view -> {
                 if (onClickListener != null) {
                     onClickListener.onClick(position);
                 }
+                return true;
             });
             holder.btnTheme.setOnLongClickListener(view -> {
                 if (onLongClickListener != null) {
@@ -110,7 +113,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
                 }
                 return true;
             });
-            //Set the on clicks
+
             holder.layout.setOnClickListener(view -> {
                 if (onClickListener != null) {
                     onClickListener.onClick(position);
@@ -137,7 +140,6 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
             holder.btnScores.setVisibility(View.GONE);
             holder.btnDate.setText(R.string.noPlayed);
 
-            // Make the button unclickable
             holder.btnDate.setClickable(false);
         }
     }
@@ -152,6 +154,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
             super(rootView);
             this.context = context;
             this.rootView = rootView;
+
             this.btnTheme = this.rootView.findViewById(R.id.btnTheme);
             this.btnScores = this.rootView.findViewById(R.id.btnScores);
             this.btnDate = this.rootView.findViewById(R.id.btnDate);
