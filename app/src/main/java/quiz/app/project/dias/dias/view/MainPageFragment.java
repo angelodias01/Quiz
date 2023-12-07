@@ -2,18 +2,28 @@ package quiz.app.project.dias.dias.view;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.ArrayList;
+import java.util.List;
+
 import quiz.app.project.dias.dias.R;
+import quiz.app.project.dias.dias.model.theme.Theme;
+import quiz.app.project.dias.dias.model.theme.ThemeRepo;
 import quiz.app.project.dias.dias.viewmodel.AchievementViewModel;
 import quiz.app.project.dias.dias.viewmodel.ThemeViewModel;
 import quiz.app.project.dias.dias.viewmodel.UserCurrencyViewModel;
@@ -30,41 +40,35 @@ public class MainPageFragment extends Fragment {
     private AchievementViewModel achievementViewModel;
     private UserViewModel userViewModel;
     private UserCurrencyViewModel userCurrencyViewModel;
+    private ThemeRepo themeRepository;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_main_page, container, false);
 
         recyclerView = rootView.findViewById(R.id.recyclerViewProfile);
         layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
 
         themeViewModel = new ThemeViewModel(requireActivity().getApplication());
         achievementViewModel = new AchievementViewModel(requireActivity().getApplication());
         userViewModel = new UserViewModel(requireActivity().getApplication());
         userCurrencyViewModel = new UserCurrencyViewModel(requireActivity().getApplication());
+        themeRepository = new ThemeRepo(requireActivity().getApplication());
 
         adapter = new MainPageAdapter(new ArrayList<>(), new ArrayList<>(), getContext());
 
-        // Observe the changes in the theme list
-        themeViewModel.getAllThemes().observe(getViewLifecycleOwner(), themes -> {
+        themeViewModel.getThemesLiveData().observe(getViewLifecycleOwner(), themes -> {
             if (themes != null) {
-                adapter.refreshList(themes);
+                adapter.setThemes(themes);
             }
         });
 
-        // Observe the changes in the achievements list
         achievementViewModel.getAllAchievements().observe(getViewLifecycleOwner(), achievements -> {
             if (achievements != null) {
                 adapter.refreshAchievementList(achievements);
             }
         });
-
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(layoutManager);
-
 
         lblUsernameMainPage = rootView.findViewById(R.id.lblUsernameHome);
         lblCoinsHome = rootView.findViewById(R.id.lblCoinsHome);
@@ -86,7 +90,28 @@ public class MainPageFragment extends Fragment {
             }
         });
 
+        fetchThemesAndUpdateTextView();
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(layoutManager);
 
         return rootView;
+    }
+
+    private void fetchThemesAndUpdateTextView() {
+        themeRepository.getAllThemesLiveData().observe(getViewLifecycleOwner(), themes -> {
+            if (themes != null && !themes.isEmpty()) {
+                adapter.setThemes(themes);
+            }
+        });
+        themeRepository.fetchThemes(requireContext());
+    }
+
+    private String convertThemesToString(List<Theme> themes) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Theme theme : themes) {
+            stringBuilder.append(theme.getThemeName());
+        }
+        return stringBuilder.toString();
     }
 }

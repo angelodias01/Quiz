@@ -17,6 +17,7 @@ public interface ThemeDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertTheme(Theme theme);
 
+
     @Delete
     void deleteTheme(Theme theme);
 

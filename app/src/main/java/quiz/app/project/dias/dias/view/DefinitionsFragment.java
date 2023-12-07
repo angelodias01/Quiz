@@ -101,22 +101,29 @@ public class DefinitionsFragment extends Fragment {
                 builder.setNegativeButton(R.string.no, (dialog, which) -> {
                     dialog.dismiss();
                 });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
-        btnDeleteScores.setOnClickListener(v -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-            builder.setTitle(R.string.deleteScores);
-            builder.setMessage(R.string.deleteScoresConf);
-            builder.setPositiveButton(R.string.yes, (dialog, which) -> {
-                if (userId != 0) {
-                    scoreViewModel.deleteScoresByUserId(userId);
-                    Toast.makeText(requireContext(), R.string.deleteScoresSuccess, Toast.LENGTH_SHORT).show();
-                }
-            });
-            builder.setNegativeButton(R.string.no, (dialog, which) -> {
-                dialog.dismiss();
-            });
 
+        btnDeleteScores.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                builder.setTitle(R.string.deleteScores);
+                builder.setMessage(R.string.deleteScoresConf);
+                builder.setPositiveButton(R.string.yes, (dialog, which) -> {
+                    if (userId != 0) {
+                        scoreViewModel.deleteScoresByUserId(userId);
+                        Toast.makeText(requireContext(), R.string.deleteScoresSuccess, Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.setNegativeButton(R.string.no, (dialog, which) -> {
+                    dialog.dismiss();
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
         });
 
         btnDeleteAchievements.setOnClickListener(v -> {
@@ -133,6 +140,8 @@ public class DefinitionsFragment extends Fragment {
             builder.setNegativeButton(R.string.no, (dialog, which) -> {
                 dialog.dismiss();
             });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
         });
 
         btnDeleteAll.setOnClickListener(v -> {
@@ -150,6 +159,8 @@ public class DefinitionsFragment extends Fragment {
             builder.setNegativeButton(R.string.no, (dialog, which) -> {
                 dialog.dismiss();
             });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
         });
         return rootView;
     }
