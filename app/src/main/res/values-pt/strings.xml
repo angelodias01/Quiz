@@ -96,4 +96,5 @@
     <string name="close" >Fechar</string>
     <string name="ScoreInfo" >Informação da pontuação</string>
     <string name="ThemePlayed" >Tema Jogado: </string>
+    <string name="Error">Ocorreu um erro ao carregar os temas, tente novamente mais tarde</string>
 </resources>

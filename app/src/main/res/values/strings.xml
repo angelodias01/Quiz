@@ -95,5 +95,6 @@
     <string name="close" >Close</string>
     <string name="ThemePlayed" >Theme Played: </string>
     <string name="ScoreInfo" >Score Info</string>
+    <string name="Error">There was an error loading the themes, try again later</string>
 
 </resources>
