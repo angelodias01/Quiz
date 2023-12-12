@@ -16,7 +16,9 @@ public class UserViewModel extends AndroidViewModel {
         // Initialize repository
         this.repository = new UserRepo(application.getApplicationContext());
     }
-
+    public LiveData<User> getUserByUsername(String username) {
+        return repository.getUserByUsername(username);
+    }
     public LiveData<List<User>> getAllUsers() {
         return repository.getAllUsers();
     }

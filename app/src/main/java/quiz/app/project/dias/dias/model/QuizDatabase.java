@@ -1,11 +1,21 @@
+/**
+ * QuizDatabase.java
+ * Represents the Room database for the quiz app, providing access to various DAOs (Data Access Objects)
+ * for interacting with different entities like User, UserCurrency, Theme, Score, Questions, Achievements,
+ * AchievementUser, and Shop.
+ */
+
+
 package quiz.app.project.dias.dias.model;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+
 import quiz.app.project.dias.dias.model.achievements.Achievements;
 import quiz.app.project.dias.dias.model.achievements.AchievementsDao;
 import quiz.app.project.dias.dias.model.achievementsuser.AchievementUser;
@@ -26,14 +36,29 @@ import quiz.app.project.dias.dias.model.usercurrency.UserCurrencyDao;
 @Database(entities = {User.class, UserCurrency.class, Theme.class, Score.class, Questions.class, Achievements.class, AchievementUser.class, Shop.class}, version = 1, exportSchema = false)
 public abstract class QuizDatabase extends RoomDatabase {
     private static QuizDatabase INSTANCE;
+
     public abstract UserDao getUserDao();
+
     public abstract ThemeDao getThemeDao();
+
     public abstract ScoreDao getScoreDao();
+
     public abstract QuestionsDao getQuestionsDao();
+
     public abstract AchievementsDao getAchievementsDao();
+
     public abstract AchievementUserDao getAchievementUserDao();
+
     public abstract UserCurrencyDao getUserCurrencyDao();
+
     public abstract ShopDao getShopDao();
+
+    /**
+     * Returns the singleton instance of the QuizDatabase.
+     * If the instance is not yet created, it will be created using Room's databaseBuilder.
+     * @param context The application context.
+     * @return The singleton instance of QuizDatabase.
+     */
     public static QuizDatabase getInstance(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),

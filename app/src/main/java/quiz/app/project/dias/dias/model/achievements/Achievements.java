@@ -1,7 +1,6 @@
-/*
+/**
  * Achievements.java
- * This class represents the Achievements entity for the Room database.
- * It defines the structure of the "Achievements" table.
+ * Entity class representing achievements stored in the database.
  */
 
 package quiz.app.project.dias.dias.model.achievements;
@@ -11,84 +10,81 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-/*
- * Entity annotation indicates that this class represents an entity in the Room database.
- * The table name is specified as "Achievements".
- */
 @Entity(tableName = "Achievements")
 public class Achievements {
 
-    /*
-     * PrimaryKey annotation specifies that the "achievementId" column is the primary key
-     * and autoGenerate is set to true to allow automatic generation of IDs.
-     */
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "achievementId")
     private int achievementId;
 
-    /*
-     * NonNull annotation specifies that the "achievementName" field cannot be null.
-     * ColumnInfo annotation specifies the name of the column in the table.
-     */
     @NonNull
     @ColumnInfo(name = "achievementName")
     private String achievementName;
 
-    /*
-     * ColumnInfo annotation specifies the name of the "description" column in the table.
-     */
     @ColumnInfo(name = "description")
     private String description;
 
-    /*
-     * Constructor for the Achievements class.
-     * Parameters:
-     *   - achievementName: The name of the achievement.
-     *   - description: The description of the achievement.
+    /**
+     * Constructs an Achievements object with the given name and description.
+     *
+     * @param achievementName The name of the achievement.
+     * @param description     The description of the achievement.
      */
     public Achievements(@NonNull String achievementName, String description) {
         this.achievementName = achievementName;
         this.description = description;
     }
 
-    /*
-     * Getter method for the "achievementId" field.
+    /**
+     * Gets the ID of the achievement.
+     *
+     * @return The ID of the achievement.
      */
     public int getAchievementId() {
         return achievementId;
     }
 
-    /*
-     * Setter method for the "achievementId" field.
+    /**
+     * Sets the ID of the achievement.
+     *
+     * @param achievementId The ID to set for the achievement.
      */
     public void setAchievementId(int achievementId) {
         this.achievementId = achievementId;
     }
 
-    /*
-     * Getter method for the "achievementName" field.
+    /**
+     * Gets the name of the achievement.
+     *
+     * @return The name of the achievement.
      */
     @NonNull
     public String getAchievementName() {
         return achievementName;
     }
 
-    /*
-     * Setter method for the "achievementName" field.
+    /**
+     * Sets the name of the achievement.
+     *
+     * @param achievementName The name to set for the achievement.
      */
     public void setAchievementName(@NonNull String achievementName) {
         this.achievementName = achievementName;
     }
 
-    /*
-     * Getter method for the "description" field.
+    /**
+     * Gets the description of the achievement.
+     *
+     * @return The description of the achievement.
      */
     public String getDescription() {
         return description;
     }
 
-    /*
-     * Setter method for the "description" field.
+    /**
+     * Sets the description of the achievement.
+     *
+     * @param description The description to set for the achievement.
      */
     public void setDescription(String description) {
         this.description = description;

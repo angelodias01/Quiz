@@ -69,7 +69,7 @@
     <string name="logoutConf">Are you sure you want to logout?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="deleteScoresConf">Are you sure you want to delete your scores?</string>
+    <string name="deleteScoresConf">Are you sure you want to delete your score?</string>
     <string name="deleteAchievementsConf">Are you sure you want to delete your achievements?</string>
     <string name="deleteAllDataConf">Are you sure you want to delete all your data?</string>
     <string name="deleteScores">Delete Sores</string>
@@ -87,7 +87,7 @@
     <string name="app_exit">Do You Want To Exit The App?</string>
     <string name="quizQuit">"Do You Want Quit The Quiz?"</string>
     <string name="insert_username">Please insert your username!</string>
-    <string name="email_exists">Email already exists!</string>
+    <string name="email_exists">Email already used!</string>
     <string name="account_created">Account Created!</string>
     <string name="noPlayed" >You haven\'t played yet!</string>
     <string name="deleteScore" >Delete Score</string>
@@ -96,5 +96,6 @@
     <string name="ThemePlayed" >Theme Played: </string>
     <string name="ScoreInfo" >Score Info</string>
     <string name="Error">There was an error loading the themes, try again later</string>
+    <string name="username_exists">Username already used!</string>
 
 </resources>

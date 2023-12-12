@@ -110,8 +110,8 @@ public class ScoreFragment extends Fragment {
 
     private void handleLongClick(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-        builder.setTitle(R.string.deleteAchievements);
-        builder.setMessage(R.string.deleteAchievementsConf);
+        builder.setTitle(R.string.deleteScores);
+        builder.setMessage(R.string.deleteScoresConf);
         builder.setPositiveButton(R.string.yes, (dialog, which) -> {
             // Handle deletion based on the clicked position
             if (position >= 0 && position < adapter.getItemCount()) {

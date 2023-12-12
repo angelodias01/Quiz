@@ -1,7 +1,7 @@
-/*
+/**
  * ThemeRepo.java
- * This class is responsible for handling data operations related to themes.
- * It communicates with the database and a remote API using Retrofit.
+ * This class manages data operations related to themes, handling both the local database
+ * and a remote API using Retrofit.
  */
 
 package quiz.app.project.dias.dias.model.theme;
@@ -26,23 +26,22 @@ public class ThemeRepo {
     private Executor executor = Executors.newSingleThreadExecutor();
     private JsonPlaceHolderService jsonPlaceHolderService;
 
-    /*
+    /**
      * Constructor for the ThemeRepo class.
      * Initializes the ThemeDao and JsonPlaceHolderService.
-     * Parameters:
-     *   - context: The context of the application.
+     *
+     * @param context The application context.
      */
     public ThemeRepo(Context context) {
         this.themeDao = QuizDatabase.getInstance(context).getThemeDao();
         this.jsonPlaceHolderService = RetrofitClient.getClient().create(JsonPlaceHolderService.class);
     }
 
-    /*
+    /**
      * Fetches themes from a remote API using Retrofit.
      * Handles the API response and inserts themes into the local database.
-     * Parameters:
-     *   - context: The context of the application.
-     * Implementation for Requirement 2.
+     *
+     * @param context The context of the application.
      */
     public void fetchThemes(Context context) {
         Call<List<Theme>> call = jsonPlaceHolderService.getThemes();
@@ -66,13 +65,12 @@ public class ThemeRepo {
         });
     }
 
-    /*
+    /**
      * Inserts themes into the local database.
      * Checks for existing themes before insertion.
-     * Parameters:
-     *   - themes: List of themes to be inserted.
-     *   - context: The context of the application.
-     * Implementation for Requirement 3.
+     *
+     * @param themes  List of themes to be inserted.
+     * @param context The context of the application.
      */
     private void insertThemes(List<Theme> themes, Context context) {
         executor.execute(() -> {
@@ -85,54 +83,56 @@ public class ThemeRepo {
         });
     }
 
-    /*
+    /**
      * Retrieves all themes from the local database as LiveData.
-     * Implementation for Requirement 4.
+     *
+     * @return LiveData list of themes.
      */
     public LiveData<List<Theme>> getAllThemesLiveData() {
         return this.themeDao.getAllThemesLiveData();
     }
 
-    /*
+    /**
      * Inserts a single theme into the local database.
-     * Parameters:
-     *   - theme: The theme to be inserted.
-     * Implementation for Requirement 5.
+     *
+     * @param theme The theme to be inserted.
      */
     public void insertTheme(Theme theme) {
         executor.execute(() -> themeDao.insertTheme(theme));
     }
 
-    /*
+    /**
      * Deletes a single theme from the local database.
-     * Parameters:
-     *   - theme: The theme to be deleted.
-     * Implementation for Requirement 6.
+     *
+     * @param theme The theme to be deleted.
      */
     public void deleteTheme(Theme theme) {
         executor.execute(() -> themeDao.deleteTheme(theme));
     }
 
-    /*
+    /**
      * Updates a single theme in the local database.
-     * Parameters:
-     *   - theme: The theme to be updated.
+     *
+     * @param theme The theme to be updated.
      */
     public void updateTheme(Theme theme) {
         executor.execute(() -> themeDao.updateTheme(theme));
     }
 
-    /*
+    /**
      * Retrieves a specific theme by its ID from the local database as LiveData.
-     * Parameters:
-     *   - themeId: The ID of the theme to be retrieved.
+     *
+     * @param themeId The ID of the theme to be retrieved.
+     * @return LiveData containing the theme.
      */
     public LiveData<Theme> getThemeByIdLiveData(int themeId) {
         return this.themeDao.getThemeByIdLiveData(themeId);
     }
 
-    /*
+    /**
      * Retrieves all themes from the local database as LiveData.
+     *
+     * @return LiveData list of themes.
      */
     public LiveData<List<Theme>> getThemesLiveData() {
         return this.themeDao.getThemesLiveData();
