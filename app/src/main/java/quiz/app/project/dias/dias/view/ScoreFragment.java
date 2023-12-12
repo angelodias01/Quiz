@@ -1,3 +1,7 @@
+/**
+ * ScoreFragment.java
+ * Represents a fragment displaying user scores.
+ */
 package quiz.app.project.dias.dias.view;
 
 import android.annotation.SuppressLint;
@@ -48,6 +52,11 @@ public class ScoreFragment extends Fragment {
         // Required empty public constructor
     }
 
+    /**
+     * Creates a new instance of ScoreFragment.
+     *
+     * @return A new instance of ScoreFragment.
+     */
     public static ScoreFragment newInstance() {
         ScoreFragment fragment = new ScoreFragment();
         Bundle args = new Bundle();
@@ -58,6 +67,8 @@ public class ScoreFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Initialize ViewModels
         scoreViewModel = new ScoreViewModel(getActivity().getApplication());
         themeViewModel = new ThemeViewModel(getActivity().getApplication());
         userViewModel = new UserViewModel(getActivity().getApplication());
@@ -67,24 +78,25 @@ public class ScoreFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_score, container, false);
 
+        // Retrieve user ID from SharedPreferences
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         userId = sharedPreferences.getInt("userId", 0);
 
+        // Initialize RecyclerView and its components
         recyclerView = rootView.findViewById(R.id.recyclerViewProfile);
-
-        // Create a LinearLayoutManager for the RecyclerView
         layoutManager = new LinearLayoutManager(requireContext());
-
-        // Set the adapter and layout manager for the RecyclerView
         adapter = new ScoreAdapter(new ArrayList<>(), new ArrayList<>());
 
+        // Set the adapter and layout manager for the RecyclerView
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
 
         lblUsernameScore = rootView.findViewById(R.id.lblUsernameScore);
 
+        // Observe changes in the user data
         userViewModel.getUserById(userId).observe(getViewLifecycleOwner(), user -> {
             if (user != null) {
                 String username = user.getUsername();
@@ -92,12 +104,14 @@ public class ScoreFragment extends Fragment {
             }
         });
 
+        // Observe changes in the user's scores
         scoreViewModel.getScoresByUserId(userId).observe(getViewLifecycleOwner(), score -> {
             themeViewModel.getThemes().observe(getViewLifecycleOwner(), theme -> {
                 adapter.refreshList(score, theme);
             });
         });
 
+        // Set up click and long-click listeners for RecyclerView items
         adapter.setOnLongClickListener(position -> {
             handleLongClick(position);
         });
@@ -108,6 +122,11 @@ public class ScoreFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Handles long click on a RecyclerView item, showing a confirmation dialog for score deletion.
+     *
+     * @param position The position of the clicked item.
+     */
     private void handleLongClick(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle(R.string.deleteScores);
@@ -130,6 +149,11 @@ public class ScoreFragment extends Fragment {
         alertDialog.show();
     }
 
+    /**
+     * Handles click on a RecyclerView item, showing detailed score information in a custom dialog.
+     *
+     * @param position The position of the clicked item.
+     */
     private void handleClick(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), R.style.CustomAlertDialog);
         View dialogView = getLayoutInflater().inflate(R.layout.custom_dialog_layout, null);
@@ -152,9 +176,9 @@ public class ScoreFragment extends Fragment {
                 int scoreValue = scoreWithTheme.score.getScore();
 
                 // Build the message with theme name, date, and score
-                String message = "\n" + "Theme: " +themeName + "\n\n " +
+                String message = "\n" + "Theme: " + themeName + "\n\n " +
                         "Date: " + currentDate + "\n\n" +
-                        "Score: " + scoreValue+ " / 7"+ "\n";
+                        "Score: " + scoreValue + " / 7" + "\n";
 
                 textViewMessage.setText(message);
             }
@@ -168,6 +192,13 @@ public class ScoreFragment extends Fragment {
         });
     }
 
+    /**
+     * Merges scores with corresponding themes.
+     *
+     * @param scoreList List of scores.
+     * @param themeList List of themes.
+     * @return Merged list of ScoreWithTheme objects.
+     */
     private List<ScoreAdapter.ScoreWithTheme> mergeScoreWithTheme(List<Score> scoreList, List<Theme> themeList) {
         List<ScoreAdapter.ScoreWithTheme> mergedList = new ArrayList<>();
         if (themeList == null || themeList.isEmpty()) {
@@ -183,6 +214,13 @@ public class ScoreFragment extends Fragment {
         return mergedList;
     }
 
+    /**
+     * Finds a theme by its ID.
+     *
+     * @param themeList List of themes.
+     * @param themeId   ID of the theme to find.
+     * @return The found theme, or null if not found.
+     */
     private Theme findThemeById(List<Theme> themeList, int themeId) {
         for (Theme theme : themeList) {
             if (theme.getThemeId() == themeId) {
@@ -192,6 +230,11 @@ public class ScoreFragment extends Fragment {
         return null;
     }
 
+    /**
+     * Deletes a score from the database.
+     *
+     * @param score The score to delete.
+     */
     private void deleteScore(Score score) {
         scoreViewModel.deleteScore(score);
     }

@@ -1,4 +1,5 @@
 /**
+ * ProfileAdapter.java
  * Adapter class for the RecyclerView in the profile displaying achievements.
  */
 
