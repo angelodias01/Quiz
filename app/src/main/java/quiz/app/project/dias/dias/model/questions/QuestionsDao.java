@@ -1,7 +1,7 @@
-/*
+/**
  * QuestionsDao.java
- * This interface defines the data access object (DAO) for the Questions entity.
- * It contains methods for performing CRUD operations on the "Questions" table.
+ * This Data Access Object (DAO) interface defines methods to interact with the "Questions" table
+ * in the Room database for handling question entities.
  */
 
 package quiz.app.project.dias.dias.model.questions;
@@ -13,69 +13,77 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
-
 import java.util.List;
 
-/*
- * Dao annotation indicates that this interface is a data access object.
- */
 @Dao
 public interface QuestionsDao {
 
-    /*
-     * Insert method for adding a question to the "Questions" table.
-     * If there is a conflict, it ignores the new data.
+    /**
+     * Inserts a new question into the "Questions" table.
+     *
+     * @param question The question to insert.
      */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertQuestion(Questions question);
 
-    /*
-     * Update method for modifying an existing question in the "Questions" table.
+    /**
+     * Updates an existing question in the "Questions" table.
+     *
+     * @param question The question to update.
      */
     @Update
     void updateQuestion(Questions question);
 
-    /*
-     * Delete method for removing a question from the "Questions" table.
+    /**
+     * Deletes a specific question from the "Questions" table.
+     *
+     * @param question The question to delete.
      */
     @Delete
     void deleteQuestion(Questions question);
 
-    /*
-     * Query method to retrieve all questions from the "Questions" table as LiveData.
+    /**
+     * Retrieves all questions from the "Questions" table as LiveData.
+     *
+     * @return LiveData containing a list of all questions.
      */
     @Query("SELECT * FROM Questions")
     LiveData<List<Questions>> getAllQuestions();
 
-    /*
-     * Query method to retrieve a question by its ID from the "Questions" table as LiveData.
-     * Parameters:
-     *   - questionsId: The ID of the question.
+    /**
+     * Retrieves a specific question by its ID from the "Questions" table as LiveData.
+     *
+     * @param questionsId The ID of the question to retrieve.
+     * @return LiveData containing the requested question.
      */
     @Query("SELECT * FROM Questions WHERE questionsId = :questionsId")
     LiveData<Questions> getQuestionById(int questionsId);
 
-    /*
-     * Query method to retrieve questions by theme ID from the "Questions" table as LiveData.
-     * Parameters:
-     *   - themeId: The ID of the theme.
+    /**
+     * Retrieves a random set of questions for a specific theme from the "Questions" table as LiveData.
+     * The limit parameter controls the number of questions to retrieve.
+     *
+     * @param themeId The ID of the theme for which to retrieve questions.
+     * @return LiveData containing a list of randomly selected questions for the specified theme.
      */
     @Query("SELECT * FROM Questions WHERE themeId = :themeId ORDER BY RANDOM() LIMIT 7")
     LiveData<List<Questions>> getQuestionsByThemeId(int themeId);
 
-    /*
-     * Query method to retrieve the ID of the previous question from the "Questions" table as LiveData.
-     * Parameters:
-     *   - currentQuestionId: The ID of the current question.
+    /**
+     * Retrieves the ID of the previous question based on the current question ID from the "Questions" table as LiveData.
+     *
+     * @param currentQuestionId The ID of the current question.
+     * @return LiveData containing the ID of the previous question.
      */
-    @Query("SELECT QuestionsId FROM questions WHERE QuestionsId < :currentQuestionId ORDER BY QuestionsId DESC LIMIT 1")
+    @Query("SELECT questionsId FROM Questions WHERE questionsId < :currentQuestionId ORDER BY questionsId DESC LIMIT 1")
     LiveData<Integer> getPreviousQuestionId(int currentQuestionId);
 
-    /*
-     * Query method to check if a question is the last one in the sequence from the "Questions" table as LiveData.
-     * Parameters:
-     *   - questionId: The ID of the question.
+    /**
+     * Checks if a given question is the last one in the "Questions" table based on its ID.
+     *
+     * @param questionId The ID of the question to check.
+     * @return LiveData representing whether the provided question is the last one.
      */
-    @Query("SELECT COUNT(*) FROM questions WHERE QuestionsId > :questionId")
+    @Query("SELECT COUNT(*) FROM Questions WHERE questionsId > :questionId")
     LiveData<Boolean> isLastQuestion(int questionId);
 }

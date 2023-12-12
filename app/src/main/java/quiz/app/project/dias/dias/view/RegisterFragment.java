@@ -92,40 +92,51 @@ public class RegisterFragment extends Fragment {
             insertedEmail = tbEmail.getText().toString();
             insertedPassword = tbPassword.getText().toString();
 
-            // Observe the user data
-            userViewModel.getUserByEmail(insertedEmail).observe(getViewLifecycleOwner(), user -> {
-                if (TextUtils.isEmpty(insertedUsername) || TextUtils.isEmpty(insertedEmail) || TextUtils.isEmpty(insertedPassword)) {
-                    if (TextUtils.isEmpty(insertedUsername)) {
-                        tbUsername.setError(getString(R.string.insert_username));
-                        tbUsername.requestFocus();
-                    } else if (TextUtils.isEmpty(insertedEmail)) {
-                        tbEmail.setError(getString(R.string.insert_email));
-                        tbEmail.requestFocus();
-                    } else if (TextUtils.isEmpty(insertedPassword)) {
-                        tbPassword.setError(getString(R.string.insert_password));
-                        tbPassword.requestFocus();
-                    }
-                } else {
-                    if (!isValidEmail(tbEmail.getText().toString())) {
-                        tbEmail.setError(getString(R.string.invalid_email));
-                        tbEmail.requestFocus();
-                    } else if (user != null) {
-                        // Email already exists
-                        Toast.makeText(getActivity(), getString(R.string.email_exists), Toast.LENGTH_SHORT).show();
-                        tbEmail.setError(getString(R.string.email_exists));
-                        tbEmail.requestFocus();
+            // Observe the user data by username
+            userViewModel.getUserByUsername(insertedUsername).observe(getViewLifecycleOwner(), userByUsername -> {
+                // Observe the user data by email
+                userViewModel.getUserByEmail(insertedEmail).observe(getViewLifecycleOwner(), userByEmail -> {
+                    if (TextUtils.isEmpty(insertedUsername) || TextUtils.isEmpty(insertedEmail) || TextUtils.isEmpty(insertedPassword)) {
+                        // Check if any of the fields is empty
+                        if (TextUtils.isEmpty(insertedUsername)) {
+                            tbUsername.setError(getString(R.string.insert_username));
+                            tbUsername.requestFocus();
+                        } else if (TextUtils.isEmpty(insertedEmail)) {
+                            tbEmail.setError(getString(R.string.insert_email));
+                            tbEmail.requestFocus();
+                        } else if (TextUtils.isEmpty(insertedPassword)) {
+                            tbPassword.setError(getString(R.string.insert_password));
+                            tbPassword.requestFocus();
+                        }
                     } else {
-                        Toast.makeText(getActivity(), getString(R.string.account_created), Toast.LENGTH_SHORT).show();
-                        String hashedInputPassword = hashPassword(insertedPassword);
-                        User newUser = new User(insertedUsername, insertedEmail, hashedInputPassword);
-                        userViewModel.insertAll(newUser);
-                        fragmentManager = getParentFragmentManager();
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
-                                .setReorderingAllowed(true)
-                                .commit();
+                        // Check if the email is valid
+                        if (!isValidEmail(tbEmail.getText().toString())) {
+                            tbEmail.setError(getString(R.string.invalid_email));
+                            tbEmail.requestFocus();
+                        } else if (userByEmail != null) {
+                            // Email already exists
+                            Toast.makeText(getActivity(), getString(R.string.email_exists), Toast.LENGTH_SHORT).show();
+                            tbEmail.setError(getString(R.string.email_exists));
+                            tbEmail.requestFocus();
+                        } else if (userByUsername != null) {
+                            // Username already exists
+                            Toast.makeText(getActivity(), getString(R.string.username_exists), Toast.LENGTH_SHORT).show();
+                            tbUsername.setError(getString(R.string.username_exists));
+                            tbUsername.requestFocus();
+                        } else {
+                            // All checks passed, create a new user
+                            Toast.makeText(getActivity(), getString(R.string.account_created), Toast.LENGTH_SHORT).show();
+                            String hashedInputPassword = hashPassword(insertedPassword);
+                            User newUser = new User(insertedUsername, insertedEmail, hashedInputPassword);
+                            userViewModel.insertAll(newUser);
+                            fragmentManager = getParentFragmentManager();
+                            fragmentManager.beginTransaction()
+                                    .replace(R.id.fragmentContainerView3, LoginFragment.class, null)
+                                    .setReorderingAllowed(true)
+                                    .commit();
+                        }
                     }
-                }
+                });
             });
         });
             //----------------------------------------------------------------------------------------//

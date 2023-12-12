@@ -70,7 +70,7 @@
     <string name="logoutConf">Tem certeza de que deseja sair?</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
-    <string name="deleteScoresConf">Tem certeza de que deseja excluir suas pontuações?</string>
+    <string name="deleteScoresConf">Tem certeza de que deseja excluir a sua pontuação?</string>
     <string name="deleteAchievementsConf">Tem certeza de que deseja excluir suas conquistas?</string>
     <string name="deleteAllDataConf">Tem certeza de que deseja excluir todos os seus dados?</string>
     <string name="deleteScores">Excluir Pontuações</string>
@@ -88,7 +88,7 @@
     <string name="app_exit">Deseja sair do aplicativo?</string>
     <string name="quizQuit">"Deseja sair do Quiz?"</string>
     <string name="insert_username">Por favor, insira seu nome de usuário!</string>
-    <string name="email_exists">E-mail já existe!</string>
+    <string name="email_exists">E-mail já foi utilizado!</string>
     <string name="account_created">Conta criada!</string>
     <string name="noPlayed">Você ainda não jogou!</string>
     <string name="deleteScore" >Excluir pontuação</string>
@@ -97,4 +97,5 @@
     <string name="ScoreInfo" >Informação da pontuação</string>
     <string name="ThemePlayed" >Tema Jogado: </string>
     <string name="Error">Ocorreu um erro ao carregar os temas, tente novamente mais tarde</string>
+    <string name="username_exists">O nome de utilizador já foi utilizado!</string>
 </resources>

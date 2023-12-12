@@ -1,7 +1,6 @@
-/*
+/**
  * AchievementsDao.java
- * This interface defines the data access object (DAO) for the Achievements entity.
- * It contains methods for performing CRUD operations on the "Achievements" table.
+ * Data Access Object (DAO) interface for achievements, providing methods to interact with the database.
  */
 
 package quiz.app.project.dias.dias.model.achievements;
@@ -16,41 +15,46 @@ import androidx.room.Update;
 
 import java.util.List;
 
-/*
- * Dao annotation indicates that this interface is a data access object.
- */
 @Dao
 public interface AchievementsDao {
 
-    /*
-     * Insert method for adding an achievement to the "Achievements" table.
-     * If there is a conflict, it ignores the new data.
+    /**
+     * Inserts an achievement into the database.
+     *
+     * @param achievement The achievement to be inserted.
      */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertAchievement(Achievements achievement);
 
-    /*
-     * Update method for modifying an existing achievement in the "Achievements" table.
+    /**
+     * Updates an existing achievement in the database.
+     *
+     * @param achievement The achievement to be updated.
      */
     @Update
     void updateAchievement(Achievements achievement);
 
-    /*
-     * Delete method for removing an achievement from the "Achievements" table.
+    /**
+     * Deletes an achievement from the database.
+     *
+     * @param achievement The achievement to be deleted.
      */
     @Delete
     void deleteAchievement(Achievements achievement);
 
-    /*
-     * Query method to retrieve all achievements from the "Achievements" table as LiveData.
+    /**
+     * Retrieves all achievements from the database as LiveData.
+     *
+     * @return LiveData containing a list of all achievements.
      */
     @Query("SELECT * FROM Achievements")
     LiveData<List<Achievements>> getAllAchievements();
 
-    /*
-     * Query method to retrieve a specific achievement by its ID as LiveData.
-     * Parameters:
-     *   - achievementId: The ID of the achievement to be retrieved.
+    /**
+     * Retrieves an achievement by its ID from the database as LiveData.
+     *
+     * @param achievementId The ID of the achievement to be retrieved.
+     * @return LiveData containing a list with the specified achievement.
      */
     @Query("SELECT * FROM Achievements WHERE achievementId = :achievementId")
     LiveData<List<Achievements>> getAchievementById(int achievementId);
