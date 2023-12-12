@@ -1,3 +1,8 @@
+/**
+ * MainPageAdapter.java
+ * Manages the RecyclerView adapter for the main page displaying themes and achievements.
+ */
+
 package quiz.app.project.dias.dias.view;
 
 import android.content.Context;
@@ -25,10 +30,13 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
         this.themeList = themeList;
         this.achievementsList = achievementsList;
         this.context = context;
-
-
     }
 
+    /**
+     * Sets the list of themes for the adapter and sorts them alphabetically.
+     *
+     * @param newThemeList The updated list of themes.
+     */
     public void setThemes(List<Theme> newThemeList) {
         Collections.sort(newThemeList, Comparator.comparing(Theme::getThemeName));
         themeList.clear();
@@ -36,6 +44,11 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
         notifyDataSetChanged();
     }
 
+    /**
+     * Sets the list of achievements for the adapter.
+     *
+     * @param newAchievementsList The updated list of achievements.
+     */
     public void setAchievements(List<Achievements> newAchievementsList) {
         achievementsList.clear();
         achievementsList.addAll(newAchievementsList);
@@ -56,6 +69,11 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
         holder.rootView.setOnClickListener(v -> startThemeActivity(theme));
     }
 
+    /**
+     * Starts the QuizActivity with the selected theme.
+     *
+     * @param theme The selected theme to start the activity with.
+     */
     private void startThemeActivity(Theme theme) {
         Intent intent = new Intent(context, QuizActivity.class);
         intent.putExtra("themeId", theme.getThemeId());
@@ -67,6 +85,11 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
         return themeList.size();
     }
 
+    /**
+     * Refreshes the theme list with the updated list and sorts it alphabetically.
+     *
+     * @param newThemeList The updated list of themes.
+     */
     public void refreshList(List<Theme> newThemeList) {
         Collections.sort(newThemeList, Comparator.comparing(Theme::getThemeName));
         themeList.clear();
@@ -74,12 +97,20 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
         notifyDataSetChanged();
     }
 
+    /**
+     * Refreshes the achievement list with the updated list.
+     *
+     * @param newAchievementsList The updated list of achievements.
+     */
     public void refreshAchievementList(List<Achievements> newAchievementsList) {
         achievementsList.clear();
         achievementsList.addAll(newAchievementsList);
         notifyDataSetChanged();
     }
 
+    /**
+     * ViewHolder class for the RecyclerView.
+     */
     public static class MainPageViewHolder extends RecyclerView.ViewHolder {
         private View rootView;
         private TextView lblTheme;

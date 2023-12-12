@@ -1,3 +1,8 @@
+/**
+ * QuizFragment.java
+ * Represents a fragment where users can answer quiz questions and navigate through them.
+ */
+
 package quiz.app.project.dias.dias.view;
 
 import android.os.Bundle;
@@ -20,7 +25,6 @@ import java.util.List;
 import quiz.app.project.dias.dias.model.questions.Questions;
 import quiz.app.project.dias.dias.model.QuizDatabase;
 import quiz.app.project.dias.dias.R;
-
 public class QuizFragment extends Fragment {
 
     private static final String ARG_QUESTION_ID = "questionId";
@@ -36,10 +40,13 @@ public class QuizFragment extends Fragment {
     private Button buttonPrevious;
     private List<Questions> questionsList;
 
-    public QuizFragment() {
-        // Required empty public constructor
-    }
-
+    /**
+     * Creates a new instance of QuizFragment.
+     *
+     * @param questionsList The list of quiz questions.
+     * @param questionId    The ID of the current quiz question.
+     * @return A new instance of QuizFragment.
+     */
     public static QuizFragment newInstance(List<Questions> questionsList, int questionId) {
         QuizFragment fragment = new QuizFragment();
         Bundle args = new Bundle();
@@ -59,6 +66,12 @@ public class QuizFragment extends Fragment {
         }
     }
 
+    /**
+     * Retrieves a question by its ID.
+     *
+     * @param questionId The ID of the question to retrieve.
+     * @return The question with the specified ID.
+     */
     private Questions getQuestionById(int questionId) {
         for (Questions question : questionsList) {
             if (question.getQuestionsId() == questionId) {
@@ -94,6 +107,9 @@ public class QuizFragment extends Fragment {
         buttonPrevious.setOnClickListener(v -> onButtonPreviousClicked());
     }
 
+    /**
+     * Loads and displays the current quiz question.
+     */
     private void loadQuestion() {
         QuizDatabase quizDatabase = QuizDatabase.getInstance(requireContext());
         question = getQuestionById(questionId);
@@ -137,6 +153,9 @@ public class QuizFragment extends Fragment {
         }
     }
 
+    /**
+     * Handles the click event when the "Next" button is clicked.
+     */
     private void onButtonNextClicked() {
         int selectedRadioButtonId = radioGroupAnswers.getCheckedRadioButtonId();
         if (selectedRadioButtonId != -1) {
@@ -159,7 +178,9 @@ public class QuizFragment extends Fragment {
         }
     }
 
-
+    /**
+     * Handles the click event when the "Previous" button is clicked.
+     */
     private void onButtonPreviousClicked() {
         int previousQuestionId = getPreviousQuestionId(questionId);
         if (previousQuestionId != -1) {
@@ -168,6 +189,12 @@ public class QuizFragment extends Fragment {
         }
     }
 
+    /**
+     * Retrieves the ID of the previous question.
+     *
+     * @param currentQuestionId The ID of the current question.
+     * @return The ID of the previous question.
+     */
     private int getPreviousQuestionId(int currentQuestionId) {
         int previousQuestionId = -1;
         int currentQuestionIndex = -1;
@@ -188,6 +215,12 @@ public class QuizFragment extends Fragment {
         return previousQuestionId;
     }
 
+    /**
+     * Retrieves the ID of the next question.
+     *
+     * @param currentQuestionId The ID of the current question.
+     * @return The ID of the next question.
+     */
     private int getNextQuestionId(int currentQuestionId) {
         int nextQuestionId = -1;
         int currentQuestionIndex = -1;
@@ -208,6 +241,9 @@ public class QuizFragment extends Fragment {
         return nextQuestionId;
     }
 
+    /**
+     * Updates the visibility of the "Previous" and "Next" buttons based on the current question.
+     */
     private void updateButtonVisibility() {
         int previousQuestionId = getPreviousQuestionId(questionId);
         if (previousQuestionId == -1) {
@@ -223,6 +259,11 @@ public class QuizFragment extends Fragment {
         }
     }
 
+    /**
+     * Checks if the current question is the last question in the quiz.
+     *
+     * @return True if the current question is the last question, false otherwise.
+     */
     private boolean isLastQuestion() {
         int currentQuestionIndex = -1;
         for (int i = 0; i < questionsList.size(); i++) {
@@ -235,6 +276,11 @@ public class QuizFragment extends Fragment {
         return currentQuestionIndex == questionsList.size() - 1;
     }
 
+    /**
+     * Replaces the current fragment with a new instance of QuizFragment for the specified question ID.
+     *
+     * @param questionId The ID of the question to display.
+     */
     private void replaceWithQuestion(int questionId) {
         QuizFragment fragment = QuizFragment.newInstance(questionsList, questionId);
         FragmentTransaction fragmentTransaction = requireFragmentManager().beginTransaction();
@@ -242,6 +288,9 @@ public class QuizFragment extends Fragment {
         fragmentTransaction.commit();
     }
 
+    /**
+     * Saves the user's selected answer for the current question.
+     */
     private void saveSelectedAnswer() {
         int selectedRadioButtonId = radioGroupAnswers.getCheckedRadioButtonId();
         if (selectedRadioButtonId != -1) {

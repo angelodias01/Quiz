@@ -1,3 +1,8 @@
+/**
+ * RegisterFragment.java
+ * Represents a fragment where users can create their account.
+ */
+
 package quiz.app.project.dias.dias.view;
 
 import static quiz.app.project.dias.dias.viewmodel.Hash.hashPassword;
@@ -23,7 +28,6 @@ import quiz.app.project.dias.dias.model.QuizDatabase;
 import quiz.app.project.dias.dias.model.user.User;
 import quiz.app.project.dias.dias.R;
 import quiz.app.project.dias.dias.viewmodel.UserViewModel;
-
 public class RegisterFragment extends Fragment {
     private static final String userId = "userId";
     private EditText tbUsername, tbEmail, tbPassword;
@@ -37,6 +41,14 @@ public class RegisterFragment extends Fragment {
         // Required empty public constructor
     }
 
+    /**
+     * Creates a new instance of RegisterFragment.
+     *
+     * @param insertedUsername The username to pre-fill in the registration form.
+     * @param insertedEmail    The email to pre-fill in the registration form.
+     * @param insertedPassword The password to pre-fill in the registration form.
+     * @return A new instance of RegisterFragment.
+     */
     public static RegisterFragment newInstance(String insertedUsername, String insertedEmail, String insertedPassword) {
         RegisterFragment fragment = new RegisterFragment();
         Bundle args = new Bundle();
@@ -139,9 +151,15 @@ public class RegisterFragment extends Fragment {
                 });
             });
         });
-            //----------------------------------------------------------------------------------------//
+        //----------------------------------------------------------------------------------------//
     }
 
+    /**
+     * Checks if the provided email is valid.
+     *
+     * @param target The email to be validated.
+     * @return True if the email is valid, false otherwise.
+     */
     public static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }

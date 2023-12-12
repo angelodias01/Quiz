@@ -1,10 +1,10 @@
+/**
+ * MainMenuUser.java
+ * Represents the main menu for the logged-in user.
+ */
+
 package quiz.app.project.dias.dias.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.NavigationUI;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,8 +14,16 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
 import quiz.app.project.dias.dias.R;
 
 public class MainMenuUser extends AppCompatActivity {
@@ -39,6 +47,7 @@ public class MainMenuUser extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNav, navController);
 
     }
+
     // Helper method to retrieve the userId from SharedPreferences
     private int getUserIdFromSharedPreferences() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);

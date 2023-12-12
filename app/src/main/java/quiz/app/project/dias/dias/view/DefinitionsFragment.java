@@ -1,3 +1,8 @@
+/**
+ * DefinitionsFragment.java
+ * Represents the definitions/settings fragment of the application.
+ */
+
 package quiz.app.project.dias.dias.view;
 
 import android.app.AlertDialog;
@@ -35,10 +40,17 @@ public class DefinitionsFragment extends Fragment {
     private AchievementUserViewModel achievementUserViewModel;
     private UserCurrencyViewModel userCurrencyViewModel;
 
+    /**
+     * Default constructor for DefinitionsFragment.
+     */
     public DefinitionsFragment() {
         // Required empty public constructor
     }
 
+    /**
+     * Creates a new instance of DefinitionsFragment.
+     * @return A new instance of DefinitionsFragment.
+     */
     public static DefinitionsFragment newInstance() {
         DefinitionsFragment fragment = new DefinitionsFragment();
         Bundle args = new Bundle();
@@ -80,88 +92,107 @@ public class DefinitionsFragment extends Fragment {
                 }
             });
         }
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        // Button click listeners for logout, delete scores, delete achievements, and delete all data
+        btnLogout.setOnClickListener(v -> handleLogoutClick());
+        btnDeleteScores.setOnClickListener(v -> handleDeleteScoresClick());
+        btnDeleteAchievements.setOnClickListener(v -> handleDeleteAchievementsClick());
+        btnDeleteAll.setOnClickListener(v -> handleDeleteAllDataClick());
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                builder.setTitle(R.string.logout);
-                builder.setMessage(R.string.logoutConf);
-                builder.setPositiveButton(R.string.yes, (dialog, which) -> {
-                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putBoolean("isLoggedIn", false);
-                    editor.remove("userId");
-                    editor.apply();
-
-                    getActivity().finishAffinity();
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    getActivity().startActivity(intent);
-                });
-                builder.setNegativeButton(R.string.no, (dialog, which) -> {
-                    dialog.dismiss();
-                });
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-            }
-        });
-
-        btnDeleteScores.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                builder.setTitle(R.string.deleteScores);
-                builder.setMessage(R.string.deleteScoresConf);
-                builder.setPositiveButton(R.string.yes, (dialog, which) -> {
-                    if (userId != 0) {
-                        scoreViewModel.deleteScoresByUserId(userId);
-                        Toast.makeText(requireContext(), R.string.deleteScoresSuccess, Toast.LENGTH_SHORT).show();
-                    }
-                });
-                builder.setNegativeButton(R.string.no, (dialog, which) -> {
-                    dialog.dismiss();
-                });
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-            }
-        });
-
-        btnDeleteAchievements.setOnClickListener(v -> {
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-            builder.setTitle(R.string.deleteAchievements);
-            builder.setMessage(R.string.deleteAchievementsConf);
-            builder.setPositiveButton(R.string.yes, (dialog, which) -> {
-                if (userId != 0) {
-                    achievementUserViewModel.deleteAchievementsByUserId(userId);
-                    Toast.makeText(requireContext(), R.string.deleteAllDataSuccess , Toast.LENGTH_SHORT).show();
-                }
-            });
-            builder.setNegativeButton(R.string.no, (dialog, which) -> {
-                dialog.dismiss();
-            });
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
-        });
-
-        btnDeleteAll.setOnClickListener(v -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-            builder.setTitle(R.string.deleteAllData);
-            builder.setMessage(R.string.deleteAllDataConf);
-            builder.setPositiveButton(R.string.yes, (dialog, which) -> {
-                if (userId != 0) {
-                    scoreViewModel.deleteScoresByUserId(userId);
-                    achievementUserViewModel.deleteAchievementsByUserId(userId);
-                    userCurrencyViewModel.updateValue(userId);
-                    Toast.makeText(requireContext(), R.string.deleteAllDataSuccess, Toast.LENGTH_SHORT).show();
-                }
-            });
-            builder.setNegativeButton(R.string.no, (dialog, which) -> {
-                dialog.dismiss();
-            });
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
-        });
         return rootView;
+    }
+
+    /**
+     * Handles the click event for the logout button.
+     * Prompts the user with a confirmation dialog and logs out if confirmed.
+     */
+    private void handleLogoutClick() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle(R.string.logout);
+        builder.setMessage(R.string.logoutConf);
+        builder.setPositiveButton(R.string.yes, (dialog, which) -> {
+            // Clear user session and navigate to the login screen
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("isLoggedIn", false);
+            editor.remove("userId");
+            editor.apply();
+
+            getActivity().finishAffinity();
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            getActivity().startActivity(intent);
+        });
+        builder.setNegativeButton(R.string.no, (dialog, which) -> {
+            dialog.dismiss();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    /**
+     * Handles the click event for the delete scores button.
+     * Prompts the user with a confirmation dialog and deletes scores if confirmed.
+     */
+    private void handleDeleteScoresClick() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle(R.string.deleteScores);
+        builder.setMessage(R.string.deleteScoresConf);
+        builder.setPositiveButton(R.string.yes, (dialog, which) -> {
+            // Delete scores for the current user
+            if (userId != 0) {
+                scoreViewModel.deleteScoresByUserId(userId);
+                Toast.makeText(requireContext(), R.string.deleteScoresSuccess, Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton(R.string.no, (dialog, which) -> {
+            dialog.dismiss();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    /**
+     * Handles the click event for the delete achievements button.
+     * Prompts the user with a confirmation dialog and deletes achievements if confirmed.
+     */
+    private void handleDeleteAchievementsClick() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle(R.string.deleteAchievements);
+        builder.setMessage(R.string.deleteAchievementsConf);
+        builder.setPositiveButton(R.string.yes, (dialog, which) -> {
+            // Delete achievements for the current user
+            if (userId != 0) {
+                achievementUserViewModel.deleteAchievementsByUserId(userId);
+                Toast.makeText(requireContext(), R.string.deleteAllDataSuccess , Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton(R.string.no, (dialog, which) -> {
+            dialog.dismiss();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    /**
+     * Handles the click event for the delete all data button.
+     * Prompts the user with a confirmation dialog and deletes all data if confirmed.
+     */
+    private void handleDeleteAllDataClick() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle(R.string.deleteAllData);
+        builder.setMessage(R.string.deleteAllDataConf);
+        builder.setPositiveButton(R.string.yes, (dialog, which) -> {
+            // Delete scores, achievements, and update currency for the current user
+            if (userId != 0) {
+                scoreViewModel.deleteScoresByUserId(userId);
+                achievementUserViewModel.deleteAchievementsByUserId(userId);
+                userCurrencyViewModel.updateValue(userId);
+                Toast.makeText(requireContext(), R.string.deleteAllDataSuccess, Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton(R.string.no, (dialog, which) -> {
+            dialog.dismiss();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

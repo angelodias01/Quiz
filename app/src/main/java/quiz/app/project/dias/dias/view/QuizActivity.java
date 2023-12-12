@@ -1,3 +1,9 @@
+/**
+ * QuizActivity.java
+ * Represents the main activity for conducting quizzes, handling question navigation,
+ * calculating scores, and managing achievements.
+ */
+
 package quiz.app.project.dias.dias.view;
 
 import android.app.AlertDialog;
@@ -323,7 +329,7 @@ public class QuizActivity extends AppCompatActivity {
             UserCurrency userCurrency = userCurrencyList.get(0);
 
             if (score > 0 && score <= 7) {
-                int updatedCurrencyAmount = userCurrency.getAmount() + score*2;
+                int updatedCurrencyAmount = userCurrency.getAmount() + score * 2;
 
                 // Update the currency amount in the fetched UserCurrency object
                 userCurrency.setAmount(updatedCurrencyAmount);

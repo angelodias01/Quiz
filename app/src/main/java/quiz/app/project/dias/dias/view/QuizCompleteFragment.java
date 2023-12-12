@@ -1,3 +1,9 @@
+/**
+ * QuizCompleteFragment.java
+ * Represents a fragment displayed when a user completes a quiz, showing the results
+ * and providing an option to return to the main menu.
+ */
+
 package quiz.app.project.dias.dias.view;
 
 import android.annotation.SuppressLint;
@@ -13,7 +19,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import quiz.app.project.dias.dias.R;
-
 public class QuizCompleteFragment extends Fragment {
 
     private static final String ARG_SCORE = "score";
@@ -25,10 +30,14 @@ public class QuizCompleteFragment extends Fragment {
     private String themeName;
     private Button buttonFinish;
 
-    public QuizCompleteFragment() {
-        // Required empty public constructor
-    }
-
+    /**
+     * Creates a new instance of QuizCompleteFragment.
+     *
+     * @param score      The score obtained by the user in the quiz.
+     * @param themeId    The ID of the quiz theme.
+     * @param themeName  The name of the quiz theme.
+     * @return A new instance of QuizCompleteFragment.
+     */
     public static QuizCompleteFragment newInstance(int score, int themeId, String themeName) {
         QuizCompleteFragment fragment = new QuizCompleteFragment();
         Bundle args = new Bundle();
@@ -54,7 +63,6 @@ public class QuizCompleteFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_quiz_complete, container, false);
     }
-
 
     @SuppressLint("SetTextI18n")
     @Override
