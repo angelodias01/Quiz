@@ -1,3 +1,8 @@
+/**
+ * LoginFragment.java
+ * Represents the login fragment of the application.
+ */
+
 package quiz.app.project.dias.dias.view;
 
 import static quiz.app.project.dias.dias.viewmodel.Hash.hashPassword;
@@ -43,10 +48,19 @@ public class LoginFragment extends Fragment {
     private UserViewModel userViewModel;
     private UserCurrencyViewModel userCurrencyViewModel;
 
+    /**
+     * Default constructor for LoginFragment.
+     */
     public LoginFragment() {
         // Required empty public constructor
     }
 
+    /**
+     * Creates a new instance of LoginFragment.
+     * @param insertedEmail The email to be restored.
+     * @param insertedPassword The password to be restored.
+     * @return A new instance of LoginFragment.
+     */
     public LoginFragment newInstance(String insertedEmail, String insertedPassword) {
         LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
@@ -82,11 +96,11 @@ public class LoginFragment extends Fragment {
         TextView lblCreateOne = view.findViewById(R.id.lblCreateOne);
         Button btnLogin = view.findViewById(R.id.btnLogin);
         Handler handler = new Handler();
-        //----------------------------------------------------------------------------------------//
-        //Database code
+
+        // Database code
         QuizDatabase db = QuizDatabase.getInstance(getContext());
-        //----------------------------------------------------------------------------------------//
-        //Event to advance on label click to the register fragment
+
+        // Event to advance on label click to the register fragment
         lblCreateOne.setOnClickListener(view1 -> {
             fragmentManager = getParentFragmentManager();
             fragmentManager.beginTransaction()
@@ -95,11 +109,11 @@ public class LoginFragment extends Fragment {
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
         });
-        //----------------------------------------------------------------------------------------//
+
         tbEmail = view.findViewById(R.id.tbEmail);
         tbPassword = view.findViewById(R.id.tbPassword);
 
-        //Event to verify credentials to execute the login
+        // Event to verify credentials to execute the login
         btnLogin.setOnClickListener(view12 -> {
             this.email = tbEmail.getText().toString();
             this.password = tbPassword.getText().toString();
@@ -141,7 +155,6 @@ public class LoginFragment extends Fragment {
                         editor.apply();
 
                         intent = new Intent(getActivity(), MainMenuUser.class);
-                        //bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle();
                         getActivity().startActivity(intent, bundle);
                         handler.postDelayed(() -> getActivity().finish(), 500);
                     } else {
@@ -165,7 +178,12 @@ public class LoginFragment extends Fragment {
             });
         });
     }
-    //----------------------------------------------------------------------------------------//
+
+    /**
+     * Checks if the given email is valid.
+     * @param target The email to be checked.
+     * @return True if the email is valid, false otherwise.
+     */
     public static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }

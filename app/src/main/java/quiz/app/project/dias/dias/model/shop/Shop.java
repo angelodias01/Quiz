@@ -22,12 +22,10 @@ public class Shop {
     /**
      * Constructor for the Shop class.
      *
-     * @param shopId   The unique identifier for the shop item.
      * @param itemName The name of the shop item.
      * @param price    The price of the shop item.
      */
-    public Shop(int shopId, String itemName, int price) {
-        this.shopId = shopId;
+    public Shop(String itemName, int price) {
         this.itemName = itemName;
         this.price = price;
     }

@@ -1,26 +1,21 @@
+/**
+ * MainPageFragment.java
+ * Represents the main page fragment displaying themes and user information.
+ */
+
 package quiz.app.project.dias.dias.view;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import quiz.app.project.dias.dias.R;
 import quiz.app.project.dias.dias.model.theme.Theme;
 import quiz.app.project.dias.dias.model.theme.ThemeRepo;
@@ -28,6 +23,9 @@ import quiz.app.project.dias.dias.viewmodel.AchievementViewModel;
 import quiz.app.project.dias.dias.viewmodel.ThemeViewModel;
 import quiz.app.project.dias.dias.viewmodel.UserCurrencyViewModel;
 import quiz.app.project.dias.dias.viewmodel.UserViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainPageFragment extends Fragment {
     TextView lblUsernameMainPage;
@@ -98,6 +96,9 @@ public class MainPageFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Fetches themes from the repository and updates the adapter and text view.
+     */
     private void fetchThemesAndUpdateTextView() {
         themeRepository.getAllThemesLiveData().observe(getViewLifecycleOwner(), themes -> {
             if (themes != null && !themes.isEmpty()) {
@@ -107,6 +108,12 @@ public class MainPageFragment extends Fragment {
         themeRepository.fetchThemes(requireContext());
     }
 
+    /**
+     * Converts a list of themes to a single string.
+     *
+     * @param themes The list of themes to convert.
+     * @return A string containing the names of the themes.
+     */
     private String convertThemesToString(List<Theme> themes) {
         StringBuilder stringBuilder = new StringBuilder();
         for (Theme theme : themes) {

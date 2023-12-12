@@ -46,6 +46,13 @@ public class Score {
 
     private long date;
 
+    public Score(int score, int userId, int themeId, long date) {
+        this.score = score;
+        this.userId = userId;
+        this.themeId = themeId;
+        this.date = date;
+    }
+
     /**
      * Gets the ID of the score entry.
      *

@@ -1,3 +1,8 @@
+/**
+ * RegisterFragment.java
+ * Represents a fragment where users can create their account.
+ */
+
 package quiz.app.project.dias.dias.view;
 
 import static quiz.app.project.dias.dias.viewmodel.Hash.hashPassword;
