@@ -1,3 +1,6 @@
+/**
+ * Utility class for hashing passwords using the SHA-256 algorithm.
+ */
 package quiz.app.project.dias.dias.viewmodel;
 
 import java.security.MessageDigest;
@@ -5,6 +8,12 @@ import java.security.NoSuchAlgorithmException;
 
 public class Hash {
 
+    /**
+     * Hash the provided password using SHA-256 algorithm.
+     *
+     * @param password The password to be hashed.
+     * @return The hashed password as a hexadecimal string.
+     */
     public static String hashPassword(String password) {
         try {
             // Create an instance of the SHA-256 algorithm
