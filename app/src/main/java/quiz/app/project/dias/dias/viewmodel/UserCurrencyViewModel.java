@@ -44,7 +44,7 @@ public class UserCurrencyViewModel extends AndroidViewModel {
      * @param userId ID of the user to retrieve UserCurrency objects.
      * @return List<UserCurrency> representing UserCurrency objects for the user.
      */
-    public List<UserCurrency> getUserCurrenciesByUserId(int userId) {
+    public List<UserCurrency> getUserCurrencysByUserId(int userId) {
         return this.repository.getUserCurrencysByUserId(userId);
     }
 
