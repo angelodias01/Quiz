@@ -67,7 +67,6 @@ public abstract class QuizDatabase extends RoomDatabase {
                         @Override
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             super.onCreate(db);
-                            //Exec to insert data in themes
                             //Exec to insert data in Achievements
                             db.execSQL("Insert into Achievements values (1,'First Login', 'You created an account')");
                             db.execSQL("Insert into Achievements values (2,'The Beginning', 'Complete any quiz')");
