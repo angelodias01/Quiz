@@ -9,15 +9,15 @@ package quiz.app.project.dias.dias.model.shop;
 import java.util.List;
 public class ShopResponse {
 
-    public List<Shop> data;
+    public List<Shop> shopItems;
 
     /**
      * Constructor for the ShopResponse class.
      *
-     * @param data The list of shop items in the response.
+     * @param shopItems The list of shop items in the response.
      */
-    public ShopResponse(List<Shop> data) {
-        this.data = data;
+    public ShopResponse(List<Shop> shopItems) {
+        this.shopItems = shopItems;
     }
 
     /**
@@ -25,7 +25,7 @@ public class ShopResponse {
      *
      * @return The list of shop items.
      */
-    public List<Shop> getData() {
-        return data;
+    public List<Shop> getShopItems() {
+        return shopItems;
     }
 }

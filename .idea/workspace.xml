@@ -41,14 +41,22 @@
   <component name="ChangeListManager">
     <list default="true" id="cf394e29-4c28-4803-971c-a9fdce69136f" name="Changes" comment="implement the api and got themes to room">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/AchievementUserViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/AchievementUserViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/AchievementViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/AchievementViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/Hash.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/Hash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/QuestionsViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/QuestionsViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/ScoreViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/ScoreViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/ShopViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/ShopViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/ThemeViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/ThemeViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/UserCurrencyViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/UserCurrencyViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PAC_24288_24290/PAC_24288_24290/PAC_24288_24290.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PAC_24288_24290/PAC_24288_24290/PAC_24290_24288.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PAC_24288_24290/PAC_24288_24290/Quiz_App_PAC_24288_24290.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PAC_24288_24290/PAC_24288_24290/Quiz_Web__PAC_24288_24290.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PAC_24288_24290/PAC_24288_24290/Screencast aplicação android Pootis QUiz.mkv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PAC_24288_24290/PAC_24288_24290/Screencast website Pootis Quiz.mkv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuizWebsite/images/ach1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuizWebsite/images/ach2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuizWebsite/images/ach3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuizWebsite/images/pootisLogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuizWebsite/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuizWebsite/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuizWebsite/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/QuizDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/QuizDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/shop/ShopResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/shop/ShopResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/QuizActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/QuizActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +69,7 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\olegn\.android\avd\Resizable_Experimental_API_34.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\olegn\.android\avd\Pixel_6_Pro_API_34.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -180,7 +188,7 @@
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Fragments&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/olegn/Documents/GitHub/Quiz&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/olegn/Downloads/Quiz&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   },
@@ -441,7 +449,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702391436660</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="implement the api and got themes to room">
+      <option name="closed" value="true" />
+      <created>1702479718799</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1702479718799</updated>
+    </task>
+    <task id="LOCAL-00023" summary="implement the api and got themes to room">
+      <option name="closed" value="true" />
+      <created>1702479745807</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1702479745807</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

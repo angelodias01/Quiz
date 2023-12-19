@@ -418,28 +418,24 @@ public class QuizActivity extends AppCompatActivity {
     // Method to check if the user has won the weekly challenge
     //private boolean hasWonWeeklyChallenge(QuizDatabase quizDatabase, int userId) {
     // Implementation to check if the user has won the weekly challenge
-    // Replace with your logic
     // return false;
     //}
 
     // Method to check if the user has collected 100 coins
     //private boolean hasCollected100Coins(QuizDatabase quizDatabase, int userId) {
     // Implementation to check if the user has collected 100 coins
-    // Replace with your logic
     // return false;
     //}
 
     // Method to check if the user has wasted 110 coins
     // private boolean hasWasted110Coins(QuizDatabase quizDatabase, int userId) {
     // Implementation to check if the user has wasted 110 coins
-    // Replace with your logic
     // return false;
     // }
 
     // Method to check if the user has cleared all questions in a theme
     //private boolean hasClearedAllQuestions(QuizDatabase quizDatabase, int userId, int themeId) {
     // Implementation to check if the user has cleared all questions in a theme
-    // Replace with your logic
     //return false;
     //}
 
