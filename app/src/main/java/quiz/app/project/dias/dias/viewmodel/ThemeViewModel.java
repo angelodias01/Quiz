@@ -8,12 +8,12 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import java.util.List;
-import quiz.app.project.dias.dias.model.theme.Theme;
+import quiz.app.project.dias.dias.model.theme.Themes;
 import quiz.app.project.dias.dias.model.theme.ThemeRepo;
 
 public class ThemeViewModel extends AndroidViewModel {
     private ThemeRepo repository;
-    private LiveData<List<Theme>> themesLiveData;
+    private LiveData<List<Themes>> themesLiveData;
 
     /**
      * Constructor for the ThemeViewModel.
@@ -32,7 +32,7 @@ public class ThemeViewModel extends AndroidViewModel {
      *
      * @return LiveData<List<Theme>> representing a list of themes.
      */
-    public LiveData<List<Theme>> getThemesLiveData() {
+    public LiveData<List<Themes>> getThemesLiveData() {
         return themesLiveData;
     }
 
@@ -42,7 +42,7 @@ public class ThemeViewModel extends AndroidViewModel {
      * @param themeId ID of the theme to retrieve.
      * @return LiveData<Theme> representing the theme with the given ID.
      */
-    public LiveData<Theme> getThemeById(int themeId) {
+    public LiveData<Themes> getThemeById(int themeId) {
         return repository.getThemeByIdLiveData(themeId);
     }
 
@@ -51,7 +51,7 @@ public class ThemeViewModel extends AndroidViewModel {
      *
      * @return LiveData<List<Theme>> representing all themes.
      */
-    public LiveData<List<Theme>> getThemes() {
+    public LiveData<List<Themes>> getThemes() {
         return repository.getThemesLiveData();
     }
 
@@ -60,7 +60,7 @@ public class ThemeViewModel extends AndroidViewModel {
      *
      * @param theme Theme object to be inserted.
      */
-    public void insertTheme(Theme theme) {
+    public void insertTheme(Themes theme) {
         repository.insertTheme(theme);
     }
 
@@ -69,7 +69,7 @@ public class ThemeViewModel extends AndroidViewModel {
      *
      * @param theme Theme object to be updated.
      */
-    public void updateTheme(Theme theme) {
+    public void updateTheme(Themes theme) {
         repository.updateTheme(theme);
     }
 
@@ -78,7 +78,7 @@ public class ThemeViewModel extends AndroidViewModel {
      *
      * @param theme Theme object to be deleted.
      */
-    public void deleteTheme(Theme theme) {
+    public void deleteTheme(Themes theme) {
         repository.deleteTheme(theme);
     }
 }

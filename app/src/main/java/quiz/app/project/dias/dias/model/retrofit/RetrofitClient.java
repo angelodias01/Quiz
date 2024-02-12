@@ -31,7 +31,7 @@ public class RetrofitClient {
 
             // Build the Retrofit instance with the base URL, OkHttpClient, and Gson converter factory
             retrofit = new Retrofit.Builder()
-                    .baseUrl("http://10.0.2.2/twdm/pdmAPI/")
+                    .baseUrl("http://10.0.2.2:8000/api/")
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();

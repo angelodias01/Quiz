@@ -9,14 +9,14 @@ import java.util.List;
 
 public class ThemeResponse {
 
-    private List<Theme> themes;
+    private List<Themes> themes;
 
     /**
      * Constructor for ThemeResponse class.
      *
      * @param themes List of themes received in the API response.
      */
-    public ThemeResponse(List<Theme> themes) {
+    public ThemeResponse(List<Themes> themes) {
         this.themes = themes;
     }
 
@@ -25,7 +25,7 @@ public class ThemeResponse {
      *
      * @return List of themes.
      */
-    public List<Theme> getThemes() {
+    public List<Themes> getThemes() {
         return themes;
     }
 }

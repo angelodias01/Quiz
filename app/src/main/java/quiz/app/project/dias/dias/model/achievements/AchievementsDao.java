@@ -15,6 +15,8 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import quiz.app.project.dias.dias.model.theme.Themes;
+
 @Dao
 public interface AchievementsDao {
 
@@ -58,4 +60,10 @@ public interface AchievementsDao {
      */
     @Query("SELECT * FROM Achievements WHERE achievementId = :achievementId")
     LiveData<List<Achievements>> getAchievementById(int achievementId);
+
+    @Query("SELECT * FROM Achievements WHERE achievementId = :achievementId")
+    LiveData<Achievements> getAchievementByIdLiveData(int achievementId);
+
+    @Query("SELECT * FROM Achievements")
+    LiveData<List<Achievements>> getAllAchievementsLiveData();
 }

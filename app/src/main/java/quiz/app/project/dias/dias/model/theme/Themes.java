@@ -1,5 +1,5 @@
 /**
- * Theme.java
+ * Themes.java
  * This class represents an entity for quiz themes.
  * Each theme has a unique identifier (themeId), a name (themeName), and an abbreviation (themeAbreviation).
  */
@@ -11,8 +11,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Theme")
-public class Theme {
+@Entity(tableName = "Themes")
+public class Themes {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "themeId")
@@ -34,7 +34,7 @@ public class Theme {
      * @param themeName         The name of the theme.
      * @param themeAbreviation The abbreviation of the theme.
      */
-    public Theme(@NonNull String themeName, @NonNull String themeAbreviation) {
+    public Themes(@NonNull String themeName, @NonNull String themeAbreviation) {
         this.themeName = themeName;
         this.themeAbreviation = themeAbreviation;
     }

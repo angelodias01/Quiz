@@ -44,12 +44,12 @@ public class ThemeRepo {
      * @param context The context of the application.
      */
     public void fetchThemes(Context context) {
-        Call<List<Theme>> call = jsonPlaceHolderService.getThemes();
-        call.enqueue(new Callback<List<Theme>>() {
+        Call<List<Themes>> call = jsonPlaceHolderService.getThemes();
+        call.enqueue(new Callback<List<Themes>>() {
             @Override
-            public void onResponse(Call<List<Theme>> call, Response<List<Theme>> response) {
+            public void onResponse(Call<List<Themes>> call, Response<List<Themes>> response) {
                 if (response.isSuccessful()) {
-                    List<Theme> themes = response.body();
+                    List<Themes> themes = response.body();
 
                     if (themes != null && !themes.isEmpty()) {
                         insertThemes(themes, context);
@@ -58,7 +58,7 @@ public class ThemeRepo {
             }
 
             @Override
-            public void onFailure(Call<List<Theme>> call, Throwable t) {
+            public void onFailure(Call<List<Themes>> call, Throwable t) {
                 // Display an error message to the user in case of API failure.
                 Toast.makeText(context, R.string.Error, LENGTH_SHORT).show();
             }
@@ -72,10 +72,10 @@ public class ThemeRepo {
      * @param themes  List of themes to be inserted.
      * @param context The context of the application.
      */
-    private void insertThemes(List<Theme> themes, Context context) {
+    private void insertThemes(List<Themes> themes, Context context) {
         executor.execute(() -> {
-            for (Theme theme : themes) {
-                Theme existingTheme = themeDao.getThemeByIdLiveData(theme.getThemeId()).getValue();
+            for (Themes theme : themes) {
+                Themes existingTheme = themeDao.getThemeByIdLiveData(theme.getThemeId()).getValue();
                 if (existingTheme == null) {
                     themeDao.insertTheme(theme);
                 }
@@ -88,7 +88,7 @@ public class ThemeRepo {
      *
      * @return LiveData list of themes.
      */
-    public LiveData<List<Theme>> getAllThemesLiveData() {
+    public LiveData<List<Themes>> getAllThemesLiveData() {
         return this.themeDao.getAllThemesLiveData();
     }
 
@@ -97,7 +97,7 @@ public class ThemeRepo {
      *
      * @param theme The theme to be inserted.
      */
-    public void insertTheme(Theme theme) {
+    public void insertTheme(Themes theme) {
         executor.execute(() -> themeDao.insertTheme(theme));
     }
 
@@ -106,7 +106,7 @@ public class ThemeRepo {
      *
      * @param theme The theme to be deleted.
      */
-    public void deleteTheme(Theme theme) {
+    public void deleteTheme(Themes theme) {
         executor.execute(() -> themeDao.deleteTheme(theme));
     }
 
@@ -115,7 +115,7 @@ public class ThemeRepo {
      *
      * @param theme The theme to be updated.
      */
-    public void updateTheme(Theme theme) {
+    public void updateTheme(Themes theme) {
         executor.execute(() -> themeDao.updateTheme(theme));
     }
 
@@ -125,7 +125,7 @@ public class ThemeRepo {
      * @param themeId The ID of the theme to be retrieved.
      * @return LiveData containing the theme.
      */
-    public LiveData<Theme> getThemeByIdLiveData(int themeId) {
+    public LiveData<Themes> getThemeByIdLiveData(int themeId) {
         return this.themeDao.getThemeByIdLiveData(themeId);
     }
 
@@ -134,7 +134,7 @@ public class ThemeRepo {
      *
      * @return LiveData list of themes.
      */
-    public LiveData<List<Theme>> getThemesLiveData() {
+    public LiveData<List<Themes>> getThemesLiveData() {
         return this.themeDao.getThemesLiveData();
     }
 }
