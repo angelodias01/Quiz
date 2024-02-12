@@ -18,15 +18,15 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import quiz.app.project.dias.dias.model.achievements.Achievements;
-import quiz.app.project.dias.dias.model.theme.Theme;
+import quiz.app.project.dias.dias.model.theme.Themes;
 import quiz.app.project.dias.dias.R;
 
 public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPageViewHolder> {
-    private List<Theme> themeList = new ArrayList<>();
+    private List<Themes> themeList = new ArrayList<>();
     private List<Achievements> achievementsList = new ArrayList<>();
     private Context context;
 
-    public MainPageAdapter(List<Theme> themeList, List<Achievements> achievementsList, Context context) {
+    public MainPageAdapter(List<Themes> themeList, List<Achievements> achievementsList, Context context) {
         this.themeList = themeList;
         this.achievementsList = achievementsList;
         this.context = context;
@@ -37,8 +37,8 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
      *
      * @param newThemeList The updated list of themes.
      */
-    public void setThemes(List<Theme> newThemeList) {
-        Collections.sort(newThemeList, Comparator.comparing(Theme::getThemeName));
+    public void setThemes(List<Themes> newThemeList) {
+        Collections.sort(newThemeList, Comparator.comparing(Themes::getThemeName));
         themeList.clear();
         themeList.addAll(newThemeList);
         notifyDataSetChanged();
@@ -64,7 +64,7 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
 
     @Override
     public void onBindViewHolder(@NonNull MainPageViewHolder holder, int position) {
-        final Theme theme = themeList.get(position);
+        final Themes theme = themeList.get(position);
         holder.lblTheme.setText(theme.getThemeName());
         holder.rootView.setOnClickListener(v -> startThemeActivity(theme));
     }
@@ -74,7 +74,7 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
      *
      * @param theme The selected theme to start the activity with.
      */
-    private void startThemeActivity(Theme theme) {
+    private void startThemeActivity(Themes theme) {
         Intent intent = new Intent(context, QuizActivity.class);
         intent.putExtra("themeId", theme.getThemeId());
         context.startActivity(intent);
@@ -90,8 +90,8 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
      *
      * @param newThemeList The updated list of themes.
      */
-    public void refreshList(List<Theme> newThemeList) {
-        Collections.sort(newThemeList, Comparator.comparing(Theme::getThemeName));
+    public void refreshList(List<Themes> newThemeList) {
+        Collections.sort(newThemeList, Comparator.comparing(Themes::getThemeName));
         themeList.clear();
         themeList.addAll(newThemeList);
         notifyDataSetChanged();

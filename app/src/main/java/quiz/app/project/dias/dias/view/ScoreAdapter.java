@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import quiz.app.project.dias.dias.model.score.Score;
-import quiz.app.project.dias.dias.model.theme.Theme;
+import quiz.app.project.dias.dias.model.theme.Themes;
 import quiz.app.project.dias.dias.R;
 public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapterViewHolder> {
     private List<ScoreWithTheme> scoreList;
@@ -32,7 +32,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
      * @param scoreList The list of scores.
      * @param themeList The list of themes.
      */
-    public ScoreAdapter(List<Score> scoreList, List<Theme> themeList) {
+    public ScoreAdapter(List<Score> scoreList, List<Themes> themeList) {
         this.scoreList = mergeScoreWithTheme(scoreList, themeList);
     }
 
@@ -111,7 +111,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
 
             ScoreWithTheme scoreWithTheme = scoreList.get(position);
             Score score = scoreWithTheme.score;
-            Theme theme = scoreWithTheme.theme;
+            Themes theme = scoreWithTheme.theme;
 
             holder.btnDate.setClickable(false);
             holder.btnTheme.setClickable(false);
@@ -211,7 +211,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
      */
     public static class ScoreWithTheme {
         public Score score;
-        public Theme theme;
+        public Themes theme;
 
         /**
          * Constructs a ScoreWithTheme with the given score and theme.
@@ -219,20 +219,20 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
          * @param score The score.
          * @param theme The theme.
          */
-        public ScoreWithTheme(Score score, Theme theme) {
+        public ScoreWithTheme(Score score, Themes theme) {
             this.score = score;
             this.theme = theme;
         }
     }
 
-    private List<ScoreWithTheme> mergeScoreWithTheme(List<Score> scoreList, List<Theme> themeList) {
+    private List<ScoreWithTheme> mergeScoreWithTheme(List<Score> scoreList, List<Themes> themeList) {
         List<ScoreWithTheme> mergedList = new ArrayList<>();
         if (themeList == null || themeList.isEmpty()) {
             return mergedList;
         }
 
         for (Score score : scoreList) {
-            Theme theme = findThemeById(themeList, score.getThemeId());
+            Themes theme = findThemeById(themeList, score.getThemeId());
             if (theme != null) {
                 mergedList.add(new ScoreWithTheme(score, theme));
             }
@@ -240,8 +240,8 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
         return mergedList;
     }
 
-    private Theme findThemeById(List<Theme> themeList, int themeId) {
-        for (Theme theme : themeList) {
+    private Themes findThemeById(List<Themes> themeList, int themeId) {
+        for (Themes theme : themeList) {
             if (theme.getThemeId() == themeId) {
                 return theme;
             }
@@ -269,7 +269,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreAdapter
      * @param scoreList The list of scores.
      * @param themeList The list of themes.
      */
-    public void refreshList(List<Score> scoreList, List<Theme> themeList) {
+    public void refreshList(List<Score> scoreList, List<Themes> themeList) {
         this.scoreList = mergeScoreWithTheme(scoreList, themeList);
         notifyDataSetChanged();
     }

@@ -26,14 +26,14 @@ import quiz.app.project.dias.dias.model.score.Score;
 import quiz.app.project.dias.dias.model.score.ScoreDao;
 import quiz.app.project.dias.dias.model.shop.Shop;
 import quiz.app.project.dias.dias.model.shop.ShopDao;
-import quiz.app.project.dias.dias.model.theme.Theme;
+import quiz.app.project.dias.dias.model.theme.Themes;
 import quiz.app.project.dias.dias.model.theme.ThemeDao;
 import quiz.app.project.dias.dias.model.user.User;
 import quiz.app.project.dias.dias.model.user.UserDao;
 import quiz.app.project.dias.dias.model.usercurrency.UserCurrency;
 import quiz.app.project.dias.dias.model.usercurrency.UserCurrencyDao;
 
-@Database(entities = {User.class, UserCurrency.class, Theme.class, Score.class, Questions.class, Achievements.class, AchievementUser.class, Shop.class}, version = 1, exportSchema = false)
+@Database(entities = {User.class, UserCurrency.class, Themes.class, Score.class, Questions.class, Achievements.class, AchievementUser.class, Shop.class}, version = 1, exportSchema = false)
 public abstract class QuizDatabase extends RoomDatabase {
     private static QuizDatabase INSTANCE;
 

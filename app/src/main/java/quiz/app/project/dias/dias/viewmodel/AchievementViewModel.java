@@ -11,9 +11,13 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 import quiz.app.project.dias.dias.model.achievements.AchievementRepo;
 import quiz.app.project.dias.dias.model.achievements.Achievements;
+import quiz.app.project.dias.dias.model.theme.ThemeRepo;
+import quiz.app.project.dias.dias.model.theme.Themes;
 
 public class AchievementViewModel extends AndroidViewModel {
     private AchievementRepo repository;
+
+    private LiveData<List<Achievements>> achievementsLiveData;
 
     /**
      * Constructor for the AchievementViewModel.
@@ -24,6 +28,7 @@ public class AchievementViewModel extends AndroidViewModel {
         super(application);
         // Initialize repository
         this.repository = new AchievementRepo(application.getApplicationContext());
+        achievementsLiveData = repository.getAllAchievements();
     }
 
     /**

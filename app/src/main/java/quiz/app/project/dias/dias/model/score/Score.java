@@ -12,14 +12,14 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
-import quiz.app.project.dias.dias.model.theme.Theme;
+import quiz.app.project.dias.dias.model.theme.Themes;
 import quiz.app.project.dias.dias.model.user.User;
 
 @Entity(
         tableName = "Score",
         foreignKeys = {
                 @ForeignKey(entity = User.class, parentColumns = "userId", childColumns = "userId"),
-                @ForeignKey(entity = Theme.class, parentColumns = "themeId", childColumns = "themeId", onDelete = ForeignKey.CASCADE)
+                @ForeignKey(entity = Themes.class, parentColumns = "themeId", childColumns = "themeId", onDelete = ForeignKey.CASCADE)
         },
         indices = {
                 @Index("userId"),

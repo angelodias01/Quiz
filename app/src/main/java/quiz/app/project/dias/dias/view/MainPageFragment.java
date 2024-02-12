@@ -17,7 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import quiz.app.project.dias.dias.R;
-import quiz.app.project.dias.dias.model.theme.Theme;
+import quiz.app.project.dias.dias.model.theme.Themes;
 import quiz.app.project.dias.dias.model.theme.ThemeRepo;
 import quiz.app.project.dias.dias.viewmodel.AchievementViewModel;
 import quiz.app.project.dias.dias.viewmodel.ThemeViewModel;
@@ -114,9 +114,9 @@ public class MainPageFragment extends Fragment {
      * @param themes The list of themes to convert.
      * @return A string containing the names of the themes.
      */
-    private String convertThemesToString(List<Theme> themes) {
+    private String convertThemesToString(List<Themes> themes) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (Theme theme : themes) {
+        for (Themes theme : themes) {
             stringBuilder.append(theme.getThemeName());
         }
         return stringBuilder.toString();

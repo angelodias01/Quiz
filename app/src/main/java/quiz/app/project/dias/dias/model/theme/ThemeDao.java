@@ -23,8 +23,8 @@ public interface ThemeDao {
      *
      * @return LiveData containing a list of all quiz themes.
      */
-    @Query("SELECT * FROM Theme")
-    LiveData<List<Theme>> getAllThemesLiveData();
+    @Query("SELECT * FROM Themes")
+    LiveData<List<Themes>> getAllThemesLiveData();
 
     /**
      * Inserts a new quiz theme into the data source.
@@ -32,7 +32,7 @@ public interface ThemeDao {
      * @param theme The quiz theme to insert.
      */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insertTheme(Theme theme);
+    void insertTheme(Themes theme);
 
     /**
      * Deletes a specific quiz theme from the data source.
@@ -40,7 +40,7 @@ public interface ThemeDao {
      * @param theme The quiz theme to delete.
      */
     @Delete
-    void deleteTheme(Theme theme);
+    void deleteTheme(Themes theme);
 
     /**
      * Updates an existing quiz theme in the data source.
@@ -48,7 +48,7 @@ public interface ThemeDao {
      * @param theme The quiz theme to update.
      */
     @Update
-    void updateTheme(Theme theme);
+    void updateTheme(Themes theme);
 
     /**
      * Retrieves a specific quiz theme by its ID from the data source as LiveData.
@@ -56,14 +56,14 @@ public interface ThemeDao {
      * @param themeId The ID of the quiz theme to be retrieved.
      * @return LiveData containing the quiz theme.
      */
-    @Query("SELECT * FROM Theme WHERE themeId = :themeId")
-    LiveData<Theme> getThemeByIdLiveData(int themeId);
+    @Query("SELECT * FROM Themes WHERE themeId = :themeId")
+    LiveData<Themes> getThemeByIdLiveData(int themeId);
 
     /**
      * Retrieves a list of all quiz themes from the data source as LiveData, ordered by theme name.
      *
      * @return LiveData list of quiz themes ordered by theme name.
      */
-    @Query("SELECT * FROM Theme ORDER BY themeName ASC")
-    LiveData<List<Theme>> getThemesLiveData();
+    @Query("SELECT * FROM Themes ORDER BY themeName ASC")
+    LiveData<List<Themes>> getThemesLiveData();
 }

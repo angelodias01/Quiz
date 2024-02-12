@@ -31,7 +31,7 @@ import java.util.Locale;
 
 import quiz.app.project.dias.dias.model.QuizDatabase;
 import quiz.app.project.dias.dias.model.score.Score;
-import quiz.app.project.dias.dias.model.theme.Theme;
+import quiz.app.project.dias.dias.model.theme.Themes;
 import quiz.app.project.dias.dias.model.user.User;
 import quiz.app.project.dias.dias.R;
 import quiz.app.project.dias.dias.viewmodel.ScoreViewModel;
@@ -199,14 +199,14 @@ public class ScoreFragment extends Fragment {
      * @param themeList List of themes.
      * @return Merged list of ScoreWithTheme objects.
      */
-    private List<ScoreAdapter.ScoreWithTheme> mergeScoreWithTheme(List<Score> scoreList, List<Theme> themeList) {
+    private List<ScoreAdapter.ScoreWithTheme> mergeScoreWithTheme(List<Score> scoreList, List<Themes> themeList) {
         List<ScoreAdapter.ScoreWithTheme> mergedList = new ArrayList<>();
         if (themeList == null || themeList.isEmpty()) {
             return mergedList;
         }
 
         for (Score score : scoreList) {
-            Theme theme = findThemeById(themeList, score.getThemeId());
+            Themes theme = findThemeById(themeList, score.getThemeId());
             if (theme != null) {
                 mergedList.add(new ScoreAdapter.ScoreWithTheme(score, theme));
             }
@@ -221,8 +221,8 @@ public class ScoreFragment extends Fragment {
      * @param themeId   ID of the theme to find.
      * @return The found theme, or null if not found.
      */
-    private Theme findThemeById(List<Theme> themeList, int themeId) {
-        for (Theme theme : themeList) {
+    private Themes findThemeById(List<Themes> themeList, int themeId) {
+        for (Themes theme : themeList) {
             if (theme.getThemeId() == themeId) {
                 return theme;
             }
