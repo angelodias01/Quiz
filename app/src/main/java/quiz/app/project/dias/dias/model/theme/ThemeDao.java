@@ -41,7 +41,6 @@ public interface ThemeDao {
      */
     @Delete
     void deleteTheme(Themes theme);
-
     /**
      * Updates an existing quiz theme in the data source.
      *
@@ -64,6 +63,14 @@ public interface ThemeDao {
      *
      * @return LiveData list of quiz themes ordered by theme name.
      */
-    @Query("SELECT * FROM Themes ORDER BY themeName ASC")
+    @Query("SELECT * FROM Themes ORDER BY themeName asc")
     LiveData<List<Themes>> getThemesLiveData();
+
+    @Query("DELETE FROM themes")
+    void deleteAllThemes();
+
+    @Query("SELECT * FROM themes ORDER BY themeName COLLATE NOCASE")
+    LiveData<Themes> getNewThemeLiveData();
+    @Query("SELECT * FROM themes")
+    List<Themes> getAllThemes();
 }

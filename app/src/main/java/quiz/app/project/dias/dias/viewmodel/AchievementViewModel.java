@@ -40,7 +40,13 @@ public class AchievementViewModel extends AndroidViewModel {
     public LiveData<List<Achievements>> getAchievements(int achievementId) {
         return repository.getAchievements(achievementId);
     }
+    public LiveData<List<Achievements>> getAchievementsLiveData() {
+        return achievementsLiveData;
+    }
 
+    public void fetchAchievements() {
+        repository.fetchAchievements();
+    }
     /**
      * Get all achievements.
      *

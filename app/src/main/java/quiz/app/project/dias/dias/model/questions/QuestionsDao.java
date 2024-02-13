@@ -86,4 +86,7 @@ public interface QuestionsDao {
      */
     @Query("SELECT COUNT(*) FROM Questions WHERE questionsId > :questionId")
     LiveData<Boolean> isLastQuestion(int questionId);
+
+    @Query("DELETE FROM Questions")
+    void deleteAllQuestions();
 }

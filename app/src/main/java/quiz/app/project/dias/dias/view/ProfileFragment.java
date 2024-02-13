@@ -82,13 +82,16 @@ public class ProfileFragment extends Fragment {
         // Observe changes in achievements and user achievements
         achievementViewModel.getAllAchievements().observe(getViewLifecycleOwner(), achievements -> {
             achievementUserViewModel.getUserAchievementByUserId(userId).observe(getViewLifecycleOwner(), achievementUsers -> {
-                // Create adapter with ordered achievements list and set it to RecyclerView
+                // Create adapter with ordered achievements list
                 ProfileAdapter adapter = new ProfileAdapter(achievementUsers, achievements);
                 List<Achievements> orderedAchievements = adapter.getOrderedAchievementsList();
+
+                // Update RecyclerView with the new adapter and ordered achievements list
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             });
         });
+
 
         // Load and display username and coins if user ID is not 0
         if (userId != 0) {

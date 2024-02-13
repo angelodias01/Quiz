@@ -81,49 +81,31 @@ public class AchievementRepo {
     public LiveData<List<Achievements>> getAllAchievementsLiveData() {
         return this.achievementsDao.getAllAchievementsLiveData();
     }
-    /**
-     * Fetches themes from a remote API using Retrofit.
-     * Handles the API response and inserts themes into the local database.
-     *
-     * @param context The context of the application.
-     */
-    public void fetchAchievements(Context context) {
+
+    public void fetchAchievements() {
         Call<List<Achievements>> call = jsonPlaceHolderService.getAchievements();
         call.enqueue(new Callback<List<Achievements>>() {
             @Override
             public void onResponse(Call<List<Achievements>> call, Response<List<Achievements>> response) {
                 if (response.isSuccessful()) {
-                    List<Achievements> Achievements = response.body();
-
-                    if (Achievements != null && !Achievements.isEmpty()) {
-                        insertAchievements(Achievements, context);
+                    List<Achievements> achievements = response.body();
+                    if (achievements != null && !achievements.isEmpty()) {
+                        insertAchievements(achievements);
                     }
                 }
             }
 
             @Override
             public void onFailure(Call<List<Achievements>> call, Throwable t) {
-                // Display an error message to the user in case of API failure.
-                Toast.makeText(context, R.string.Error, LENGTH_SHORT).show();
+                // Handle API failure
             }
         });
     }
 
-    /**
-     * Inserts themes into the local database.
-     * Checks for existing themes before insertion.
-     *
-     * @param achievements  List of themes to be inserted.
-     * @param context The context of the application.
-     */
-    private void insertAchievements(List<Achievements> achievements, Context context) {
+    private void insertAchievements(List<Achievements> achievements) {
         executor.execute(() -> {
-            for (Achievements achievement : achievements) {
-                Achievements existingAchievement = achievementsDao.getAchievementByIdLiveData(achievement.getAchievementId()).getValue();
-                if (existingAchievement == null) {
-                    achievementsDao.insertAchievement(achievement);
-                }
-            }
+            achievementsDao.insertAchievements(achievements);
         });
     }
+
 }
