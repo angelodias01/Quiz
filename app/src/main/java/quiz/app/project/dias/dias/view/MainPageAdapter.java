@@ -31,7 +31,9 @@ public class MainPageAdapter extends RecyclerView.Adapter<MainPageAdapter.MainPa
         this.achievementsList = achievementsList;
         this.context = context;
     }
-
+    public List<Themes> getThemeList() {
+        return themeList;
+    }
     /**
      * Sets the list of themes for the adapter and sorts them alphabetically.
      *

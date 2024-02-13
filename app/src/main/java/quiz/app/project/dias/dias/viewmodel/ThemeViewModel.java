@@ -72,13 +72,8 @@ public class ThemeViewModel extends AndroidViewModel {
     public void updateTheme(Themes theme) {
         repository.updateTheme(theme);
     }
-
-    /**
-     * Delete a theme.
-     *
-     * @param theme Theme object to be deleted.
-     */
-    public void deleteTheme(Themes theme) {
-        repository.deleteTheme(theme);
+    public LiveData<Themes> getNewThemeLiveData() {
+        return repository.getNewThemeLiveData();
     }
+
 }

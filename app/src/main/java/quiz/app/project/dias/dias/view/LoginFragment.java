@@ -132,11 +132,12 @@ public class LoginFragment extends Fragment {
                         });
 
                         achievementUserViewModel.getUserAchievementByUserId(userIdValue).observe(getViewLifecycleOwner(), existingUserAchievement -> {
-                            if (existingUserAchievement.size() == 0) {
-                                AchievementUser newAchievementUser = new AchievementUser(userIdValue, 1, currentTimeMillis);
+                            if (existingUserAchievement.isEmpty()) {
+                                AchievementUser newAchievementUser = new AchievementUser(userIdValue, 1, System.currentTimeMillis());
                                 achievementUserViewModel.createAchievements(newAchievementUser);
                             }
                         });
+
                     }
                 }
 

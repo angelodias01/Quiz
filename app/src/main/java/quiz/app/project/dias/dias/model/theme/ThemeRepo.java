@@ -10,6 +10,8 @@ import static android.widget.Toast.LENGTH_SHORT;
 import android.content.Context;
 import android.widget.Toast;
 import androidx.lifecycle.LiveData;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -40,27 +42,23 @@ public class ThemeRepo {
     /**
      * Fetches themes from a remote API using Retrofit.
      * Handles the API response and inserts themes into the local database.
-     *
-     * @param context The context of the application.
      */
-    public void fetchThemes(Context context) {
+    public void fetchThemes() {
         Call<List<Themes>> call = jsonPlaceHolderService.getThemes();
         call.enqueue(new Callback<List<Themes>>() {
             @Override
             public void onResponse(Call<List<Themes>> call, Response<List<Themes>> response) {
                 if (response.isSuccessful()) {
                     List<Themes> themes = response.body();
-
                     if (themes != null && !themes.isEmpty()) {
-                        insertThemes(themes, context);
+                        insertThemes(themes);
                     }
                 }
             }
 
             @Override
             public void onFailure(Call<List<Themes>> call, Throwable t) {
-                // Display an error message to the user in case of API failure.
-                Toast.makeText(context, R.string.Error, LENGTH_SHORT).show();
+                // Handle API failure
             }
         });
     }
@@ -70,18 +68,36 @@ public class ThemeRepo {
      * Checks for existing themes before insertion.
      *
      * @param themes  List of themes to be inserted.
-     * @param context The context of the application.
      */
-    private void insertThemes(List<Themes> themes, Context context) {
+    private void insertThemes(List<Themes> themes) {
         executor.execute(() -> {
+            // Obter todos os temas existentes no banco de dados
+            List<Themes> existingThemes = themeDao.getAllThemes();
+
+            // Criar uma lista para armazenar os IDs dos temas presentes na API
+            List<Integer> apiThemeIds = new ArrayList<>();
+
+            // Iterar sobre os temas da API
             for (Themes theme : themes) {
-                Themes existingTheme = themeDao.getThemeByIdLiveData(theme.getThemeId()).getValue();
-                if (existingTheme == null) {
-                    themeDao.insertTheme(theme);
+                apiThemeIds.add(theme.getThemeId());
+            }
+
+            // Iterar sobre os temas existentes no banco de dados
+            for (Themes existingTheme : existingThemes) {
+                // Verificar se o ID do tema não está presente na lista de IDs dos temas da API
+                if (!apiThemeIds.contains(existingTheme.getThemeId())) {
+                    // Remover o tema do banco de dados
+                    themeDao.deleteTheme(existingTheme);
                 }
+            }
+
+            // Insere os temas recebidos da API
+            for (Themes theme : themes) {
+                themeDao.insertTheme(theme);
             }
         });
     }
+
 
     /**
      * Retrieves all themes from the local database as LiveData.
@@ -91,7 +107,9 @@ public class ThemeRepo {
     public LiveData<List<Themes>> getAllThemesLiveData() {
         return this.themeDao.getAllThemesLiveData();
     }
-
+    public LiveData<Themes> getNewThemeLiveData() {
+        return themeDao.getNewThemeLiveData();
+    }
     /**
      * Inserts a single theme into the local database.
      *

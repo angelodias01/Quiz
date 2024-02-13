@@ -25,6 +25,8 @@ import quiz.app.project.dias.dias.viewmodel.UserCurrencyViewModel;
 import quiz.app.project.dias.dias.viewmodel.UserViewModel;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MainPageFragment extends Fragment {
@@ -56,17 +58,25 @@ public class MainPageFragment extends Fragment {
 
         adapter = new MainPageAdapter(new ArrayList<>(), new ArrayList<>(), getContext());
 
+        themeViewModel = new ViewModelProvider(this).get(ThemeViewModel.class);
         themeViewModel.getThemesLiveData().observe(getViewLifecycleOwner(), themes -> {
             if (themes != null) {
                 adapter.setThemes(themes);
             }
         });
 
-        achievementViewModel.getAllAchievements().observe(getViewLifecycleOwner(), achievements -> {
+        achievementViewModel = new ViewModelProvider(this).get(AchievementViewModel.class);
+        // Observe LiveData para achievements
+        achievementViewModel.getAchievementsLiveData().observe(getViewLifecycleOwner(), achievements -> {
             if (achievements != null) {
-                adapter.refreshAchievementList(achievements);
+                adapter.setAchievements(achievements);
+            }else {
+                adapter.refreshAchievementList(new ArrayList<>());
             }
         });
+
+        achievementViewModel.fetchAchievements();
+
 
         lblUsernameMainPage = rootView.findViewById(R.id.lblUsernameHome);
         lblCoinsHome = rootView.findViewById(R.id.lblCoinsHome);
@@ -95,17 +105,14 @@ public class MainPageFragment extends Fragment {
 
         return rootView;
     }
-
-    /**
-     * Fetches themes from the repository and updates the adapter and text view.
-     */
     private void fetchThemesAndUpdateTextView() {
         themeRepository.getAllThemesLiveData().observe(getViewLifecycleOwner(), themes -> {
             if (themes != null && !themes.isEmpty()) {
-                adapter.setThemes(themes);
+                adapter.refreshList(themes);
             }
         });
-        themeRepository.fetchThemes(requireContext());
+        // Inicie o processo de busca de temas
+        themeRepository.fetchThemes();
     }
 
     /**

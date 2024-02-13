@@ -45,14 +45,6 @@ public interface AchievementsDao {
     void deleteAchievement(Achievements achievement);
 
     /**
-     * Retrieves all achievements from the database as LiveData.
-     *
-     * @return LiveData containing a list of all achievements.
-     */
-    @Query("SELECT * FROM Achievements")
-    LiveData<List<Achievements>> getAllAchievements();
-
-    /**
      * Retrieves an achievement by its ID from the database as LiveData.
      *
      * @param achievementId The ID of the achievement to be retrieved.
@@ -66,4 +58,12 @@ public interface AchievementsDao {
 
     @Query("SELECT * FROM Achievements")
     LiveData<List<Achievements>> getAllAchievementsLiveData();
+    @Query("SELECT * FROM achievements")
+    LiveData<List<Achievements>> getAllAchievements();
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertAchievements(List<Achievements> achievements);
+
+    @Query("DELETE FROM achievements")
+    void deleteAllAchievements();
 }

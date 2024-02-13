@@ -13,10 +13,17 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 import quiz.app.project.dias.dias.model.QuizDatabase;
+import quiz.app.project.dias.dias.model.retrofit.JsonPlaceHolderService;
+import quiz.app.project.dias.dias.model.retrofit.RetrofitClient;
+import quiz.app.project.dias.dias.model.theme.Themes;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class QuestionsRepo {
     private QuestionsDao questionsDao;
     private Executor executor = Executors.newSingleThreadExecutor();
+    private JsonPlaceHolderService jsonPlaceHolderService;
 
     /**
      * Constructor: Initializes the QuestionsDao using the QuizDatabase instance.
@@ -25,6 +32,48 @@ public class QuestionsRepo {
      */
     public QuestionsRepo(Context context) {
         this.questionsDao = QuizDatabase.getInstance(context).getQuestionsDao();
+        this.jsonPlaceHolderService = RetrofitClient.getClient().create(JsonPlaceHolderService.class);
+    }
+
+    /**
+     * Fetches themes from a remote API using Retrofit.
+     * Handles the API response and inserts themes into the local database.
+     */
+    public void fetchQuestions() {
+        Call<List<Questions>> call = jsonPlaceHolderService.getQuestions();
+        call.enqueue(new Callback<List<Questions>>() {
+            @Override
+            public void onResponse(Call<List<Questions>> call, Response<List<Questions>> response) {
+                if (response.isSuccessful()) {
+                    List<Questions> questions = response.body();
+                    if (questions != null && !questions.isEmpty()) {
+                        insertQuestion((Questions) questions);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Questions>> call, Throwable t) {
+                // Handle API failure
+            }
+        });
+    }
+
+    /**
+     * Inserts themes into the local database.
+     * Checks for existing themes before insertion.
+     *
+     * @param questions  List of themes to be inserted.
+     */
+    private void insertQuestions(List<Questions> questions) {
+        executor.execute(() -> {
+            // Limpa todos os temas existentes no banco de dados
+            questionsDao.deleteAllQuestions();
+
+            for (Questions question : questions) {
+                questionsDao.insertQuestion(question);
+            }
+        });
     }
 
     /**
