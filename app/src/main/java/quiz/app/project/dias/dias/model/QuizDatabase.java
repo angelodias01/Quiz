@@ -168,6 +168,7 @@ public abstract class QuizDatabase extends RoomDatabase {
                                     "('Qual é o nome da arma corpo a corpo do Sniper?', 51, 'Kukri', 'Wrench', 'Frying Pan', 'Bottle')");
 
 
+
                             //Exec to insert data in Shop
                             db.execSQL("Insert into Shop values (1,'T-shirt Size S', 56)");
                             db.execSQL("Insert into Shop values (2,'T-shirt Size M',80)");
