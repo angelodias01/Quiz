@@ -45,23 +45,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf394e29-4c28-4803-971c-a9fdce69136f" name="Changes" comment="implement the api and got themes to room">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/questions/QuestionResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/QuizDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/QuizDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievements/AchievementRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievements/AchievementRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievements/AchievementsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievements/AchievementsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievements/AchievementsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/achievements/AchievementsResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/questions/QuestionsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/questions/QuestionsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/questions/QuestionsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/questions/QuestionsRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/theme/ThemeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/theme/ThemeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/theme/ThemeRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/model/theme/ThemeRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/LoginFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/LoginFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/MainPageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/MainPageAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/MainPageFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/MainPageFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/ProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/ProfileFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/QuizActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/view/QuizActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/AchievementViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/AchievementViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/ThemeViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/quiz/app/project/dias/dias/viewmodel/ThemeViewModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,11 +185,11 @@
   },
   "keyToStringList": {
     "com.android.tools.idea.sqlite.queryhistory": [
+      "delete from themes",
       "select * from questions",
       "SELECT * FROM Themes ORDER BY themeName desc\n",
       "SELECT * FROM Themes ORDER BY themeName asc\n",
-      "delete from themes\n",
-      "select themeName from themes order by themeName asc\n"
+      "delete from themes\n"
     ]
   }
 }]]></component>
@@ -483,7 +468,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707763020736</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="implement the api and got themes to room">
+      <option name="closed" value="true" />
+      <created>1707857584516</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1707857584516</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
